@@ -1,6 +1,6 @@
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="bash/.bashrc vim/.vimrc gvim/.gvimrc nvim/.nvimrc hg/.hgrc zsh/.zshrc tmux/.tmux.conf ssh/.sshconfig git/.gitignore_global"
+files="bash/.bashrc vim/.vimrc gvim/.gvimrc nvim/.nvimrc hg/.hgrc zsh/.zshrc tmux/.tmux.conf git/.gitignore_global"
 
 echo "Creating $olddir for backup of any existing dorfiles in ~"
 mkdir -p $olddir
