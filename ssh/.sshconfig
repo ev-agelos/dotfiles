@@ -1,0 +1,40 @@
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+
+#ControlPersist 4h
+
+Host bitbucket
+  HostName bitbucket.org
+  User evagelos
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/Mercurial/id_rsa
+
+Host github.com
+  HostName github.com
+  User evagelos
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/Github/id_rsa
+
+Host jenkins
+  HostName 54.171.223.175
+  User ubuntu
+  IdentitiesOnly yes
+  IdentityFile ~/ssh_keys/softwear_eu_test_2014.pem
+
+Host dashboard
+  HostName 54.171.90.4
+  User ubuntu
+  IdentitiesOnly yes
+  IdentityFile ~/ssh_keys/softwear_eu_test_2014.pem
+
+Host spynl.dev
+  HostName 54.154.156.101
+  User ubuntu
+  IdentitiesOnly yes
+  IdentityFile ~/ssh_keys/softwear_eu_test_2014.pem
+
+Host TestDB
+  HostName 54.72.16.158
+  User ubuntu
+  IdentitiesOnly yes
+  IdentityFile ~/ssh_keys/unitt_aws_key.pem

@@ -1,0 +1,26 @@
+[ui]
+username = Evagelos Theodoridis <evagelos@softwear.nl>
+ssh = ssh -C
+merge = vimdiff
+
+[extensions]
+color =
+graphlog =
+progress =
+pager =
+onsub = ~/workspace/softwear.ci/dev/onsub.py
+shelve = 
+rebase =
+
+[merge-tools]
+vimdiff.executable = gvimdiff
+vimdiff.args = -f -d $output -M $local $base $other -c "wincmd J" -c "set modifiable" -c "set write"
+vimdiff.premerge = keep
+
+[alias]
+lga = glog --style=~/dotfiles/hg-map-cmdline.lg
+
+[pager]
+pager = LESS='FSRX' less
+attend = cat, diff, glog, log, incoming, outgoing, lg, show, lga
+
