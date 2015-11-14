@@ -4,10 +4,6 @@ export HG_EDITOR=nvim
 # Exclude files/folders from auto-complete
 export FIGNORE=.pyc
 
-. ~/multi-shell-repo-prompt/prompt.sh
-. ~/dotfiles/hg-completion.bash
-. ~/dotfiles/git-completion.bash
-
 # ---- History settings
 # append to same history from all windows
 shopt -s histappend
