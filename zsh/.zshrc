@@ -9,13 +9,14 @@ antigen bundle mercurial
 
 # Bundles
 
-POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='awesome-patched'
 antigen theme bhilburn/powerlevel9k powerlevel9k
-
 # Tell antigen that you're done.
 antigen apply
 
-
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$Home/Devel
