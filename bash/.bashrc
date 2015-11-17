@@ -3,10 +3,8 @@ export SVN_EDITOR=nvim
 export GIT_EDITOR=nvim
 export HG_EDITOR=nvim
 
-# Make en_US default locale
-# export LANGUAGE=en_US.UTF-8
-# export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# Important for encodings(different programs brake like zsh/powerline etc)
+export LANG=en_US.UTF-8
 
 # Exclude files/folders from auto-complete
 export FIGNORE=.pyc
@@ -16,10 +14,12 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$Home/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
+# 256 color support
 export TERM=xterm-256color
+
 # Open terminal with zsh shell
-# export SHELL=/usr/bin/zsh
-# [ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
+export SHELL=/usr/bin/zsh
+[ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
 
 # Append to same history from all windows
 shopt -s histappend
@@ -32,9 +32,7 @@ export HISTIGNORE="&:ls:vdir:[bf]g:exit"
 export IGNOREEOF=1
 
 # Colors for folders
-alias ls='ls --color'
+# alias ls='ls --color'
+
 # Alias for opening NeoVim instead of vim
 alias vi=nvim
-# Alias to open tmux with 256 color support
-alias tmux="tmux -2"
-

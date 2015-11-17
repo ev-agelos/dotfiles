@@ -28,15 +28,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$Home/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
-export TERM=xterm-256color
-# Make en_US default locale
-# export LANGUAGE=en_US.UTF-8
-# export LANG=en_US.UTF-8
-# export LC_ALL=nl_NL.UTF-8
-# export LANGUAGE=nl_NL.UTF-8
-
-# Next export must be false in order to show virtualenv
+# Next export must be false in order to show virtualenv in PowerLevel9k
 export VIRTUAL_ENV_DISABLE_PROMPT=false
+# Show the host name only when different that the default evagelos
 export DEFAULT_USER=evagelos
 
 # Use solarized colors for dirs
@@ -48,4 +42,5 @@ zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
 #zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 
+# Open NeoVim when typing vi
 alias vi=nvim
