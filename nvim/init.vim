@@ -153,6 +153,7 @@ set wildignore+=*.egg-info/**
 set noshowmode              " Hide vim mode from status line
 
 """ Moving Around/Editing
+set clipboard+=unnamedplus  " Copy/Paste always to clipboard
 set cursorline              " have a line indicate the cursor location
 set nostartofline           " Avoid moving cursor to BOL when jumping around
 set virtualedit=block       " Let cursor move past the last char in <C-v> mode
@@ -191,11 +192,6 @@ set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
 au InsertEnter * set nohlsearch " Removes highlight when in insert and...
 au InsertLeave * set hlsearch   " ...re-highlights when in normal mode again
-
-" Clipboard copy/paste
-set clipboard+=unnamedplus
-map <leader>p "+p
-map <leader>y "+y
 
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>

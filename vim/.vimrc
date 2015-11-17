@@ -93,7 +93,8 @@ let g:NERDTreeWinSize=17                                      " Size of NERTree
 
 """"""""""""""""""" STARTIFY plugin
 let g:startify_bookmarks = [ '~/.vimrc' ]
-
+let g:startify_custom_header =
+          \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
 """"""""""""""""""" JSON plugin
 let g:vim_json_syntax_conceal = 0
 

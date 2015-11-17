@@ -1,5 +1,3 @@
-" originally based from jeffknupps vimrc, then expanded
-
 set nocompatible               " be iMproved
 
 set foldmethod=indent
@@ -246,7 +244,7 @@ syntax on
 set background=dark
 colorscheme gruvbox
 
-set guifont=Meslo\ LG\ l\ for\ powerline\ 14
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 14
 set linespace=5
 
 " Automatic hide the tip window when on auto-complete
