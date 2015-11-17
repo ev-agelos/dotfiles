@@ -246,7 +246,7 @@ syntax on
 set background=dark
 colorscheme gruvbox
 
-set guifont=Envy\ Code\ R\ 14
+set guifont=Meslo\ LG\ l\ for\ powerline\ 14
 set linespace=5
 
 " Automatic hide the tip window when on auto-complete

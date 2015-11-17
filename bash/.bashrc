@@ -4,8 +4,8 @@ export GIT_EDITOR=nvim
 export HG_EDITOR=nvim
 
 # Make en_US default locale
-export LANGUAGE=en_US.UTF-8
-export LANG=en_US.UTF-8
+# export LANGUAGE=en_US.UTF-8
+# export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Exclude files/folders from auto-complete
@@ -16,9 +16,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$Home/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
+export TERM=xterm-256color
 # Open terminal with zsh shell
-export SHELL=/usr/bin/zsh
-[ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
+# export SHELL=/usr/bin/zsh
+# [ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
 
 # Append to same history from all windows
 shopt -s histappend
