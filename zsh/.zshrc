@@ -14,7 +14,7 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_CHANGESET_HASH_LENGTH=20
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(os_icon history status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell antigen that you're done.
@@ -44,3 +44,8 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 
 # Open NeoVim when typing vi
 alias vi=nvim
+# Open tmux but attach to session dont create each time new session
+tmux attach &> /dev/null
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi

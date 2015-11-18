@@ -17,10 +17,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 # 256 color support
 export TERM=xterm-256color
 
-# Open terminal with zsh shell
-export SHELL=/usr/bin/zsh
-[ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
-
 # Append to same history from all windows
 shopt -s histappend
 # start commands with a space if they should not get recorded
@@ -36,3 +32,7 @@ export IGNOREEOF=1
 
 # Alias for opening NeoVim instead of vim
 alias vi=nvim
+
+# Open terminal with zsh shell
+export SHELL=/usr/bin/zsh
+[ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
