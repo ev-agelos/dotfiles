@@ -15,7 +15,7 @@ Plug 'bling/vim-airline'
 Plug 'zefei/vim-wintabs'
 Plug 'ivyl/vim-bling'
 Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'             " Snippets are not part of the ultisnips plugin
 Plug 'ludovicchabant/vim-lawrencium'
 Plug 'kien/rainbow_parentheses.vim'
@@ -59,16 +59,16 @@ let g:ctrlp_custom_ignore = {
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" NEOMAKE options
 """""""""""""""""""""""""""""""""""
-let g:neomake_python_enabled_makers = ['pylama', 'pylint', 'pep8', 'pyflakes', 'python']
+let g:neomake_python_enabled_makers = ['pylint', 'pep8', 'python']
 autocmd! BufWritePost * Neomake
 
 """""""""""""""""""""""""""""""""""
 """""""""""""""""" UltiSnips OPTIONS
 """""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -88,6 +88,7 @@ let g:NERDTreeWinSize=17                                      " Size of NERTree
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" STARTIFY plugin
 """""""""""""""""""""""""""""""""""
+let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
           \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
@@ -250,11 +251,11 @@ if exists("+undofile")
   " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
   " :help undo-persistence
   " This is only present in 7.3+
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  if isdirectory($HOME . '/.config/nvim/undo') == 0
+    :silent !mkdir -p ~/.config/nvim/undo > /dev/null 2>&1
   endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
+  set undodir=./.nvim-undo//
+  set undodir+=~/.nvim/undo//
   set undofile
 endif
 
@@ -265,6 +266,9 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 " in Python scripts.
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+
+" vnoremap <leader>p "+p
+" vnoremap <leader>y "+y
 
 " Rainbow parenthesis always on
 au VimEnter * RainbowParenthesesToggle

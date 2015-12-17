@@ -28,9 +28,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$Home/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 # Pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # Next export must be false in order to show virtualenv in PowerLevel9k
 export VIRTUAL_ENV_DISABLE_PROMPT=false
@@ -38,7 +38,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=false
 export DEFAULT_USER=evagelos
 
 # Use solarized colors for dirs
-eval `dircolors ~/.dir_colors`
+eval `dircolors ~/.dir_colors/dircolors.256dark`
 
 # ignore some files during completion
 zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
@@ -50,6 +50,6 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 alias vi=nvim
 # Open tmux but attach to session dont create each time new session
 tmux attach &> /dev/null
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux
+# fi

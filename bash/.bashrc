@@ -4,7 +4,7 @@ export GIT_EDITOR=nvim
 export HG_EDITOR=nvim
 
 # Important for encodings(different programs brake like zsh/powerline etc)
-export LANG=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
 # Exclude files/folders from auto-complete
 export FIGNORE=.pyc
@@ -26,9 +26,6 @@ export HISTIGNORE="&:ls:vdir:[bf]g:exit"
 
 # No accidental closing with ctrl-d
 export IGNOREEOF=1
-
-# Colors for folders
-# alias ls='ls --color'
 
 # Alias for opening NeoVim instead of vim
 alias vi=nvim
