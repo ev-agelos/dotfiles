@@ -1,6 +1,6 @@
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="bash/.bashrc vim/.vimrc gvim/.gvimrc hg/.hgrc zsh/.zshrc tmux/.tmux.conf git/.gitignore_global"
+files="bash/.bashrc vim/.vimrc gvim/.gvimrc hg/.hgrc zsh/.zshrc tmux/.tmux.conf git/.gitignore_global pdbpp/.pdbrc.py pylint/.pylintrc"
 neovim="nvim/init.vim"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
