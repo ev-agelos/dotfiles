@@ -18,6 +18,8 @@ done
 echo "Moving any existing init.vim to $olddir"
 mv ~/.config/nvim/init.vim ~dotfiles_old/
 echo "Creating symlink to nvim/init.vim in .config directory"
+# Create folders if dont exist
+mkdir ~/.config/nvim
 ln -s $dir/$neovim ~/.config/nvim/init.vim
 
 source ~/.bashrc
