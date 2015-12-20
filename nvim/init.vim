@@ -13,7 +13,7 @@ Plug 'benekastah/neomake'
 Plug 'Raimondi/delimitMate'
 Plug 'bling/vim-airline'
 Plug 'zefei/vim-wintabs'
-Plug 'ivyl/vim-bling'
+"Plug 'ivyl/vim-bling'
 Plug 'scrooloose/nerdtree'
 "Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'             " Snippets are not part of the ultisnips plugin
@@ -25,6 +25,7 @@ Plug 'mbbill/undotree'
 Plug 'haya14busa/incsearch.vim'
 Plug 'elzr/vim-json'
 Plug 'kshenoy/vim-signature'          " Place marks on files
+Plug 'inside/vim-search-pulse'
 " Themes
 Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
 Plug 'NLKNguyen/papercolor-theme'
