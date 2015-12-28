@@ -90,6 +90,7 @@ let g:NERDTreeWinSize=17                                      " Size of NERTree
 """"""""""""""""""" STARTIFY plugin
 """""""""""""""""""""""""""""""""""
 let g:startify_session_dir = '~/.config/nvim/session'
+let g:startify_session_persistence = 1
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
           \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
