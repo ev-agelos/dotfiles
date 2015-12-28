@@ -1,7 +1,7 @@
 [ui]
 username = Evagelos Theodoridis <evagelos@softwear.nl>
 ssh = ssh -C
-merge = vimdiff
+merge = nvim
 
 [extensions]
 color =
@@ -13,9 +13,9 @@ shelve =
 rebase =
 
 [merge-tools]
-vimdiff.executable = gvimdiff
-vimdiff.args = -f -d $output -M $local $base $other -c "wincmd J" -c "set modifiable" -c "set write"
-vimdiff.premerge = keep
+nvim.executable = nvim
+nvim.args = -f -d $output -M $local $base $other -c "wincmd J" -c "set modifiable" -c "set write"
+nvim.premerge = keep
 
 [alias]
 lga = glog --style=~/dotfiles/hg-map-cmdline.lg
