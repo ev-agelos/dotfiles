@@ -60,7 +60,11 @@ let g:ctrlp_custom_ignore = {
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" NEOMAKE options
 """""""""""""""""""""""""""""""""""
-let g:neomake_python_enabled_makers = ['pylint', 'pep8', 'python']
+let g:neomake_python_pylama_maker = {
+    \ 'args': ['-l mccabe'],
+    \ 'errorformat': '%f:%l:%c: %m',
+    \ }
+let g:neomake_python_enabled_makers = ['python', 'pylama', 'pep8', 'pyflakes', 'pylint', 'pep257']
 autocmd! BufWritePost * Neomake
 
 """""""""""""""""""""""""""""""""""
