@@ -26,6 +26,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'elzr/vim-json'
 Plug 'kshenoy/vim-signature'          " Place marks on files
 Plug 'inside/vim-search-pulse'
+Plug 'shime/vim-livedown'             " Live markdown(open localhost)
 " Themes
 Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
 Plug 'NLKNguyen/papercolor-theme'
