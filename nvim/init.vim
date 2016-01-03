@@ -142,7 +142,7 @@ map <c-h> <c-w>h
 
 
 " Load the Mundo window
-map <leader>g :MundoToggle<CR>
+map <leader>g :GundoToggle<CR>
 
 " When splitting new tab opens to the right of the current tab
 set splitright
