@@ -3,30 +3,38 @@ set foldlevel=99
 set wrapscan            " search fron beginning if end of file is reached
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'mhinz/vim-signify'
+" Generic
 Plug 'mhinz/vim-startify'             " Startup screen when opening vim
-Plug 'kien/ctrlp.vim'
-Plug 'simnalamburt/vim-mundo'         " Fork of Gundo compatible with NeoVim
-Plug 'benekastah/neomake'
-Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-repeat'
+Plug 'haya14busa/incsearch.vim'
 Plug 'bling/vim-airline'
 Plug 'zefei/vim-wintabs'
-"Plug 'ivyl/vim-bling'
+Plug 'ervandew/supertab'
+Plug 'kshenoy/vim-signature'          " Place marks on files
+Plug 'shime/vim-livedown'             " Live markdown(open localhost)
+Plug 'elzr/vim-json'
+" File search
 Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+" Undo and history
+Plug 'simnalamburt/vim-mundo'         " Fork of Gundo compatible with NeoVim
+Plug 'mbbill/undotree'
+" Linters
+Plug 'benekastah/neomake'
+Plug 'hynek/vim-python-pep8-indent'
+" [ { (
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'kien/rainbow_parentheses.vim'
+" Snippets
 "Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'             " Snippets are not part of the ultisnips plugin
+" Version Control
 Plug 'ludovicchabant/vim-lawrencium'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'ervandew/supertab'
-Plug 'mbbill/undotree'
-Plug 'haya14busa/incsearch.vim'
-Plug 'elzr/vim-json'
-Plug 'kshenoy/vim-signature'          " Place marks on files
+Plug 'mhinz/vim-signify'
+" Effects
+"Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
-Plug 'shime/vim-livedown'             " Live markdown(open localhost)
 " Themes
 Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
 Plug 'NLKNguyen/papercolor-theme'
@@ -134,7 +142,7 @@ map <c-h> <c-w>h
 
 
 " Load the Mundo window
-map <leader>g :GundoToggle<CR>
+map <leader>g :MundoToggle<CR>
 
 " When splitting new tab opens to the right of the current tab
 set splitright
