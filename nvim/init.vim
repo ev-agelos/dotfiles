@@ -12,7 +12,8 @@ Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
 Plug 'shime/vim-livedown'             " Live markdown(open localhost)
-Plug 'elzr/vim-json'
+Plug 'whatyouhide/vim-lengthmatters'
+Plug 'majutsushi/tagbar'
 " File search
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
@@ -32,10 +33,12 @@ Plug 'honza/vim-snippets'             " Snippets are not part of the ultisnips p
 " Version Control
 Plug 'ludovicchabant/vim-lawrencium'
 Plug 'mhinz/vim-signify'
+Plug 'elzr/vim-json'
 " Effects
 "Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
 " Themes
+Plug 'mhartington/oceanic-next'
 Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'chriskempson/base16-vim'
@@ -52,7 +55,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 
 """""""""""""""""""" Airline OPTIONS
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'gruvbox'                          " Theme for airline
+let g:airline_theme = 'oceanicnext'                          " Theme for airline
 let g:airline_extensions = ['branch', 'whitespace']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 
@@ -113,8 +116,15 @@ let g:startify_custom_header =
 """""""""""""""""""""""""""""""""""
 "Disable the effect from hiding the actual code
 let g:vim_json_syntax_conceal = 0
-
-
+"""""""""""""""""""""""""""""""""""
+""""""""""""""""""" TagBar plugin
+"""""""""""""""""""""""""""""""""""
+nmap <F8> :TagbarToggle<CR>
+"""""""""""""""""""""""""""""""""""
+""""""""""""""""""" LengthMatters plugin
+"""""""""""""""""""""""""""""""""""
+let g:lengthmatters_start_at_column=80
+"""""""""""""""""""""""""""""""""""
 
 
 
@@ -181,7 +191,7 @@ set nowrap
 "set colorcolumn=80          " Fill color the 80th column
 " After 79 char make background brighter, has to be AFTER colorcolumn(only
 " python files
-au BufEnter * if &ft == 'python' | let &cc = join(range(80, 999),',') | else | set cc= | endif
+"au BufEnter * if &ft == 'python' | let &cc = join(range(80, 999),',') | else | set cc= | endif
 set formatoptions+=t
 set linebreak               " don't wrap textin the middle of a word
 set smartindent             " use smart indent if thereis no indent file
@@ -233,10 +243,6 @@ noremap <silent> <S-Tab> :tabprevious<CR>
 nnoremap <silent> <Right> :bn<CR>
 nnoremap <silent> <Left> :bp<CR>
 
-" Remap Esc
-inoremap jk <Esc>
-inoremap kj <Esc>
-
 " When jump to next match also center screen
 noremap n nzz
 noremap N Nzz
@@ -255,7 +261,7 @@ vnoremap K :m '<-2<CR>gv=gv
 syntax on
 "let base16colorspace=256
 set background=dark
-colorscheme gruvbox
+colorscheme OceanicNext "gruvbox
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose
