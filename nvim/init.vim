@@ -27,9 +27,6 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'kien/rainbow_parentheses.vim'
-" Snippets
-"Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'             " Snippets are not part of the ultisnips plugin
 " Version Control
 Plug 'ludovicchabant/vim-lawrencium'
 Plug 'mhinz/vim-signify'
@@ -68,7 +65,6 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/]\.(git|hg)$',
     \ 'file': '\v\.(mp4|bson|mp3|jpg|png)$',
     \ }
-
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" NEOMAKE options
 """""""""""""""""""""""""""""""""""
@@ -78,19 +74,6 @@ let g:neomake_python_pylama_maker = {
     \ }
 let g:neomake_python_enabled_makers = ['python', 'pylama', 'pep8', 'pyflakes', 'pylint', 'pep257']
 autocmd! BufWritePost * Neomake
-
-"""""""""""""""""""""""""""""""""""
-"""""""""""""""""" UltiSnips OPTIONS
-"""""""""""""""""""""""""""""""""""
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" NERD-tree plugin
 """""""""""""""""""""""""""""""""""
@@ -100,8 +83,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '__pycache__$[[dir]]']        " Dont show .pyc files or __pycache__ folders in tree
 let g:NERDTreeWinSize=17                                      " Size of NERTree
-
-
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" STARTIFY plugin
 """""""""""""""""""""""""""""""""""
@@ -110,7 +91,16 @@ let g:startify_session_persistence = 1
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
           \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
-
+let g:startify_list_order = [
+        \ ['   Bookmarks:'],
+        \ 'bookmarks',
+        \ ['   Sessions:'],
+        \ 'sessions',
+        \ ['   MRU:'],
+        \ 'dir',
+        \ ['   Files'],
+        \ 'files'
+        \ ]
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" JSON plugin
 """""""""""""""""""""""""""""""""""
