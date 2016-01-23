@@ -13,7 +13,6 @@ Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
 Plug 'shime/vim-livedown'             " Live markdown(open localhost)
 Plug 'whatyouhide/vim-lengthmatters'
-Plug 'majutsushi/tagbar'
 " File search
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
@@ -107,10 +106,6 @@ let g:startify_list_order = [
 "Disable the effect from hiding the actual code
 let g:vim_json_syntax_conceal = 0
 """""""""""""""""""""""""""""""""""
-""""""""""""""""""" TagBar plugin
-"""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
-"""""""""""""""""""""""""""""""""""
 """"""""""""""""""" LengthMatters plugin
 """""""""""""""""""""""""""""""""""
 let g:lengthmatters_start_at_column=80
@@ -146,7 +141,8 @@ map <leader>g :GundoToggle<CR>
 
 " When splitting new tab opens to the right of the current tab
 set splitright
-
+" Make current directory the root for opening files
+set autochdir
 
 " ==========================================================
 " Basic Settings
