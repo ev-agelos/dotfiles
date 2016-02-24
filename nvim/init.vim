@@ -12,7 +12,6 @@ Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
 Plug 'shime/vim-livedown'             " Live markdown(open localhost)
-Plug 'whatyouhide/vim-lengthmatters'
 " File search
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
@@ -86,7 +85,6 @@ let g:NERDTreeWinSize=17                                      " Size of NERTree
 """"""""""""""""""" STARTIFY plugin
 """""""""""""""""""""""""""""""""""
 let g:startify_session_dir = '~/.config/nvim/session'
-let g:startify_session_persistence = 1
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
           \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
@@ -105,10 +103,6 @@ let g:startify_list_order = [
 """""""""""""""""""""""""""""""""""
 "Disable the effect from hiding the actual code
 let g:vim_json_syntax_conceal = 0
-"""""""""""""""""""""""""""""""""""
-""""""""""""""""""" LengthMatters plugin
-"""""""""""""""""""""""""""""""""""
-let g:lengthmatters_start_at_column=80
 """""""""""""""""""""""""""""""""""
 
 
@@ -137,7 +131,7 @@ map <c-h> <c-w>h
 
 
 " Load the Mundo window
-map <leader>g :GundoToggle<CR>
+map <leader>g :MundoToggle<CR>
 
 " When splitting new tab opens to the right of the current tab
 set splitright
@@ -175,6 +169,7 @@ set showmatch               " Briefly jump to a paren once it's balanced
 set nowrap
 :au BufNewFile,BufRead *.py set textwidth=79 "Wrap text only in python files
 "set colorcolumn=80          " Fill color the 80th column
+au BufNewFile,BufRead *.py setlocal colorcolumn=80
 " After 79 char make background brighter, has to be AFTER colorcolumn(only
 " python files
 "au BufEnter * if &ft == 'python' | let &cc = join(range(80, 999),',') | else | set cc= | endif
