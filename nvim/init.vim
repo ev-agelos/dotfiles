@@ -130,6 +130,9 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 
+" NeoVim terminal mappings
+tnoremap <Esc> <C-\><C-n>
+
 " Load the Mundo window
 map <leader>g :MundoToggle<CR>
 
