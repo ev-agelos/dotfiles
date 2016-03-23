@@ -11,6 +11,7 @@ pager =
 onsub = ~/workspace/softwear.ci/dev/onsub.py
 shelve = 
 rebase =
+strip =
 
 [merge-tools]
 nvim.executable = nvim
