@@ -9,11 +9,6 @@ export HG_EDITOR=nvim
 # Exclude files/folders from auto-complete
 export FIGNORE=.pyc
 
-# VirtualenvWrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$Home/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-
 # 256 color support
 export TERM=xterm-256color
 
