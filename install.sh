@@ -3,6 +3,7 @@ olddir=~/dotfiles_old
 files="bash/.bashrc vim/.vimrc gvim/.gvimrc hg/.hgrc zsh/.zshrc tmux/.tmux.conf git/.gitignore_global pdbpp/.pdbrc.py pylint/.pylintrc"
 neovim="nvim/init.vim"
 i3="i3/config"
+xresources=".Xresources"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
@@ -30,5 +31,11 @@ echo "Creating symlink to .i3/config"
 # Create folders if dont exist
 mkdir ~/.i3
 ln -s $dir/$i3 ~/.i3/config
+
+# .Xresources doesnt have a folder
+echo "Moving any existing .Xresources to $olddir"
+mv ~/.Xresources ~dotfiles_old/
+echo "Creating symlink to .Xresources"
+ln -s $dir/$xresources ~/.Xresources
 
 source ~/.bashrc
