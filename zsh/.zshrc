@@ -1,5 +1,4 @@
 source "$HOME/.antigen/antigen.zsh"
-
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
@@ -7,15 +6,26 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle mercurial
 
-# Bundles
-
+# Themes
 POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_COLOR_SCHEME=dark
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_SHOW_CHANGESET=true
-POWERLEVEL9K_CHANGESET_HASH_LENGTH=20
+POWERLEVEL9K_VCS_BACKGROUND=green
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=yellow
+POWERLEVEL9K_DIR_BACKGROUND=239
+POWERLEVEL9K_DIR_FOREGROUND=white
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND=246
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=000
+POWERLEVEL9K_VIRTUALENV_BACKGROUND=white
+POWERLEVEL9K_VIRTUALENV_FOREGROUND=black
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=0
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 antigen theme bhilburn/powerlevel9k powerlevel9k
+
+# Bundles
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Tell antigen that you're done.
 antigen apply
@@ -23,6 +33,7 @@ antigen apply
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+export TERM=xterm-256color
 # Pyenv
 # export PATH="$HOME/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
@@ -49,3 +60,4 @@ tmux attach &> /dev/null
 # if [[ ! $TERM =~ screen ]]; then
 #     exec tmux
 # fi
+# source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh

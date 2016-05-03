@@ -12,6 +12,7 @@ Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
 Plug 'shime/vim-livedown'             " Live markdown(open localhost)
+Plug 'junegunn/goyo.vim'
 " File search
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
@@ -50,7 +51,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 
 """""""""""""""""""" Airline OPTIONS
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'oceanicnext'                          " Theme for airline
+let g:airline_theme = 'gruvbox'                          " Theme for airline
 let g:airline_extensions = ['branch', 'whitespace']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 
@@ -239,14 +240,14 @@ map q: :q
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-
 " Colorscheme / Highlighting
 "let g:solarized_degrade = 1
 syntax on
 "let base16colorspace=256
-set background=dark
-colorscheme OceanicNext "gruvbox
-
+set background=light
+"let gruvbox_contrast_dark='soft'
+"colorscheme gruvbox "OceanicNext
+colorscheme PaperColor
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose
 

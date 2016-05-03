@@ -20,6 +20,9 @@ nvim.premerge = keep
 
 [alias]
 lga = glog --style=~/dotfiles/hg-map-cmdline.lg
+slog = log --style=$HOME/repos/mercurial-cli-templates/map-cmdline.slog
+nlog = log --style=$HOME/repos/mercurial-cli-templates/map-cmdline.nlog
+sglog = glog --style=$HOME/repos/mercurial-cli-templates/map-cmdline.sglog
 
 [pager]
 pager = LESS='FSRX' less
