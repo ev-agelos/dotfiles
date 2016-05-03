@@ -2,6 +2,7 @@ dir=~/dotfiles
 olddir=~/dotfiles_old
 files="bash/.bashrc vim/.vimrc gvim/.gvimrc hg/.hgrc zsh/.zshrc tmux/.tmux.conf git/.gitignore_global pdbpp/.pdbrc.py pylint/.pylintrc"
 neovim="nvim/init.vim"
+i3="i3/config"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
@@ -21,5 +22,13 @@ echo "Creating symlink to nvim/init.vim in .config directory"
 # Create folders if dont exist
 mkdir ~/.config/nvim
 ln -s $dir/$neovim ~/.config/nvim/init.vim
+
+# i3 folder is hidden
+echo "Moving any existing .i3/config to $olddir"
+mv ~/.i3/config ~dotfiles_old/
+echo "Creating symlink to .i3/config"
+# Create folders if dont exist
+mkdir ~/.i3
+ln -s $dir/$i3 ~/.i3/config
 
 source ~/.bashrc
