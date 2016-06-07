@@ -19,7 +19,7 @@ POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND=246
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=000
 POWERLEVEL9K_VIRTUALENV_BACKGROUND=white
 POWERLEVEL9K_VIRTUALENV_FOREGROUND=black
-POWERLEVEL9K_CHANGESET_HASH_LENGTH=0
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=20
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 antigen theme bhilburn/powerlevel9k powerlevel9k
@@ -35,9 +35,9 @@ antigen apply
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 export TERM=xterm-256color
 # Pyenv
-# export PATH="$HOME/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+export PATH="/home/evagelos/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Next export must be false in order to show virtualenv in PowerLevel9k
 export VIRTUAL_ENV_DISABLE_PROMPT=false

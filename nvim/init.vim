@@ -12,7 +12,6 @@ Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
 Plug 'shime/vim-livedown'             " Live markdown(open localhost)
-Plug 'junegunn/goyo.vim'
 " File search
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
@@ -137,10 +136,13 @@ tnoremap <Esc> <C-\><C-n>
 " Load the Mundo window
 map <leader>g :MundoToggle<CR>
 
-" When splitting new tab opens to the right of the current tab
+" When vertically splitting new tab opens to the right of the current tab
 set splitright
+" When horizontally splitting new tab, open it below
+set splitbelow
 " Make current directory the root for opening files
 set autochdir
+set sidescroll=1
 
 " ==========================================================
 " Basic Settings

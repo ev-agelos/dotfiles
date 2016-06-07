@@ -31,7 +31,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 -font "mono 20"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -167,6 +167,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 gaps inner 10
 gaps outer 5
+smart_gaps on
+smart_borders on
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #fbf1c7   #fbf1c7
@@ -188,7 +190,8 @@ bar {
                 urgent_workspace   #2f343a #900000 #ffffff
             }
         i3bar_command i3bar -t
-        status_command i3status
+        status_command /home/evagelos/.conkyi3
+        position top
 }
 
 # Pulse Audio controls
