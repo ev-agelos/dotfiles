@@ -22,9 +22,6 @@ export HISTIGNORE="&:ls:vdir:[bf]g:exit"
 # No accidental closing with ctrl-d
 export IGNOREEOF=1
 
-# Alias for opening NeoVim instead of vim
-alias vi=nvim
-
 # Open zsh shell
 export SHELL=/usr/bin/zsh
 [ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
