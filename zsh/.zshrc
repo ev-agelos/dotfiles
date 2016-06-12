@@ -1,10 +1,4 @@
-source "$HOME/.antigen/antigen.zsh"
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle mercurial
+source ~/.zplug/init.zsh
 
 # Themes
 POWERLEVEL9K_MODE='awesome-fontconfig'
@@ -22,42 +16,43 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=black
 POWERLEVEL9K_CHANGESET_HASH_LENGTH=20
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
-antigen theme bhilburn/powerlevel9k powerlevel9k
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
-# Bundles
-antigen bundle zsh-users/zsh-autosuggestions
-
-# Tell antigen that you're done.
-antigen apply
+zplug "zsh-users/zsh-completions"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-export TERM=xterm-256color
-# Pyenv
-export PATH="/home/evagelos/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
+# export TERM=xterm-256color
+# # Pyenv
+# export PATH="/home/evagelos/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+ 
 # Next export must be false in order to show virtualenv in PowerLevel9k
 export VIRTUAL_ENV_DISABLE_PROMPT=false
 # Show the host name only when different that the default evagelos
 export DEFAULT_USER=evagelos
-
-# Use solarized colors for dirs
-eval `dircolors ~/.dir_colors/dircolors.256dark`
-
+ 
+# # Use solarized colors for files/directories
+alias ls="ls --color"
+eval `dircolors ~/repos/dircolors-solarized/dircolors.256dark`
+# source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
+ 
 # ignore some files during completion
 zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
 # but not for these programs
-#zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
+zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 
-# Open NeoVim when typing vi
-alias vi=nvim
-# Open tmux but attach to session dont create each time new session
-# tmux attach &> /dev/null
-# if [[ ! $TERM =~ screen ]]; then
-#     exec tmux
-# fi
-# source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
