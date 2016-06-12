@@ -2,6 +2,7 @@
 username = Evagelos Theodoridis <evagelos@softwear.nl>
 ssh = ssh -C
 merge = nvim
+editor = nvim
 
 [extensions]
 color =

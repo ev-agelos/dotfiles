@@ -56,7 +56,7 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 # Open NeoVim when typing vi
 alias vi=nvim
 # Open tmux but attach to session dont create each time new session
-tmux attach &> /dev/null
+# tmux attach &> /dev/null
 # if [[ ! $TERM =~ screen ]]; then
 #     exec tmux
 # fi
