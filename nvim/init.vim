@@ -40,7 +40,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'gilgigilgil/anderson.vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
 
 
