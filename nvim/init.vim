@@ -11,7 +11,7 @@ Plug 'bling/vim-airline'
 Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
-Plug 'shime/vim-livedown'             " Live markdown(open localhost)
+Plug 'shime/vim-livedown'             " Live markdown(open localhost), Needs node/npm installed
 " File search
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
