@@ -23,7 +23,7 @@ zplug "zsh-users/zsh-completions"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-# export TERM=xterm-256color
+export TERM=xterm-256color
 # # Pyenv
 # export PATH="/home/evagelos/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
@@ -38,7 +38,14 @@ export DEFAULT_USER=evagelos
 alias ls="ls --color"
 eval `dircolors ~/repos/dircolors-solarized/dircolors.256dark`
 # source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
- 
+
+# Enable advanced completion
+autoload -U compinit && compinit
+# Highlight menu completion
+zstyle ':completion:*' menu select
+# colored completion - use my LS_COLORS
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
 # ignore some files during completion
 zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
 # but not for these programs
