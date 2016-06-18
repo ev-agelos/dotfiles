@@ -19,7 +19,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 zplug "zsh-users/zsh-completions"
-
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "psprint/history-search-multi-word"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
