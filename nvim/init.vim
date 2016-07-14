@@ -8,24 +8,26 @@ Plug 'mhinz/vim-startify'             " Startup screen when opening vim
 Plug 'tpope/vim-repeat'
 Plug 'haya14busa/incsearch.vim'
 Plug 'bling/vim-airline'
-Plug 'zefei/vim-wintabs'
+"Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
 Plug 'shime/vim-livedown'             " Live markdown(open localhost), Needs node/npm installed
 " File search
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
 " Undo and history
 Plug 'simnalamburt/vim-mundo'         " Fork of Gundo compatible with NeoVim
-Plug 'mbbill/undotree'
-" Linters
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
+" Linters/Highlighters
 Plug 'benekastah/neomake'
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'Glench/Vim-Jinja2-Syntax'
 " [ { (
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'kien/rainbow_parentheses.vim'
 " Version Control
+Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-lawrencium'
 Plug 'mhinz/vim-signify'
 Plug 'elzr/vim-json'
@@ -33,13 +35,13 @@ Plug 'elzr/vim-json'
 "Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
 " Themes
-Plug 'mhartington/oceanic-next'
-Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
+"Plug 'mhartington/oceanic-next'
+"Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-Plug 'gilgigilgil/anderson.vim'
-Plug 'junegunn/seoul256.vim'
+"Plug 'chriskempson/base16-vim'
+"Plug 'morhetz/gruvbox'
+"Plug 'gilgigilgil/anderson.vim'
+"Plug 'junegunn/seoul256.vim'
 call plug#end()
 
 
@@ -50,9 +52,10 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 
 """""""""""""""""""" Airline OPTIONS
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'gruvbox'                          " Theme for airline
-let g:airline_extensions = ['branch', 'whitespace']
+let g:airline_theme = 'PaperColor'                          " Theme for airline
+let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
+let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""""""""""""""""""""""""
 """"""""""""""""""" CtrlP OPTIONS
@@ -243,13 +246,15 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " Colorscheme / Highlighting
-"let g:solarized_degrade = 1
 syntax on
 "let base16colorspace=256
 set background=light
-"let gruvbox_contrast_dark='soft'
-"colorscheme gruvbox "OceanicNext
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
 colorscheme PaperColor
+"colorscheme gruvbox "OceanicNext
+"let gruvbox_contrast_dark='soft'
+
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose
 

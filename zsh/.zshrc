@@ -4,16 +4,7 @@ source ~/.zplug/init.zsh
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_COLOR_SCHEME=dark
 POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_SHOW_CHANGESET=true
-POWERLEVEL9K_VCS_BACKGROUND=green
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=yellow
-POWERLEVEL9K_DIR_BACKGROUND=239
-POWERLEVEL9K_DIR_FOREGROUND=white
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND=246
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=000
-POWERLEVEL9K_VIRTUALENV_BACKGROUND=white
-POWERLEVEL9K_VIRTUALENV_FOREGROUND=black
-POWERLEVEL9K_CHANGESET_HASH_LENGTH=20
+POWERLEVEL9K_SHOW_CHANGESET=false
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
@@ -26,11 +17,6 @@ zplug "psprint/history-search-multi-word"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 export TERM=xterm-256color
-# # Pyenv
-# export PATH="/home/evagelos/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
- 
 # Next export must be false in order to show virtualenv in PowerLevel9k
 export VIRTUAL_ENV_DISABLE_PROMPT=false
 # Show the host name only when different that the default evagelos
@@ -54,7 +40,6 @@ zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
 zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 
-
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -65,3 +50,7 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
+# Open NeoVim when typing vi
+alias vi=nvim
+source /home/evagelos/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(pew shell_config)
