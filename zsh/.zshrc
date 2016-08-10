@@ -53,4 +53,9 @@ zplug load --verbose
 # Open NeoVim when typing vi
 alias vi=nvim
 source /home/evagelos/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(pew shell_config)
+# source $(pew shell_config)
+export WORKON_HOME=$HOME/.local/share/virtualenvs
+export PROJECT_HOME=$HOME/workspace
+source /usr/local/bin/virtualenvwrapper.sh
+
+alias grep='grep -I --color=auto'
