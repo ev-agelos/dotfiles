@@ -127,7 +127,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="chromium-browser"] $ws3
 assign [class="Firefox"] $ws4
 assign [class="Mumble"] $ws7
-assign [class="HipChat"] $ws8
+assign [class="Simplenote"] $ws7
+assign [class="Slack"] $ws8
 assign [class="KeePass2"] $ws10
 
 # reload the configuration file
@@ -211,3 +212,12 @@ new_window pixel 4
 
 # Set wallpaper everytime i3 starts
 exec_always feh --bg-scale ~/Pictures/wallpaper.png
+
+# Autostart some apps
+exec keepass2
+exec slack
+exec firefox
+exec nm-applet
+exec mintupdate-launcher
+exec /usr/share/iron/iron --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=21.0.0.213
+exec /usr/share/simplenote/simplenote
