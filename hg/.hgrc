@@ -4,6 +4,9 @@ ssh = ssh -C
 merge = nvim
 editor = nvim
 
+[phases]
+publish = False
+
 [extensions]
 color =
 graphlog =
