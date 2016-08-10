@@ -53,6 +53,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 """""""""""""""""""" Airline OPTIONS
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
 let g:airline_theme = 'PaperColor'                          " Theme for airline
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 let g:airline#extensions#tabline#enabled = 1
