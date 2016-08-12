@@ -8,10 +8,14 @@ Plug 'mhinz/vim-startify'             " Startup screen when opening vim
 Plug 'tpope/vim-repeat'
 Plug 'haya14busa/incsearch.vim'
 Plug 'bling/vim-airline'
-"Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
 Plug 'kshenoy/vim-signature'          " Place marks on files
-Plug 'shime/vim-livedown'             " Live markdown(open localhost), Needs node/npm installed
+
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
 " File search
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
@@ -35,11 +39,13 @@ Plug 'elzr/vim-json'
 "Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
 " Themes
+"Plug 'altercation/vim-colors-solarized'
+Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
+"Plug 'romainl/flattened'
 "Plug 'mhartington/oceanic-next'
-"Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'NLKNguyen/papercolor-theme'
 "Plug 'chriskempson/base16-vim'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 "Plug 'gilgigilgil/anderson.vim'
 "Plug 'junegunn/seoul256.vim'
 call plug#end()
@@ -52,7 +58,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 
 """""""""""""""""""" Airline OPTIONS
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'PaperColor'                          " Theme for airline
+let g:airline_theme = 'gruvbox'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
@@ -249,12 +255,12 @@ vnoremap K :m '<-2<CR>gv=gv
 " Colorscheme / Highlighting
 syntax on
 "let base16colorspace=256
-set background=light
 "let g:solarized_contrast="high"
 "let g:solarized_visibility="high"
-colorscheme PaperColor
-"colorscheme gruvbox "OceanicNext
-"let gruvbox_contrast_dark='soft'
+"let g:gruvbox_contrast_dark='soft'
+"let g:gruvbox_contrast_light='medium'
+colorscheme solarized
+set background=light
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose
