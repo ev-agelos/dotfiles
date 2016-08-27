@@ -45,13 +45,12 @@ Plug 'elzr/vim-json'
 "Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
 " Themes
-"Plug 'altercation/vim-colors-solarized'
-Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 "Plug 'romainl/flattened'
 "Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 "Plug 'gilgigilgil/anderson.vim'
 "Plug 'junegunn/seoul256.vim'
 call plug#end()
