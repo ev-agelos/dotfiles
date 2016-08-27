@@ -25,3 +25,5 @@ export IGNOREEOF=1
 # Open zsh shell
 export SHELL=/usr/bin/zsh
 [ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
+
+source $(pew shell_config)
