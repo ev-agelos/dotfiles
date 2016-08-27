@@ -264,10 +264,10 @@ map q: :q
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+set termguicolors
 " Colorscheme / Highlighting
 syntax on
 set background=light
-set termguicolors
 colorscheme solarized
 
 " Automatic hide the tip window when on auto-complete
