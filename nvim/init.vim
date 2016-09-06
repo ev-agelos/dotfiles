@@ -7,9 +7,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'mhinz/vim-startify'             " Startup screen when opening vim
 Plug 'tpope/vim-repeat'
 Plug 'haya14busa/incsearch.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
-Plug 'kshenoy/vim-signature'          " Place marks on files
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -58,7 +58,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 
 """""""""""""""""""" Airline OPTIONS
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'gruvbox'                          " Theme for airline
+let g:airline_theme = 'bubblegum'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
