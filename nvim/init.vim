@@ -22,6 +22,10 @@ Plug 'kien/ctrlp.vim'
 " Undo and history
 Plug 'simnalamburt/vim-mundo'         " Fork of Gundo compatible with NeoVim
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " Linters/Highlighters
 Plug 'benekastah/neomake'
 Plug 'hynek/vim-python-pep8-indent'
@@ -39,61 +43,68 @@ Plug 'elzr/vim-json'
 "Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
 " Themes
-"Plug 'altercation/vim-colors-solarized'
-Plug 'zoresvit/vim-colors-solarized'  " Has the fix with the left bar)
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'rakr/vim-two-firewatch'
 "Plug 'romainl/flattened'
 "Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 "Plug 'gilgigilgil/anderson.vim'
 "Plug 'junegunn/seoul256.vim'
 call plug#end()
 
 
-"""""""""""""""""""""""""""""""""""
-""""""""""""""""""" Signify OPTIONS
-"""""""""""""""""""""""""""""""""""
+"""""""""""""""""""
+" Signify options "
+"""""""""""""""""""
 let g:signify_vcs_list = [ 'hg', 'git' ]
 
-"""""""""""""""""""" Airline OPTIONS
+""""""""""""""""""
+"Airline options "
+""""""""""""""""""
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'bubblegum'                          " Theme for airline
+"let g:airline_theme = 'bubblegum'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline_theme = 'bubblegum'                          " Theme for airline
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
 
-"""""""""""""""""""""""""""""""""""
-""""""""""""""""""" CtrlP OPTIONS
-"""""""""""""""""""""""""""""""""""
+"""""""""""""""""
+" CtrlP options "
+"""""""""""""""""
 " Custom ignore files/folders for CtrlP
 let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/]\.(git|hg)$',
     \ 'file': '\v\.(mp4|bson|mp3|jpg|png)$',
     \ }
-"""""""""""""""""""""""""""""""""""
-""""""""""""""""""" NEOMAKE options
-"""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""
+" NEOMAKE options "
+"""""""""""""""""""
 let g:neomake_python_pylama_maker = {
     \ 'args': ['-l mccabe'],
     \ 'errorformat': '%f:%l:%c: %m',
     \ }
 let g:neomake_python_enabled_makers = ['python', 'pylama', 'pep8', 'pyflakes', 'pylint', 'pep257']
 autocmd! BufWritePost * Neomake
-"""""""""""""""""""""""""""""""""""
-""""""""""""""""""" NERD-tree plugin
-"""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""
+" NERD-tree options "
+"""""""""""""""""""""
 " Close vim when only NERDtree is left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Shortcut to open NERD-tree Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '__pycache__$[[dir]]']        " Dont show .pyc files or __pycache__ folders in tree
 let g:NERDTreeWinSize=17                                      " Size of NERTree
-"""""""""""""""""""""""""""""""""""
-""""""""""""""""""" STARTIFY plugin
-"""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""
+" STARTIFY options "
+""""""""""""""""""""
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
@@ -108,17 +119,18 @@ let g:startify_list_order = [
         \ ['   Files'],
         \ 'files'
         \ ]
-"""""""""""""""""""""""""""""""""""
-""""""""""""""""""" JSON plugin
-"""""""""""""""""""""""""""""""""""
+
+""""""""""""""""
+" JSON options "
+""""""""""""""""
 "Disable the effect from hiding the actual code
 let g:vim_json_syntax_conceal = 0
-"""""""""""""""""""""""""""""""""""
+
 
 
 
 " ==========================================================
-" Shortcuts
+"                     Shortcuts
 " ==========================================================
 let mapleader = ","             " change the leader to be a comma vs slash
 
@@ -252,15 +264,13 @@ map q: :q
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+set termguicolors
 " Colorscheme / Highlighting
 syntax on
-"let base16colorspace=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
-"let g:gruvbox_contrast_dark='soft'
-"let g:gruvbox_contrast_light='medium'
-colorscheme solarized
 set background=light
+let g:two_firewatch_italics=1
+colorscheme two-firewatch
+let g:airline_theme='twofirewatch'
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose

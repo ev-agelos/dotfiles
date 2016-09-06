@@ -2,7 +2,7 @@ source ~/.zplug/init.zsh
 
 # Themes
 POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_COLOR_SCHEME=dark
+POWERLEVEL9K_COLOR_SCHEME='dark'
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_SHOW_CHANGESET=false
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
@@ -13,6 +13,8 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "psprint/history-search-multi-word"
+
+zplug "plugins/colored-man-pages", from:oh-my-zsh
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -52,10 +54,7 @@ fi
 zplug load --verbose
 # Open NeoVim when typing vi
 alias vi=nvim
+alias grep='grep -In --color=auto'
 source /home/evagelos/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $(pew shell_config)
-export WORKON_HOME=$HOME/.local/share/virtualenvs
-export PROJECT_HOME=$HOME/workspace
-source /usr/local/bin/virtualenvwrapper.sh
 
-alias grep='grep -I --color=auto'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

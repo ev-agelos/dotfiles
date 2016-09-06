@@ -12,7 +12,6 @@ color =
 graphlog =
 progress =
 pager =
-onsub = ~/workspace/softwear.ci/dev/onsub.py
 shelve = 
 rebase =
 strip =
