@@ -46,6 +46,7 @@ Plug 'elzr/vim-json'
 Plug 'inside/vim-search-pulse'
 " Themes
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'rakr/vim-two-firewatch'
 "Plug 'romainl/flattened'
 "Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
@@ -66,7 +67,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 """"""""""""""""""
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'bubblegum'                          " Theme for airline
+"let g:airline_theme = 'bubblegum'                          " Theme for airline
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -268,7 +269,9 @@ set termguicolors
 " Colorscheme / Highlighting
 syntax on
 set background=light
-colorscheme solarized
+let g:two_firewatch_italics=1
+colorscheme two-firewatch
+let g:airline_theme='twofirewatch'
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose
