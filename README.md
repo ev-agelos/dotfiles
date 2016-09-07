@@ -1,5 +1,6 @@
 ## My setup:
 - Linux Distro: [Mint18](https://www.linuxmint.com/)
+- Desktop/icon theme: [Arc-theme](https://github.com/horst3180/arc-theme)
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
 - Launcher: [Rofi](https://davedavenport.github.io/rofi/)
 
@@ -13,15 +14,16 @@
 ## Tools
 * File Manager(cli): [ranger](http://ranger.nongnu.org/)
 * Task Manager(cli): [htop](http://hisham.hm/htop/)
+* Command-line fuzzy finder(cli): [fzf](https://github.com/junegunn/fzf)
+* Text searching(cli): [ack](http://beyondgrep.com/)
 * Screenshot tool: scrot
 * Screen color temperature: [Redshift](https://github.com/jonls/redshift)
-* Power management [tlp](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html)
-* Monitor/Control CPU temperature [thermald](https://01.org/linux-thermal-daemon/documentation/introduction-thermal-daemon)
+* Power management: [tlp](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html)
+* Monitor/Control CPU temperature: [thermald](https://01.org/linux-thermal-daemon/documentation/introduction-thermal-daemon)
 
 ## Internet Tools
 * Chat: [Weechat](https://weechat.org/)
 * Email(cli): [mutt](http://www.mutt.org/)
-* Email(desktop): [Nylas N1](https://nylas.com/)
 
 ## Terminal
 * Emulator: Gnome-terminal
@@ -30,6 +32,7 @@
 	* plugin manager: [zplug](https://github.com/zplug/zplug)
 	* theme: [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 	* font: [Hack](https://github.com/chrissimpkins/Hack)
+	* highlighting: [Fish shell like syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * Multiplexer: [tmux](https://tmux.github.io/)
   * plugin manager: [tmp](https://github.com/tmux-plugins/tpm)
   * theme: [powerline](https://github.com/powerline/powerline)
