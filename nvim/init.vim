@@ -49,7 +49,7 @@ Plug 'rakr/vim-two-firewatch'
 "Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'chriskempson/base16-vim'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 "Plug 'gilgigilgil/anderson.vim'
 "Plug 'junegunn/seoul256.vim'
 call plug#end()
@@ -64,9 +64,8 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 "Airline options "
 """"""""""""""""""
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-"let g:airline_theme = 'bubblegum'                          " Theme for airline
+let g:airline_theme = 'bubblegum'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline_theme = 'bubblegum'                          " Theme for airline
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -266,11 +265,10 @@ vnoremap K :m '<-2<CR>gv=gv
 
 set termguicolors
 " Colorscheme / Highlighting
+let g:gruvbox_contrast_dark='hard'
 syntax on
-set background=light
-let g:two_firewatch_italics=1
-colorscheme two-firewatch
-let g:airline_theme='twofirewatch'
+set background=dark
+colorscheme solarized
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose

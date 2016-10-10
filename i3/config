@@ -88,16 +88,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Name workspaces using variables + FontAwesome
-set $ws1 "1: &#xf120;"
-set $ws2 "2: &#xf120;"
-set $ws3 "3: &#xf268;"
-set $ws4 "4: &#xf269;"
-set $ws5 "5: &#xf108;"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
 set $ws6 "6: &#xf108;"
-set $ws7 "7: &#xf130;"
-set $ws8 "8: &#xf1d7;"
-set $ws9 "9: &#xf025;"
-set $ws10 "10: &#xf023;"
+set $ws7 "7:"
+set $ws8 "8: "
+set $ws9 "9: &#xf001;"
+set $ws10 "10: "
 
 
 # switch to workspace
@@ -131,12 +131,14 @@ assign [class="Simplenote"] $ws7
 assign [class="Slack"] $ws8
 assign [class="KeePass2"] $ws10
 
-# reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 # US/Greek keyboard layout change with Alt+Shift
 exec --no-startup-id "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
 
@@ -193,7 +195,7 @@ bar {
                 urgent_workspace   #2f343a #900000 #ffffff
             }
         i3bar_command i3bar -t
-        status_command /home/evagelos/.conkyi3
+        status_command i3blocks
         position top
 }
 
@@ -213,7 +215,10 @@ new_window pixel 4
 # Set wallpaper everytime i3 starts
 exec_always feh --bg-scale ~/Pictures/wallpaper.png
 
+# Use compton for transparency/transition effects
+exec_always compton -f
 # Autostart some apps
+exec dropbox-start  # First start dropbox to get synced then keepass2
 exec keepass2
 exec slack
 exec firefox
