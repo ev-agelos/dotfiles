@@ -20,6 +20,7 @@
 * Screen color temperature: [Redshift](https://github.com/jonls/redshift)
 * Power management: [tlp](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html)
 * Monitor/Control CPU temperature: [thermald](https://01.org/linux-thermal-daemon/documentation/introduction-thermal-daemon)
+* List contents of directories in a tree-like format: tree
 
 ## Internet Tools
 * Chat: [Weechat](https://weechat.org/)
