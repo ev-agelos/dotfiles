@@ -44,7 +44,6 @@ Plug 'elzr/vim-json'
 Plug 'inside/vim-search-pulse'
 " Themes
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'rakr/vim-two-firewatch'
 "Plug 'romainl/flattened'
 "Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
@@ -64,7 +63,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 "Airline options "
 """"""""""""""""""
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'bubblegum'                          " Theme for airline
+let g:airline_theme = 'solarized'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
@@ -265,7 +264,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 set termguicolors
 " Colorscheme / Highlighting
-let g:gruvbox_contrast_dark='hard'
+"let g:gruvbox_contrast_dark='hard'
 syntax on
 set background=dark
 colorscheme solarized
