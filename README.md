@@ -1,6 +1,6 @@
 ## My setup:
 - Linux Distro: [Mint18](https://www.linuxmint.com/)
-- Desktop/icon theme: [Arc-theme](https://github.com/horst3180/arc-theme)
+- Desktop/icon theme: [Adapta-gtk-theme](https://github.com/adapta-project/adapta-gtk-theme)
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
 - Launcher: [Rofi](https://davedavenport.github.io/rofi/)
 
@@ -56,38 +56,3 @@
   * [PaperColor](https://github.com/NLKNguyen/papercolor-theme)
   * [Base16](https://github.com/chriskempson/base16-vim)
   * [Gruvbox](https://github.com/morhetz/gruvbox)
-
-### Browsers
-* [SRWare Iron](http://www.srware.net/en/software_srware_iron.php)
-	* [Vimium](https://github.com/philc/vimium/) vim style naviagtion
-* [Firefox](https://www.mozilla.org/firefox/)
-	* [Vimperator](https://addons.mozilla.org/en-US/firefox/addon/vimperator/) vim style navigation
-* Extensions/Add-ons(both):
-  * [uBlock Origin](https://github.com/gorhill/uBlock) wide-spectrum blocker
-  * [passifox](https://github.com/pfn/passifox) KeePass integration
-  * [Stylish](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en) browser themes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
