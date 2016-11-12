@@ -9,9 +9,7 @@ Plug 'tpope/vim-repeat'
 Plug 'haya14busa/incsearch.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'zefei/vim-wintabs'
 Plug 'ervandew/supertab'
-Plug 'kshenoy/vim-signature'          " Place marks on files
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -50,7 +48,7 @@ Plug 'frankier/neovim-colors-solarized-truecolor-only'
 "Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'chriskempson/base16-vim'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 "Plug 'gilgigilgil/anderson.vim'
 "Plug 'junegunn/seoul256.vim'
 call plug#end()
@@ -65,8 +63,8 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 "Airline options "
 """"""""""""""""""
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
+let g:airline_theme = 'solarized'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline_theme = 'bubblegum'                          " Theme for airline
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -266,6 +264,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 set termguicolors
 " Colorscheme / Highlighting
+"let g:gruvbox_contrast_dark='hard'
 syntax on
 set background=light
 colorscheme solarized

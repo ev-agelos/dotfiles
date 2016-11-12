@@ -17,10 +17,9 @@ zplug "frmendes/geometry"
 
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
 zplug "psprint/history-search-multi-word"
-
 zplug "plugins/colored-man-pages", from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -61,6 +60,5 @@ zplug load --verbose
 # Open NeoVim when typing vi
 alias vi=nvim
 alias grep='grep -In --color=auto'
-source /home/evagelos/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
