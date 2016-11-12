@@ -46,7 +46,6 @@ Plug 'elzr/vim-json'
 Plug 'inside/vim-search-pulse'
 " Themes
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'rakr/vim-two-firewatch'
 "Plug 'romainl/flattened'
 "Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
@@ -77,7 +76,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 " CtrlP options "
 """""""""""""""""
 " Custom ignore files/folders for CtrlP
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/]\.(git|hg)$',
     \ 'file': '\v\.(mp4|bson|mp3|jpg|png)$',
@@ -269,9 +268,7 @@ set termguicolors
 " Colorscheme / Highlighting
 syntax on
 set background=light
-let g:two_firewatch_italics=1
-colorscheme two-firewatch
-let g:airline_theme='twofirewatch'
+colorscheme solarized
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose
