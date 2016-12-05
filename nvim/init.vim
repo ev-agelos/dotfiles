@@ -18,7 +18,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 " File search
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Undo and history
 Plug 'simnalamburt/vim-mundo'         " Fork of Gundo compatible with NeoVim
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
@@ -137,9 +137,6 @@ inoremap # X#<Space>
 " sudo write this
 cmap W! w !sudo tee % >/dev/null
 
-" Reload init.vim
-map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
-
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
@@ -149,16 +146,13 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-
 " NeoVim terminal mappings
 tnoremap <Esc> <C-\><C-n>
 
 " Load the Mundo window
 map <leader>g :MundoToggle<CR>
 
-" When vertically splitting new tab opens to the right of the current tab
 set splitright
-" When horizontally splitting new tab, open it below
 set splitbelow
 " Make current directory the root for opening files
 set autochdir
@@ -169,12 +163,10 @@ set sidescroll=1
 " ==========================================================
 
 " Relative in Normal, Absolute in Insert
-set relativenumber
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-
-
+set relativenumber number
+"autocmd InsertEnter * :set norelativenumber
+"autocmd InsertEnter * :set number
+"autocmd InsertLeave * :set relativenumber
 
 set wildmode=full             " <Tab> cycles between all matching choices.
 " Ignore these files when completing
@@ -194,7 +186,6 @@ set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
 set showmatch               " Briefly jump to a paren once it's balanced
 set nowrap
 :au BufNewFile,BufRead *.py set textwidth=79 "Wrap text only in python files
-"set colorcolumn=80          " Fill color the 80th column
 au BufNewFile,BufRead *.py setlocal colorcolumn=80
 " After 79 char make background brighter, has to be AFTER colorcolumn(only
 " python files
@@ -207,7 +198,7 @@ set shiftwidth=4            " an indent level is 4 spaces wide.
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 set shiftround              " rounds indent to a multiple of shiftwidth
-
+set inccommand=split
 """" Reading/Writing
 
 set autowrite               " Stop complaining about unsaved buffers
@@ -226,29 +217,15 @@ set smartcase               " unless uppercase letters are used in the regex.
 au InsertEnter * set nohlsearch " Removes highlight when in insert and...
 au InsertLeave * set hlsearch   " ...re-highlights when in normal mode again
 
+" No need for Ex mode
+nnoremap Q <nop>
+" recording mappings is not my thing
+map q <Nop>
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
 
-" Select the item in the list with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Disable Arrow Keys in Normal mode
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-" Disable Arrow Keys in Insert mode
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-" Map the TAB key to go to the next tab(Shift+Tab for previous)
-noremap <silent> <Tab> :tabnext<CR>
-noremap <silent> <S-Tab> :tabprevious<CR>
-" Buffers navigation and management
-nnoremap <silent> <Right> :bn<CR>
-nnoremap <silent> <Left> :bp<CR>
+noremap <silent> <Tab> :bnext<CR>
+noremap <silent> <S-Tab> :bprevious<CR>
 
 " When jump to next match also center screen
 noremap n nzz

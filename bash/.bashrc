@@ -27,3 +27,5 @@ export SHELL=/usr/bin/zsh
 [ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
 
 source $(pew shell_config)
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
