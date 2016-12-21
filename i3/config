@@ -126,6 +126,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="chromium-browser"] $ws3
 assign [class="Firefox"] $ws4
+assign [class="wmail"] $ws6
 assign [class="Mumble"] $ws7
 assign [class="Simplenote"] $ws7
 assign [class="Slack"] $ws8
@@ -219,10 +220,11 @@ exec_always feh --bg-scale ~/Pictures/wallpaper.png
 exec_always compton -f
 # Autostart some apps
 exec dropbox-start  # First start dropbox to get synced then keepass2
-exec keepass2
+exec /opt/wmail-desktop/WMail
 exec slack
-exec firefox
 exec nm-applet
 exec mintupdate-launcher
+exec keepass2
+exec firefox
 exec /usr/share/iron/iron --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=21.0.0.213
 exec /usr/share/simplenote/simplenote

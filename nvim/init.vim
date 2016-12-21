@@ -44,15 +44,17 @@ Plug 'elzr/vim-json'
 Plug 'inside/vim-search-pulse'
 " Themes
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-"Plug 'romainl/flattened'
-"Plug 'mhartington/oceanic-next'
 "Plug 'NLKNguyen/papercolor-theme'
-"Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
-"Plug 'gilgigilgil/anderson.vim'
-"Plug 'junegunn/seoul256.vim'
+Plug 'mhartington/oceanic-next' " best for dark
+Plug 'reedes/vim-colors-pencil' " best for light
 call plug#end()
 
+
+"""""""""""""""""""
+" Incsearch options "
+"""""""""""""""""""
+map / <Plug>(incsearch-stay)
 
 """""""""""""""""""
 " Signify options "
@@ -63,7 +65,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 "Airline options "
 """"""""""""""""""
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'solarized'                          " Theme for airline
+let g:airline_theme = 'oceanicnext'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
@@ -87,7 +89,7 @@ let g:neomake_python_pylama_maker = {
     \ 'args': ['-l mccabe'],
     \ 'errorformat': '%f:%l:%c: %m',
     \ }
-let g:neomake_python_enabled_makers = ['python', 'pylama', 'pep8', 'pyflakes', 'pylint', 'pep257']
+let g:neomake_python_enabled_makers = ['python', 'pylama', 'pep8', 'pyflakes', 'pylint', 'pydocstyle']
 autocmd! BufWritePost * Neomake
 
 """""""""""""""""""""
@@ -224,6 +226,10 @@ map q <Nop>
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
 
+" Select the item in the list with enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Map the TAB key to go to the next tab(Shift+Tab for previous)
 noremap <silent> <Tab> :bnext<CR>
 noremap <silent> <S-Tab> :bprevious<CR>
 
@@ -239,12 +245,41 @@ map q: :q
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-set termguicolors
+" Make cursor pipe when insert mode
+:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 " Colorscheme / Highlighting
-"let g:gruvbox_contrast_dark='hard'
+set termguicolors
+" For colors to work in :term when colorscheme doesnt include them
+let g:terminal_color_0  = '#2e3436'
+let g:terminal_color_1  = '#cc0000'
+let g:terminal_color_2  = '#4e9a06'
+let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_4  = '#3465a4'
+let g:terminal_color_5  = '#75507b'
+let g:terminal_color_6  = '#0b939b'
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_8  = '#555753'
+let g:terminal_color_9  = '#ef2929'
+let g:terminal_color_10 = '#8ae234'
+let g:terminal_color_11 = '#fce94f'
+let g:terminal_color_12 = '#729fcf'
+let g:terminal_color_13 = '#ad7fa8'
+let g:terminal_color_14 = '#00f5e9'
+let g:terminal_color_15 = '#eeeeec'
+
+"let g:gruvbox_contrast_dark='soft'
+"let g:oceanic_next_terminal_italic = 1
+"let g:oceanic_next_terminal_bold = 1
+let g:pencil_gutter_color = 1
+let g:pencil_neutral_headings = 1
+let g:pencil_higher_contrast_ui = 1
+let g:pencil_terminal_italics = 1
+let g:pencil_spell_undercurl = 0
 syntax on
 set background=light
-colorscheme solarized
+colorscheme pencil
+set inccommand=split
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose

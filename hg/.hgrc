@@ -16,6 +16,7 @@ shelve =
 rebase =
 strip =
 histedit =
+onsub = ~/workspace/softwear.ci/dev/onsub.py
 
 [merge-tools]
 nvim.executable = nvim
