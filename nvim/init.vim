@@ -42,6 +42,7 @@ Plug 'elzr/vim-json'
 " Effects
 "Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
+Plug 'yuttie/comfortable-motion.vim'
 " Themes
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 "Plug 'NLKNguyen/papercolor-theme'
