@@ -20,7 +20,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Undo and history
-Plug 'simnalamburt/vim-mundo'         " Fork of Gundo compatible with NeoVim
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -243,8 +242,8 @@ set termguicolors
 " Colorscheme / Highlighting
 "let g:gruvbox_contrast_dark='hard'
 syntax on
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme gruvbox
 
 " Automatic hide the tip window when on auto-complete
 autocmd CompleteDone * pclose
