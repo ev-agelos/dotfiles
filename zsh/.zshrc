@@ -1,20 +1,17 @@
 source ~/.zplug/init.zsh
 
 # Themes
+# Customize geometry
+PROMPT_VIRTUALENV_ENABLED=true
+GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git hg)
+zplug "frmendes/geometry"
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 # POWERLEVEL9K_COLOR_SCHEME='dark'
-# POWERLEVEL9K_STATUS_VERBOSE=false
+# POWERLEVEL9K_STATUS_VERBOSE=true
 # POWERLEVEL9K_SHOW_CHANGESET=false
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 # zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-# Customize geometry
-GEOMETRY_COLOR_GIT_DIRTY=9
-GEOMETRY_COLOR_GIT_BRANCH=6
-GEOMETRY_COLOR_EXIT_VALUE=9
-GEOMETRY_COLOR_DIR=242
-PROMPT_VIRTUALENV_ENABLED=true
-zplug "frmendes/geometry"
 
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
@@ -58,6 +55,5 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
-# Open NeoVim when typing vi
-alias grep='grep -In --color=auto'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

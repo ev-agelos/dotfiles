@@ -16,6 +16,8 @@
 * Task Manager(cli): [htop](http://hisham.hm/htop/)
 * Command-line fuzzy finder(cli): [fzf](https://github.com/junegunn/fzf)
 * Text searching(cli): [ack](http://beyondgrep.com/)
+* Simplified man pages(cli): [tldr](https://github.com/lord63/tldr.py)
+* Command line HTTP client(cli): [HTTPie](https://github.com/jkbrzt/httpie)
 * Screenshot tool: scrot
 * Screen color temperature: [Redshift](https://github.com/jonls/redshift)
 * Power management: [tlp](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html)
