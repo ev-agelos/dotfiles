@@ -59,7 +59,5 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
 # Open NeoVim when typing vi
-alias vi=nvim
 alias grep='grep -In --color=auto'
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
