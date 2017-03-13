@@ -90,7 +90,11 @@ let g:neomake_python_pylama_maker = {
     \ 'args': ['-l mccabe'],
     \ 'errorformat': '%f:%l:%c: %m',
     \ }
-let g:neomake_python_enabled_makers = ['python', 'pylama', 'pep8', 'pyflakes', 'pylint', 'pydocstyle']
+let g:neomake_python_pycodestyle_maker = {
+    \ 'args': ['-l pycodestyle'],
+    \ 'errorformat': '%f:%l:%c: %m',
+    \ }
+let g:neomake_python_enabled_makers = ['python', 'pylama', 'pycodestyle', 'pyflakes', 'pylint', 'pydocstyle']
 autocmd! BufWritePost * Neomake
 
 """""""""""""""""""""
