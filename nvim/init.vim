@@ -168,7 +168,7 @@ set sidescroll=1
 " ==========================================================
 " Basic Settings
 " ==========================================================
-
+set mouse=a
 " Relative in Normal, Absolute in Insert
 set relativenumber number
 "autocmd InsertEnter * :set norelativenumber
