@@ -228,3 +228,8 @@ exec keepass2
 exec firefox
 exec /usr/share/iron/iron --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=21.0.0.213
 exec /usr/share/simplenote/simplenote
+# start as left monitor if hdmi is connected..
+exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1
+
+# faster cursor
+exec --no-startup-id xset r rate 200 30
