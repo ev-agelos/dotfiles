@@ -10,6 +10,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
+Plug 'christoomey/vim-tmux-navigator'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -87,11 +88,11 @@ let g:ctrlp_custom_ignore = {
 " NEOMAKE options "
 """""""""""""""""""
 let g:neomake_python_pylama_maker = {
-    \ 'args': ['-l mccabe'],
+    \ 'args': ['--linters mccabe'],
     \ 'errorformat': '%f:%l:%c: %m',
     \ }
 let g:neomake_python_pycodestyle_maker = {
-    \ 'args': ['-l pycodestyle'],
+    \ 'args': [],
     \ 'errorformat': '%f:%l:%c: %m',
     \ }
 let g:neomake_python_enabled_makers = ['python', 'pylama', 'pycodestyle', 'pyflakes', 'pylint', 'pydocstyle']
@@ -146,12 +147,6 @@ cmap W! w !sudo tee % >/dev/null
 
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
-
-" ctrl-jklm  changes to that split
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
 
 " NeoVim terminal mappings
 tnoremap <Esc> <C-\><C-n>
