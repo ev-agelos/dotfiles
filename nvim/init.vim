@@ -21,6 +21,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " File search
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " Undo and history
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 function! DoRemote(arg)
