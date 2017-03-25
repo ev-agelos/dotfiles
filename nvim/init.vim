@@ -1,3 +1,4 @@
+set path+=**
 set foldmethod=indent
 set foldlevel=99
 set wrapscan            " search fron beginning if end of file is reached
@@ -67,7 +68,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 "Airline options "
 """"""""""""""""""
 let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'oceanicnext'                          " Theme for airline
+let g:airline_theme = 'base16'                          " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
