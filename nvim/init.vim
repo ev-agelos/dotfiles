@@ -37,15 +37,15 @@ Plug 'Raimondi/delimitMate'
 Plug 'kien/rainbow_parentheses.vim'
 " Version Control
 Plug 'tpope/vim-fugitive'
-Plug 'ludovicchabant/vim-lawrencium'
+Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-signify'
 Plug 'elzr/vim-json'
 " Effects
-"Plug 'ivyl/vim-bling'
 Plug 'inside/vim-search-pulse'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'moll/vim-bbye'
 " Themes
+Plug 'junegunn/limelight.vim'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
