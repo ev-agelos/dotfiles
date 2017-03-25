@@ -29,6 +29,7 @@ export DEFAULT_USER=evagelos
  
 # # Use solarized colors for files/directories
 alias ls="ls --color"
+alias ag="ag --color-match 36 --color-line-number 33 --color-path 34"
 eval `dircolors ~/repos/dircolors-solarized/dircolors.256dark`
 # source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
 
