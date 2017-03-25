@@ -15,7 +15,7 @@
 * File Manager(cli): [ranger](http://ranger.nongnu.org/)
 * Task Manager(cli): [htop](http://hisham.hm/htop/)
 * Command-line fuzzy finder(cli): [fzf](https://github.com/junegunn/fzf)
-* Text searching(cli): [ack](http://beyondgrep.com/)
+* Text searching(cli): [ag](https://github.com/ggreer/the_silver_searcher)
 * Simplified man pages(cli): [tldr](https://github.com/lord63/tldr.py)
 * Command line HTTP client(cli): [HTTPie](https://github.com/jkbrzt/httpie)
 * Screenshot tool: scrot
@@ -33,7 +33,7 @@
 * theme: [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
 * Shell: [zsh](http://www.zsh.org/)
 	* plugin manager: [zplug](https://github.com/zplug/zplug)
-	* theme: [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
+	* theme: [geometry](https://github.com/frmendes/geometry)
 	* font: [Hack](https://github.com/chrissimpkins/Hack)
 	* highlighting: [Fish shell like syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * Multiplexer: [tmux](https://tmux.github.io/)
