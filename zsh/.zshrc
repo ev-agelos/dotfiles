@@ -30,6 +30,7 @@ export DEFAULT_USER=evagelos
 # # Use solarized colors for files/directories
 alias ls="ls --color"
 alias ag="ag --color-match 36 --color-line-number 33 --color-path 34"
+alias tree="tree -I '*.pyc|__pycache__'"
 eval `dircolors ~/repos/dircolors-solarized/dircolors.256dark`
 # source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
 
@@ -57,4 +58,7 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
 
+export FZF_DEFAULT_OPTS='--border'
+export FZF_TMUX=1
+export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
