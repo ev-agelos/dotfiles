@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/goyo.vim'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -19,9 +20,9 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 " File search
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 " Undo and history
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 function! DoRemote(arg)
