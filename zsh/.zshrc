@@ -21,9 +21,13 @@ zplug "zsh-users/zsh-syntax-highlighting"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-export TERM=xterm-256color
+
+# Allow tmux to set $TERM(to solve function keys not working problem)
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
 # Next export must be false in order to show virtualenv in PowerLevel9k
 export VIRTUAL_ENV_DISABLE_PROMPT=false
+
 # Show the host name only when different that the default evagelos
 export DEFAULT_USER=evagelos
  
