@@ -77,16 +77,6 @@ let g:airline#extensions#branch#enabled = 1            " enable tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 
-"""""""""""""""""
-" CtrlP options "
-"""""""""""""""""
-" Custom ignore files/folders for CtrlP
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/]\.(git|hg)$',
-    \ 'file': '\v\.(mp4|bson|mp3|jpg|png)$',
-    \ }
-
 """""""""""""""""""
 " NEOMAKE options "
 """""""""""""""""""
@@ -100,16 +90,6 @@ let g:neomake_python_pycodestyle_maker = {
     \ }
 let g:neomake_python_enabled_makers = ['python', 'pylama', 'pycodestyle', 'pyflakes', 'pylint', 'pydocstyle']
 autocmd! BufWritePost * Neomake
-
-"""""""""""""""""""""
-" NERD-tree options "
-"""""""""""""""""""""
-" Close vim when only NERDtree is left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" Shortcut to open NERD-tree Ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$', '__pycache__$[[dir]]']        " Dont show .pyc files or __pycache__ folders in tree
-let g:NERDTreeWinSize=17                                      " Size of NERTree
 
 """"""""""""""""""""
 " STARTIFY options "
@@ -136,8 +116,6 @@ let g:startify_list_order = [
 let g:vim_json_syntax_conceal = 0
 
 
-
-
 " ==========================================================
 "                     Shortcuts
 " ==========================================================
@@ -159,8 +137,6 @@ map <leader>g :MundoToggle<CR>
 
 set splitright
 set splitbelow
-" Make current directory the root for opening files
-set autochdir
 set sidescroll=1
 
 " ==========================================================
