@@ -44,7 +44,7 @@ autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # ignore some files during completion
 zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
 # but not for these programs
