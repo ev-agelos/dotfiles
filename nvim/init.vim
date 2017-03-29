@@ -1,4 +1,5 @@
 set path+=**
+set tags+=.git/tags
 set foldmethod=indent
 set foldlevel=99
 set wrapscan            " search fron beginning if end of file is reached
