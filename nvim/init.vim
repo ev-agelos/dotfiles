@@ -29,7 +29,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 " Linters/Highlighters
 Plug 'benekastah/neomake'
 Plug 'hynek/vim-python-pep8-indent'
@@ -61,6 +61,11 @@ call plug#end()
 " Incsearch options "
 """""""""""""""""""
 map / <Plug>(incsearch-stay)
+
+"""""""""""""""""""
+" Deoplete options "
+"""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
 
 """""""""""""""""""
 " Signify options "
