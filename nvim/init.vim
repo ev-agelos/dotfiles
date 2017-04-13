@@ -8,28 +8,22 @@ call plug#begin('~/.config/nvim/plugged')
 " Generic
 Plug 'mhinz/vim-startify'             " Startup screen when opening vim
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 Plug 'haya14busa/incsearch.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/goyo.vim'
-
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-
 " File search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
 " Undo and history
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 " Linters/Highlighters
 Plug 'benekastah/neomake'
 Plug 'hynek/vim-python-pep8-indent'
@@ -82,7 +76,9 @@ let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1            " enable tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
-
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 """""""""""""""""""
 " NEOMAKE options "
 """""""""""""""""""
