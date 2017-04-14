@@ -5,83 +5,99 @@ set foldlevel=99
 set wrapscan            " search fron beginning if end of file is reached
 
 call plug#begin('~/.config/nvim/plugged')
-" Generic
-Plug 'mhinz/vim-startify'             " Startup screen when opening vim
+" ------------------------------------------------------------------ Generic
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
 Plug 'haya14busa/incsearch.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/goyo.vim'
+Plug 'moll/vim-bbye'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-" File search
+" ------------------------------------------------------------------ File search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Undo and history
+" ------------------------------------------------------------------ History
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
-" Linters/Highlighters
+" ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'Glench/Vim-Jinja2-Syntax'
-" [ { (
+" ------------------------------------------------------------------ Souroundings
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
-Plug 'kien/rainbow_parentheses.vim'
-" Version Control
+Plug 'luochen1990/rainbow'
+" ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter' " or 'mhinz/vim-signify' if mercurial is needed
 Plug 'elzr/vim-json'
-" Effects
+" ------------------------------------------------------------------ Effects
 Plug 'inside/vim-search-pulse'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'moll/vim-bbye'
-" Themes
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+" ------------------------------------------------------------------ UI
+Plug 'mhinz/vim-startify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" ------------------------------------------------------------------ Colorschemes
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next' " best for dark
 Plug 'reedes/vim-colors-pencil' " best for light
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
+" ----------------------------------------------------------
+"                       Leader
+" ----------------------------------------------------------
+" Use , as the leader key
+let mapleader = ","
+" hide matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+" Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
+map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 
-"""""""""""""""""""
-" Incsearch options "
-"""""""""""""""""""
+" ----------------------------------------------------------
+"                     Plugin options
+" ----------------------------------------------------------
+
+" delimitMate options
+let delimitMate_nesting_quotes = ['"','`']
+au FileType python let b:delimitMate_nesting_quotes = ['"']
+" Rainbow
+let g:rainbow_active = 1
+" JSON plugin
+let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual code
+" NORD colorscheme
+let g:nord_italic_comments = 1
+" MundoToggle
+map <leader>g :MundoToggle<CR>
+" Incsearch
 map / <Plug>(incsearch-stay)
-
-"""""""""""""""""""
-" Deoplete options "
-"""""""""""""""""""
+" Deoplete
 let g:deoplete#enable_at_startup = 1
-
-"""""""""""""""""""
-" Signify options "
-"""""""""""""""""""
+" Signify
 let g:signify_vcs_list = [ 'hg', 'git' ]
 
-""""""""""""""""""
-"Airline options "
-""""""""""""""""""
-let g:airline_powerline_fonts = 1                       " Support powerline fonts
-let g:airline_theme = 'base16'                          " Theme for airline
+"Airline options
+let g:airline_powerline_fonts = 1                              " Support powerline fonts
+let g:airline_theme = 'nord'                                   " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
-let g:airline#extensions#branch#enabled = 1            " enable tabline
+let g:airline#extensions#branch#enabled = 1                    " enable tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-"""""""""""""""""""
-" NEOMAKE options "
-"""""""""""""""""""
+
+" Neomake
 let g:neomake_python_pylama_maker = {
     \ 'args': ['--linters mccabe'],
     \ 'errorformat': '%f:%l:%c: %m',
@@ -93,9 +109,7 @@ let g:neomake_python_pycodestyle_maker = {
 let g:neomake_python_enabled_makers = ['python', 'pylama', 'pycodestyle', 'pyflakes', 'pylint', 'pydocstyle']
 autocmd! BufWritePost * Neomake
 
-""""""""""""""""""""
-" STARTIFY options "
-""""""""""""""""""""
+" STARTIFY 
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
@@ -111,110 +125,81 @@ let g:startify_list_order = [
         \ 'files'
         \ ]
 
-""""""""""""""""
-" JSON options "
-""""""""""""""""
-"Disable the effect from hiding the actual code
-let g:vim_json_syntax_conceal = 0
-
-
-" ==========================================================
-"                     Shortcuts
-" ==========================================================
-let mapleader = ","             " change the leader to be a comma vs slash
-
-" Fix for Python comments when inserting # removes the indentation
-inoremap # X#<Space>
-" sudo write this
-cmap W! w !sudo tee % >/dev/null
-
-" for when we forget to use sudo to open/edit a file
-cmap w!! w !sudo tee % >/dev/null
-
-" NeoVim terminal mappings
-tnoremap <Esc> <C-\><C-n>
-
-" Load the Mundo window
-map <leader>g :MundoToggle<CR>
-
-set splitright
-set splitbelow
+" ---------------------------------------------------------
+"                    Settings
+" ---------------------------------------------------------
+set splitright                   " When vertically split right
+set splitbelow                   " When horizontally split below
 set sidescroll=1
-
-" ==========================================================
-" Basic Settings
-" ==========================================================
 set mouse=a
-" Relative in Normal, Absolute in Insert
-set relativenumber number
-"autocmd InsertEnter * :set norelativenumber
-"autocmd InsertEnter * :set number
-"autocmd InsertLeave * :set relativenumber
-
-set wildmode=full             " <Tab> cycles between all matching choices.
-" Ignore these files when completing
-set wildignore+=*.o,*.obj,.git,*.pyc
-set wildignore+=eggs/**
-set wildignore+=*.egg-info/**
-
-set noshowmode              " Hide vim mode from status line
-
-""" Moving Around/Editing
-set clipboard+=unnamedplus  " Copy/Paste always to clipboard
-set cursorline              " have a line indicate the cursor location
-set nostartofline           " Avoid moving cursor to BOL when jumping around
-set virtualedit=block       " Let cursor move past the last char in <C-v> mode
-set scrolloff=3             " Keep 3 context lines above and below the cursor
-set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
-set showmatch               " Briefly jump to a paren once it's balanced
+set relativenumber number        " Relative in Normal, Absolute in Insert
+set wildmode=full                " <Tab> cycles between all matching choices.
+" --------------- Moving Around/Editing --------------------
+" Do not blink in normal mode, Use pipe shape in insert mode
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+set clipboard+=unnamedplus       " Copy/Paste always to clipboard
+set cursorline                   " have a line indicate the cursor location
+set nostartofline                " Avoid moving cursor to BOL when jumping around
+set virtualedit=block            " Let cursor move past the last char in <C-v> mode
+set scrolloff=3                  " Keep 3 context lines above and below the cursor
+set backspace=2                  " Allow backspacing over autoindent, EOL, and BOL
+set showmatch                    " Briefly jump to a paren once it's balanced
 set nowrap
-:au BufNewFile,BufRead *.py set textwidth=79 "Wrap text only in python files
+au BufNewFile,BufRead *.py set textwidth=79 "Wrap text only in python files
 au BufNewFile,BufRead *.py setlocal colorcolumn=80
 " After 79 char make background brighter, has to be AFTER colorcolumn(only
 " python files
 "au BufEnter * if &ft == 'python' | let &cc = join(range(80, 999),',') | else | set cc= | endif
 set formatoptions+=t
-set linebreak               " don't wrap textin the middle of a word
-set smartindent             " use smart indent if thereis no indent file
-set tabstop=4               " <tab> inserts 4 spaces
-set shiftwidth=4            " an indent level is 4 spaces wide.
-set softtabstop=4           " <BS> over an autoindent deletes both spaces.
-set expandtab               " Use spaces, not tabs, for autoindent/tab key.
-set shiftround              " rounds indent to a multiple of shiftwidth
+set linebreak                    " don't wrap textin the middle of a word
+set smartindent                  " use smart indent if thereis no indent file
+set tabstop=4                    " <tab> inserts 4 spaces
+set shiftwidth=4                 " an indent level is 4 spaces wide.
+set softtabstop=4                " <BS> over an autoindent deletes both spaces.
+set expandtab                    " Use spaces, not tabs, for autoindent/tab key.
+set shiftround                   " rounds indent to a multiple of shiftwidth
 set inccommand=split
-"""" Reading/Writing
-
-set autowrite               " Stop complaining about unsaved buffers
+" ------------------Reading/Writing--------------------------
+set noswapfile
+set autowrite                    " Stop complaining about unsaved buffers
 set autowriteall
-set noautoread              " Don't automatically re-read changed files.
+set noautoread                   " Don't automatically re-read changed files.
+" ------------------Messages, Info, Status-------------------
+set showcmd                      " Show incomplete normal mode commands as I type.
+set report=0                     " : commands always print changed line count.
+set shortmess+=a                 " Use [+]/[RO]/[w] for modified/readonly/written.
+set ruler                        " Show some info, even without statuslines.
+autocmd CompleteDone * pclose    " Automatic hide the tip window when on auto-complete
 
-"""" Messages, Info, Status
-set showcmd                 " Show incomplete normal mode commands as I type.
-set report=0                " : commands always print changed line count.
-set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
-set ruler                   " Show some info, even without statuslines.
 
-""" Searching and Patterns
-set ignorecase              " Default to using case insensitive searches,
-set smartcase               " unless uppercase letters are used in the regex.
-au InsertEnter * set nohlsearch " Removes highlight when in insert and...
-au InsertLeave * set hlsearch   " ...re-highlights when in normal mode again
+" ------------------Searching and Patterns-------------------
+set ignorecase                   " Default to using case insensitive searches,
+set smartcase                    " unless uppercase letters are used in the regex.
+au InsertEnter * set nohlsearch  " Removes highlight when in insert and...
+au InsertLeave * set hlsearch    " ...re-highlights when in normal mode again
+" Ignore these files when completing
+set wildignore+=*.o,*.obj,.git,*.pyc
+set wildignore+=eggs/**
+set wildignore+=*.egg-info/**
+set noshowmode                   " Hide vim mode from status line
 
+" ----------------------------------------------------------
+"                    Mappings
+" ----------------------------------------------------------
+" Mappings for NeoVim's terminal 
+tnoremap <Esc> <C-\><C-n>
+" for when we forget to use sudo to open/edit a file
+cmap w!! w !sudo tee % >/dev/null
 " No need for Ex mode
 nnoremap Q <nop>
 " recording mappings is not my thing
 map q <Nop>
-" hide matches on <leader>space
-nnoremap <leader><space> :nohlsearch<cr>
-
 " Select the item in the list with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Map the TAB key to go to the next tab(Shift+Tab for previous)
 noremap <silent> <Tab> :bnext<CR>
 noremap <silent> <S-Tab> :bprevious<CR>
-
-" When jump to next match also center screen
+" Center screen when jumping to next match
 noremap n nzz
 noremap N Nzz
 " Don't yank to default register when changing something
@@ -226,45 +211,33 @@ map q: :q
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" Make cursor pipe when insert mode
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" ----------------------------------------------------------
+"                    Colorschemes
+" ----------------------------------------------------------
+set termguicolors " use 24-bit color
+syntax on
 
-" Colorscheme / Highlighting
-set termguicolors
-" For colors to work in :term when colorscheme doesnt include them
-let g:terminal_color_0  = '#2e3436'
-let g:terminal_color_1  = '#cc0000'
-let g:terminal_color_2  = '#4e9a06'
-let g:terminal_color_3  = '#c4a000'
-let g:terminal_color_4  = '#3465a4'
-let g:terminal_color_5  = '#75507b'
-let g:terminal_color_6  = '#0b939b'
-let g:terminal_color_7  = '#d3d7cf'
-let g:terminal_color_8  = '#555753'
-let g:terminal_color_9  = '#ef2929'
-let g:terminal_color_10 = '#8ae234'
-let g:terminal_color_11 = '#fce94f'
-let g:terminal_color_12 = '#729fcf'
-let g:terminal_color_13 = '#ad7fa8'
-let g:terminal_color_14 = '#00f5e9'
-let g:terminal_color_15 = '#eeeeec'
-
+" ------------------ Gruvbox -------------------------------
 "let g:gruvbox_contrast_dark='soft'
+
+" ------------------ Oceanic -------------------------------
 "let g:oceanic_next_terminal_italic = 1
 "let g:oceanic_next_terminal_bold = 1
-let g:pencil_gutter_color = 1
-let g:pencil_neutral_headings = 1
-let g:pencil_higher_contrast_ui = 1
-let g:pencil_terminal_italics = 1
-let g:pencil_spell_undercurl = 0
-syntax on
+
+" ------------------ Pencil --------------------------------
+"let g:pencil_gutter_color = 1
+"let g:pencil_neutral_headings = 1
+"let g:pencil_higher_contrast_ui = 1
+"let g:pencil_terminal_italics = 1
+"let g:pencil_spell_undercurl = 0
+
 set background=dark
-colorscheme gruvbox
+colorscheme nord
 
-" Automatic hide the tip window when on auto-complete
-autocmd CompleteDone * pclose
+" ----------------------------------------------------------
+"                    Custom
+" ----------------------------------------------------------
 
-set noswapfile
 if exists("+undofile")
   " undofile - This allows you to use undos after exiting and restarting
   " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
@@ -280,21 +253,3 @@ endif
 
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-" Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time
-" in Python scripts.
-map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
-
-" vnoremap <leader>p "+p
-" vnoremap <leader>y "+y
-
-" Rainbow parenthesis always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-" delimitMate options
-let delimitMate_nesting_quotes = ['"','`']
-au FileType python let b:delimitMate_nesting_quotes = ['"']
