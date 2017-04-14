@@ -22,7 +22,7 @@ alias ls='ls --color'
 alias ag='ag --ignore "*.pyc" --ignore "*.map" --ignore=tags --ignore-dir __pycache__  --color-match 36 --color-line-number 33 --color-path 31'
 alias tree="tree -I '*.pyc|__pycache__'"
 
-eval `dircolors ~/repos/dircolors-solarized/dircolors.256dark`
+eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
 
 # Enable advanced completion
 autoload -U compinit && compinit
