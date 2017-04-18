@@ -221,7 +221,6 @@ exec_always compton -f
 # Autostart some apps
 exec dropbox-start  # First start dropbox to get synced then keepass2
 exec /opt/wmail-desktop/WMail
-exec slack
 exec nm-applet
 exec mintupdate-launcher
 exec keepass2
