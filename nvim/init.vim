@@ -1,8 +1,5 @@
 set path+=**
 set tags+=.git/tags
-set foldmethod=indent
-set foldlevel=99
-set wrapscan            " search fron beginning if end of file is reached
 
 call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Generic
@@ -11,6 +8,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-bbye'
+Plug 'hynek/vim-python-pep8-indent'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -22,12 +20,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'Glench/Vim-Jinja2-Syntax'
 " ------------------------------------------------------------------ Souroundings
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 Plug 'luochen1990/rainbow'
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
@@ -39,7 +37,7 @@ Plug 'inside/vim-search-pulse'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
-" ------------------------------------------------------------------ UI
+" ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -109,7 +107,7 @@ let g:neomake_python_pycodestyle_maker = {
 let g:neomake_python_enabled_makers = ['python', 'pylama', 'pycodestyle', 'pyflakes', 'pylint', 'pydocstyle']
 autocmd! BufWritePost * Neomake
 
-" STARTIFY 
+" STARTIFY
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
@@ -128,6 +126,8 @@ let g:startify_list_order = [
 " ---------------------------------------------------------
 "                    Settings
 " ---------------------------------------------------------
+set foldmethod=indent
+set foldlevel=99
 set splitright                   " When vertically split right
 set splitbelow                   " When horizontally split below
 set sidescroll=1
@@ -145,11 +145,8 @@ set scrolloff=3                  " Keep 3 context lines above and below the curs
 set backspace=2                  " Allow backspacing over autoindent, EOL, and BOL
 set showmatch                    " Briefly jump to a paren once it's balanced
 set nowrap
-au BufNewFile,BufRead *.py set textwidth=79 "Wrap text only in python files
+au BufNewFile,BufRead *.py setlocal textwidth=79 "Wrap text only in python files
 au BufNewFile,BufRead *.py setlocal colorcolumn=80
-" After 79 char make background brighter, has to be AFTER colorcolumn(only
-" python files
-"au BufEnter * if &ft == 'python' | let &cc = join(range(80, 999),',') | else | set cc= | endif
 set formatoptions+=t
 set linebreak                    " don't wrap textin the middle of a word
 set smartindent                  " use smart indent if thereis no indent file
@@ -173,10 +170,10 @@ autocmd CompleteDone * pclose    " Automatic hide the tip window when on auto-co
 
 
 " ------------------Searching and Patterns-------------------
+set wrapscan                     " search fron beginning if end of file is reached
 set ignorecase                   " Default to using case insensitive searches,
 set smartcase                    " unless uppercase letters are used in the regex.
 au InsertEnter * set nohlsearch  " Removes highlight when in insert and...
-au InsertLeave * set hlsearch    " ...re-highlights when in normal mode again
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
@@ -186,7 +183,7 @@ set noshowmode                   " Hide vim mode from status line
 " ----------------------------------------------------------
 "                    Mappings
 " ----------------------------------------------------------
-" Mappings for NeoVim's terminal 
+" Mappings for NeoVim's terminal
 tnoremap <Esc> <C-\><C-n>
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
@@ -207,10 +204,11 @@ nnoremap c "xc
 xnoremap c "xc
 " No more accidentally showing up command window (Use C-f to show it)
 map q: :q
-" Move visual block
+" Keep selection when moving blocks
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
+vnoremap < <gv
+vnoremap > >gv
 " ----------------------------------------------------------
 "                    Colorschemes
 " ----------------------------------------------------------
@@ -237,6 +235,11 @@ colorscheme nord
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
+autocmd BufWritePre * :%s/\s\+$//e " Remove tailing spaces upon saving the file
+
+" Disable highlighting in Insert mode for parenthesis, brackets etc..
+"au! InsertEnter * NoMatchParen
+"au! InsertLeave * DoMatchParen
 
 if exists("+undofile")
   " undofile - This allows you to use undos after exiting and restarting
