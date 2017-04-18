@@ -30,31 +30,12 @@
 
 ## Terminal
 * Emulator: Gnome-terminal
-* theme: [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
 * Shell: [zsh](http://www.zsh.org/)
 	* plugin manager: [zplug](https://github.com/zplug/zplug)
-	* theme: [geometry](https://github.com/frmendes/geometry)
-	* font: [Hack](https://github.com/chrissimpkins/Hack)
 	* highlighting: [Fish shell like syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * Multiplexer: [tmux](https://tmux.github.io/)
   * plugin manager: [tmp](https://github.com/tmux-plugins/tpm)
-  * theme: [powerline](https://github.com/powerline/powerline)
 
 ### Text Editor: [Neovim](https://neovim.io/)
 * clipboard handler: [xclip](https://github.com/milki/xclip)
 * plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
-* plugins:
-  * [startify](https://github.com/mhinz/vim-startify)
-  * [repeat](https://github.com/tpope/vim-repeat)
-  * [airline](https://github.com/bling/vim-airline)
-  * [supertab](https://github.com/ervandew/supertab)
-  * [nerdtree](https://github.com/scrooloose/nerdtree)
-  * [undotree](https://github.com/mbbill/undotree)
-  * [neomake](https://github.com/benekastah/neomake)
-  * [rainbow_parentheses](https://github.com/kien/rainbow_parentheses.vim)
-  * [signify](https://github.com/mhinz/vim-signify)
-  * [search-pulse](https://github.com/inside/vim-search-pulse)
-* colorschemes:
-  * [PaperColor](https://github.com/NLKNguyen/papercolor-theme)
-  * [Base16](https://github.com/chriskempson/base16-vim)
-  * [Gruvbox](https://github.com/morhetz/gruvbox)
