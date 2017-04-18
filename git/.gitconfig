@@ -3,6 +3,8 @@
 	name = ev-agelos
 [push]
 	default = simple
+[merge]
+    ff = only
 [alias]
     tree = log --oneline --graph --decorate --all
 	lg = log --graph --branches --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -14,3 +16,5 @@
     nevermind = !git reset --hard HEAD && git clean -d -f
 [color]
 	ui = auto
+[rerere]
+	enabled = true
