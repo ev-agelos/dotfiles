@@ -50,6 +50,7 @@ Plug 'reedes/vim-colors-pencil' " best for light
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
+
 " ----------------------------------------------------------
 "                       Leader
 " ----------------------------------------------------------
@@ -60,6 +61,7 @@ nnoremap <leader><space> :nohlsearch<cr>
 " Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+
 
 " ----------------------------------------------------------
 "                     Plugin options
@@ -82,8 +84,7 @@ map / <Plug>(incsearch-stay)
 let g:deoplete#enable_at_startup = 1
 " Signify
 let g:signify_vcs_list = [ 'hg', 'git' ]
-
-"Airline options
+" Airline
 let g:airline_powerline_fonts = 1                              " Support powerline fonts
 let g:airline_theme = 'nord'                                   " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -94,7 +95,6 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-
 " Neomake
 let g:neomake_python_pylama_maker = {
     \ 'args': ['--linters mccabe'],
@@ -105,9 +105,8 @@ let g:neomake_python_pycodestyle_maker = {
     \ 'errorformat': '%f:%l:%c: %m',
     \ }
 let g:neomake_python_enabled_makers = ['python', 'pylama', 'pycodestyle', 'pyflakes', 'pylint', 'pydocstyle']
-autocmd! BufWritePost * Neomake
-
-" STARTIFY
+au! BufWritePost * Neomake
+" Startify
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header =
@@ -123,6 +122,7 @@ let g:startify_list_order = [
         \ 'files'
         \ ]
 
+
 " ---------------------------------------------------------
 "                    Settings
 " ---------------------------------------------------------
@@ -134,6 +134,7 @@ set sidescroll=1
 set mouse=a
 set relativenumber number        " Relative in Normal, Absolute in Insert
 set wildmode=full                " <Tab> cycles between all matching choices.
+
 " --------------- Moving Around/Editing --------------------
 " Do not blink in normal mode, Use pipe shape in insert mode
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
@@ -145,8 +146,6 @@ set scrolloff=3                  " Keep 3 context lines above and below the curs
 set backspace=2                  " Allow backspacing over autoindent, EOL, and BOL
 set showmatch                    " Briefly jump to a paren once it's balanced
 set nowrap
-au BufNewFile,BufRead *.py setlocal textwidth=79 "Wrap text only in python files
-au BufNewFile,BufRead *.py setlocal colorcolumn=80
 set formatoptions+=t
 set linebreak                    " don't wrap textin the middle of a word
 set smartindent                  " use smart indent if thereis no indent file
@@ -156,24 +155,24 @@ set softtabstop=4                " <BS> over an autoindent deletes both spaces.
 set expandtab                    " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                   " rounds indent to a multiple of shiftwidth
 set inccommand=split
+
 " ------------------Reading/Writing--------------------------
 set noswapfile
 set autowrite                    " Stop complaining about unsaved buffers
 set autowriteall
 set noautoread                   " Don't automatically re-read changed files.
+
 " ------------------Messages, Info, Status-------------------
 set showcmd                      " Show incomplete normal mode commands as I type.
 set report=0                     " : commands always print changed line count.
 set shortmess+=a                 " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                        " Show some info, even without statuslines.
-autocmd CompleteDone * pclose    " Automatic hide the tip window when on auto-complete
 
 
 " ------------------Searching and Patterns-------------------
 set wrapscan                     " search fron beginning if end of file is reached
 set ignorecase                   " Default to using case insensitive searches,
 set smartcase                    " unless uppercase letters are used in the regex.
-au InsertEnter * set nohlsearch  " Removes highlight when in insert and...
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
@@ -209,6 +208,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
+
 " ----------------------------------------------------------
 "                    Colorschemes
 " ----------------------------------------------------------
@@ -235,7 +235,12 @@ colorscheme nord
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
-autocmd BufWritePre * :%s/\s\+$//e " Remove tailing spaces upon saving the file
+au! FileType python setl nosmartindent              " Disable smartindent in python files(messing up hash commenting symbol)
+au BufWritePre * :%s/\s\+$//e                       " Remove tailing spaces upon saving the file
+au BufNewFile,BufRead *.py setlocal textwidth=79    " Wrap text only in python files
+au BufNewFile,BufRead *.py setlocal colorcolumn=80
+au CompleteDone * pclose                            " Automatic hide the tip window when on auto-complete
+au InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
 
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
 "au! InsertEnter * NoMatchParen
