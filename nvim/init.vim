@@ -9,35 +9,35 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-bbye'
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim',           { 'do': function('DoRemote') }
 " ------------------------------------------------------------------ File search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf',                   { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " ------------------------------------------------------------------ History
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
+Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
-Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Souroundings
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag',             { 'for': 'html' }
 Plug 'luochen1990/rainbow'
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter' " or 'mhinz/vim-signify' if mercurial is needed
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json',                  { 'for': 'json' }
 " ------------------------------------------------------------------ Effects
 Plug 'inside/vim-search-pulse'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim',         { 'on': 'Limelight' }
+Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
