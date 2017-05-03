@@ -1,6 +1,6 @@
 ## My setup:
 - Linux Distro: [Mint18](https://www.linuxmint.com/)
-- Desktop/icon theme: [Adapta-gtk-theme](https://github.com/adapta-project/adapta-gtk-theme)
+- Desktop/icon theme: [Adapta-gtk-theme](https://github.com/adapta-project/adapta-gtk-theme) or [Pop GTK theme](https://drive.google.com/file/d/0BwAdBAspPDMYWF95bmhWMWtrVnc/view)(Gnome theme but works on Mint)
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
 - Launcher: [Rofi](https://davedavenport.github.io/rofi/)
 
