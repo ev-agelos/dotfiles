@@ -23,6 +23,7 @@
 * Power management: [tlp](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html)
 * Monitor/Control CPU temperature: [thermald](https://01.org/linux-thermal-daemon/documentation/introduction-thermal-daemon)
 * List contents of directories in a tree-like format: tree
+* Better git diffs: [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 ## Internet Tools
 * Chat: [Weechat](https://weechat.org/)
