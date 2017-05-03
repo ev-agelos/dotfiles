@@ -5,6 +5,7 @@ set tags+=.git/tags
 call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Generic
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
 Plug 'haya14busa/incsearch.vim'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
