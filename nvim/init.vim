@@ -22,7 +22,7 @@ Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
-" ------------------------------------------------------------------ Souroundings
+" ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
