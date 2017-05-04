@@ -16,7 +16,7 @@ zplug "zsh-users/zsh-syntax-highlighting"
 
 # Show the host name only when different that the default evagelos
 export DEFAULT_USER=evagelos
- 
+
 # # Use solarized colors for files/directories
 alias ls='ls --color'
 alias ag='ag --ignore "*.pyc" --ignore "*.map" --ignore=tags --ignore-dir __pycache__  --color-match 36 --color-line-number 33 --color-path 31'
@@ -36,6 +36,12 @@ zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
 # but not for these programs
 zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+# Share history between zsh shells
+setopt share_history  # reloads the history whenever you use it
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
