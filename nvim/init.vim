@@ -50,6 +50,7 @@ Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next' " best for dark
 Plug 'reedes/vim-colors-pencil' " best for light
 Plug 'arcticicestudio/nord-vim'
+Plug 'tyrannicaltoucan/vim-deep-space'
 call plug#end()
 
 
@@ -88,7 +89,7 @@ let g:deoplete#enable_at_startup = 1
 let g:signify_vcs_list = [ 'hg', 'git' ]
 " Airline
 let g:airline_powerline_fonts = 1                              " Support powerline fonts
-let g:airline_theme = 'nord'                                   " Theme for airline
+let g:airline_theme = 'oceanicnext'                                   " Theme for airline
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline']
 let g:airline#extensions#branch#enabled = 1                    " enable tabline
@@ -98,15 +99,13 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 " Neomake
-let g:neomake_python_pylama_maker = {
+let g:neomake_python_mccabe_maker = {
     \ 'args': ['--linters mccabe'],
-    \ 'errorformat': '%f:%l:%c: %m',
+    \ 'errorformat': '%l: %m',
+    \ 'exe': 'pylama'
     \ }
-let g:neomake_python_pycodestyle_maker = {
-    \ 'args': [],
-    \ 'errorformat': '%f:%l:%c: %m',
-    \ }
-let g:neomake_python_enabled_makers = ['python', 'pylama', 'pycodestyle', 'pyflakes', 'pylint', 'pydocstyle']
+let g:neomake_highlight_columns=0
+let g:neomake_python_enabled_makers = ['mccabe', 'pycodestyle', 'pydocstyle', 'pylint']
 au! BufWritePost * Neomake
 " Startify
 let g:startify_session_dir = '~/.config/nvim/session'
@@ -230,10 +229,32 @@ syntax on
 "let g:pencil_higher_contrast_ui = 1
 "let g:pencil_terminal_italics = 1
 "let g:pencil_spell_undercurl = 0
+" ------------------ Deep space ---------------------------
+let g:deepspace_italics=1
 
 set background=dark
-colorscheme nord
+colorscheme deep-space
 
+" ----------------------------------------------------------
+"               NeoVim Terminal colors
+" ----------------------------------------------------------
+" Set the color pallete of the terminal.
+let g:terminal_color_0  = '#3B4252'
+let g:terminal_color_1  = '#BF616A'
+let g:terminal_color_2  = '#A3BE8C'
+let g:terminal_color_3  = '#EBCB8B'
+let g:terminal_color_4  = '#81A1C1'
+let g:terminal_color_5  = '#B48EAD'
+let g:terminal_color_6  = '#88C0D0'
+let g:terminal_color_7  = '#E5E9F0'
+let g:terminal_color_8  = '#4C566A'
+let g:terminal_color_9  = '#BF616A'
+let g:terminal_color_10 = '#A3BE8C'
+let g:terminal_color_11 = '#EBCB8B'
+let g:terminal_color_12 = '#81A1C1'
+let g:terminal_color_13 = '#B48EAD'
+let g:terminal_color_14 = '#8FBCBB'
+let g:terminal_color_15 = '#ECEFF4'
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
