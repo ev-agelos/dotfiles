@@ -229,3 +229,8 @@ exec /usr/share/iron/iron --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepfl
 exec /usr/share/simplenote/simplenote
 # start as left monitor if hdmi is connected..
 exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1
+
+bindsym $mod+Shift+i move scratchpad
+bindsym $mod+i scratchpad show
+exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id "sleep 0.8; i3-msg 'move scratchpad'"
