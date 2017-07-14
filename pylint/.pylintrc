@@ -7,9 +7,9 @@
 # pygtk.require().
 init-hook="
     "import os"
-    "venv = os.environ.get('VIRTUAL_ENV','')"
-    "this_file = venv + '/bin/activate_this.py'"
-    "if venv:"
+    "venv = os.environ.get('VIRTUAL_ENV', '')"
+    "this_file = os.path.join(venv, 'bin/activate_this.py')"
+    "if os.path.isfile(this_file):"
         "try:"
             "execfile(this_file, dict(__file__=this_file))"
         "except Exception as e:"
