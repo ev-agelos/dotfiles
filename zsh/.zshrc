@@ -59,3 +59,4 @@ export FZF_DEFAULT_OPTS='--border'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/repos/z/z.sh ] && source ~/repos/z/z.sh
