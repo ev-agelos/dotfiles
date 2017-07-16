@@ -10,6 +10,8 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "peterhurford/git-it-on.zsh"
+zplug 'zplug/zplug', hook-build:'zplug --self-manage', at:2.3.2
 
 # Allow tmux to set $TERM(to solve function keys not working problem)
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
@@ -26,7 +28,7 @@ eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
 
 # Enable advanced completion
 autoload -U compinit && compinit
-# Highlight menu completion
+# Highlight menu selection
 zstyle ':completion:*' menu select
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -40,8 +42,12 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_SPACE
 # Share history between zsh shells
-setopt share_history  # reloads the history whenever you use it
+setopt SHARE_HISTORY  # reloads the history whenever you use it
+setopt AUTOCD
+setopt LIST_PACKED
+setopt INTERACTIVE_COMMENTS
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
