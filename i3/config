@@ -10,7 +10,6 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -38,34 +37,22 @@ bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+h split v
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -124,10 +111,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-assign [class="chromium-browser"] $ws3
+assign [class="Chromium-browser"] $ws3
 assign [class="Firefox"] $ws4
 assign [class="wmail"] $ws6
-assign [class="Mumble"] $ws7
 assign [class="Simplenote"] $ws7
 assign [class="Slack"] $ws8
 assign [class="KeePass2"] $ws10
@@ -138,7 +124,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec $HOME/.config/i3/shutdown_menu.sh
 
 # US/Greek keyboard layout change with Alt+Shift
 exec --no-startup-id "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
@@ -171,10 +158,9 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-gaps inner 10
-gaps outer 5
+gaps inner 0
+gaps outer 0
 smart_gaps on
-smart_borders on
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #fbf1c7   #fbf1c7
@@ -184,21 +170,21 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
-bar {
-        colors {
-                background #504945
-                statusline #fbf1c7
-                separator #458588
-
-                focused_workspace  #4c7899 #285577 #ffffff
-                active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #2f343a #900000 #ffffff
-            }
-        i3bar_command i3bar -t
-        status_command i3blocks
-        position top
-}
+#bar {
+#        colors {
+#                background #504945
+#                statusline #fbf1c7
+#                separator #458588
+#
+#                focused_workspace  #4c7899 #285577 #ffffff
+#                active_workspace   #333333 #5f676a #ffffff
+#                inactive_workspace #333333 #222222 #888888
+#                urgent_workspace   #2f343a #900000 #ffffff
+#            }
+#        i3bar_command i3bar -t
+#        status_command i3status
+#        position top
+#}
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
@@ -206,31 +192,38 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -10% #
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Removed title bars
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 0
 new_window pixel 4
 
-# Set wallpaper everytime i3 starts
-exec_always feh --bg-scale ~/Pictures/wallpaper.png
-
-# Use compton for transparency/transition effects
-exec_always compton -f
-# Autostart some apps
-exec dropbox-start  # First start dropbox to get synced then keepass2
-exec /opt/wmail-desktop/WMail
-exec nm-applet
-exec mintupdate-launcher
-exec keepass2
-exec firefox
-exec /usr/share/iron/iron --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=21.0.0.213
-exec /usr/share/simplenote/simplenote
-# start as left monitor if hdmi is connected..
-exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1
-
+# Move a terminal to scratchpad
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id "sleep 0.8; i3-msg 'move scratchpad'"
+
+# Set wallpaper everytime i3 starts
+#exec_always feh --bg-scale ~/Pictures/wallpaper.png
+
+# Use compton for transparency/transition effects
+exec_always compton -f --config $HOME/.config/compton.conf
+
+# Run dunst for notifications
+exec --no-startup-id dunst -config ~/dunstrc
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Autostart some apps
+#exec dropbox-start  # First start dropbox to get synced then keepass2
+exec --no-startup-id dropbox start
+exec /opt/wmail-desktop/WMail
+exec nm-applet
+exec mintupdate-launcher
+exec keepass2
+#exec firefox
+#exec /usr/share/iron/chrome
+#exec /usr/share/simplenote/simplenote
+
+# start as left monitor if hdmi is connected..
+#exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1
