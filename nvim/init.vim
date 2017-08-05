@@ -1,9 +1,9 @@
 let g:python3_host_prog = 'python3'
 set path+=**
-set tags+=.git/tags
 
 call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Generic
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'haya14busa/incsearch.vim'
@@ -53,7 +53,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 call plug#end()
 
-
 " ----------------------------------------------------------
 "                       Leader
 " ----------------------------------------------------------
@@ -70,7 +69,9 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
-" delimitMate options
+" Gutentags
+let g:gutentags_ctags_tagfile='.git/tags'
+" delimitMate
 let delimitMate_nesting_quotes = ['"','`']
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 " Rainbow
