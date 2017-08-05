@@ -11,10 +11,9 @@ Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-bbye'
 Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim',           { 'do': function('DoRemote') }
+" ------------------------------------------------------------------ Completion
+Plug 'Shougo/deoplete.nvim',           { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi',            { 'do': 'git submodule update --init' }
 " ------------------------------------------------------------------ File search
 Plug 'junegunn/fzf',                   { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
