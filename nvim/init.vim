@@ -108,10 +108,11 @@ let g:neomake_highlight_columns=0
 let g:neomake_python_enabled_makers = ['mccabe', 'pycodestyle', 'pydocstyle', 'pylint']
 au! BufWritePost * Neomake
 " Startify
+let g:startify_change_to_vcs_root = 1
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
-let g:startify_custom_header =
-          \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
+let g:startify_custom_header = []
+          "\ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
 let g:startify_list_order = [
         \ ['   Bookmarks:'],
         \ 'bookmarks',
