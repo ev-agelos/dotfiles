@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
@@ -91,22 +92,25 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 " Airline
 let g:airline_powerline_fonts = 1                              " Support powerline fonts
 let g:airline_theme = 'oceanicnext'                                   " Theme for airline
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_extensions = ['branch', 'whitespace', 'tabline']
-let g:airline#extensions#branch#enabled = 1                    " enable tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_extensions = ['branch', 'whitespace', 'tabline', 'ale']
+" ale
+let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
+let g:ale_linters = {
+\   'python': ['pylint', 'flake8'],
+\}
+let g:ale_fixers = {
+\   'python': ['autopep8', 'isort', 'yapf']
+\}
+let g:ale_sign_column_always = 1
+let g:ale_echo_msg_format = '%linter% %s'
 " Neomake
-let g:neomake_python_mccabe_maker = {
-    \ 'args': ['--linters mccabe'],
-    \ 'errorformat': '%l: %m',
-    \ 'exe': 'pylama'
-    \ }
 let g:neomake_highlight_columns=0
-let g:neomake_python_enabled_makers = ['mccabe', 'pycodestyle', 'pydocstyle', 'pylint']
+let g:neomake_python_enabled_makers = ['pydocstyle']
 au! BufWritePost * Neomake
 " Startify
 let g:startify_change_to_vcs_root = 1
