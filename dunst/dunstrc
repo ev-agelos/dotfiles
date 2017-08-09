@@ -1,6 +1,6 @@
 [global]
     font = "Droid Sans 8"
-    allow_markup = yes
+    markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
     indicate_hidden = yes
@@ -21,10 +21,8 @@
     horizontal_padding = 8
     separator_color = "#585858"
     startup_notification = false
-
-[frame]
-    width = 1
-    color = "#383838"
+    frame_width = 1
+    frame_color = "#383838"
 
 [shortcuts]
     close = ctrl+space
