@@ -5,6 +5,7 @@
 	default = simple
 [merge]
     ff = only
+	tool = vimdiff3
 [alias]
     tree = log --oneline --graph --decorate --all
 	lg = log --graph --branches --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -32,3 +33,5 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[mergetool]
+	path = nvim
