@@ -23,6 +23,7 @@ export DEFAULT_USER=evagelos
 alias ls='ls --color'
 alias ag='ag --ignore "*.pyc" --ignore "*.map" --ignore=tags --ignore-dir __pycache__  --color-match 36 --color-line-number 33 --color-path 31'
 alias tree="tree -I '*.pyc|__pycache__'"
+alias view=nvim -R
 
 eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
 
