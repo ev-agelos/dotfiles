@@ -49,6 +49,7 @@ setopt SHARE_HISTORY  # reloads the history whenever you use it
 setopt AUTOCD
 setopt LIST_PACKED
 setopt INTERACTIVE_COMMENTS
+setopt MENU_COMPLETE
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
