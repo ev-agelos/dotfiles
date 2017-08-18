@@ -11,6 +11,8 @@ Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-bbye'
 Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
+" ------------------------------------------------------------------ Unix shell commands
+Plug 'tpope/vim-eunuch'
 " ------------------------------------------------------------------ Completion
 Plug 'Shougo/deoplete.nvim',           { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi',            { 'do': 'git submodule update --init' }
@@ -197,8 +199,6 @@ set noshowmode                   " Hide vim mode from status line
 " ----------------------------------------------------------
 " Mappings for NeoVim's terminal
 tnoremap <Esc> <C-\><C-n>
-" for when we forget to use sudo to open/edit a file
-cmap w!! w !sudo tee % >/dev/null
 " No need for Ex mode
 nnoremap Q <nop>
 " recording mappings is not my thing
