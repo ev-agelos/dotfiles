@@ -101,6 +101,10 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_extensions = ['branch', 'whitespace', 'tabline', 'ale']
 " ale
 let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
+let g:ale_sign_warning='●'
+hi ALEErrorSign ctermfg=red ctermbg=none
+let g:ale_sign_error='●'
+hi ALEWarningSign ctermfg=yellow ctermbg=none
 let g:ale_linters = {
 \   'python': ['pylint', 'flake8'],
 \}
