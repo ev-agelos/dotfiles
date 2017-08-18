@@ -8,10 +8,11 @@ GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git hg)
 zplug "frmendes/geometry"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "jarun/googler", use:"auto-completion/zsh/_googler"
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "peterhurford/git-it-on.zsh"
-zplug 'zplug/zplug', hook-build:'zplug --self-manage', at:2.3.2
+zplug "zplug/zplug", hook-build:"zplug --self-manage", at:2.3.2
 
 # Allow tmux to set $TERM(to solve function keys not working problem)
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
