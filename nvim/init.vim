@@ -73,6 +73,7 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 
 " Gutentags
 let g:gutentags_ctags_tagfile='.git/tags'
+set statusline+=%{gutentags#statusline('[Generating...]')}
 " delimitMate
 let delimitMate_nesting_quotes = ['"','`']
 au FileType python let b:delimitMate_nesting_quotes = ['"']
