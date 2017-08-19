@@ -29,3 +29,8 @@ export SHELL=/usr/bin/zsh
 source $(pew shell_config)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Start X
+if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
+  startx
+fi
