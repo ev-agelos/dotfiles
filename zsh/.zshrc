@@ -17,6 +17,9 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage", at:2.3.2
 # Allow tmux to set $TERM(to solve function keys not working problem)
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
+# Use Shift+Tab for previous selection
+bindkey '^[[Z' reverse-menu-complete
+
 # Show the host name only when different that the default evagelos
 export DEFAULT_USER=evagelos
 
