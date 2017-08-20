@@ -40,7 +40,7 @@
 * Email(cli): [mutt](http://www.mutt.org/)
 
 ## Terminal
-* Emulator: Gnome-terminal
+* Emulator: [termite](https://github.com/thestinger/termite)
 * Shell: [zsh](http://www.zsh.org/)
 	* plugin manager: [zplug](https://github.com/zplug/zplug)
 	* highlighting: [Fish shell like syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
