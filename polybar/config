@@ -17,56 +17,41 @@ foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+graphite = #2e3440
+gray = #707f9c
+green = #50fa7b
+white = #ffffff
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR:eDP1}
-width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
+width = 95%
+height = 30
+offset-x = 0
+offset-y = 0
 radius = 0
 fixed-center = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.graphite}
+foreground = ${colors.white}
 
-line-size = 2
-line-color = #f00
+border-size = 3
+border-color = ${colors.graphite}
 
-border-size = 0
-border-color = #00000000
+module-margin-left = 1
+module-margin-right = 1
 
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 2
-module-margin-right = 2
-
-font-0 = "Roboto:size=11:weight=bold;1"
-font-1 = "unifont:fontformat=truetype:size=12:antialias=false;0"
+font-0 = Roboto:size=11:weight=bold;1
+font-1 = FontAwesome:size=10;1
 font-2 = siji:pixelsize=10;1
-font-3 = FontAwesome:size=10;1
+font-3 = "unifont:fontformat=truetype:size=12:antialias=false;0"
 
 modules-left = i3
 modules-center = mpd vpncheck redshift
-modules-right = filesystem xbacklight volume xkeyboard memory cpu battery temperature date
+modules-right = filesystem xbacklight volume xkeyboard battery date
 
 tray-position = right
-tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+tray-offset-x=79
 
 [module/xwindow]
 type = internal/xwindow
@@ -166,75 +151,16 @@ label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
+#card = intel_backlight
 
-format = <label> <bar>
-label = BL
+format = <ramp> <label>
+label = %percentage%
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
-[module/cpu]
-type = internal/cpu
-interval = 0.5
-; Available tags:
-;   <label> (default)
-;   <bar-load>
-;   <ramp-load>
-;   <ramp-coreload>
-format = <label> <ramp-coreload>
-label = CPU %percentage%%
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
-
-[module/memory]
-type = internal/memory
-interval = 3
-; Available tags:
-;   <label> (default)
-;   <bar-used>
-;   <bar-free>
-format = <label> <bar-used>
-
-; Available tokens:
-;   %percentage_used% (default)
-;   %percentage_free%
-;   %gb_used%
-;   %gb_free%
-;   %gb_total%
-;   %mb_used%
-;   %mb_free%
-;   %mb_total%
-label = RAM %percentage_used%%
-
-; Only applies if <bar-used> is used
-bar-used-indicator =
-bar-used-width = 50
-bar-used-foreground-0 = #55aa55
-bar-used-foreground-1 = #557755
-bar-used-foreground-2 = #f5a70a
-bar-used-foreground-3 = #ff5555
-bar-used-fill = ▐
-bar-used-empty = ▐
-bar-used-empty-foreground = #444444
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 
 [module/wlan]
 type = internal/network
@@ -345,7 +271,6 @@ time-alt = %H:%M:%S
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
-
 label = %date% %time%
 
 [module/volume]
@@ -357,10 +282,10 @@ label-active-font = 3
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = 0 %
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
+rar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
 bar-volume-foreground-3 = #55aa55
@@ -386,76 +311,31 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+poll-interval = 5
 
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-charging = <animation-charging>  <label-charging>
+format-discharging = <ramp-capacity>  <label-discharging>
+format-full = <ramp-capacity>  <label-full>
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = %percentage%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
 
-; Only applies if <animation-charging> is used
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-[module/temperature]
-[module/temperature]
-type = internal/temperature
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
-
-; Thermal zone to use
-; To list all the zone types, run
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 0
-
-; Threshold temperature to display warning label
-; Default: 80
-warn-temperature = 60
-; Available tags:
-;   <label> (default)
-;   <ramp>
-format = <ramp> <label>
-
-; Available tags:
-;   <label-warn> (default)
-;   <ramp>
-format-warn = <ramp> <label-warn>
-
-; Available tokens:
-;   %temperature% (default)
-label = TEMP %temperature%
-
-; Available tokens:
-;   %temperature% (default)
-label-warn = TEMP %temperature%
-label-warn-foreground = #f00
-
-; Requires the <ramp> tag
-; The icon selection will range from 0 to `warn-temperature`
-; with the current temperature as index.
-ramp-0 = A
-ramp-1 = B
-ramp-2 = C
-ramp-foreground = #55
 
 [module/vpncheck]
 type = custom/script
