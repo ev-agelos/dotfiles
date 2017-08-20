@@ -209,17 +209,20 @@ exec --no-startup-id "sleep 0.8; i3-msg 'move scratchpad'"
 #exec_always feh --bg-scale ~/Pictures/wallpaper.png
 
 # Use compton for transparency/transition effects
-exec_always compton -f --config $HOME/.config/compton.conf
+exec_always --no-startup-id compton -f --config $HOME/.config/compton.conf
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec --no-startup-id xautolock -detectsleep -time 2 -notify 10 -notifier "notify-send -u critical -t 10000 -- 'LOCKING in 10'" -locker ~/.config/i3/lock.sh
+
 # Autostart some apps
 #exec dropbox-start  # First start dropbox to get synced then keepass2
-exec xautolock -time 2 -notify 10 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 10 seconds'" -locker ~/.config/i3/lock.sh
 exec --no-startup-id dropbox start
-exec /opt/wmail-desktop/WMail
-exec nm-applet
+#exec --no-startup-id /opt/wmail-desktop/WMail
+exec --no-startup-id nm-applet
 exec --no-startup-id mintupdate-launcher
-exec keepass2
+exec --no-startup-id redshift
+#exec --no-startup-id keepass2
 #exec firefox
 #exec /usr/share/iron/chrome
 #exec /usr/share/simplenote/simplenote
