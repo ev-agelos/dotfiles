@@ -211,8 +211,6 @@ exec --no-startup-id "sleep 0.8; i3-msg 'move scratchpad'"
 # Use compton for transparency/transition effects
 exec_always compton -f --config $HOME/.config/compton.conf
 
-# Run dunst for notifications
-exec --no-startup-id dunst -config ~/dunstrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Autostart some apps
 #exec dropbox-start  # First start dropbox to get synced then keepass2
