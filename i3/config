@@ -37,10 +37,10 @@ bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left focus left; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+Down focus down; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+Up focus up; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+Right focus right; exec --no-startup-id $HOME/.config/i3/flash_win.sh
 
 # move focused window
 bindsym $mod+Shift+Left move left
