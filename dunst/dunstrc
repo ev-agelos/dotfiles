@@ -43,4 +43,10 @@
 [urgency_critical]
     background = "#181818"
     foreground = "#E3C7AF"
-    timeout = 0
+
+ [weechhat]
+    appname = "weechat"
+    format  = "%s: %b"
+    urgency = low
+    background = "#83c83d"
+    foreground = "#000000"   timeout = 0
