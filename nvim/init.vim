@@ -92,6 +92,7 @@ let g:deoplete#enable_at_startup = 1
 " Signify
 let g:signify_vcs_list = [ 'hg', 'git' ]
 " Airline
+let g:airline_section_z = '%c'
 let g:airline_powerline_fonts = 1                              " Support powerline fonts
 let g:airline_theme = 'oceanicnext'                                   " Theme for airline
 let g:airline_left_sep = ''
