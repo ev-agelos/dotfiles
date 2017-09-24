@@ -68,6 +68,9 @@ fi
 zplug load --verbose
 
 export FZF_DEFAULT_COMMAND="ag --ignore={'*.pyc','*.map','tags','__pycache__/'} --color-match 36 --color-line-number 33 --color-path 31 -g ''"
+export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_DEFAULT_OPTS='--border'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
