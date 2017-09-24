@@ -28,6 +28,7 @@ alias ls='ls --color'
 alias ag="ag --ignore={'*.pyc','*.map','tags','__pycache__/'} --color-match 36 --color-line-number 33 --color-path 31"
 alias tree="tree -I '*.pyc|__pycache__'"
 alias view=nvim -R
+alias cat=ccat
 
 eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
 
