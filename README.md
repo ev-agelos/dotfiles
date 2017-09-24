@@ -18,8 +18,8 @@
 * File Manager(cli): [ranger](http://ranger.nongnu.org/)
 * Task Manager(cli): [htop](http://hisham.hm/htop/)
 * Command-line fuzzy finder(cli): [fzf](https://github.com/junegunn/fzf)
-* Text searching(cli): [ag](https://github.com/ggreer/the_silver_searcher)
-* Quick access to files/folders: [fasd](https://github.com/clvv/fasd)
+* Text searching(cli): [ripgrep](https://github.com/BurntSushi/ripgrep)
+* Quick access to directories: [fasd](https://github.com/clvv/fasd)
 * Simplified man pages(cli): [tldr](https://github.com/lord63/tldr.py)
 * Command line HTTP client(cli): [HTTPie](https://github.com/jkbrzt/httpie)
 * Screenshot tool: scrot
