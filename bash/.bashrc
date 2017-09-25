@@ -1,8 +1,3 @@
-# Set editor for svn, git, mercurial
-export SVN_EDITOR=nvim
-export GIT_EDITOR=nvim
-export HG_EDITOR=nvim
-
 # Important for encodings(different programs brake like zsh/powerline etc)
 #export LANG=en_US.UTF-8
 
