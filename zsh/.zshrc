@@ -12,6 +12,7 @@ zplug "jarun/googler", use:auto-completion/zsh/
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "peterhurford/git-it-on.zsh"
+zplug "changyuheng/zsh-interactive-cd"
 zplug "zplug/zplug", hook-build:"zplug --self-manage", at:2.3.2
 
 # Allow tmux to set $TERM(to solve function keys not working problem)
@@ -25,7 +26,6 @@ export DEFAULT_USER=evagelos
 
 # # Use solarized colors for files/directories
 alias ls='ls --color'
-alias ag="ag --ignore={'*.pyc','*.map','tags','__pycache__/'} --color-match 36 --color-line-number 33 --color-path 31"
 alias tree="tree -I '*.pyc|__pycache__'"
 alias view=nvim -R
 alias cat=ccat
@@ -67,13 +67,28 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
 
-export FZF_DEFAULT_COMMAND='rg --ignore "*.pyc" --ignore "*.map" --ignore=tags --ignore-dir __pycache__ --color-match 36 --color-line-number 33 --color-path 31 -g ""'
-export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --no-messages --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--border'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
+
+export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
+
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
+
+export FZF_ALT_C_COMMAND="bfs -type d"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(fasd --init auto)"
+
+fo() {
+  local out file key
+  IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && xdg-open "$file" || ${EDITOR:-vim} "$file"
+  fi
+}
