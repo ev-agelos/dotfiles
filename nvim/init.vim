@@ -139,15 +139,16 @@ let g:startify_list_order = [
 " fzf-vim
 let g:fzf_files_options =
    \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
-" press ? to open preview when on :Ag.
+" press ? to open preview when on :Rg.
 " Note for linux mint: remove the highlight part from the COMMAND variable
 " defined in ~/.config/nvim/plugged/fzf.vim/bin/preview.rb for this to work!
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --fixed-strings --smart-case --no-ignore --hidden --follow --color=always --no-messages '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+
 " ---------------------------------------------------------
 "                    Settings
 " ---------------------------------------------------------
@@ -209,6 +210,7 @@ set noshowmode                   " Hide vim mode from status line
 " ----------------------------------------------------------
 " fzf
 nnoremap <C-p> :Files<cr>
+nnoremap \ :Rg<SPACE>
 " Mappings for NeoVim's terminal
 tnoremap <Esc> <C-\><C-n>
 " No need for Ex mode
