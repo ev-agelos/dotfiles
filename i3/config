@@ -202,15 +202,15 @@ new_window pixel 4
 # Move a terminal to scratchpad
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
-exec --no-startup-id i3-sensible-terminal --name terminal_scratchpad
+exec_always --no-startup-id i3-sensible-terminal --name terminal_scratchpad
 for_window [instance="terminal_scratchpad"] floating enable
-for_window [instance="terminal_scratchpad"] move window to scratchpad
+for_window [instance="terminal_scratchpad"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move window to scratchpad
 
 # Set wallpaper everytime i3 starts
 #exec_always feh --bg-scale ~/Pictures/wallpaper.png
 
 # Use compton for transparency/transition effects
-exec_always --no-startup-id compton -f --config $HOME/.config/compton.conf
+exec_always --no-startup-id compton -f --paint-on-overlay --config $HOME/.config/compton.conf
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
