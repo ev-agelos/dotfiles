@@ -18,6 +18,7 @@
 * File Manager(cli): [ranger](http://ranger.nongnu.org/)
 * Task Manager(cli): [htop](http://hisham.hm/htop/)
 * Command-line fuzzy finder(cli): [fzf](https://github.com/junegunn/fzf)
+* Breadth-first version of find.: [bfs](https://github.com/tavianator/bfs)
 * Text searching(cli): [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Quick access to directories: [fasd](https://github.com/clvv/fasd)
 * Simplified man pages(cli): [tldr](https://github.com/lord63/tldr.py)
