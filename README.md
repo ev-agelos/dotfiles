@@ -29,6 +29,7 @@
 * Monitor/Control CPU temperature: [thermald](https://01.org/linux-thermal-daemon/documentation/introduction-thermal-daemon)
 * List contents of directories in a tree-like format: tree
 * Automatic lock on inactivity: xautolock
+* Colorized cat: [ccat](https://github.com/jingweno/ccat)
 
 ## Version Control tools
 * Better git diffs: [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
