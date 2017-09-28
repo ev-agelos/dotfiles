@@ -158,7 +158,7 @@ set splitright                   " When vertically split right
 set splitbelow                   " When horizontally split below
 set sidescroll=1
 set mouse=a
-set relativenumber number        " Relative in Normal, Absolute in Insert
+set number
 set wildmode=full                " <Tab> cycles between all matching choices.
 
 " --------------- Moving Around/Editing --------------------
