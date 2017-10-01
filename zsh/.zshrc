@@ -2,7 +2,7 @@ source ~/.zplug/init.zsh
 
 # Customize geometry theme
 PROMPT_VIRTUALENV_ENABLED=true
-GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git hg)
+GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git docker_machine)
 
 # Plugins
 zplug "frmendes/geometry"
@@ -13,7 +13,7 @@ zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "peterhurford/git-it-on.zsh"
 zplug "changyuheng/zsh-interactive-cd"
-zplug "zplug/zplug", hook-build:"zplug --self-manage", at:2.3.2
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # Allow tmux to set $TERM(to solve function keys not working problem)
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
