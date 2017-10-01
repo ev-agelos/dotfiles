@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Generic
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-vinegar'
+Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
