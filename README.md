@@ -30,6 +30,7 @@
 * List contents of directories in a tree-like format: tree
 * Automatic lock on inactivity: xautolock
 * Colorized cat: [ccat](https://github.com/jingweno/ccat)
+* Disk usage analyzer: [ncdu](https://dev.yorhel.nl/ncdu)
 
 ## Version Control tools
 * Better git diffs: [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
