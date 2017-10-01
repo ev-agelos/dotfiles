@@ -37,7 +37,6 @@
 * Text mode interface for git: [tig](https://github.com/jonas/tig)
 * Mercurial templates when showing logs: [mercurial-cli-templates](https://bitbucket.org/evagelos/mercurial-cli-templates)
 
-
 ## Internet tools
 * Chat: [Weechat](https://weechat.org/)
 * Email(cli): [mutt](http://www.mutt.org/)
