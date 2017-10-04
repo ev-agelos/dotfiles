@@ -144,7 +144,7 @@ let g:fzf_files_options =
 " defined in ~/.config/nvim/plugged/fzf.vim/bin/preview.rb for this to work!
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --fixed-strings --smart-case --no-ignore --hidden --follow --color=always --no-messages '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --color=always --no-messages '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
@@ -240,7 +240,6 @@ vnoremap > >gv
 "                    Colorschemes
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
-syntax on
 
 " ------------------ Gruvbox -------------------------------
 "let g:gruvbox_contrast_dark='soft'
