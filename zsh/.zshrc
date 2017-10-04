@@ -67,7 +67,7 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --no-messages --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-messages --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--border'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
