@@ -1,0 +1,9 @@
+.git/
+.tags/
+.eggs/
+.cache/
+__pycache__/
+
+*pylintrc
+*.pyc
+*.map
