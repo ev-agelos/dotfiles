@@ -32,6 +32,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag',             { 'for': 'html' }
 Plug 'luochen1990/rainbow'
 " ------------------------------------------------------------------ Version Control
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter' " or 'mhinz/vim-signify' if mercurial is needed
@@ -310,3 +311,8 @@ endif
 
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+hi DiffAdd     gui=none    guifg=#709d6c          guibg=#2d422b
+hi DiffChange   gui=none    guifg=NONE          guibg=NONE
+hi DiffDelete   gui=bold    guifg=#ff8080       guibg=NONE
+hi DiffText     gui=none    guifg=#709d6c          guibg=#2d422b
