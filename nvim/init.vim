@@ -161,6 +161,7 @@ set sidescroll=1
 set mouse=a
 set number
 set wildmode=full                " <Tab> cycles between all matching choices.
+set nojoinspaces                 " Dont append 2 spaces when shift+j on lines ending in !,?,.
 
 " --------------- Moving Around/Editing --------------------
 " Do not blink in normal mode, Use pipe shape in insert mode
