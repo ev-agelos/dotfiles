@@ -20,6 +20,8 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # Use Shift+Tab for previous selection
 bindkey '^[[Z' reverse-menu-complete
+# Ctrl+U to delete chars from cursor position to beginning of line
+bindkey \^U backward-kill-line
 
 # Show the host name only when different that the default evagelos
 export DEFAULT_USER=evagelos
