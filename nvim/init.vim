@@ -42,12 +42,12 @@ Plug 'inside/vim-search-pulse'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'junegunn/limelight.vim',         { 'on': 'Limelight' }
 Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
+Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " ------------------------------------------------------------------ Colorschemes
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next' " best for dark
@@ -161,7 +161,6 @@ set sidescroll=1
 set mouse=a
 set number
 set wildmode=full                " <Tab> cycles between all matching choices.
-set nojoinspaces                 " Dont append 2 spaces when shift+j on lines ending in !,?,.
 
 " --------------- Moving Around/Editing --------------------
 " Do not blink in normal mode, Use pipe shape in insert mode
@@ -242,25 +241,27 @@ vnoremap > >gv
 "                    Colorschemes
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
+set background=light
 
 " ------------------ Gruvbox -------------------------------
 "let g:gruvbox_contrast_dark='soft'
 
 " ------------------ Oceanic -------------------------------
-"let g:oceanic_next_terminal_italic = 1
-"let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" let g:oceanic_next_terminal_bold = 1
+" colorscheme OceanicNextLight
 
 " ------------------ Pencil --------------------------------
-"let g:pencil_gutter_color = 1
-"let g:pencil_neutral_headings = 1
-"let g:pencil_higher_contrast_ui = 1
-"let g:pencil_terminal_italics = 1
-"let g:pencil_spell_undercurl = 0
+" let g:pencil_gutter_color = 1
+" let g:pencil_neutral_headings = 1
+" let g:pencil_higher_contrast_ui = 1
+" let g:pencil_terminal_italics = 1
+" let g:pencil_spell_undercurl = 0
+" colorscheme pencil
 " ------------------ Deep space ---------------------------
 let g:deepspace_italics=1
-
-set background=dark
 colorscheme deep-space
+
 
 " ----------------------------------------------------------
 "               NeoVim Terminal colors
