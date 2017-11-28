@@ -17,15 +17,7 @@ export HISTIGNORE="&:ls:vdir:[bf]g:exit"
 # No accidental closing with ctrl-d
 export IGNOREEOF=1
 
-# Open zsh shell
-export SHELL=/usr/bin/zsh
-[ -z "$ZSH_VERSION" ] && exec /usr/bin/zsh -l
-
 source $(pew shell_config)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Start X
-if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
-  startx
-fi
