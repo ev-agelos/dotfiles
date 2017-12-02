@@ -2,6 +2,8 @@ source ~/.zplug/init.zsh
 
 # Customize geometry theme
 PROMPT_VIRTUALENV_ENABLED=true
+PROMPT_GEOMETRY_RPROMPT_ASYNC=false
+PROMPT_GEOMETRY_GIT_TIME=false
 GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git docker_machine)
 
 # Plugins
@@ -73,11 +75,8 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-messages --glob "!
 export FZF_DEFAULT_OPTS='--border'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
-
 export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
-
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
-
 export FZF_ALT_C_COMMAND="bfs -type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
