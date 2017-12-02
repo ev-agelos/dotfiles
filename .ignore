@@ -7,3 +7,5 @@ __pycache__/
 *pylintrc
 *.pyc
 *.map
+*.min.js
+*.min.css
