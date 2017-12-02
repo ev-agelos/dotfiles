@@ -73,7 +73,7 @@ fi
 zplug load --verbose
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-messages --glob "!.git/*"'
-export FZF_DEFAULT_OPTS='--border'
+export FZF_DEFAULT_OPTS='--border --cycle'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
