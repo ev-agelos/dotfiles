@@ -21,6 +21,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # i3 hud-menu
 export APPMENU_DISPLAY_BOTH=1
 if [ -n "$GTK_MODULES" ]
