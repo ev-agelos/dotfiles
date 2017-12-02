@@ -15,6 +15,7 @@ zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "peterhurford/git-it-on.zsh"
 zplug "changyuheng/zsh-interactive-cd"
+zplug "wfxr/forgit", defer:1
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # Allow tmux to set $TERM(to solve function keys not working problem)
