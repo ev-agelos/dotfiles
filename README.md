@@ -4,7 +4,7 @@
 - Icon theme: [Arc-icon-theme](https://github.com/horst3180/arc-icon-theme)
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
 - Status bar: [polybar](https://github.com/jaagr/polybar)
-- Launcher: [Rofi](https://davedavenport.github.io/rofi/)
+- Launcher: [dmenu](https://tools.suckless.org/dmenu/) or [Rofi](https://davedavenport.github.io/rofi/)
 - Notifications: [dunst](https://github.com/dunst-project/dunst)
 
 ## Media:
@@ -12,13 +12,14 @@
 * Document viewer(cli): [zathura](https://pwmt.org/projects/zathura/)
 * Video player(cli): [mpv](https://mpv.io/)
 * Audio player(cli): mpd+mpc+ncmpcpp
+* Audio visualizer(cli): [C.A.V.A](https://github.com/karlstav/cava)
 * Youtube player/downloader: [mps-youtube](https://github.com/mps-youtube/mps-youtube)
 
 ## General tools
 * File Manager(cli): [ranger](http://ranger.nongnu.org/)
 * Task Manager(cli): [htop](http://hisham.hm/htop/)
 * Command-line fuzzy finder(cli): [fzf](https://github.com/junegunn/fzf)
-* Breadth-first version of find.: [bfs](https://github.com/tavianator/bfs)
+* Breadth-first version of find: [bfs](https://github.com/tavianator/bfs)
 * Text searching(cli): [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Quick access to directories: [fasd](https://github.com/clvv/fasd)
 * Simplified man pages(cli): [tldr](https://github.com/lord63/tldr.py)
