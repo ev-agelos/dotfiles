@@ -54,6 +54,7 @@ Plug 'mhartington/oceanic-next' " best for dark
 Plug 'reedes/vim-colors-pencil' " best for light
 Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'metalelf0/base16-black-metal-scheme'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -241,7 +242,7 @@ vnoremap > >gv
 "                    Colorschemes
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
-set background=light
+set background=dark
 
 " ------------------ Gruvbox -------------------------------
 "let g:gruvbox_contrast_dark='soft'
@@ -263,26 +264,6 @@ let g:deepspace_italics=1
 colorscheme deep-space
 
 
-" ----------------------------------------------------------
-"               NeoVim Terminal colors
-" ----------------------------------------------------------
-" Set the color pallete of the terminal.
-let g:terminal_color_0  = '#3B4252'
-let g:terminal_color_1  = '#BF616A'
-let g:terminal_color_2  = '#A3BE8C'
-let g:terminal_color_3  = '#EBCB8B'
-let g:terminal_color_4  = '#81A1C1'
-let g:terminal_color_5  = '#B48EAD'
-let g:terminal_color_6  = '#88C0D0'
-let g:terminal_color_7  = '#E5E9F0'
-let g:terminal_color_8  = '#4C566A'
-let g:terminal_color_9  = '#BF616A'
-let g:terminal_color_10 = '#A3BE8C'
-let g:terminal_color_11 = '#EBCB8B'
-let g:terminal_color_12 = '#81A1C1'
-let g:terminal_color_13 = '#B48EAD'
-let g:terminal_color_14 = '#8FBCBB'
-let g:terminal_color_15 = '#ECEFF4'
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
