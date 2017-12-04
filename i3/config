@@ -30,8 +30,11 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi
+#bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=15'
 #bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 -font "mono 20" -opacity "65"
-bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=20'
+bindsym $mod+d exec --no-startup-id ~/bin/j4-dmenu-desktop_custom.sh
+
+bindsym $mod+m exec --no-startup-id ~/repos/hud-menu/hud-menu.py dmeny
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -39,10 +42,10 @@ bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=20'
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+Left focus left; exec --no-startup-id $HOME/.config/i3/flash_win.sh
-bindsym $mod+Down focus down; exec --no-startup-id $HOME/.config/i3/flash_win.sh
-bindsym $mod+Up focus up; exec --no-startup-id $HOME/.config/i3/flash_win.sh
-bindsym $mod+Right focus right; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+Left focus left; exec --no-startup-id $HOME/bin/flash_win.sh
+bindsym $mod+Down focus down; exec --no-startup-id $HOME/bin/flash_win.sh
+bindsym $mod+Up focus up; exec --no-startup-id $HOME/bin/flash_win.sh
+bindsym $mod+Right focus right; exec --no-startup-id $HOME/bin/flash_win.sh
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -127,7 +130,7 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec $HOME/.config/i3/shutdown_menu.sh
+bindsym $mod+Shift+e exec $HOME/bin/shutdown_menu.sh
 
 # US/Greek keyboard layout change with Alt+Shift
 exec --no-startup-id "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
@@ -207,7 +210,7 @@ for_window [instance="terminal_scratchpad"] resize grow left 300, resize grow ri
 
 exec_always $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id xautolock -detectsleep -time 2 -notify 10 -notifier "notify-send -u critical -t 10000 -- 'LOCKING in 10'" -locker ~/.config/i3/lock.sh
+exec --no-startup-id xautolock -detectsleep -time 2 -notify 10 -notifier "notify-send -u critical -t 10000 -- 'LOCKING in 10'" -locker ~/bin/lock.sh
 
 # Autostart some apps
 #exec dropbox-start  # First start dropbox to get synced then keepass2
