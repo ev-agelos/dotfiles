@@ -41,14 +41,16 @@ border-color = ${colors.graphite}
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Roboto:size=11:weight=bold;1
-font-1 = FontAwesome:size=10;1
-font-2 = siji:pixelsize=10;1
-font-3 = "unifont:fontformat=truetype:size=12:antialias=false;0"
+font-0 = "FontAwesome:size=12;0"
+font-1 = "Roboto:size=11:weight=bold;1"
+font-2 = "Siji:pixelsize=10;1"
+font-3 = "unifont:size=12:antialias=false;0"
+font-4 = "Unifont Upper:size=12:antialias=false;0"
+
 
 modules-left = i3
 modules-center = mpd vpncheck redshift
-modules-right = filesystem xbacklight volume xkeyboard battery date
+modules-right = filesystem backlight volume xkeyboard battery date
 
 tray-position = right
 tray-offset-x=79
@@ -138,29 +140,53 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <icon-repeat>
+label-song =  %artist% - %title%
+interval=2
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+; host = localhost
+; port = 6600
+; password=mysecret
+
+; Only applies if <icon-X> is used
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 🔀
+icon-repeat =
+icon-repeatone = 🔂
+icon-consume = ✀
 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-[module/xbacklight]
+[module/backlight]
 type = internal/xbacklight
-#card = intel_backlight
-
-format = <ramp> <label>
-label = %percentage%
-
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
+output = eDP1
+; Create scroll handlers used to set the backlight value
+; Default: true
+enable-scroll = false
+format = <ramp>
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+; Only applies if <ramp> is used
 ramp-0 = 🌕
 ramp-1 = 🌔
 ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
 
 [module/wlan]
 type = internal/network
