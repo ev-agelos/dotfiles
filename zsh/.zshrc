@@ -1,3 +1,63 @@
+# # Use solarized colors for files/directories
+alias ls='ls --color'
+alias tree="tree -I '*.pyc|__pycache__'"
+alias view=nvim -R
+alias cat=ccat
+
+eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
+eval "$(fasd --init auto)"
+
+# Show the host name only when different that the default evagelos
+export DEFAULT_USER=evagelos
+# Allow tmux to set $TERM(to solve function keys not working problem)
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-messages --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--border --cycle'
+export FZF_TMUX=1
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
+export FZF_ALT_C_COMMAND="bfs -type d"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+# Use Shift+Tab for previous selection
+bindkey '^[[Z' reverse-menu-complete
+# Ctrl+U to delete chars from cursor position to beginning of line
+bindkey \^U backward-kill-line
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
+setopt BEEP
+setopt LIST_BEEP
+# Share history between zsh shells
+setopt SHARE_HISTORY  # reloads the history whenever you use it
+setopt AUTOCD
+setopt LIST_PACKED
+setopt INTERACTIVE_COMMENTS
+setopt MENU_COMPLETE
+
+# Enable advanced completion
+autoload -U compinit && compinit
+# Highlight menu selection
+zstyle ':completion:*' menu select
+# colored completion - use my LS_COLORS
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# ignore some directories
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#*.egg-info|' '(*/)#__pycache__'
+# ignore some files during completion
+zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
+# but not for these programs
+zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
+zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
+
+###############################################################
 source ~/.zplug/init.zsh
 
 # Customize geometry theme
@@ -14,52 +74,9 @@ zplug "jarun/googler", use:auto-completion/zsh/
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "peterhurford/git-it-on.zsh"
-zplug "changyuheng/zsh-interactive-cd"
+# zplug "changyuheng/zsh-interactive-cd"
 zplug "wfxr/forgit", defer:1
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
-
-# Allow tmux to set $TERM(to solve function keys not working problem)
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
-
-# Use Shift+Tab for previous selection
-bindkey '^[[Z' reverse-menu-complete
-# Ctrl+U to delete chars from cursor position to beginning of line
-bindkey \^U backward-kill-line
-
-# Show the host name only when different that the default evagelos
-export DEFAULT_USER=evagelos
-
-# # Use solarized colors for files/directories
-alias ls='ls --color'
-alias tree="tree -I '*.pyc|__pycache__'"
-alias view=nvim -R
-alias cat=ccat
-
-eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
-
-# Enable advanced completion
-autoload -U compinit && compinit
-# Highlight menu selection
-zstyle ':completion:*' menu select
-# colored completion - use my LS_COLORS
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-# ignore some files during completion
-zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"
-# but not for these programs
-zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
-zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
-
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=999999999
-SAVEHIST=$HISTSIZE
-setopt HIST_IGNORE_SPACE
-# Share history between zsh shells
-setopt SHARE_HISTORY  # reloads the history whenever you use it
-setopt AUTOCD
-setopt LIST_PACKED
-setopt INTERACTIVE_COMMENTS
-setopt MENU_COMPLETE
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -72,18 +89,7 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-messages --glob "!.git/*"'
-export FZF_DEFAULT_OPTS='--border --cycle'
-export FZF_TMUX=1
-export FZF_COMPLETION_TRIGGER='~~'
-export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
-export FZF_ALT_C_COMMAND="bfs -type d"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "$(fasd --init auto)"
 
 fo() {
   local out file key
