@@ -25,12 +25,12 @@ white = #ffffff
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR:eDP1}
-width = 95%
+width = 100%
 height = 30
 offset-x = 0
 offset-y = 0
 radius = 0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.graphite}
 foreground = ${colors.white}
@@ -42,7 +42,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = "FontAwesome:size=12;0"
-font-1 = "Roboto:size=11:weight=bold;1"
+font-1 = "Roboto:size=11;1"
 font-2 = "Siji:pixelsize=10;1"
 font-3 = "unifont:size=12:antialias=false;0"
 font-4 = "Unifont Upper:size=12:antialias=false;0"
@@ -50,10 +50,10 @@ font-4 = "Unifont Upper:size=12:antialias=false;0"
 
 modules-left = i3
 modules-center = mpd vpncheck redshift
-modules-right = filesystem backlight volume xkeyboard battery date
+modules-right = filesystem memory backlight volume xkeyboard battery wlan date
 
-tray-position = right
-tray-offset-x=79
+tray-position = center
+tray-offset-x=279
 
 [module/xwindow]
 type = internal/xwindow
@@ -84,6 +84,24 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3
+
+format = <bar-used>
+bar-used-indicator =
+bar-used-width = 10
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
 
 [module/bspwm]
 type = internal/bspwm
@@ -191,81 +209,29 @@ bar-empty = ─
 [module/wlan]
 type = internal/network
 interface = wlp7s0
-; Seconds to sleep between updates
-; Default: 1
 interval = 3.0
-
-; Test connectivity every Nth update
-; A value of 0 disables the feature
-; NOTE: Experimental (needs more testing)
-; Default: 0
-;ping-interval = 3
-
-; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
-; Minimum output width of upload/download rate
-; Default: 3
 downspeed-min = 5
 upspeed-min = 5
-; Accumulate values from all interfaces
-; when querying for up/downspeed rate
-; Default: false
 accumulate-stats = true
-; Available tags:
-;   <label-connected> (default)
-;   <ramp-signal>
+
 format-connected = <ramp-signal> <label-connected>
-
-; Available tags:
-;   <label-disconnected> (default)
 format-disconnected = <label-disconnected>
-
-; Available tags:
-;   <label-connected> (default)
-;   <label-packetloss>
-;   <animation-packetloss>
 format-packetloss = <animation-packetloss> <label-connected>
 
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %upspeed%   [wireless+wired]
-;   %downspeed% [wireless+wired]
-;   %linkspeed% [wired]
-; Default: %ifname% %local_ip%
-label-connected = %essid% %downspeed:9%
+label-connected = %essid%
 label-connected-foreground = #eefafafa
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-; Default: (none)
 label-disconnected = not connected
 label-disconnected-foreground = #66ffffff
 
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %linkspeed% [wired]
-; Default: (none)
-;label-packetloss = %essid%
-;label-packetloss-foreground = #eefafafa
-
-; Only applies if <ramp-signal> is used
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-
-; Only applies if <animation-packetloss> is used
 animation-packetloss-0 = ⚠
 animation-packetloss-0-foreground = #ffa64c
 animation-packetloss-1 = 📶
 animation-packetloss-1-foreground = #000000
-; Framerate in milliseconds
 animation-packetloss-framerate = 500
 
 [module/eth]
@@ -294,7 +260,7 @@ date-alt = " %d-%m-%Y"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 🕓
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 label = %date% %time%
@@ -304,29 +270,11 @@ type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
 label-volume-foreground = ${root.foreground}
-label-active-font = 3
-
-format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = 0 %
 
 bar-volume-width = 10
-rar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
+label-muted = 🔇
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
