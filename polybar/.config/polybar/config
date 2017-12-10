@@ -55,10 +55,6 @@ modules-right = filesystem memory backlight volume xkeyboard battery wlan date
 tray-position = center
 tray-offset-x=279
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
