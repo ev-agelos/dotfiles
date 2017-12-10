@@ -16,7 +16,7 @@ amixer set Master mute
 #rm /tmp/screen.png
 
 # Using i3lock-fancy
-$HOME/repos/i3lock-fancy/lock
+i3lock-fancy
 
 # resume notifications
 pkill -u "$USER" -USR2 dunst
