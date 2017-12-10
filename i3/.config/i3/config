@@ -140,9 +140,6 @@ bindsym $mod+Shift+r restart
 # custom exit menu script
 bindsym $mod+Shift+e exec $HOME/.config/i3/shutdown_menu.sh
 
-# English/Greek keyboard layout change with Alt+Shift
-exec --no-startup-id "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

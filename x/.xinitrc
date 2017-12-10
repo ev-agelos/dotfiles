@@ -21,13 +21,17 @@ dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# English/Greek keyboard layout change with Alt+Shift
+setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle
+
 sleep 5
+
 # faster cursor
 xset r rate 200 30
+
 # map CapsLock -> Ctrl when pressed, Esc when tapped
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
-
 
 #compton --config "$HOME/.config/compton" &
 xset +fp "$HOME/.fonts"
