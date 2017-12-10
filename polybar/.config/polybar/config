@@ -50,7 +50,7 @@ font-4 = "Unifont Upper:size=12:antialias=false;0"
 
 modules-left = i3
 modules-center = mpd vpncheck redshift
-modules-right = filesystem memory backlight volume xkeyboard battery wlan date
+modules-right = filesystem memory backlight volume xkeyboard battery wlan eth date
 
 tray-position = center
 tray-offset-x=279
@@ -232,19 +232,16 @@ animation-packetloss-framerate = 500
 
 [module/eth]
 type = internal/network
-interface = docker0
+interface = enp2s0
 interval = 3.0
 
+format-connected = <label-connected>
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
