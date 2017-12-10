@@ -1,3 +1,6 @@
+# source aliases
+source $HOME/.aliases
+
 # Important for encodings(different programs brake like zsh/powerline etc)
 #export LANG=en_US.UTF-8
 

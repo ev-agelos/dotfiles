@@ -1,8 +1,5 @@
-# # Use solarized colors for files/directories
-alias ls='ls --color'
-alias tree="tree -I '*.pyc|__pycache__'"
-alias view=nvim -R
-alias cat=ccat
+# Source aliases
+source $HOME/.aliases
 
 eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
 eval "$(fasd --init auto)"
