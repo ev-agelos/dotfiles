@@ -36,9 +36,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # default dmenu or rofi or j4-dmenu
-#bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=15'
+bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=15'
 #bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 -font "mono 20" -opacity "65"
-bindsym $mod+d exec --no-startup-id ~/bin/j4-dmenu-desktop_custom.sh
+# bindsym $mod+d exec --no-startup-id ~/bin/j4-dmenu-desktop_custom.sh
 
 bindsym $mod+m exec --no-startup-id ~/repos/hud-menu/hud-menu.py dmeny
 
