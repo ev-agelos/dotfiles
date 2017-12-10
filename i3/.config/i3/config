@@ -8,17 +8,23 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-workspace_layout tabbed
+
 set $mod Mod4
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
+font pango:monospace 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:Source Code Pro for Powerline, FontAwesome
 # The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -29,7 +35,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start rofi
+# default dmenu or rofi or j4-dmenu
 #bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=15'
 #bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 -font "mono 20" -opacity "65"
 bindsym $mod+d exec --no-startup-id ~/bin/j4-dmenu-desktop_custom.sh
@@ -42,10 +48,10 @@ bindsym $mod+m exec --no-startup-id ~/repos/hud-menu/hud-menu.py dmeny
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+Left focus left; exec --no-startup-id $HOME/bin/flash_win.sh
-bindsym $mod+Down focus down; exec --no-startup-id $HOME/bin/flash_win.sh
-bindsym $mod+Up focus up; exec --no-startup-id $HOME/bin/flash_win.sh
-bindsym $mod+Right focus right; exec --no-startup-id $HOME/bin/flash_win.sh
+bindsym $mod+Left focus left; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+Down focus down; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+Up focus up; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+Right focus right; exec --no-startup-id $HOME/.config/i3/flash_win.sh
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -60,7 +66,7 @@ bindsym $mod+h split v
 bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -123,6 +129,7 @@ assign [class="Simplenote"] $ws7
 assign [class="Slack"] $ws8
 assign [class="KeePass2"] $ws10
 
+# reload the configuration file
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -130,9 +137,10 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec $HOME/bin/shutdown_menu.sh
+# custom exit menu script
+bindsym $mod+Shift+e exec $HOME/.config/i3/shutdown_menu.sh
 
-# US/Greek keyboard layout change with Alt+Shift
+# English/Greek keyboard layout change with Alt+Shift
 exec --no-startup-id "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
 
 # resize window (you can also use the mouse for that)
@@ -167,24 +175,6 @@ gaps inner 0
 gaps outer 0
 smart_gaps on
 
-
-client.background       #ffffff
-#bar {
-#        colors {
-#                background #504945
-#                statusline #fbf1c7
-#                separator #458588
-#
-#                focused_workspace  #4c7899 #285577 #ffffff
-#                active_workspace   #333333 #5f676a #ffffff
-#                inactive_workspace #333333 #222222 #888888
-#                urgent_workspace   #2f343a #900000 #ffffff
-#            }
-#        i3bar_command i3bar -t
-#        status_command i3status
-#        position top
-#}
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -10% #decrease sound volume
@@ -217,12 +207,8 @@ exec --no-startup-id xautolock -detectsleep -time 2 -notify 10 -notifier "notify
 exec --no-startup-id dropbox start
 #exec --no-startup-id /opt/wmail-desktop/WMail
 # exec --no-startup-id nm-applet
-exec --no-startup-id mintupdate-launcher
 exec --no-startup-id redshift
 #exec --no-startup-id keepass2
-#exec firefox
-#exec /usr/share/iron/chrome
-#exec /usr/share/simplenote/simplenote
 
 # start as left monitor if hdmi is connected..
 #exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1
