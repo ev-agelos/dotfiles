@@ -19,7 +19,10 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # Use Shift+Tab for previous selection
 bindkey '^[[Z' reverse-menu-complete
 # Ctrl+U to delete chars from cursor position to beginning of line
-bindkey \^U backward-kill-line
+bindkey \^U       backward-kill-line
+bindkey  "^[[H"   beginning-of-line  # HOME key
+bindkey  "^[[F"   end-of-line        # END key
+bindkey '\e[3~'   delete-char        # DEL key
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=999999999
