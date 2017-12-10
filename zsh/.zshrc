@@ -5,8 +5,7 @@ eval "$(fasd --init auto)"
 
 # Show the host name only when different that the default evagelos
 export DEFAULT_USER=evagelos
-# Allow tmux to set $TERM(to solve function keys not working problem)
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-messages --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--border --cycle'
 export FZF_TMUX=1
