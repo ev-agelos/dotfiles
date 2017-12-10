@@ -22,7 +22,7 @@ gray = #707f9c
 green = #50fa7b
 white = #ffffff
 
-[bar/example]
+[bar/my_bar]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR}
 width = 100%
@@ -43,7 +43,7 @@ module-margin-right = 1
 
 font-0 = "FontAwesome:size=12;0"
 font-1 = "Roboto:size=11;1"
-font-2 = "Siji:pixelsize=10;1"
+font-2 = WunconSiji:pixelsize=10;0
 font-3 = "unifont:size=12:antialias=false;0"
 font-4 = "Unifont Upper:size=12:antialias=false;0"
 

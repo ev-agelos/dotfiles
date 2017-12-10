@@ -9,6 +9,6 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 export MONITOR=$(polybar -m|tail -1|sed -e 's/:.*$//g')
 
 # Launch bar
-polybar example
+polybar my_bar
 
 echo "Bars launched..."
