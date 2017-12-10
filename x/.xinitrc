@@ -33,5 +33,5 @@ xcape -e 'Caps_Lock=Escape'
 xset +fp "$HOME/.fonts"
 xset fp rehash
 pulseaudio --start
-exec i3
 
+exec i3
