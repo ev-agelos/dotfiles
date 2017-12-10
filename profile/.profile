@@ -40,3 +40,5 @@ fi
 export GTK_MODULES
 export UBUNTU_MENUPROXY
 export EDITOR=nvim
+
+eval `dircolors $HOME/.dir_colors`

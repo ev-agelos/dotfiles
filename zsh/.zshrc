@@ -1,7 +1,6 @@
 # Source aliases
 source $HOME/.aliases
 
-eval `dircolors ~/repos/nord-dircolors/src/dir_colors`
 eval "$(fasd --init auto)"
 
 # Show the host name only when different that the default evagelos
