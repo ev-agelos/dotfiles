@@ -21,6 +21,9 @@ dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# program auto-mount usb
+udiskie --no-automount --no-notify --tray --use-udisks2 &
+
 # English/Greek keyboard layout change with Alt+Shift
 setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle
 
