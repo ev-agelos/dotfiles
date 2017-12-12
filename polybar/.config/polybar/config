@@ -22,6 +22,7 @@ gray = #707f9c
 green = #50fa7b
 white = #ffffff
 
+
 [bar/my_bar]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR}
@@ -47,13 +48,13 @@ font-2 = WunconSiji:pixelsize=10;0
 font-3 = "unifont:size=12:antialias=false;0"
 font-4 = "Unifont Upper:size=12:antialias=false;0"
 
-
 modules-left = i3
-modules-center = mpd vpncheck redshift pkg
-modules-right = filesystem memory backlight volume xkeyboard battery wlan eth date
+modules-center = mpd mpv vpncheck redshift pkg
+modules-right = filesystem memory cpu backlight volume xkeyboard battery wlan eth date
 
 tray-position = center
 tray-offset-x=279
+
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -71,6 +72,7 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
+
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -80,6 +82,7 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
 
 [module/memory]
 type = internal/memory
@@ -99,6 +102,25 @@ bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
 
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+format = <ramp-coreload>
+label = CPU %percentage%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
 [module/bspwm]
 type = internal/bspwm
 
@@ -117,6 +139,7 @@ label-urgent-padding = 2
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
+
 
 [module/i3]
 type = internal/i3
@@ -152,6 +175,7 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
+
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <icon-repeat>
@@ -178,6 +202,7 @@ icon-consume = ✀
 label-song-maxlen = 25
 label-song-ellipsis = true
 
+
 [module/backlight]
 type = internal/xbacklight
 ; XRandR output to get get values from
@@ -201,6 +226,7 @@ bar-width = 10
 bar-indicator = |
 bar-fill = ─
 bar-empty = ─
+
 
 [module/wlan]
 type = internal/network
@@ -230,6 +256,7 @@ animation-packetloss-1 = 📶
 animation-packetloss-1-foreground = #000000
 animation-packetloss-framerate = 500
 
+
 [module/eth]
 type = internal/network
 interface = enp2s0
@@ -242,6 +269,7 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
+
 
 [module/date]
 type = internal/date
@@ -258,6 +286,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 label = %date% %time%
 
+
 [module/volume]
 type = internal/volume
 
@@ -271,6 +300,7 @@ label-muted = 🔇
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
 
 [module/battery]
 type = internal/battery
@@ -313,11 +343,13 @@ format-underline = #268bd2
 format-prefix = " "
 format-prefix-foreground = #5b
 
+
 [module/redshift]
 type = custom/script
 interval = 5
 
 exec = ~/.config/polybar/redshift.sh
+
 
 [settings]
 screenchange-reload = true
@@ -326,11 +358,13 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 
+
 [global/wm]
 margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
 
 [module/pkg]
 type = custom/script
@@ -339,3 +373,14 @@ format = <label>
 format-underline = #dc322f
 label = "%output:0:30%"
 exec = ~/.config/polybar/arch_update_indicator.sh
+
+
+[module/mpv]
+type = custom/script
+
+exec = sh ~/.config/polybar/mpv.sh
+exec-if = pgrep -x mpv
+interval = 1
+
+format = <label>
+label = %output%
