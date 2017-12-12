@@ -349,6 +349,7 @@ type = custom/script
 interval = 5
 
 exec = ~/.config/polybar/redshift.sh
+click-left = pkill -USR1 redshift
 
 
 [settings]
