@@ -49,7 +49,7 @@ font-4 = "Unifont Upper:size=12:antialias=false;0"
 
 
 modules-left = i3
-modules-center = mpd vpncheck redshift
+modules-center = mpd vpncheck redshift pkg
 modules-right = filesystem memory backlight volume xkeyboard battery wlan eth date
 
 tray-position = center
@@ -331,3 +331,11 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
+[module/pkg]
+type = custom/script
+interval = 1200
+format = <label>
+format-underline = #dc322f
+label = "%output:0:30%"
+exec = ~/.config/polybar/arch_update_indicator.sh
