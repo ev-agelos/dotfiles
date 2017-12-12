@@ -24,8 +24,6 @@ export SSH_AUTH_SOCK
 # English/Greek keyboard layout change with Alt+Shift
 setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle
 
-sleep 5
-
 # faster cursor
 xset r rate 200 30
 
