@@ -197,7 +197,7 @@ for_window [instance="terminal_scratchpad"] resize grow left 300, resize grow ri
 
 exec_always $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id xautolock -detectsleep -time 2 -notify 10 -notifier "notify-send -u critical -t 10000 -- 'LOCKING in 10'" -locker ~/bin/lock.sh
+exec --no-startup-id xautolock -detectsleep -time 2 -notify 10 -notifier "notify-send -u critical -t 10000 -- 'LOCKING in 10'" -locker "~/config/i3/lock.sh --nofork"
 
 # Autostart some apps
 #exec dropbox-start  # First start dropbox to get synced then keepass2

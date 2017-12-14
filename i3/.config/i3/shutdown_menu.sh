@@ -4,7 +4,7 @@ RES=$(echo "lock|logout|restart|suspend|hibernate|shutdown" | rofi -dmenu -i -se
 LOCK=$HOME/.config/i3/lock.sh
 
 if [[ $RES = "lock" ]]; then
-    $LOCK
+    $LOCK --nofork
 elif [[ $RES = "logout" ]]; then
     i3-msg exit
 elif [[ $RES = "restart" ]]; then

@@ -1,22 +1,25 @@
 #!/bin/bash
 
 # suspend notifications
-pkill -u "$USER" -USR1 dunst
+killall -SIGUSR1 dunst
 # mute
 amixer set Master mute
-# unmute needs calling i3lock -n which makes hibernation to hang
-
 
 # Old way with pixels
-#scrot /tmp/screen.png
-#convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
-#[[ -f $1 ]] && convert /tmp/screen.png $1 -gravity center -composite -matte /tmp/screen.png
-#
-#i3lock -i /tmp/screen.png
-#rm /tmp/screen.png
+scrot /tmp/screen.png
+convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
+[[ -f $1 ]] && convert /tmp/screen.png $1 -gravity center -composite -matte /tmp/screen.png
 
-# Using i3lock-fancy
-i3lock-fancy
+# support i3lock's --no-fork in case of suspend/hibernation
+if [ "$1" == "--nofork" ]; then
+    i3lock -i /tmp/screen.png $1
+else
+    i3lock -i /tmp/screen.png
+fi
 
-# resume notifications
-pkill -u "$USER" -USR2 dunst
+killall -SIGUSR2 dunst  # resume notifications
+rm /tmp/screen.png
+
+# unmute sound
+# The default sink can be referred as @DEFAULT_SINK@ because numbering of sinks is not guaranteed to be persistent
+# pactl set-sink-mute @DEFAULT_SINK@ toggle
