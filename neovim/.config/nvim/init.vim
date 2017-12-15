@@ -46,15 +46,14 @@ Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 " ------------------------------------------------------------------ Colorschemes
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next' " best for dark
 Plug 'reedes/vim-colors-pencil' " best for light
-Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'metalelf0/base16-black-metal-scheme'
+Plug 'xero/blaquemagick.vim'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -96,7 +95,7 @@ let g:signify_vcs_list = [ 'hg', 'git' ]
 " Airline
 let g:airline_section_z = '%c'
 let g:airline_powerline_fonts = 1                              " Support powerline fonts
-let g:airline_theme = 'oceanicnext'                                   " Theme for airline
+let g:airline_theme = 'deep_space'                                   " Theme for airline
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -241,8 +240,7 @@ vnoremap > >gv
 " ----------------------------------------------------------
 "                    Colorschemes
 " ----------------------------------------------------------
-set termguicolors " use 24-bit color
-set background=dark
+"set termguicolors " use 24-bit color
 
 " ------------------ Gruvbox -------------------------------
 "let g:gruvbox_contrast_dark='soft'
@@ -261,7 +259,7 @@ set background=dark
 " colorscheme pencil
 " ------------------ Deep space ---------------------------
 let g:deepspace_italics=1
-colorscheme deep-space
+colorscheme blaquemagick
 
 
 " ----------------------------------------------------------
