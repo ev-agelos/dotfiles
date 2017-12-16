@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RES=$(echo "lock|logout|restart|suspend|hibernate|shutdown" | rofi -dmenu -i -sep "|" -p 'Power Menu: ' "" -width 16 -eh 1 -hide-scrollbar -padding 20 -font "Awesome 10, Hack 15")
+RES=$(echo "lock|logout|restart|suspend|hibernate|shutdown" | rofi -dmenu -i -sep "|" -p 'Power Menu: ' "" -width 16 -lines 6 -eh 1 -hide-scrollbar -padding 20 -font "Awesome 10, Hack 15")
 LOCK=$HOME/.config/i3/lock.sh
 
 if [[ $RES = "lock" ]]; then

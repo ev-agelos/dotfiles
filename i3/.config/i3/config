@@ -36,9 +36,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # default dmenu or rofi or j4-dmenu
-bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=15'
+# bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=15'
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.j4-dmenu-usage-log
 #bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 -font "mono 20" -opacity "65"
-# bindsym $mod+d exec --no-startup-id ~/bin/j4-dmenu-desktop_custom.sh
 
 bindsym $mod+m exec --no-startup-id ~/repos/hud-menu/hud-menu.py dmeny
 
@@ -87,14 +87,14 @@ bindsym $mod+a focus parent
 
 # Name workspaces using variables + FontAwesome
 set $ws1 "1: "
-set $ws2 "2: "
+set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
 set $ws5 "5: "
-set $ws6 "6: &#xf108;"
+set $ws6 "6: "
 set $ws7 "7:"
 set $ws8 "8: "
-set $ws9 "9: &#xf001;"
+set $ws9 "9: "
 set $ws10 "10: "
 
 
@@ -122,12 +122,12 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-assign [class="Chromium-browser"] $ws3
+assign [class="Chromium"] $ws3
 assign [class="Firefox"] $ws4
 assign [class="wmail"] $ws6
 assign [class="Simplenote"] $ws7
 assign [class="Slack"] $ws8
-assign [class="KeePass2"] $ws10
+assign [class="keepassxc"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -173,13 +173,13 @@ gaps outer 0
 smart_gaps on
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -10% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 # Removed title bars
 # for_window [class="^.*"] border pixel 2
@@ -197,7 +197,7 @@ for_window [instance="terminal_scratchpad"] resize grow left 300, resize grow ri
 
 exec_always $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id xautolock -detectsleep -time 2 -notify 10 -notifier "notify-send -u critical -t 10000 -- 'LOCKING in 10'" -locker "~/config/i3/lock.sh --nofork"
+exec --no-startup-id xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork"
 
 # Autostart some apps
 #exec dropbox-start  # First start dropbox to get synced then keepass2

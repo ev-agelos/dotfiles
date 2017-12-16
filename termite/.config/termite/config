@@ -3,7 +3,7 @@ font = monofur 10
 
 [colors]
 foreground = #D8DEE9
-background = #2E3440
+background = #262626
 foreground_bold = #D8DEE9
 cursor = #D8DEE9
 cursor_foreground = #2E3440
