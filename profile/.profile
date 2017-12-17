@@ -42,3 +42,6 @@ export UBUNTU_MENUPROXY
 export EDITOR=nvim
 
 eval `dircolors $HOME/.dir_colors`
+
+# MPD daemon start (if no other user instance exists)
+[ ! -s ~/.config/mpd/pid ] && mpd
