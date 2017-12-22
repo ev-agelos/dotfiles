@@ -9,3 +9,4 @@ __pycache__/
 *.map
 *.min.js
 *.min.css
+*.po
