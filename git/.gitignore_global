@@ -1,3 +1,4 @@
+.vscode
 # adapte from jtratner
 # eggs and compiled python
 *.pyc
