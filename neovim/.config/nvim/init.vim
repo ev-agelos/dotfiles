@@ -112,10 +112,13 @@ hi link ALEWarningSign  Warning
 let g:ale_linters = {
 \   'python': ['pylint', 'flake8'],
 \}
+let g:ale_python_pylint_options = "--rcfile ~/.pylintrc"
+let g:ale_python_flake8_options = "--max-line-length=100"
 let g:ale_fixers = {
 \   'python': ['autopep8', 'isort', 'yapf']
 \}
 let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
 let g:ale_echo_msg_format = '%linter% %s'
 " Neomake
 let g:neomake_highlight_columns=0
@@ -258,7 +261,9 @@ vnoremap > >gv
 " let g:pencil_spell_undercurl = 0
 " colorscheme pencil
 " ------------------ Deep space ---------------------------
-let g:deepspace_italics=1
+" let g:deepspace_italics=1
+"colorscheme deep-space
+" ------------------ Blaquemagick
 colorscheme blaquemagick
 
 
