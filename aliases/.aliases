@@ -1,5 +1,6 @@
 alias vi=nvim
-alias view=nvim -R
+alias view='nvim -R'
 alias ls='ls --color'
 alias tree="tree -I '*.pyc|__pycache__'"
 alias cat=ccat
+alias ls=exa
