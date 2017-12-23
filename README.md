@@ -1,10 +1,7 @@
 ## My setup:
-- Linux Distro: [Mint18](https://www.linuxmint.com/)
-- Desktop theme: [Adapta-gtk-theme](https://github.com/adapta-project/adapta-gtk-theme) or [Pop GTK theme](https://drive.google.com/file/d/0BwAdBAspPDMYWF95bmhWMWtrVnc/view)(Gnome theme but works on Mint)
-- Icon theme: [Arc-icon-theme](https://github.com/horst3180/arc-icon-theme)
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
 - Status bar: [polybar](https://github.com/jaagr/polybar)
-- Launcher: [dmenu](https://tools.suckless.org/dmenu/) or [Rofi](https://davedavenport.github.io/rofi/)
+- Launcher: [dmenu](https://tools.suckless.org/dmenu/) or/and [Rofi](https://davedavenport.github.io/rofi/)
 - Notifications: [dunst](https://github.com/dunst-project/dunst)
 
 ## Media:
@@ -18,6 +15,7 @@
 ## General tools
 * File Manager(cli): [ranger](http://ranger.nongnu.org/)
 * Task Manager(cli): [htop](http://hisham.hm/htop/)
+* System Monitor(cli): [glances](https://github.com/nicolargo/glances)
 * Command-line fuzzy finder(cli): [fzf](https://github.com/junegunn/fzf)
 * Breadth-first version of find: [bfs](https://github.com/tavianator/bfs)
 * Text searching(cli): [ripgrep](https://github.com/BurntSushi/ripgrep)
