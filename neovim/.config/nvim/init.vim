@@ -30,7 +30,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag',             { 'for': 'html' }
-Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow',            { 'on': 'RainbowToggle' }
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
@@ -78,8 +78,6 @@ set statusline+=%{gutentags#statusline('[Generating...]')}
 " delimitMate
 let delimitMate_nesting_quotes = ['"','`']
 au FileType python let b:delimitMate_nesting_quotes = ['"']
-" Rainbow
-let g:rainbow_active = 1
 " JSON plugin
 let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual code
 " NORD colorscheme
