@@ -31,15 +31,14 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY  # reloads the history whenever you use it
 setopt HIST_BEEP
 setopt BEEP
 setopt LIST_BEEP
-# Share history between zsh shells
-setopt SHARE_HISTORY  # reloads the history whenever you use it
 setopt AUTOCD
 setopt LIST_PACKED
 setopt INTERACTIVE_COMMENTS
-setopt MENU_COMPLETE
+setopt MENU_COMPLETE # do not autoselect the first completion entry
 
 # Enable advanced completion
 autoload -U compinit && compinit
