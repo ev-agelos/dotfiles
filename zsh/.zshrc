@@ -68,7 +68,6 @@ GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git docker_machine)
 zplug "frmendes/geometry"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "jarun/googler", use:auto-completion/zsh/
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "peterhurford/git-it-on.zsh"
