@@ -224,6 +224,9 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Map the TAB key to go to the next tab(Shift+Tab for previous)
 noremap <silent> <Tab> :bnext<CR>
 noremap <silent> <S-Tab> :bprevious<CR>
+" Use 'very magic' mode when searching ':/'
+nnoremap / /\v
+vnoremap / /\v
 " Center screen when jumping to next match
 noremap n nzz
 noremap N Nzz
