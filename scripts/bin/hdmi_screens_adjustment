@@ -1,0 +1,11 @@
+#!/bin/sh
+
+HDMIStatus=$(cat /sys/class/drm/card0/*HDMI-A-1/status)
+
+if [ $HDMIStatus = 'connected' ]; then
+    /usr/bin/xrandr --output HDMI1 --auto --left-of eDP1
+else
+    /usr/bin/xrandr --output HDMI1 --off
+fi
+
+/usr/bin/notify-send "HDMI $HDMIStatus"
