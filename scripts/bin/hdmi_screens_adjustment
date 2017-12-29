@@ -1,5 +1,24 @@
 #!/bin/sh
 
+# First make this service::/etc/systemd/system/hot_plug.service
+# Put this in:replacing USER with your user:
+
+#[Unit]
+#Description=Monitor hotplug
+#
+#[Service]
+#Type=simple
+#RemainAfterExit=no
+#User=USER
+#Environment="DISPLAY=:0"
+#ExecStart=/home/USER/bin/hdmi_screens_adjustment
+#
+#[Install]
+#WantedBy=multi-user.target
+
+# And make the rule in /etc/udev/rules.d/98-monitor-hotplug.rules, also replace USER:
+# KERNEL=="card0", SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/USER/.Xauthority", RUN+="/bin/systemctl start hot_plug.service"
+
 HDMIStatus=$(cat /sys/class/drm/card0/*HDMI-A-1/status)
 
 if [ $HDMIStatus = 'connected' ]; then
