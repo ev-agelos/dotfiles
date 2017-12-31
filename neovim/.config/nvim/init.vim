@@ -24,6 +24,7 @@ Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
 Plug 'w0rp/ale',                       {'on': 'ALELint'}
+Plug 'maximbaz/lightline-ale'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
@@ -45,17 +46,10 @@ Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
 Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
 "Plug 'NLKNguyen/papercolor-theme'
-Plug 'morhetz/gruvbox'
-Plug 'mhartington/oceanic-next' " best for dark
-Plug 'reedes/vim-colors-pencil' " best for light
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'metalelf0/base16-black-metal-scheme'
-Plug 'xero/blaquemagick.vim'
-call plug#end()
 
 " ----------------------------------------------------------
 "                       Leader
@@ -91,13 +85,59 @@ map / <Plug>(incsearch-stay)
 let g:deoplete#enable_at_startup = 1
 " Signify
 let g:signify_vcs_list = [ 'hg', 'git' ]
-" Airline
-let g:airline_section_z = '%c'
-let g:airline_powerline_fonts = 1                              " Support powerline fonts
-let g:airline_theme = 'deep_space'                                   " Theme for airline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_extensions = ['branch', 'whitespace']
+" BufTabline
+let g:buftabline_numbers=2
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
+" Lightlime
+let g:lightline = {
+      \ 'colorscheme': 'deepspace',
+      \ 'separator': { 'left': '', 'right': '' },
+	  \ 'subseparator': { 'left': '', 'right': '' },
+      \ 'enable': {'tabline': 0},
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive' ],
+      \             [ 'absolutepath', 'mymodified', 'readonly'] ],
+      \   'right': [ [ 'linter_errors', 'linter_warnings'],
+      \              [ 'column'],
+      \              [ 'fileencoding' ],
+      \              [ 'filetype' ]]
+      \ },
+      \ 'inactive': {
+      \   'left': [ [ 'absolutepath'] ],
+      \   'right': [ [ 'column'], [ 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
+      \   'fugitive': '%{exists("*fugitive#head") && ""!=fugitive#head()?" ".fugitive#head():""}'
+      \ },
+      \ 'component_expand': {
+      \   'mymodified': 'LightlineModified',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
+      \ },
+      \ 'component_type': {
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \ }
+      \ }
+
+function! LightlineAbsolutePath()
+  return winwidth(0) > 70 ? expand('%:p:h') : ''
+endfunction
+
+function! LightlineModified()
+    return &modifiable && &modified ? '[+]' : ''
+endfunction
 " ALE
 let g:ale_lint_on_enter = 0                                    " don't lint when opening file
 let g:ale_lint_on_save = 1                                     " line when saving file
@@ -303,4 +343,3 @@ hi DiffAdd     gui=none    guifg=#709d6c          guibg=#2d422b
 hi DiffChange   gui=none    guifg=NONE          guibg=NONE
 hi DiffDelete   gui=bold    guifg=#ff8080       guibg=NONE
 hi DiffText     gui=none    guifg=#709d6c          guibg=#2d422b
-
