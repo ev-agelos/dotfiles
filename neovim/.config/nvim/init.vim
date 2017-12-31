@@ -23,7 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
-Plug 'w0rp/ale',                       {'on': 'ALELint'}
+Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
