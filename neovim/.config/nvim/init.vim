@@ -23,7 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale',                       {'on': 'ALELint'}
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
@@ -97,8 +97,10 @@ let g:airline_powerline_fonts = 1                              " Support powerli
 let g:airline_theme = 'deep_space'                                   " Theme for airline
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_extensions = ['branch', 'whitespace', 'ale']
-" ale
+let g:airline_extensions = ['branch', 'whitespace']
+" ALE
+let g:ale_lint_on_enter = 0                                    " don't lint when opening file
+let g:ale_lint_on_save = 1                                     " line when saving file
 let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
 let g:ale_sign_warning='●'
 let g:ale_sign_error='●'
@@ -301,3 +303,4 @@ hi DiffAdd     gui=none    guifg=#709d6c          guibg=#2d422b
 hi DiffChange   gui=none    guifg=NONE          guibg=NONE
 hi DiffDelete   gui=bold    guifg=#ff8080       guibg=NONE
 hi DiffText     gui=none    guifg=#709d6c          guibg=#2d422b
+
