@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Generic
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'ervandew/supertab'
@@ -33,7 +34,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag',             { 'for': 'html' }
 Plug 'luochen1990/rainbow',            { 'on': 'RainbowToggle' }
 " ------------------------------------------------------------------ Version Control
-Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter' " or 'mhinz/vim-signify' if mercurial is needed
@@ -41,8 +41,6 @@ Plug 'elzr/vim-json',                  { 'for': 'json' }
 " ------------------------------------------------------------------ Effects
 Plug 'inside/vim-search-pulse'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'junegunn/limelight.vim',         { 'on': 'Limelight' }
-Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
 Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
@@ -50,6 +48,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
 "Plug 'NLKNguyen/papercolor-theme'
+"Plug 'morhetz/gruvbox'
+"Plug 'mhartington/oceanic-next' " best for dark
+"Plug 'reedes/vim-colors-pencil' " best for light
+Plug 'tyrannicaltoucan/vim-deep-space'
+"Plug 'metalelf0/base16-black-metal-scheme'
+Plug 'xero/blaquemagick.vim'
+call plug#end()
 
 " ----------------------------------------------------------
 "                       Leader
