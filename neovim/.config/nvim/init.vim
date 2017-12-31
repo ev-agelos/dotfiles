@@ -46,6 +46,7 @@ Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
+Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
@@ -96,10 +97,7 @@ let g:airline_powerline_fonts = 1                              " Support powerli
 let g:airline_theme = 'deep_space'                                   " Theme for airline
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_extensions = ['branch', 'whitespace', 'tabline', 'ale']
+let g:airline_extensions = ['branch', 'whitespace', 'ale']
 " ale
 let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
 let g:ale_sign_warning='●'
