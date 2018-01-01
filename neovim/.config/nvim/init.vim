@@ -169,6 +169,7 @@ let g:neomake_python_enabled_makers = ['pydocstyle']
 au! BufWritePost * Neomake
 " Startify
 let g:startify_change_to_vcs_root = 1
+let g:startify_update_oldfiles = 1
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header = []
