@@ -23,15 +23,6 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# i3 hud-menu
-export APPMENU_DISPLAY_BOTH=1
-if [ -n "$GTK_MODULES" ]
-then
-  GTK_MODULES="$GTK_MODULES:unity-gtk-module"
-else
-  GTK_MODULES="unity-gtk-module"
-fi
-
 if [ -z "$UBUNTU_MENUPROXY" ]
 then
   UBUNTU_MENUPROXY=1
