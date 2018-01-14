@@ -51,7 +51,7 @@ Plug 'ap/vim-buftabline'
 "Plug 'morhetz/gruvbox'
 "Plug 'mhartington/oceanic-next' " best for dark
 "Plug 'reedes/vim-colors-pencil' " best for light
-Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'ev-agelos/vim-deep-space'
 "Plug 'metalelf0/base16-black-metal-scheme'
 Plug 'xero/blaquemagick.vim'
 call plug#end()
