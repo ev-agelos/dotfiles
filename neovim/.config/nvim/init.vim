@@ -85,6 +85,7 @@ let g:nord_italic_comments = 1
 " MundoToggle
 map <leader>g :MundoToggle<CR>
 " Incsearch
+let g:incsearch#magic = '\v'
 map / <Plug>(incsearch-stay)
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -267,9 +268,6 @@ nnoremap Q <nop>
 map q <Nop>
 " Select the item in the list with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Use 'very magic' mode when searching ':/'
-nnoremap / /\v
-vnoremap / /\v
 " Center screen when jumping to next match
 noremap n nzz
 noremap N Nzz
