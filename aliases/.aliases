@@ -1,6 +1,12 @@
+#!/bin/bash
+alias ll='ls -l'
 alias vi=nvim
 alias view='nvim -R'
-alias ls='ls --color'
 alias tree="tree -I '*.pyc|__pycache__'"
 alias cat=ccat
-alias ls=exa
+
+if which exa >/dev/null 2>&1; then
+  alias ls='exa'
+else
+  alias ls='ls --color=auto'
+fi
