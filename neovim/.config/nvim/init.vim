@@ -174,7 +174,6 @@ let g:startify_update_oldfiles = 1
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_custom_header = []
-          "\ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
 let g:startify_list_order = [
         \ ['   Bookmarks:'],
         \ 'bookmarks',
@@ -319,6 +318,8 @@ highlight ColorColumn guibg=#252c3a
 au BufNewFile,BufRead *.py setlocal colorcolumn=80
 au CompleteDone * pclose                            " Automatic hide the tip window when on auto-complete
 au InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
+autocmd FileType latex,tex,md,markdown setlocal spell " turn on spell checker for certain file types
+:nnoremap <Leader>q :silent Bdelete<CR>
 
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
 "au! InsertEnter * NoMatchParen
