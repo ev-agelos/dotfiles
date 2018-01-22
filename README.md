@@ -12,10 +12,10 @@
 
 ## Media:
 * Image viewer: [feh](http://feh.finalrewind.org/)
+* Taking screenshots: scrot
 * PDF viewer: [zathura](https://pwmt.org/projects/zathura/)
 * Video player: [mpv](https://mpv.io/)
-* Audio player: mpd+mpc+ncmpcpp
-* Audio visualizer: [C.A.V.A](https://github.com/karlstav/cava)
+* Audio: mpd+mpc+ncmpcpp
 * Youtube player/downloader: [mps-youtube](https://github.com/mps-youtube/mps-youtube)
 
 ## System stats/monitoring
@@ -38,7 +38,6 @@
 * File Manager: [ranger](http://ranger.nongnu.org/)
 * List files/dirs in a tree-like format: tree
 * System lock: xautolock
-* Taking screenshots: scrot
 * Screen color temperature: [Redshift](https://github.com/jonls/redshift)
 * Command line HTTP client: [HTTPie](https://github.com/jkbrzt/httpie)
 * Google search: [googler](https://github.com/jarun/googler)
