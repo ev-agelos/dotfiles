@@ -16,7 +16,7 @@ Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
 Plug 'tpope/vim-eunuch'
 " ------------------------------------------------------------------ Completion
 Plug 'Shougo/deoplete.nvim',           { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi',            { 'do': 'git submodule update --init' }
+Plug 'zchee/deoplete-jedi',            { 'do': 'git submodule update --init', 'for': ['python'] }
 " ------------------------------------------------------------------ File search
 Plug 'junegunn/fzf',                   { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
