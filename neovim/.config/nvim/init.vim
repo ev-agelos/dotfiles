@@ -71,7 +71,8 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 " ----------------------------------------------------------
 "                     Plugin options
 " ----------------------------------------------------------
-
+" vim-bbye
+:nnoremap <Leader>q :silent Bdelete<CR>
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
 set statusline+=%{gutentags#statusline('[Generating...]')}
