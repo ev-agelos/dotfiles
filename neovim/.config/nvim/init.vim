@@ -256,6 +256,11 @@ set noshowmode                   " Hide vim mode from status line
 " ----------------------------------------------------------
 "                    Mappings
 " ----------------------------------------------------------
+" move down/up by display, but keep regular up/down
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 " fzf
 nnoremap <C-p> :Files<cr>
 nnoremap \ :Rg<SPACE>
