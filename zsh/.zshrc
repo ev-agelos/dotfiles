@@ -4,6 +4,8 @@ bindkey "^?" backward-delete-char    # fix backspace
 bindkey  "^[[H"   beginning-of-line  # HOME key
 bindkey  "^[[F"   end-of-line        # END key
 bindkey '\e[3~'   delete-char        # DEL key
+bindkey '^A'      beginning-of-line  # Ctrl+a
+bindkey '^E'      end-of-line        # Ctrl+e
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
