@@ -56,17 +56,6 @@ Plug 'ev-agelos/vim-deep-space'
 Plug 'xero/blaquemagick.vim'
 call plug#end()
 
-" ----------------------------------------------------------
-"                       Leader
-" ----------------------------------------------------------
-" Use , as the leader key
-let mapleader = ","
-" hide matches on <leader>space
-nnoremap <leader><space> :nohlsearch<cr>
-" Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
-map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
-
 
 " ----------------------------------------------------------
 "                     Plugin options
@@ -76,13 +65,8 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
 set statusline+=%{gutentags#statusline('[Generating...]')}
-" delimitMate
-let delimitMate_nesting_quotes = ['"','`']
-au FileType python let b:delimitMate_nesting_quotes = ['"']
 " JSON plugin
 let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual code
-" NORD colorscheme
-let g:nord_italic_comments = 1
 " MundoToggle
 map <leader>g :MundoToggle<CR>
 " Incsearch
@@ -197,6 +181,17 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+
+" ----------------------------------------------------------
+"                       Leader
+" ----------------------------------------------------------
+" Use , as the leader key
+let mapleader = ","
+" hide matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+" Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
+map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 
 " ---------------------------------------------------------
 "                    Settings
