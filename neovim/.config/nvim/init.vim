@@ -87,7 +87,7 @@ colorscheme blaquemagick
 " ----------------------------------------------------------
 
 " vim-bbye
-:nnoremap <Leader>q :silent Bdelete<CR>
+nnoremap <Leader>q :silent Bdelete<CR>
 
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
