@@ -170,11 +170,11 @@ let g:ale_fix_on_save = 1                                      " fix when saving
 let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
 let g:ale_sign_warning='●'
 let g:ale_sign_error='●'
-hi link ALEErrorSign    Error
-hi link ALEWarningSign  Warning
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:ale_echo_msg_format = '%linter% %s'
+hi ALEErrorSign ctermbg=234 ctermfg=88 cterm=NONE
+hi ALEWarningSign ctermbg=234 ctermfg=250 cterm=NONE
 
 let g:ale_linters = {
 \   'python': ['pylint', 'flake8'],
