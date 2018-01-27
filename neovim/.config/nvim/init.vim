@@ -336,8 +336,8 @@ au InsertEnter * set nohlsearch                     " Removes highlight when in 
 autocmd FileType latex,tex,md,markdown setlocal spell " turn on spell checker for certain file types
 
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
-"au! InsertEnter * NoMatchParen
-"au! InsertLeave * DoMatchParen
+au! InsertEnter * NoMatchParen
+au! InsertLeave * DoMatchParen
 
 if exists("+undofile")
   " undofile - This allows you to use undos after exiting and restarting
