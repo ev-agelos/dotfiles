@@ -60,22 +60,30 @@ call plug#end()
 " ----------------------------------------------------------
 "                     Plugin options
 " ----------------------------------------------------------
+
 " vim-bbye
 :nnoremap <Leader>q :silent Bdelete<CR>
+
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
 set statusline+=%{gutentags#statusline('[Generating...]')}
+
 " JSON plugin
 let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual code
+
 " MundoToggle
 map <leader>g :MundoToggle<CR>
+
 " Incsearch
 let g:incsearch#magic = '\v'
 map / <Plug>(incsearch-stay)
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+
 " Signify
 let g:signify_vcs_list = [ 'hg', 'git' ]
+
 " BufTabline
 let g:buftabline_numbers=2
 nmap <leader>1 <Plug>BufTabLine.Go(1)
@@ -88,6 +96,7 @@ nmap <leader>7 <Plug>BufTabLine.Go(7)
 nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
+
 " Lightlime
 let g:lightline = {
       \ 'colorscheme': 'deepspace',
@@ -131,28 +140,33 @@ function! LightlineModified()
 endfunction
 " ALE
 let g:ale_lint_on_enter = 0                                    " don't lint when opening file
-let g:ale_lint_on_save = 1                                     " line when saving file
+let g:ale_lint_on_save = 1                                     " lint when saving file
+let g:ale_fix_on_save = 1                                      " fix when saving file 
 let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
 let g:ale_sign_warning='●'
 let g:ale_sign_error='●'
 hi link ALEErrorSign    Error
 hi link ALEWarningSign  Warning
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+let g:ale_echo_msg_format = '%linter% %s'
 
 let g:ale_linters = {
 \   'python': ['pylint', 'flake8'],
 \}
 let g:ale_python_pylint_options = "--rcfile ~/.pylintrc"
 let g:ale_python_flake8_options = "--max-line-length=100"
+" Bind F8 to fixing problems with ALE
+nmap <F8> <Plug>(ale_fix)
 let g:ale_fixers = {
-\   'python': ['autopep8', 'isort', 'yapf']
+\   'python': ['isort', 'remove_trailing_lines', 'trim_whitespace']
 \}
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
-let g:ale_echo_msg_format = '%linter% %s'
+
 " Neomake
 let g:neomake_highlight_columns=0
 let g:neomake_python_enabled_makers = ['pydocstyle']
 au! BufWritePost * Neomake
+
 " Startify
 let g:startify_change_to_vcs_root = 1
 let g:startify_update_oldfiles = 1
@@ -169,6 +183,7 @@ let g:startify_list_order = [
         \ ['   Files'],
         \ 'files'
         \ ]
+
 " fzf-vim
 let g:fzf_files_options =
    \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
@@ -313,14 +328,12 @@ colorscheme blaquemagick
 "                    Custom
 " ----------------------------------------------------------
 au! FileType python setl nosmartindent              " Disable smartindent in python files(messing up hash commenting symbol)
-au BufWritePre * :%s/\s\+$//e                       " Remove tailing spaces upon saving the file
 au BufNewFile,BufRead *.py setlocal textwidth=99    " Wrap text only in python files
 highlight ColorColumn guibg=#252c3a
 au BufNewFile,BufRead *.py setlocal colorcolumn=80
 au CompleteDone * pclose                            " Automatic hide the tip window when on auto-complete
 au InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
 autocmd FileType latex,tex,md,markdown setlocal spell " turn on spell checker for certain file types
-:nnoremap <Leader>q :silent Bdelete<CR>
 
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
 "au! InsertEnter * NoMatchParen
