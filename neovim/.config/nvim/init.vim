@@ -167,7 +167,7 @@ endfunction
 " ALE
 let g:ale_lint_on_enter = 0                                    " don't lint when opening file
 let g:ale_lint_on_save = 1                                     " lint when saving file
-let g:ale_fix_on_save = 1                                      " fix when saving file 
+let g:ale_fix_on_save = 1                                      " fix when saving file
 let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
 let g:ale_sign_warning='●'
 let g:ale_sign_error='●'
@@ -185,7 +185,7 @@ let g:ale_python_flake8_options = "--max-line-length=100"
 " Bind F8 to fixing problems with ALE
 nmap <F8> <Plug>(ale_fix)
 let g:ale_fixers = {
-\   'python': ['isort', 'remove_trailing_lines', 'trim_whitespace']
+\   'python': ['isort']
 \}
 
 " Neomake
@@ -338,6 +338,9 @@ autocmd FileType latex,tex,md,markdown setlocal spell " turn on spell checker fo
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
 au! InsertEnter * NoMatchParen
 au! InsertLeave * DoMatchParen
+
+autocmd BufWritePre * %s/\s\+$//e                   " trim whitespace on save
+autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
 if exists("+undofile")
   " undofile - This allows you to use undos after exiting and restarting
