@@ -5,19 +5,7 @@
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-init-hook="
-    "import os"
-    "venv = os.environ.get('VIRTUAL_ENV', '')"
-    "this_file = os.path.join(venv, 'bin/activate_this.py')"
-    "if os.path.isfile(this_file):"
-        "try:"
-            "execfile(this_file, dict(__file__=this_file))"
-        "except Exception as e:"
-            "with open(this_file) as fob:"
-                "data = fob.read()"
-            "code=compile(data , this_file, 'exec')"
-            "exec(code)"
-    "
+init-hook="import os;venv=os.environ.get('VIRTUAL_ENV','');file=os.path.join(venv, 'bin/activate_this.py');os.path.isfile(file) or os.sys.exit(0);f=open(file);data=f.read();f.close();exec(compile(data, file, 'exec'), {'__file__':file, '__name__':'__main__'})"
 
 # Add files or directories to the blacklist. They should be base names, not
 # paths.
