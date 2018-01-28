@@ -25,8 +25,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
-Plug 'w0rp/ale'
-Plug 'maximbaz/lightline-ale'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
@@ -155,7 +153,7 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive' ],
       \             [ 'dirpath', 'mymodified', 'readonly'] ],
-      \   'right': [ [ 'linter_errors', 'linter_warnings'],
+      \   'right': [ [ 'neomake_errors', 'neomake_warnings' ],
       \              [ 'tags' ],
       \              [ 'column'],
       \              [ 'fileencoding' ],
@@ -173,51 +171,55 @@ let g:lightline = {
       \ 'component_expand': {
       \   'dirpath': 'LightlineHomeDirPath',
       \   'mymodified': 'LightlineModified',
-      \   'linter_warnings': 'lightline#ale#warnings',
-      \   'linter_errors': 'lightline#ale#errors',
+      \   'neomake_warnings': 'LightLineNeomakeWarnings',
+      \   'neomake_errors': 'LightLineNeomakeErrors',
       \ },
       \ 'component_type': {
-      \   'linter_warnings': 'warning',
-      \   'linter_errors': 'error',
+      \   'neomake_warnings': 'warning',
+      \   'neomake_errors': 'error',
       \ }
       \ }
 
 function! LightlineModified()
     return &modifiable && &modified ? '[+]' : ''
 endfunction
-function! LightlineHomeDirPath()
-    return fnamemodify(expand('%:h'), ":~")
-endfunction
-" ALE
-let g:ale_lint_on_enter = 0                                    " don't lint when opening file
-let g:ale_lint_on_save = 1                                     " lint when saving file
-let g:ale_fix_on_save = 0                                      " dont fix when saving file
-let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
-let g:ale_sign_warning='●'
-let g:ale_sign_error='●'
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
-let g:ale_echo_msg_format = '%linter% %s'
-hi ALEErrorSign ctermbg=234 ctermfg=88 cterm=NONE
-hi ALEWarningSign ctermbg=234 ctermfg=250 cterm=NONE
 
-let g:ale_linters = {
-\   'python': ['pylint', 'flake8'],
-\}
-let g:ale_python_pylint_options = "--rcfile ~/.pylintrc"
-let g:ale_python_flake8_options = "--max-line-length=100"
-" Bind F8 to fixing problems with ALE
-nmap <F8> <Plug>(ale_fix)
-let g:ale_fixers = {
-\   'python': ['isort']
-\}
+function! LightLineNeomakeErrors()
+  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "E", 0) + get(neomake#statusline#LoclistCounts(), "E", 0)) == 0)
+    return ''
+  endif
+  return 'E:'.(get(neomake#statusline#LoclistCounts(), 'E', 0) + get(neomake#statusline#QflistCounts(), 'E', 0))
+endfunction
+
+function! LightLineNeomakeWarnings()
+  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "W", 0) + get(neomake#statusline#LoclistCounts(), "W", 0)) == 0)
+    return ''
+  endif
+  return 'W:'.(get(neomake#statusline#LoclistCounts(), 'W', 0) + get(neomake#statusline#QflistCounts(), 'W', 0))
+endfunction
 
 " Neomake
+let g:neomake_python_isort_maker = {
+    \ 'exe': 'isort',
+    \ }
+"augroup my_neomake_hooks
+"  au!
+"  autocmd User NeomakeJobFinished :e
+"augroup END
 let g:neomake_highlight_columns=0
+let g:neomake_python_pylint_args = [
+    \ '--rcfile=~/.pylintrc',
+    \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
+    \ '--score=no',
+    \ '--reports=no',
+    \ ]
+
 let g:neomake_warning_sign = {'text': '●', 'texthl': 'NeomakeWarningSign'}
 let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_python_enabled_makers = ['pydocstyle', 'pylint', 'flake8']
 au! BufWritePost * Neomake
+hi NeomakeErrorSign ctermbg=234 ctermfg=88
+hi NeomakeWarningSign ctermbg=234 ctermfg=250
 
 " Startify
 let g:startify_change_to_vcs_root = 1
