@@ -140,7 +140,6 @@ let g:lightline = {
       \ },
       \ 'inactive': {
       \   'left': [ [ 'absolutepath'] ],
-      \   'right': [ [ 'column'], [ 'filetype' ] ]
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
@@ -156,10 +155,6 @@ let g:lightline = {
       \   'linter_errors': 'error',
       \ }
       \ }
-
-function! LightlineAbsolutePath()
-  return winwidth(0) > 70 ? expand('%:p:h') : ''
-endfunction
 
 function! LightlineModified()
     return &modifiable && &modified ? '[+]' : ''
