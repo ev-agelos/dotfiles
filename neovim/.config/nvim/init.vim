@@ -185,6 +185,7 @@ let g:ale_fixers = {
 
 " Neomake
 let g:neomake_highlight_columns=0
+let g:neomake_warning_sign = {'text': '●', 'texthl': 'NeomakeWarningSign'}
 let g:neomake_python_enabled_makers = ['pydocstyle']
 au! BufWritePost * Neomake
 
