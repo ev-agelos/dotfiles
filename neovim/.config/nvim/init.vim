@@ -84,6 +84,17 @@ call plug#end()
 colorscheme blaquemagick
 
 " ----------------------------------------------------------
+"                       Leader
+" ----------------------------------------------------------
+" Use , as the leader key
+let mapleader = ","
+" hide matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+" Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
+map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+
+" ----------------------------------------------------------
 "                     Plugin options
 " ----------------------------------------------------------
 
@@ -97,8 +108,8 @@ set statusline+=%{gutentags#statusline('[Generating...]')}
 " JSON plugin
 let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual code
 
-" MundoToggle
-map <leader>g :MundoToggle<CR>
+" UndoToggle
+map <leader>u :UndotreeToggle<CR>
 
 " Incsearch
 let g:incsearch#magic = '\v'
@@ -218,17 +229,6 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
-
-" ----------------------------------------------------------
-"                       Leader
-" ----------------------------------------------------------
-" Use , as the leader key
-let mapleader = ","
-" hide matches on <leader>space
-nnoremap <leader><space> :nohlsearch<cr>
-" Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
-map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 
 " ---------------------------------------------------------
 "                    Settings
