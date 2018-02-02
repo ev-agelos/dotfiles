@@ -112,8 +112,10 @@ let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual co
 map <leader>u :UndotreeToggle<CR>
 
 " Incsearch
-let g:incsearch#magic = '\v'
+let g:incsearch#magic = '\V'
+let g:incsearch#auto_nohlsearch = 1
 map / <Plug>(incsearch-stay)
+map <leader>/ /\v
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
