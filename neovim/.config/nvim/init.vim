@@ -199,7 +199,8 @@ let g:ale_fixers = {
 " Neomake
 let g:neomake_highlight_columns=0
 let g:neomake_warning_sign = {'text': '●', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_python_enabled_makers = ['pydocstyle']
+let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
+let g:neomake_python_enabled_makers = ['pydocstyle', 'pylint', 'flake8']
 au! BufWritePost * Neomake
 
 " Startify
