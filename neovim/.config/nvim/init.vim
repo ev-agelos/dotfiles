@@ -268,8 +268,7 @@ set inccommand=split
 
 " ------------------Reading/Writing--------------------------
 set noswapfile
-set autowrite                    " Stop complaining about unsaved buffers
-set autowriteall
+set hidden
 set noautoread                   " Don't automatically re-read changed files.
 
 " ------------------Messages, Info, Status-------------------
