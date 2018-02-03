@@ -98,6 +98,10 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
+" supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " vim-bbye
 nnoremap <Leader>q :silent Bdelete<CR>
 
