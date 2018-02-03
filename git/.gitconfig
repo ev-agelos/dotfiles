@@ -9,7 +9,7 @@
     configstyle = diff3
 [alias]
     tree = log --oneline --graph --decorate --all
-    lg = log --graph --branches --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lg = log -n 20 --graph --branches --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
     branches = branch -a
     stashes = stash list
@@ -28,7 +28,7 @@
 [rerere]
     enabled = true
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less -+$LESS -R --tabs=4
     excludesfile = ~/.gitignore_global
 [color "diff-highlight"]
     oldNormal = red bold
