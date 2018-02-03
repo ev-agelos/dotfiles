@@ -118,7 +118,11 @@ map / <Plug>(incsearch-stay)
 map <leader>/ /\v
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
+augroup insertload
+  autocmd!
+  autocmd InsertEnter * call deoplete#enable() | autocmd! insertload
+augroup END
 
 " Signify
 let g:signify_vcs_list = [ 'hg', 'git' ]
