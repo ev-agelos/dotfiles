@@ -123,6 +123,7 @@ augroup insertload
   autocmd!
   autocmd InsertEnter * call deoplete#enable() | autocmd! insertload
 augroup END
+call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length']) " don't show the type word in the list
 
 " Signify
 let g:signify_vcs_list = [ 'hg', 'git' ]
