@@ -107,7 +107,6 @@ nnoremap <Leader>q :silent Bdelete<CR>
 
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
-set statusline+=%{gutentags#statusline('[Generating...]')}
 
 " JSON plugin
 let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual code
@@ -157,6 +156,7 @@ let g:lightline = {
       \             [ 'fugitive' ],
       \             [ 'absolutepath', 'mymodified', 'readonly'] ],
       \   'right': [ [ 'linter_errors', 'linter_warnings'],
+      \              [ 'tags' ],
       \              [ 'column'],
       \              [ 'fileencoding' ],
       \              [ 'filetype' ]]
@@ -165,6 +165,7 @@ let g:lightline = {
       \   'left': [ [ 'absolutepath'] ],
       \ },
       \ 'component': {
+      \   'tags': '%{gutentags#statusline(" ")}',
       \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
       \   'fugitive': '%{exists("*fugitive#head") && ""!=fugitive#head()?" ".fugitive#head():""}'
       \ },
