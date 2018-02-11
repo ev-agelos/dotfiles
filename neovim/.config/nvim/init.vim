@@ -163,6 +163,7 @@ let g:lightline = {
       \ },
       \ 'inactive': {
       \   'left': [ [ 'absolutepath'] ],
+      \   'right': []
       \ },
       \ 'component': {
       \   'tags': '%{gutentags#statusline(" ")}',
