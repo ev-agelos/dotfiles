@@ -191,7 +191,7 @@ endfunction
 " ALE
 let g:ale_lint_on_enter = 0                                    " don't lint when opening file
 let g:ale_lint_on_save = 1                                     " lint when saving file
-let g:ale_fix_on_save = 1                                      " fix when saving file
+let g:ale_fix_on_save = 0                                      " dont fix when saving file
 let g:ale_emit_conflict_warnings = 0                            " avoid conflicts with NeoMake
 let g:ale_sign_warning='●'
 let g:ale_sign_error='●'
