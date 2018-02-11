@@ -68,16 +68,20 @@ GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git docker_machine)
 
 source ~/.zplug/init.zsh
 zplug "frmendes/geometry"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
 zplug "peterhurford/git-it-on.zsh"
-fasd_cache="$HOME/.fasd-init-zsh"
-zplug "clvv/fasd", as:command, hook-load:'if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then fasd --init posix-alias zsh-hook >| $fasd_cache; fi && source $fasd_cache && unset fasd_cache'
 zplug "wfxr/forgit", defer:1
-zplug "ev-agelos/zplug", hook-build:"zplug --self-manage"
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 zplug load
 ####################################################################
+
+fasd_cache="$HOME/.fasd-init-zsh"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
 
 source ~/.fzf.zsh
 source ~/.zsh/functions
