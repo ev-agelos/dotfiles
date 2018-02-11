@@ -72,8 +72,10 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "peterhurford/git-it-on.zsh"
+fasd_cache="$HOME/.fasd-init-zsh"
+zplug "clvv/fasd", as:command, hook-load:'if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then fasd --init posix-alias zsh-hook >| $fasd_cache; fi && source $fasd_cache && unset fasd_cache'
 zplug "wfxr/forgit", defer:1
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
+zplug "ev-agelos/zplug", hook-build:"zplug --self-manage"
 zplug load
 ####################################################################
 
