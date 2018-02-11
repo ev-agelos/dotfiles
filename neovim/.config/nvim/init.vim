@@ -259,8 +259,6 @@ set splitbelow                   " When horizontally split below
 set mouse=a
 set number
 set wildmode=full                " <Tab> cycles between all matching choices.
-
-" --------------- Moving Around/Editing --------------------
 " Do not blink in normal mode, Use pipe shape in insert mode
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 set clipboard+=unnamedplus       " Copy/Paste always to clipboard
@@ -282,24 +280,17 @@ set softtabstop=4                " <BS> over an autoindent deletes both spaces.
 set expandtab                    " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                   " rounds indent to a multiple of shiftwidth
 set inccommand=split
-
-" ------------------Reading/Writing--------------------------
+set nojoinspaces                 " don't autoinsert two spaces after '.', '?', '!' for join command
 set noswapfile
 set hidden
 set noautoread                   " Don't automatically re-read changed files.
-
-" ------------------Messages, Info, Status-------------------
 set showcmd                      " Show incomplete normal mode commands as I type.
 set report=0                     " : commands always print changed line count.
 set shortmess+=a                 " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                        " Show some info, even without statuslines.
-
-
-" ------------------Searching and Patterns-------------------
 set wrapscan                     " search fron beginning if end of file is reached
 set ignorecase                   " Default to using case insensitive searches,
 set smartcase                    " unless uppercase letters are used in the regex.
-" Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
@@ -358,20 +349,15 @@ autocmd BufWritePre * %s/\s\+$//e                   " trim whitespace on save
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
 if exists("+undofile")
-  " undofile - This allows you to use undos after exiting and restarting
-  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
-  " :help undo-persistence
-  " This is only present in 7.3+
   if isdirectory($HOME . '/.config/nvim/undo') == 0
     :silent !mkdir -p ~/.config/nvim/undo > /dev/null 2>&1
   endif
-  set undodir=./.nvim-undo//
-  set undodir+=~/.nvim/undo//
+  set undodir=~/.config/nvim/undo
   set undofile
 endif
 
-" This beauty remembers where you were the last time you edited the file, and returns to the same position.
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+" jump to last position when reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 hi DiffAdd     gui=none    guifg=#709d6c          guibg=#2d422b
 hi DiffChange   gui=none    guifg=NONE          guibg=NONE
