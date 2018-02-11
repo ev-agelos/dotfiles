@@ -154,7 +154,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive' ],
-      \             [ 'absolutepath', 'mymodified', 'readonly'] ],
+      \             [ 'dirpath', 'mymodified', 'readonly'] ],
       \   'right': [ [ 'linter_errors', 'linter_warnings'],
       \              [ 'tags' ],
       \              [ 'column'],
@@ -171,6 +171,7 @@ let g:lightline = {
       \   'fugitive': '%{exists("*fugitive#head") && ""!=fugitive#head()?" ".fugitive#head():""}'
       \ },
       \ 'component_expand': {
+      \   'dirpath': 'LightlineHomeDirPath',
       \   'mymodified': 'LightlineModified',
       \   'linter_warnings': 'lightline#ale#warnings',
       \   'linter_errors': 'lightline#ale#errors',
@@ -183,6 +184,9 @@ let g:lightline = {
 
 function! LightlineModified()
     return &modifiable && &modified ? '[+]' : ''
+endfunction
+function! LightlineHomeDirPath()
+    return fnamemodify(expand('%:h'), ":~")
 endfunction
 " ALE
 let g:ale_lint_on_enter = 0                                    " don't lint when opening file
