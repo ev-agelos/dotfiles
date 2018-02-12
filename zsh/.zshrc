@@ -27,7 +27,6 @@ setopt LIST_PACKED
 setopt INTERACTIVE_COMMENTS
 setopt MENU_COMPLETE  # do not autoselect the first completion entry
 
-autoload -U compinit && compinit  # Enable advanced completion
 zstyle ':completion:*' menu select  # Highlight menu selection
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#*.egg-info|' '(*/)#__pycache__'  # ignore some directories
 zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"  # ignore some files during completion
@@ -66,22 +65,20 @@ PROMPT_GEOMETRY_RPROMPT_ASYNC=false
 PROMPT_GEOMETRY_GIT_TIME=false
 GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git docker_machine)
 
-source ~/.zplug/init.zsh
-zplug "frmendes/geometry"
-zplug "zdharma/fast-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "peterhurford/git-it-on.zsh"
-zplug "wfxr/forgit", defer:1
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug load
-####################################################################
+source ~/.zplugin/bin/zplugin.zsh
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-fasd_cache="$HOME/.fasd-init-zsh"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
+zplugin light frmendes/geometry
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions
+zplugin ice as"program" atclone'./fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| zhook.zsh' atpull'%atclone' src'zhook.zsh'
+zplugin light clvv/fasd
+zplugin light peterhurford/git-it-on.zsh
+zplugin light wfxr/forgit
+zplugin ice wait"0" atinit"zpcompinit"
+zplugin light zdharma/fast-syntax-highlighting
+####################################################################
 
 source ~/.fzf.zsh
 source ~/.zsh/functions
