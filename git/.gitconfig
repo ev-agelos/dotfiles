@@ -11,6 +11,8 @@
     tree = log --oneline --graph --decorate --all
     lg = log -n 20 --graph --branches --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
+    st = status -s
+    sl = stash list
     branches = branch -a
     stashes = stash list
     unstage = reset -q HEAD --
