@@ -28,7 +28,7 @@ udiskie --no-automount --no-notify --tray --use-udisks2 &
 setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle
 
 # faster cursor
-xset r rate 200 30
+xset r rate 200 100
 
 # map CapsLock -> Ctrl when pressed, Esc when tapped
 setxkbmap -option 'caps:ctrl_modifier'
