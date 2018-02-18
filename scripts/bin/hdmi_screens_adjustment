@@ -25,6 +25,7 @@ if [ $HDMIStatus = 'connected' ]; then
     /usr/bin/xrandr --output HDMI1 --auto --left-of eDP1
 else
     /usr/bin/xrandr --output HDMI1 --off
+    polybar-msg cmd restart
 fi
 
 /usr/bin/notify-send "HDMI $HDMIStatus"
