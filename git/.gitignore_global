@@ -6,6 +6,7 @@
 *.pyco
 *.egg
 *.egg-info
+*.orig
 
 # coverage and nose reports
 \.noseids
