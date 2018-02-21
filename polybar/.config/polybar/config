@@ -56,7 +56,7 @@ modules-center = mpd mpv vpncheck redshift pkg
 modules-right = filesystem memory cpu backlight volume xkeyboard battery wlan eth date
 
 tray-position = center
-tray-offset-x=279
+tray-offset-x=-500
 
 
 [module/xkeyboard]
@@ -82,9 +82,16 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F#0a81f5}%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+label1-mounted = %{F#0a81f5}%{F-}: %percentage_used%%
+label1-unmounted = %mountpoint% not mounted
+label1-unmounted-foreground = ${colors.foreground-alt}
+label2-mounted = %{F#0a81f5}%{F-}: %percentage_used%%
+label2-unmounted = %mountpoint% not mounted
+label2-unmounted-foreground = ${colors.foreground-alt}
 
 
 [module/memory]
