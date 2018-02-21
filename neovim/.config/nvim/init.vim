@@ -295,6 +295,9 @@ set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 set noshowmode                   " Hide vim mode from status line
+set undofile
+set undodir=~/.config/nvim/undo
+set undolevels=1000
 
 " ----------------------------------------------------------
 "                    Mappings
@@ -328,7 +331,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
-
+" backspace to previous buffer
+nnoremap <bs> <c-^>
 
 " ----------------------------------------------------------
 "                    Custom
@@ -347,14 +351,6 @@ au! InsertLeave * DoMatchParen
 
 autocmd BufWritePre * %s/\s\+$//e                   " trim whitespace on save
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
-
-if exists("+undofile")
-  if isdirectory($HOME . '/.config/nvim/undo') == 0
-    :silent !mkdir -p ~/.config/nvim/undo > /dev/null 2>&1
-  endif
-  set undodir=~/.config/nvim/undo
-  set undofile
-endif
 
 " jump to last position when reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
