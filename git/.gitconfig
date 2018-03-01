@@ -28,7 +28,7 @@
     new = green bold
     whitespace = red reverse
 [rerere]
-    enabled = true
+    enabled = false
 [core]
     pager = diff-so-fancy | less -+$LESS -R --tabs=4
     excludesfile = ~/.gitignore_global
