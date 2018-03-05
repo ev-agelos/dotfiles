@@ -19,7 +19,7 @@
 # And make the rule in /etc/udev/rules.d/98-monitor-hotplug.rules, also replace USER:
 # KERNEL=="card0", SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/USER/.Xauthority", RUN+="/bin/systemctl start hot_plug.service"
 
-HDMIStatus=$(cat /sys/class/drm/card0/*HDMI-A-1/status)
+HDMIStatus=$(cat /sys/class/drm/*HDMI-A-1/status)
 
 if [ $HDMIStatus = 'connected' ]; then
     /usr/bin/xrandr --output HDMI1 --auto --left-of eDP1
