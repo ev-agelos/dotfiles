@@ -355,7 +355,7 @@ autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 " jump to last position when reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-hi DiffAdd    gui=none guifg=#709d6c guibg=#2d422b ctermfg=7 ctermbg=238
-hi DiffChange gui=none guifg=NONE    guibg=NONE    ctermfg=7 ctermbg=238
-hi DiffDelete gui=bold guifg=#ff8080 guibg=NONE    ctermfg=7 ctermbg=88
-hi DiffText   gui=none guifg=#709d6c guibg=#2d422b ctermfg=7 ctermbg=22
+hi DiffAdd    gui=none guifg=#709d6c guibg=#2d422b ctermfg=34 ctermbg=238
+hi DiffChange gui=none guifg=NONE    guibg=NONE    ctermfg=250 ctermbg=238
+hi DiffDelete gui=bold guifg=#ff8080 guibg=NONE    ctermfg=1 ctermbg=235
+hi DiffText   gui=none guifg=#709d6c guibg=#2d422b ctermfg=178 ctermbg=238
