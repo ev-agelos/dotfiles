@@ -71,6 +71,7 @@ autoload -Uz _zplugin
 zplugin light frmendes/geometry
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
+zplugin light b4b4r07/zsh-vimode-visual
 zplugin ice as"program" atclone'./fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| zhook.zsh' atpull'%atclone' src'zhook.zsh'
 zplugin light clvv/fasd
 zplugin light peterhurford/git-it-on.zsh
