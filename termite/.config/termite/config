@@ -87,3 +87,28 @@ color15 = #ECEFF4
 # color13 = #A36AC7
 # color14 = #3971ED
 # color15 = #f5f5f5
+
+# [colors]
+# foreground      = #6d767d
+# foreground_bold = #6d767d
+# cursor          = #61707a
+# background      = #ffffff
+# cursor_foreground = #2E3440
+# highlight = #4C566A
+
+# color0  = #1d252b
+# color1  = #e3717d
+# color2  = #43a838
+# color3  = #b0913a
+# color4  = #469bd4
+# color5  = #d6769e
+# color6  = #37a2a6
+# color7  = #e6eaed
+# color8  = #0b141a
+# color9  = #d67e47
+# color10 = #61707a
+# color11 = #6d767d
+# color12 = #787e82
+# color13 = #a980e8
+# color14 = #808487
+# color15 = #ffffff
