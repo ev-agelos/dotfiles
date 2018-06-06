@@ -19,10 +19,12 @@ export FZF_ALT_C_COMMAND="bfs -type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # Map what keyboard sends for specific keys to zsh actions
-bindkey '^[[Z' reverse-menu-complete # Shift+tab for previous selection
+bindkey '^[[Z'    reverse-menu-complete # Shift+tab for previous selection
 bindkey \^U       backward-kill-line # Ctrl+U delete from cursor till start of line
 bindkey \^K       kill-line          # Ctrl+K delete from cursor till end of line
-bindkey "^?" backward-delete-char    # fix backspace
+bindkey \^Y       yank
+bindkey \^_       undo
+bindkey "^?"      backward-delete-char    # fix backspace
 bindkey  "^[[H"   beginning-of-line  # HOME key
 bindkey  "^[[F"   end-of-line        # END key
 bindkey '\e[3~'   delete-char        # DEL key
