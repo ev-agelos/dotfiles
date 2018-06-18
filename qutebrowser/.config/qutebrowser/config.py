@@ -6,14 +6,6 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
-# Background color of the completion widget for even rows.
-# Type: QssColor
-c.colors.completion.even.bg = '#333333'
-
-# Show a scrollbar.
-# Type: Bool
-c.scrolling.bar = True
-
 # Search engines which can be used via the address bar. Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
 # placeholder. The placeholder will be replaced by the search term, use
@@ -24,6 +16,44 @@ c.scrolling.bar = True
 # `:open google qutebrowser`.
 # Type: Dict
 c.url.searchengines = {'DEFAULT': 'https://www.google.com.ar/search?q={}'}
+
+# Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
+# for a blank page.
+# Type: FuzzyUrl
+c.url.default_page = 'about:lank'
+
+# Always restore open sites when qutebrowser is reopened.
+# Type: Bool
+c.auto_save.session = True
+
+# Page(s) to open at the start.
+# Type: List of FuzzyUrl, or FuzzyUrl
+c.url.start_pages = 'www.google.com'
+
+# Show a filebrowser in upload/download prompts.
+# Type: Bool
+c.prompt.filebrowser = True
+
+# Show a scrollbar.
+# Type: Bool
+c.scrolling.bar = True
+
+# Enable smooth scrolling for web pages. Note smooth scrolling does not
+# work with the `:scroll-px` command.
+# Type: Bool
+c.scrolling.smooth = True
+
+# Background color of the selected completion item.
+# Type: QssColor
+c.colors.completion.item.selected.bg = '#e8c000'
+
+# Foreground color of the URL in the statusbar on error.
+# Type: QssColor
+c.colors.statusbar.url.error.fg = 'orange'
+
+# Background color of the completion widget for even rows.
+# Type: QssColor
+c.colors.completion.even.bg = '#333333'
 
 # Enable JavaScript.
 # Type: Bool
@@ -36,32 +66,6 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
-
-# Foreground color of the URL in the statusbar on error.
-# Type: QssColor
-c.colors.statusbar.url.error.fg = 'orange'
-
-# Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
-# for a blank page.
-# Type: FuzzyUrl
-c.url.default_page = 'about:lank'
-
-# Show a filebrowser in upload/download prompts.
-# Type: Bool
-c.prompt.filebrowser = True
-
-# Enable smooth scrolling for web pages. Note smooth scrolling does not
-# work with the `:scroll-px` command.
-# Type: Bool
-c.scrolling.smooth = True
-
-# Background color of the selected completion item.
-# Type: QssColor
-c.colors.completion.item.selected.bg = '#e8c000'
-
-# Page(s) to open at the start.
-# Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'www.google.com'
 
 # Bindings for normal mode
 config.bind('<Ctrl+j>', 'tab-prev')
