@@ -13,6 +13,8 @@
 
     st = status -s
     sl = stash list
+    ca = commit --amend --no-edit
+
     branches = branch -a
     stashes = stash list
     unstage = reset -q HEAD --
