@@ -49,10 +49,10 @@ bindsym $mod+m exec --no-startup-id ~/repos/hud-menu/hud-menu.py dmeny
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left; exec --no-startup-id $HOME/.config/i3/flash_win.sh
-bindsym $mod+j focus down; exec --no-startup-id $HOME/.config/i3/flash_win.sh
-bindsym $mod+k focus up; exec --no-startup-id $HOME/.config/i3/flash_win.sh
-bindsym $mod+l focus right; exec --no-startup-id $HOME/.config/i3/flash_win.sh
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -124,6 +124,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="Chromium"] $ws3
+assign [class="qutebrowser"] $ws3
 assign [class="Firefox"] $ws4
 assign [class="wmail"] $ws6
 assign [class="Simplenote"] $ws7
@@ -190,7 +191,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease 
 # Move a terminal to scratchpad
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
-exec --no-startup-id i3-sensible-terminal --name terminal_scratchpad
+exec --no-startup-id i3-sensible-terminal -name terminal_scratchpad
 for_window [instance="terminal_scratchpad"] floating enable
 for_window [instance="terminal_scratchpad"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move window to scratchpad
 
