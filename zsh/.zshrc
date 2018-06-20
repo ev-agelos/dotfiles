@@ -18,24 +18,7 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 export FZF_ALT_C_COMMAND="bfs -type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
-# Map what keyboard sends for specific keys to zsh actions
-bindkey '^[[Z'    reverse-menu-complete # Shift+tab for previous selection
-bindkey \^U       backward-kill-line # Ctrl+U delete from cursor till start of line
-bindkey \^K       kill-line          # Ctrl+K delete from cursor till end of line
-bindkey \^Y       yank
-bindkey \^_       undo
-bindkey "^?"      backward-delete-char    # fix backspace
-bindkey  "^[[H"   beginning-of-line  # HOME key
-bindkey  "^[[F"   end-of-line        # END key
-bindkey '\e[3~'   delete-char        # DEL key
-bindkey '^A'      beginning-of-line  # Ctrl+a
-bindkey '^E'      end-of-line        # Ctrl+e
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
-
+KEYTIMEOUT=1
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
@@ -78,10 +61,39 @@ zplugin ice as"program" atclone'./fasd --init posix-alias zsh-hook zsh-ccomp zsh
 zplugin light clvv/fasd
 zplugin light peterhurford/git-it-on.zsh
 zplugin light wfxr/forgit
-zplugin ice wait"0" atinit"zpcompinit"
 zplugin light zdharma/fast-syntax-highlighting
+zplugin ice wait"0" atinit"zpcompinit"
 ####################################################################
 
 source ~/.fzf.zsh
 source ~/.zsh/functions
 source ~/.aliases  # my aliases
+
+# Note: Bind keys in the end because of conflict with zsh-syntax-highlighting(fast-syntax-highlighting)
+# needs to be loaded first and then bind keys
+
+# Map what keyboard sends for specific keys to zsh actions
+bindkey '^[[Z'    reverse-menu-complete # Shift+tab for previous selection
+bindkey \^U       backward-kill-line    # Ctrl+U delete from cursor till start of line
+bindkey \^K       kill-line             # Ctrl+K delete from cursor till end of line
+bindkey \^Y       yank
+bindkey \^_       undo
+bindkey "^?"      backward-delete-char  # Backspace
+bindkey  "^[[H"   beginning-of-line     # HOME
+bindkey  "^[[F"   end-of-line           # END
+bindkey '\e[3~'   delete-char           # DEL
+bindkey '\e[5~'   beginning-of-history  # PageUP
+bindkey '\e[6~'   end-of-history        # PageDown
+bindkey '^A'      beginning-of-line     # Ctrl+a
+bindkey '^E'      end-of-line           # Ctrl+e
+bindkey "^W"      backward-kill-word    # Ctrl+w
+
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
