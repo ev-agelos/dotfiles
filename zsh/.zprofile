@@ -4,5 +4,5 @@
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
-  exec startx
+  exec startx 2>.xsession-errors
 fi
