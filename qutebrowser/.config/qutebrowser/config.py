@@ -6,29 +6,30 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
-# Search engines which can be used via the address bar. Maps a search
-# engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
-# placeholder. The placeholder will be replaced by the search term, use
-# `{{` and `}}` for literal `{`/`}` signs. The search engine named
-# `DEFAULT` is used when `url.auto_search` is turned on and something
-# else than a URL was entered to be opened. Other search engines can be
-# used by prepending the search engine name to the search term, e.g.
-# `:open google qutebrowser`.
-# Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://www.google.com.ar/search?q={}'}
-
-# Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
-# for a blank page.
-# Type: FuzzyUrl
-c.url.default_page = 'about:lank'
-
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
 c.auto_save.session = True
 
-# Page(s) to open at the start.
-# Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'www.google.com'
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'file://*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'chrome://*/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# When a hint can be automatically followed without pressing Enter.
+# Type: String
+# Valid values:
+#   - always: Auto-follow whenever there is only a single hint on a page.
+#   - unique-match: Auto-follow whenever there is a unique non-empty match in either the hint string (word mode) or filter (number mode).
+#   - full-match: Follow the hint when the user typed the whole hint (letter, word or number mode) or the element's text (only in number mode).
+#   - never: The user will always need to press Enter to follow a hint.
+c.hints.auto_follow = 'always'
 
 # Show a filebrowser in upload/download prompts.
 # Type: Bool
@@ -43,6 +44,30 @@ c.scrolling.bar = True
 # Type: Bool
 c.scrolling.smooth = True
 
+# Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
+# for a blank page.
+# Type: FuzzyUrl
+c.url.default_page = 'about:lank'
+
+# Search engines which can be used via the address bar. Maps a search
+# engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
+# placeholder. The placeholder will be replaced by the search term, use
+# `{{` and `}}` for literal `{`/`}` signs. The search engine named
+# `DEFAULT` is used when `url.auto_search` is turned on and something
+# else than a URL was entered to be opened. Other search engines can be
+# used by prepending the search engine name to the search term, e.g.
+# `:open google qutebrowser`.
+# Type: Dict
+c.url.searchengines = {'DEFAULT': 'https://www.google.com.ar/search?q={}'}
+
+# Page(s) to open at the start.
+# Type: List of FuzzyUrl, or FuzzyUrl
+c.url.start_pages = 'www.google.com'
+
+# Background color of the completion widget for even rows.
+# Type: QssColor
+c.colors.completion.even.bg = '#333333'
+
 # Background color of the selected completion item.
 # Type: QssColor
 c.colors.completion.item.selected.bg = '#e8c000'
@@ -51,23 +76,8 @@ c.colors.completion.item.selected.bg = '#e8c000'
 # Type: QssColor
 c.colors.statusbar.url.error.fg = 'orange'
 
-# Background color of the completion widget for even rows.
-# Type: QssColor
-c.colors.completion.even.bg = '#333333'
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'file://*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'chrome://*/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'qute://*/*')
-
 # Bindings for normal mode
 config.bind('<Ctrl+j>', 'tab-prev')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
+config.bind('gi', ':hint inputs')
