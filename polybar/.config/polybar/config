@@ -55,8 +55,7 @@ modules-left = i3
 modules-center = mpd mpv vpncheck redshift pkg
 modules-right = filesystem memory cpu backlight volume xkeyboard battery wlan eth date
 
-tray-position = center
-tray-offset-x=-500
+tray-position = right
 
 
 [module/xkeyboard]
@@ -235,7 +234,7 @@ bar-empty = ─
 
 [module/wlan]
 type = internal/network
-interface = wlp7s0
+interface = wlp3s0
 interval = 3.0
 downspeed-min = 5
 upspeed-min = 5
