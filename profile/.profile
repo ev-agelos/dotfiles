@@ -21,6 +21,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# include ~/.local/bin in Path (for pip install --user ..)
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ -z "$UBUNTU_MENUPROXY" ]
