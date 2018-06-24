@@ -37,6 +37,5 @@ xcape -e 'Caps_Lock=Escape'
 #compton --config "$HOME/.config/compton" &
 xset +fp "$HOME/.fonts"
 xset fp rehash
-pulseaudio --start
 
 exec i3
