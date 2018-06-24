@@ -38,4 +38,8 @@ xcape -e 'Caps_Lock=Escape'
 xset +fp "$HOME/.fonts"
 xset fp rehash
 
+/usr/bin/dropbox start &
+pgrep redshift &> /dev/null || redshift &> /dev/null &
+
+xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork" &
 exec i3
