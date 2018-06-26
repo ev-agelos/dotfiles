@@ -1,4 +1,5 @@
 #!/bin/bash
+alias sudo='sudo '
 alias ll='ls -l'
 alias vi=nvim
 alias view='nvim -R'
