@@ -259,7 +259,6 @@ set foldlevel=99
 set splitright                   " When vertically split right
 set splitbelow                   " When horizontally split below
 set mouse=a
-set number
 set wildmode=full                " <Tab> cycles between all matching choices.
 " Do not blink in normal mode, Use pipe shape in insert mode
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
