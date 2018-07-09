@@ -46,6 +46,7 @@ Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
+Plug 'andreypopp/vim-colors-plain'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'morhetz/gruvbox'
 "Plug 'mhartington/oceanic-next' " best for dark
@@ -58,7 +59,7 @@ call plug#end()
 " ----------------------------------------------------------
 "                    Colorschemes
 " ----------------------------------------------------------
-"set termguicolors " use 24-bit color
+set termguicolors " use 24-bit color
 
 " ------------------ Gruvbox -------------------------------
 "let g:gruvbox_contrast_dark='soft'
@@ -79,7 +80,7 @@ call plug#end()
 " let g:deepspace_italics=1
 "colorscheme deep-space
 " ------------------ Blaquemagick
-colorscheme blaquemagick
+colorscheme plain
 
 " ----------------------------------------------------------
 "                       Leader
