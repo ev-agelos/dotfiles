@@ -60,4 +60,4 @@
 * A modern replacement for ls: [exa](https://the.exa.website/)
 * Translator: [translate-shell](https://github.com/soimort/translate-shell)
 * Password manager: [keepassxc](https://keepassxc.org/)
-* Notes/Todo: [simplenote](https://simplenote.com/)
+* Notes/Todo: [standard notes](https://standardnotes.org/)
