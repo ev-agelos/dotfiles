@@ -18,6 +18,7 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 export FZF_ALT_C_COMMAND="bfs -type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'  # fix for killing backwards word in paths
 KEYTIMEOUT=1
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=999999999
