@@ -7,7 +7,7 @@ alias tree="tree -I '*.pyc|__pycache__'"
 alias cat=ccat
 
 if which exa >/dev/null 2>&1; then
-  alias ls='exa'
+  alias ls=exa
 else
   alias ls='ls --color=auto'
 fi
