@@ -21,9 +21,17 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# include in the path executables from ~/.local/bin
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 # include ~/.local/bin in Path (for pip install --user ..)
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
+fi
+# also for python 2
+if [ -d "$HOME/.local/lib/python2.7/site-packages" ] ; then
+    PATH="$HOME/.local/lib/python2.7/site-packages:$PATH"
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -37,6 +45,8 @@ export GTK_MODULES
 export UBUNTU_MENUPROXY
 export EDITOR=nvim
 export BROWSER=qutebrowser
+export WINIT_HIDPI_FACTOR=1.0  # fix wrong dpi for alacritty when connecting 2nd screen
+export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
 eval `dircolors $HOME/.dir_colors`
 
