@@ -19,6 +19,7 @@ export FZF_ALT_C_COMMAND="bfs -type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'  # fix for killing backwards word in paths
+FIGNORE=".pyc"  # seperate with : for multiple extensions
 KEYTIMEOUT=1
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=999999999
@@ -35,7 +36,6 @@ setopt MENU_COMPLETE  # do not autoselect the first completion entry
 
 zstyle ':completion:*' menu select  # Highlight menu selection
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#*.egg-info|' '(*/)#__pycache__'  # ignore some directories
-zstyle ':completion:*:(all-|)files' ignored-patterns "(*.pyc|*~)"  # ignore some files during completion
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
