@@ -183,7 +183,7 @@ fuzzy-match = true
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <icon-repeat>
-label-song =  %artist% - %title%
+label-song =  %artist:0:10:% - %title:0:10:%
 interval=2
 
 ; host = localhost
@@ -388,4 +388,4 @@ exec-if = pgrep -x mpv
 interval = 1
 
 format = <label>
-label = %output%
+label = %output:0:50:%
