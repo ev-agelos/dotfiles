@@ -208,13 +208,8 @@ label-song-ellipsis = true
 
 
 [module/backlight]
-type = internal/xbacklight
-; XRandR output to get get values from
-; Default: the monitor defined for the running bar
-output = ${env:MONITOR}
-; Create scroll handlers used to set the backlight value
-; Default: true
-enable-scroll = false
+type = internal/backlight
+card = intel_backlight
 format = <ramp>
 ; Available tokens:
 ;   %percentage% (default)
@@ -292,7 +287,8 @@ label = %date% %time%
 
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
+master-soundcard = hw:0
 
 format-volume = <ramp-volume> <label-volume>
 label-volume-foreground = ${root.foreground}
