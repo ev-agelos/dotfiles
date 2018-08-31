@@ -151,7 +151,8 @@ let g:lightline = {
       \             [ 'dirpath', 'mymodified', 'readonly'] ],
       \   'right': [ [ 'neomake_errors', 'neomake_warnings' ],
       \              [ 'tags' ],
-      \              [ 'column'],
+      \              [ 'lineinfo'],
+      \              [ 'percent'],
       \              [ 'fileencoding' ],
       \              [ 'filetype' ]]
       \ },
