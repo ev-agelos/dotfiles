@@ -198,6 +198,6 @@ for_window [title="terminal_scratchpad"] floating enable
 for_window [title="terminal_scratchpad"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move window to scratchpad
 
 # Set wallpaper everytime i3 starts
-exec_always feh --bg-max ~/Dropbox/Pictures/vim_qwerty_black.jpg
+exec_always feh --bg-max ~/.pCloudLocal/Pictures/ranger-cheatsheet.png
 
 exec_always $HOME/.config/polybar/launch.sh
