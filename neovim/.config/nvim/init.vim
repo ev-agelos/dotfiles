@@ -345,7 +345,7 @@ highlight ColorColumn guibg=#252c3a
 au BufNewFile,BufRead *.py setlocal colorcolumn=80
 au CompleteDone * pclose                            " Automatic hide the tip window when on auto-complete
 au InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
-autocmd FileType latex,tex,md,markdown setlocal spell " turn on spell checker for certain file types
+autocmd FileType latex,tex setlocal spell " turn on spell checker for certain file types
 
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
 au! InsertEnter * NoMatchParen
