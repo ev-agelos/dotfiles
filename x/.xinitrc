@@ -34,12 +34,13 @@ xset r rate 200 100
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
 
-#compton --config "$HOME/.config/compton" &
+# include ~/.fonts directory for fonts
 xset +fp "$HOME/.fonts"
 xset fp rehash
 
-/usr/bin/dropbox start &
-pgrep redshift &> /dev/null || redshift &> /dev/null &
+~/bin/pcloud &
+pgrep redshift || redshift &
 
 xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork" &
+~/bin/hdmi_screens_adjustment
 exec i3
