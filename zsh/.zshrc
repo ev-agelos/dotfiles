@@ -61,6 +61,7 @@ zplugin light b4b4r07/zsh-vimode-visual
 zplugin ice as"program" atclone'./fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| zhook.zsh' atpull'%atclone' src'zhook.zsh'
 zplugin light clvv/fasd
 zplugin light peterhurford/git-it-on.zsh
+zplugin light soimort/translate-shell
 zplugin light wfxr/forgit
 zplugin light zdharma/fast-syntax-highlighting
 zplugin ice wait"0" atinit"zpcompinit"
