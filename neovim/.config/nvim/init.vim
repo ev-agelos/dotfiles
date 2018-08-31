@@ -47,12 +47,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
 Plug 'andreypopp/vim-colors-plain'
-"Plug 'NLKNguyen/papercolor-theme'
-"Plug 'morhetz/gruvbox'
-"Plug 'mhartington/oceanic-next' " best for dark
-"Plug 'reedes/vim-colors-pencil' " best for light
 Plug 'ev-agelos/vim-deep-space'
-"Plug 'metalelf0/base16-black-metal-scheme'
 Plug 'xero/blaquemagick.vim'
 call plug#end()
 
