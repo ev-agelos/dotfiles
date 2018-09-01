@@ -38,8 +38,9 @@ xcape -e 'Caps_Lock=Escape'
 xset +fp "$HOME/.fonts"
 xset fp rehash
 
-~/bin/pcloud &
-pgrep redshift || redshift &
+/usr/bin/pcloud &
+pgrep redshift &> /dev/null || /usr/lib/geoclue-2.0/demos/agent &> /dev/null &
+pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork" &
 ~/bin/hdmi_screens_adjustment
