@@ -46,7 +46,8 @@ Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
-Plug 'andreypopp/vim-colors-plain'
+" Plug 'andreypopp/vim-colors-plain'
+Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'ev-agelos/vim-deep-space'
 Plug 'xero/blaquemagick.vim'
 call plug#end()
@@ -55,26 +56,7 @@ call plug#end()
 "                    Colorschemes
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
-
-" ------------------ Gruvbox -------------------------------
-"let g:gruvbox_contrast_dark='soft'
-
-" ------------------ Oceanic -------------------------------
-" let g:oceanic_next_terminal_italic = 1
-" let g:oceanic_next_terminal_bold = 1
-" colorscheme OceanicNextLight
-
-" ------------------ Pencil --------------------------------
-" let g:pencil_gutter_color = 1
-" let g:pencil_neutral_headings = 1
-" let g:pencil_higher_contrast_ui = 1
-" let g:pencil_terminal_italics = 1
-" let g:pencil_spell_undercurl = 0
-" colorscheme pencil
-" ------------------ Deep space ---------------------------
-" let g:deepspace_italics=1
-"colorscheme deep-space
-" ------------------ Blaquemagick
+set background=light
 colorscheme plain
 
 " ----------------------------------------------------------
