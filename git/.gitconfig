@@ -9,7 +9,7 @@
     configstyle = diff3
 [alias]
     tree = log --oneline --graph --decorate --all
-    lg = log --graph --branches --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lg = log --graph --branches --all --pretty=format:'%C(black)%h%Creset -%C(auto)%d%C(reset) %s %Cgreen(%cr) %C(dim black)<%an>%Creset' --abbrev-commit --date=relative
 
     st = status -s
     sl = stash list
