@@ -22,10 +22,11 @@
 HDMIStatus=$(cat /sys/class/drm/*HDMI-A-1/status)
 
 if [ $HDMIStatus = 'connected' ]; then
-    /usr/bin/xrandr --output HDMI-1 --auto --left-of DVI-D-1
+    /usr/bin/xrandr --output HDMI-1 --mode 3440x1440 --left-of eDP-1
+    /usr/bin/xrandr --output HDMI-1 --primary
 else
     /usr/bin/xrandr --output HDMI-1 --off
-    polybar-msg cmd restart
 fi
 
+polybar-msg cmd restart
 /usr/bin/notify-send "HDMI $HDMIStatus"
