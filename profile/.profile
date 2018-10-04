@@ -44,7 +44,7 @@ fi
 export GTK_MODULES
 export UBUNTU_MENUPROXY
 export EDITOR=nvim
-export TERMINAL=alacritty
+export TERMINAL=kitty
 export BROWSER=qutebrowser
 export WINIT_HIDPI_FACTOR=1.0  # fix wrong dpi for alacritty when connecting 2nd screen
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
