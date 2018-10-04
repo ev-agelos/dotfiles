@@ -33,6 +33,7 @@ setopt AUTOCD
 setopt LIST_PACKED
 setopt INTERACTIVE_COMMENTS
 setopt MENU_COMPLETE  # do not autoselect the first completion entry
+setopt GLOBDOTS  # Do not require a leading '.' in a filename to be matched explicitly
 
 zstyle ':completion:*' menu select  # Highlight menu selection
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#*.egg-info|' '(*/)#__pycache__'  # ignore some directories
@@ -45,6 +46,7 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
 
 #################### Plugins/Plugin Manager ########################
 # Geometry theme options
+GEOMETRY_COLOR_PROMPT=blue
 PROMPT_VIRTUALENV_ENABLED=true
 PROMPT_GEOMETRY_RPROMPT_ASYNC=false
 PROMPT_GEOMETRY_GIT_TIME=false
