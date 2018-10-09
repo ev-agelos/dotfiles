@@ -195,7 +195,7 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
 exec --no-startup-id i3-sensible-terminal --title terminal_scratchpad
 for_window [title="terminal_scratchpad"] floating enable
-for_window [title="terminal_scratchpad"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move window to scratchpad
+for_window [title="terminal_scratchpad"] resize grow left 100, resize grow right 100, resize grow down 40, resize grow up 30, move window to scratchpad
 
 # Set wallpaper everytime i3 starts
 exec_always feh --bg-max ~/.pCloudLocal/Pictures/ranger-cheatsheet.png
