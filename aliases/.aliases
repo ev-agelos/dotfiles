@@ -5,6 +5,7 @@ alias vi=nvim
 alias view='nvim -R'
 alias tree="tree -I '*.pyc|__pycache__'"
 alias cat=ccat
+alias fd='fd --hidden'
 
 if which exa >/dev/null 2>&1; then
   alias ls=exa
