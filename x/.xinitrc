@@ -25,7 +25,7 @@ export SSH_AUTH_SOCK
 udiskie --no-automount --no-notify --tray --use-udisks2 &
 
 # English/Greek keyboard layout change with Alt+Shift
-setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle
+setxkbmap -model pc105 -layout us,gr -option grp:rctrl_rshift_toggle
 
 # faster cursor
 xset r rate 200 100
@@ -39,8 +39,7 @@ xset +fp "$HOME/.fonts"
 xset fp rehash
 
 /usr/bin/pcloud &
-pgrep redshift &> /dev/null || /usr/lib/geoclue-2.0/demos/agent &> /dev/null &
-pgrep redshift &> /dev/null || redshift &> /dev/null &
+redshift &
 
 xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork" &
 ~/bin/hdmi_screens_adjustment
