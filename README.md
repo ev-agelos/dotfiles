@@ -6,7 +6,7 @@
 - File manager GUI: [thunar](https://docs.xfce.org/xfce/thunar/start)
 
 ## Terminal
-* Emulator: [alacritty](https://github.com/jwilm/alacritty)
+* Emulator: [kitty](https://github.com/kovidgoyal/kitty)
 * Shell: [zsh](http://www.zsh.org/)
 * Multiplexer: [tmux](https://tmux.github.io/)
 * Text Editor: [Neovim](https://neovim.io/)
@@ -27,6 +27,8 @@
 * Task Manager: [htop](http://hisham.hm/htop/)
 * System Monitor: [glances](https://github.com/nicolargo/glances)
 * Disk usage analyzer: [ncdu](https://dev.yorhel.nl/ncdu)
+* Top-like for container metrics: [ctop](https://ctop.sh/)
+* Monitor docker containers: [dry](https://moncho.github.io/dry/)
 
 ## Generic
 * File Manager: [ranger](http://ranger.nongnu.org/)
