@@ -49,7 +49,7 @@ Plug 'ap/vim-buftabline'
 " Plug 'andreypopp/vim-colors-plain'
 Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'ev-agelos/vim-deep-space'
-Plug 'xero/blaquemagick.vim'
+Plug 'ev-agelos/blaquemagick.vim'
 call plug#end()
 
 " ----------------------------------------------------------
