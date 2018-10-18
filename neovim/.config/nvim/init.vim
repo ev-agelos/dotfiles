@@ -46,7 +46,6 @@ Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
-" Plug 'andreypopp/vim-colors-plain'
 Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'ev-agelos/vim-deep-space'
 Plug 'ev-agelos/blaquemagick.vim'
@@ -55,8 +54,7 @@ call plug#end()
 " ----------------------------------------------------------
 "                    Colorschemes
 " ----------------------------------------------------------
-"set termguicolors " use 24-bit color
-" set background=light
+set termguicolors " use 24-bit color
 colorscheme blaquemagick
 
 " ----------------------------------------------------------
@@ -334,8 +332,3 @@ autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
 " jump to last position when reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-hi DiffAdd    gui=none guifg=#709d6c guibg=#2d422b ctermfg=34 ctermbg=238
-hi DiffChange gui=none guifg=NONE    guibg=NONE    ctermfg=250 ctermbg=238
-hi DiffDelete gui=bold guifg=#ff8080 guibg=NONE    ctermfg=1 ctermbg=235
-hi DiffText   gui=none guifg=#709d6c guibg=#2d422b ctermfg=178 ctermbg=238
