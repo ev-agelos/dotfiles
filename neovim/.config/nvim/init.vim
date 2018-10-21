@@ -305,8 +305,8 @@ xnoremap c "xc
 " No more accidentally showing up command window (Use C-f to show it)
 map q: :q
 " Keep selection when moving blocks
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap <Up> :m '<-2<CR>gv=gv
+vnoremap <Down> :m '>+1<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 " backspace to previous buffer
