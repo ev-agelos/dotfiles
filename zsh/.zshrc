@@ -66,6 +66,8 @@ zplugin light clvv/fasd
 zplugin light peterhurford/git-it-on.zsh
 zplugin light soimort/translate-shell
 zplugin light wfxr/forgit
+zplugin ice wait"2" lucid as"program" pick"bin/git-dsf"
+zplugin light zdharma/zsh-diff-so-fancy
 zplugin light zdharma/fast-syntax-highlighting
 zplugin ice wait"0" atinit"zpcompinit"
 ####################################################################
