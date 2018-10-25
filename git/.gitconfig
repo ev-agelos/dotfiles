@@ -27,11 +27,11 @@
 [color]
     ui = auto
 [color "diff"]
-    meta = yellow bold
-    commit = green bold
+    meta = blue
+    commit = green dim
     frag = magenta bold
-    old = red bold
-    new = green bold
+    old = red dim
+    new = green dim
     whitespace = red reverse
 [rerere]
     enabled = false
@@ -39,10 +39,10 @@
     pager = diff-so-fancy | less -+$LESS -R --tabs=4
     excludesfile = ~/.gitignore_global
 [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
+    oldNormal = red dim bold
+    oldHighlight = red dim bold 52
+    newNormal = green dim bold
+    newHighlight = green dim bold 22
 [mergetool]
     prompt = false
 [mergetool "vimdiff"]
