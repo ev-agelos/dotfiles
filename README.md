@@ -27,7 +27,6 @@
 * Task Manager: [htop](http://hisham.hm/htop/)
 * System Monitor: [glances](https://github.com/nicolargo/glances)
 * Disk usage analyzer: [ncdu](https://dev.yorhel.nl/ncdu)
-* Top-like for container metrics: [ctop](https://ctop.sh/)
 * Monitor docker containers: [dry](https://moncho.github.io/dry/)
 
 ## Generic
@@ -59,7 +58,6 @@
 ## Other
 * Usb mount: [udiskie](https://github.com/coldfix/udiskie)
 * Colorized cat: [ccat](https://github.com/jingweno/ccat)
-* A modern replacement for ls: [exa](https://the.exa.website/)
 * Translator: [translate-shell](https://github.com/soimort/translate-shell)
 * Password manager: [keepassxc](https://keepassxc.org/)
 * Notes/Todo: [standard notes](https://standardnotes.org/)
