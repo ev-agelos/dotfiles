@@ -38,6 +38,8 @@ xcape -e 'Caps_Lock=Escape'
 xset +fp "$HOME/.fonts"
 xset fp rehash
 
+xset -dpms && xset s noblank && xset s off
+
 /usr/bin/pcloud &
 redshift &
 
