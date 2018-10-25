@@ -317,6 +317,9 @@ vnoremap > >gv
 " backspace to previous buffer
 nnoremap <bs> <c-^>
 
+" preserve yanked text when pasting in a visual selection
+vnoremap p "_dP
+
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
