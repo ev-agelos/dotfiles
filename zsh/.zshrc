@@ -43,8 +43,6 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # but not for these programs
 zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
-zstyle ':completion:*:rm:*:(all-|)files' ignored-patterns
-
 #################### Plugins/Plugin Manager ########################
 # Geometry theme options
 GEOMETRY_COLOR_PROMPT=blue
