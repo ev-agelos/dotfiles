@@ -12,3 +12,6 @@ v() {
   local dir
   dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
 }
+
+# Dont save failed commands in history (works for simple cases)
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
