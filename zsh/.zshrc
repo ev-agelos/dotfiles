@@ -13,6 +13,7 @@ export FZF_DEFAULT_COMMAND='fd --follow --type file'
 export FZF_DEFAULT_OPTS='--border --cycle'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
 export FZF_ALT_C_COMMAND="bfs -readable -prune -type d"
@@ -37,7 +38,7 @@ setopt GLOBDOTS  # Do not require a leading '.' in a filename to be matched expl
 
 zstyle ':completion:*' menu select  # Highlight menu selection
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#*.egg-info|' '(*/)#__pycache__'  # ignore some directories
-# colored completion - use my LS_COLORS
+# completion color same as GNU ls color
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # but not for these programs
