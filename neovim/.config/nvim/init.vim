@@ -9,6 +9,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/incsearch-index.vim'
+Plug 'henrik/vim-indexed-search'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-bbye'
@@ -55,7 +57,8 @@ call plug#end()
 "                    Colorschemes
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
-colorscheme blaquemagick
+set background=light
+colorscheme plain
 
 " ----------------------------------------------------------
 "                       Leader
@@ -93,6 +96,8 @@ let g:incsearch#magic = '\V'
 let g:incsearch#auto_nohlsearch = 1
 map / <Plug>(incsearch-stay)
 nnoremap <leader>/ /\v
+" map / <Plug>(incsearch-index-/)
+" map ? <Plug>(incsearch-index-?)
 
 " Deoplete
 let g:deoplete#enable_at_startup = 0
@@ -297,8 +302,8 @@ map q <Nop>
 " Select the item in the list with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Center screen when jumping to next match
-noremap n nzz
-noremap N Nzz
+" noremap n nzz
+" noremap N Nzz
 " Don't yank to default register when changing something
 nnoremap c "xc
 xnoremap c "xc
