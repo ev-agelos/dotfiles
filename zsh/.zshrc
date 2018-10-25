@@ -9,7 +9,7 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # FZF options
-export FZF_DEFAULT_COMMAND='fd --hidden --follow --type file'
+export FZF_DEFAULT_COMMAND='fd --follow --type file'
 export FZF_DEFAULT_OPTS='--border --cycle'
 export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
