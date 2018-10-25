@@ -92,7 +92,7 @@ map <leader>u :UndotreeToggle<CR>
 let g:incsearch#magic = '\V'
 let g:incsearch#auto_nohlsearch = 1
 map / <Plug>(incsearch-stay)
-map <leader>/ /\v
+nnoremap <leader>/ /\v
 
 " Deoplete
 let g:deoplete#enable_at_startup = 0
