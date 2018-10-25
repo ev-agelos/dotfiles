@@ -20,7 +20,7 @@ export FZF_ALT_C_COMMAND="bfs -readable -prune -type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'  # fix for killing backwards word in paths
-FIGNORE=".pyc"  # seperate with : for multiple extensions
+FIGNORE=".pyc:.git"  # seperate with : for multiple extensions
 KEYTIMEOUT=1
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=999999999
