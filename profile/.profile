@@ -16,22 +16,24 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes my ~/bin if it exists
+# include in PATH my custom executables
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# include in the path executables from ~/.local/bin
+# include in PATH user's executables
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-# include ~/.local/bin in Path (for pip install --user ..)
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-# also for python 2
+
+# include in PATH user's python2.7 site packages
 if [ -d "$HOME/.local/lib/python2.7/site-packages" ] ; then
     PATH="$HOME/.local/lib/python2.7/site-packages:$PATH"
+fi
+
+# include in PATH user's python3.6 site packages
+if [ -d "$HOME/.local/lib/python3.6/site-packages" ] ; then
+    PATH="$HOME/.local/lib/python3.6/site-packages:$PATH"
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
