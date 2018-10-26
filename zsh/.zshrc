@@ -68,7 +68,7 @@ zplugin light soimort/translate-shell
 zplugin light wfxr/forgit
 zplugin ice wait"2" lucid as"program" pick"bin/git-dsf"
 zplugin light zdharma/zsh-diff-so-fancy
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
+zplugin ice wait"0" atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" lucid
 zplugin light zdharma/fast-syntax-highlighting
 ####################################################################
 
