@@ -44,5 +44,9 @@ $(which pcloud) &
 redshift &
 
 xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork" &
-~/bin/hdmi_screens_adjustment
+
+# turn off any active external monitors until i3 sets its workspaces in primary monitor
+xrandr --listactivemonitors | grep "^ *[1-9][0-9]*: " | cut -d' ' -f6 | xargs -n1 -I '{}' xrandr --output {} --off
+
 exec i3
+
