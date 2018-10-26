@@ -46,10 +46,12 @@ zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 #################### Plugins/Plugin Manager ########################
 # Geometry theme options
 GEOMETRY_COLOR_PROMPT=blue
+GEOMETRY_COLOR_JOBS=black
 PROMPT_VIRTUALENV_ENABLED=true
 PROMPT_GEOMETRY_RPROMPT_ASYNC=false
 PROMPT_GEOMETRY_GIT_TIME=false
-GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time git docker_machine)
+GEOMETRY_PROMPT_PLUGINS_PRIMARY=(path jobs)
+GEOMETRY_PROMPT_PLUGINS_SECONDARY=(virtualenv exec_time git docker_machine)
 
 source ~/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
