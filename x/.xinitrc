@@ -40,7 +40,7 @@ xset fp rehash
 
 xset -dpms && xset s noblank && xset s off
 
-/usr/bin/pcloud &
+$(which pcloud) &
 redshift &
 
 xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork" &
