@@ -1,13 +1,15 @@
 #!/bin/sh
 
 HDMIStatus=$(cat /sys/class/drm/*HDMI-A-1/status)
+HDMI_NAME=$(xrandr -q | grep "HDMI-[0-9] connected" | cut -d ' ' -f1)
+
 
 if [ $HDMIStatus = 'connected' ]; then
-    /usr/bin/xrandr --output HDMI-1 --mode 3440x1440 --left-of eDP-1
-    /usr/bin/xrandr --output HDMI-1 --primary
+    max_hdmi_resolution=$(xrandr -q | grep -A 1 "HDMI-[0-9] connected" | awk 'NR==2 { print $1 }')
+    primary_display_name=$(xrandr -q | grep -m 1 " connected" | cut -d ' ' -f1)
+    xrandr --output $HDMI_NAME --mode $max_hdmi_resolution --left-of $primary_display_name
 else
-    /usr/bin/xrandr --output HDMI-1 --off
+    xrandr --output $HDMI_NAME --off
 fi
 
-polybar-msg cmd restart
-/usr/bin/notify-send "HDMI $HDMIStatus"
+notify-send "HDMI $HDMIStatus"
