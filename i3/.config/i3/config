@@ -197,7 +197,12 @@ exec --no-startup-id i3-sensible-terminal --title terminal_scratchpad
 for_window [title="terminal_scratchpad"] floating enable
 for_window [title="terminal_scratchpad"] resize grow left 50, resize grow right 50, resize shrink down 20, resize shrink up 10, move window to scratchpad
 
-# Set wallpaper everytime i3 starts
+# Wait pcloud a bit before setting wallpaper
 exec "sh -c  'sleep 2; feh --bg-max ~/pCloudDrive/MyPictures/ranger-cheatsheet.png'"
 
 exec_always $HOME/.config/polybar/launch.sh
+
+exec --no-startup-id i3-msg 'workspace $ws2; exec kitty --session ~/.kitty_session'
+
+# Lastly try to turn on external HDMI monitor
+exec ~/bin/hdmi_screens_adjustment
