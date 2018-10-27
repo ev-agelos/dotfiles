@@ -57,7 +57,7 @@ source ~/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-zplugin light frmendes/geometry
+zplugin light geometry-zsh/geometry
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
 zplugin light b4b4r07/zsh-vimode-visual
