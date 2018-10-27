@@ -281,6 +281,7 @@ set noshowmode                   " Hide vim mode from status line
 set undofile
 set undodir=~/.config/nvim/undo
 set undolevels=1000
+set updatetime=1000
 
 " ----------------------------------------------------------
 "                    Mappings
