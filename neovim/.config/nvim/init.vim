@@ -319,7 +319,7 @@ vnoremap > >gv
 nnoremap <bs> <c-^>
 
 " preserve yanked text when pasting in a visual selection
-vnoremap p "_dP
+xnoremap <silent> p p:let @+=@0<CR>
 
 " ----------------------------------------------------------
 "                    Custom
