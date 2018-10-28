@@ -46,7 +46,7 @@ zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 #################### Plugins/Plugin Manager ########################
 # Geometry theme options
 GEOMETRY_COLOR_PROMPT=blue
-GEOMETRY_COLOR_JOBS=black
+GEOMETRY_COLOR_JOBS=green
 PROMPT_VIRTUALENV_ENABLED=true
 PROMPT_GEOMETRY_RPROMPT_ASYNC=false
 PROMPT_GEOMETRY_GIT_TIME=false
