@@ -202,7 +202,10 @@ exec "sh -c  'sleep 3; feh --bg-max ~/pCloudDrive/MyPictures/ranger-cheatsheet.p
 
 exec_always $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id i3-msg 'workspace $ws2; exec kitty --session ~/.kitty_session'
 
-# Lastly try to turn on external HDMI monitor
-exec ~/bin/hdmi_screens_adjustment
+exec --no-startup-id i3-msg "workspace $ws2; move $ws2 output $(xrandr -q | grep 'primary' | cut -d ' ' -f 1); exec kitty --session ~/.kitty_session"
+
+# Turn on external HDMI
+exec ~/bin/toggle_hdmi
+# Bring back the focus to main display
+exec_always --no-startup-id i3-msg "focus output $(xrandr -q | grep 'primary' | cut -d ' ' -f 1)"

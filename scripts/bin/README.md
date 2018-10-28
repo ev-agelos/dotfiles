@@ -11,7 +11,7 @@ Type=simple
 RemainAfterExit=no
 User=USER
 Environment="DISPLAY=:0"
-ExecStart=/home/USER/bin/hdmi_screens_adjustment
+ExecStart=/home/USER/bin/toggle_hdmi
 
 [Install]
 WantedBy=multi-user.target
