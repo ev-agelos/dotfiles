@@ -9,8 +9,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
-" Plug 'haya14busa/incsearch-index.vim'
-Plug 'henrik/vim-indexed-search'
+Plug 'google/vim-searchindex'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-bbye'
@@ -39,7 +38,6 @@ Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter' " or 'mhinz/vim-signify' if mercurial is needed
 Plug 'elzr/vim-json',                  { 'for': 'json' }
 " ------------------------------------------------------------------ Effects
-Plug 'inside/vim-search-pulse'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
@@ -94,9 +92,8 @@ map <leader>u :UndotreeToggle<CR>
 let g:incsearch#magic = '\V'
 let g:incsearch#auto_nohlsearch = 1
 map / <Plug>(incsearch-stay)
+map ? <Plug>(incsearch-backward)
 nnoremap <leader>/ /\v
-" map / <Plug>(incsearch-index-/)
-" map ? <Plug>(incsearch-index-?)
 
 " Deoplete
 let g:deoplete#enable_at_startup = 0
