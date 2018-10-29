@@ -16,6 +16,7 @@ Plug 'moll/vim-bbye'
 Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
 " ------------------------------------------------------------------ Unix shell commands
 Plug 'tpope/vim-eunuch'
+Plug 'lambdalisue/suda.vim'
 " ------------------------------------------------------------------ Completion
 Plug 'Shougo/deoplete.nvim',           { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi',            { 'do': 'git submodule update --init', 'for': ['python'] }
