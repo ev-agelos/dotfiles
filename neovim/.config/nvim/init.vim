@@ -33,7 +33,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag',             { 'for': 'html' }
-Plug 'luochen1990/rainbow',            { 'on': 'RainbowToggle' }
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
