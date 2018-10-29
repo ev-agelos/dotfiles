@@ -35,10 +35,6 @@ c.hints.auto_follow = 'always'
 # Type: Bool
 c.prompt.filebrowser = True
 
-# Show a scrollbar.
-# Type: Bool
-c.scrolling.bar = True
-
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
 # Type: Bool
