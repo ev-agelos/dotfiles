@@ -203,7 +203,7 @@ exec "sh -c  'sleep 3; feh --bg-max ~/pCloudDrive/MyPictures/ranger-cheatsheet.p
 exec_always $HOME/.config/polybar/launch.sh
 
 
-exec --no-startup-id i3-msg "workspace $ws2; move $ws2 output $(xrandr -q | grep 'primary' | cut -d ' ' -f 1); exec kitty --session ~/.kitty_session"
+exec --no-startup-id i3-msg "workspace $ws2; move workspace to output $(xrandr -q | grep 'primary' | cut -d ' ' -f 1); exec kitty --session ~/.kitty_session"
 
 # Turn on external HDMI
 exec ~/bin/toggle_hdmi
