@@ -6,6 +6,14 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
+# When to find text on a page case-insensitively.
+# Type: String
+# Valid values:
+#   - always: Search case-insensitively.
+#   - never: Search case-sensitively.
+#   - smart: Search case-sensitively if there are capital characters.
+c.search.ignore_case = 'smart'
+
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
 c.auto_save.session = True
@@ -35,6 +43,14 @@ c.hints.auto_follow = 'always'
 # Type: Bool
 c.prompt.filebrowser = True
 
+# When to show the scrollbar.
+# Type: String
+# Valid values:
+#   - always: Always show the scrollbar.
+#   - never: Never show the scrollbar.
+#   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
+c.scrolling.bar = 'always'
+
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
 # Type: Bool
@@ -58,7 +74,7 @@ c.url.searchengines = {'DEFAULT': 'https://www.google.com.ar/search?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'www.google.com'
+c.url.start_pages = 'https://learn.kevintpeng.com/'
 
 # Background color of the completion widget for even rows.
 # Type: QssColor
