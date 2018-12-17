@@ -16,7 +16,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
-export FZF_ALT_C_COMMAND="bfs -readable -prune -type d"
+export FZF_ALT_C_COMMAND="bfs ! -type d -o -readable -o -prune"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'  # fix for killing backwards word in paths
@@ -30,6 +30,9 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt SHARE_HISTORY  # reloads the history whenever you use it
+setopt APPENDHISTORY
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY
 setopt AUTOCD
 setopt LIST_PACKED
 setopt INTERACTIVE_COMMENTS
@@ -40,7 +43,7 @@ zstyle ':completion:*' menu select  # Highlight menu selection
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#*.egg-info|' '(*/)#__pycache__'  # ignore some directories
 # completion color same as GNU ls color
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 # but not for these programs
 zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 #################### Plugins/Plugin Manager ########################
