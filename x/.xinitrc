@@ -24,8 +24,8 @@ export SSH_AUTH_SOCK
 # program auto-mount usb
 udiskie --no-automount --no-notify --tray --use-udisks2 &
 
-# English/Greek keyboard layout change with Alt+Shift
-setxkbmap -model pc105 -layout us,gr -option grp:rctrl_rshift_toggle
+# Set us as keyboard layout
+setxkbmap -model pc105 -layout us
 
 # faster cursor
 xset r rate 200 100
@@ -33,6 +33,7 @@ xset r rate 200 100
 # map CapsLock -> Ctrl when pressed, Esc when tapped
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
+xbindkeys -p
 
 # include ~/.fonts directory for fonts
 xset +fp "$HOME/.fonts"
