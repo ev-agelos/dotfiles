@@ -43,7 +43,7 @@ xset -dpms && xset s noblank && xset s off
 $(which pcloud) &
 redshift &
 
-xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/.config/i3/lock.sh --nofork" &
+xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "~/bin/lock.sh --nofork" &
 
 # set the first (non HDMI) monitor as primary
 xrandr --listactivemonitors | grep -P '^ [0-9]: \+\*?(?!HDMI)' | cut -d' ' -f6 | xargs -n1 -I '{}' xrandr --output {} --primary

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OPTION=$(echo -e "Lock\nSuspend\nLogout\nRestart\nGrub index:\nHibernate\nShutdown" | dmenu -i -l 7)
-LOCK=$HOME/.config/i3/lock.sh
+LOCK=$HOME/bin/lock.sh
 ERROR_MSG="Power menu: invalid input"
 
 if [[ $OPTION = "" ]]; then

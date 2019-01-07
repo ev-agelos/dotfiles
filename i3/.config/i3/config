@@ -184,7 +184,7 @@ bindsym XF86AudioStop exec --no-startup-id mpc stop
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
-bindsym XF86ScreenSaver exec $HOME/.config/i3/lock.sh
+bindsym XF86ScreenSaver exec $HOME/bin/lock.sh
 
 # Removed title bars
 for_window [class="^.*"] border pixel 1
