@@ -338,3 +338,7 @@ autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
 " jump to last position when reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" keep same cursor position when jumping between buffers
+au BufLeave * let b:winview = winsaveview()
+au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
