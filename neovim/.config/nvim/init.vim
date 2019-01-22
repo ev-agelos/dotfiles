@@ -55,8 +55,8 @@ call plug#end()
 "                    Colorschemes
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
-set background=light
-colorscheme plain
+"set background=light
+colorscheme blaquemagick
 
 " ----------------------------------------------------------
 "                       Leader
