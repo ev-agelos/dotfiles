@@ -11,6 +11,9 @@
     tree = log --oneline --graph --decorate --all
     lg = log --graph --branches --all --pretty=format:'%C(black dim)%h%Creset -%C(auto)%d%C(reset) %s %Cblue(%cr) %C(black dim)<%an>%Creset' --abbrev-commit --date=relative
 
+    ci = commit
+    d = !git --no-pager diff
+    dc = !git --no-pager diff --cached
     s = status
     ss = status -s
     aa = add .
