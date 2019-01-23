@@ -229,6 +229,8 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+" MRU with preview
+command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 
 " ---------------------------------------------------------
 "                    Settings
