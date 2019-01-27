@@ -284,9 +284,8 @@ vnoremap <Up> :m '<-2<CR>gv=gv
 vnoremap <Down> :m '>+1<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
-" backspace to previous buffer
-nnoremap <bs> <c-^>
-
+" tab to previous buffer
+nnoremap <tab> <c-^>
 " preserve yanked text when pasting in a visual selection
 xnoremap <silent> p p:let @+=@0<CR>
 
