@@ -45,7 +45,6 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
-Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
 Plug 'ThomasMarcel/vim-colors-plain'
@@ -123,62 +122,6 @@ nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
 
-" Lightlime
-let g:lightline = {
-      \ 'colorscheme': 'deepspace',
-      \ 'separator': { 'left': '', 'right': '' },
-	  \ 'subseparator': { 'left': '', 'right': '' },
-      \ 'enable': {'tabline': 0},
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive' ],
-      \             [ 'dirpath', 'mymodified', 'readonly'] ],
-      \   'right': [ [ 'neomake_errors', 'neomake_warnings' ],
-      \              [ 'tags' ],
-      \              [ 'lineinfo'],
-      \              [ 'percent'],
-      \              [ 'fileencoding' ],
-      \              [ 'filetype' ]]
-      \ },
-      \ 'inactive': {
-      \   'left': [ [ 'absolutepath'] ],
-      \   'right': []
-      \ },
-      \ 'component': {
-      \   'tags': '%{gutentags#statusline(" ")}',
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
-      \   'fugitive': '%{exists("*fugitive#head") && ""!=fugitive#head()?" ".fugitive#head():""}'
-      \ },
-      \ 'component_expand': {
-      \   'dirpath': 'LightlineHomeDirPath',
-      \   'mymodified': 'LightlineModified',
-      \   'neomake_warnings': 'LightLineNeomakeWarnings',
-      \   'neomake_errors': 'LightLineNeomakeErrors',
-      \ },
-      \ 'component_type': {
-      \   'neomake_warnings': 'warning',
-      \   'neomake_errors': 'error',
-      \ }
-      \ }
-
-function! LightlineModified()
-    return &modifiable && &modified ? '[+]' : ''
-endfunction
-
-function! LightLineNeomakeErrors()
-  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "E", 0) + get(neomake#statusline#LoclistCounts(), "E", 0)) == 0)
-    return ''
-  endif
-  return 'E:'.(get(neomake#statusline#LoclistCounts(), 'E', 0) + get(neomake#statusline#QflistCounts(), 'E', 0))
-endfunction
-
-function! LightLineNeomakeWarnings()
-  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "W", 0) + get(neomake#statusline#LoclistCounts(), "W", 0)) == 0)
-    return ''
-  endif
-  return 'W:'.(get(neomake#statusline#LoclistCounts(), 'W', 0) + get(neomake#statusline#QflistCounts(), 'W', 0))
-endfunction
-
 " Neomake
 let g:neomake_python_isort_maker = {
     \ 'exe': 'isort',
@@ -201,6 +144,20 @@ let g:neomake_python_enabled_makers = ['pydocstyle', 'pylint', 'flake8']
 au! BufWritePost * Neomake
 hi NeomakeErrorSign ctermbg=234 ctermfg=88
 hi NeomakeWarningSign ctermbg=234 ctermfg=250
+
+function! NeomakeErrors()
+  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "E", 0) + get(neomake#statusline#LoclistCounts(), "E", 0)) == 0)
+    return ''
+  endif
+  return 'E:'.(get(neomake#statusline#LoclistCounts(), 'E', 0) + get(neomake#statusline#QflistCounts(), 'E', 0))
+endfunction
+
+function! NeomakeWarnings()
+  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "W", 0) + get(neomake#statusline#LoclistCounts(), "W", 0)) == 0)
+    return ''
+  endif
+  return 'W:'.(get(neomake#statusline#LoclistCounts(), 'W', 0) + get(neomake#statusline#QflistCounts(), 'W', 0))
+endfunction
 
 " Startify
 let g:startify_change_to_vcs_root = 1
@@ -278,11 +235,22 @@ set smartcase                    " unless uppercase letters are used in the rege
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
-set noshowmode                   " Hide vim mode from status line
+set showmode                     " Show vim mode in status line
 set undofile
 set undodir=~/.config/nvim/undo
 set undolevels=1000
 set updatetime=1000
+set statusline=%{gutentags#statusline('','','')}
+set statusline+=%<%f
+set statusline+=\ %h%{&modifiable\ &&\ &modified\ ?\ '[+]':''}%{&filetype=='help'?'':&readonly?'':''}%=
+set statusline+=%{exists('*fugitive#head')\ &&\ ''!=fugitive#head()?''.fugitive#head():''}
+set statusline+=%{NeomakeWarnings()}\ %{NeomakeErrors()}%=
+set statusline+=%y\ %P\ %l,%c
+"       \              [ 'fileencoding' ],
+"       \ 'inactive': {
+"       \   'left': [ [ 'absolutepath'] ],
+"       \ 'component_expand': {
+"       \   'dirpath': 'LightlineHomeDirPath',
 
 " ----------------------------------------------------------
 "                    Mappings
