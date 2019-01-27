@@ -66,6 +66,8 @@ colorscheme blaquemagick
 let mapleader = ","
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
+" source configuration
+nnoremap <silent> <leader>s :source ~/.config/nvim/init.vim<cr>
 " Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
