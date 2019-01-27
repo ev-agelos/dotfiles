@@ -64,6 +64,8 @@ colorscheme blaquemagick
 " ----------------------------------------------------------
 " Use , as the leader key
 let mapleader = ","
+" search without escaping regex symbols
+nnoremap <leader>/ /\v
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
 " source configuration
@@ -97,15 +99,16 @@ let g:incsearch#magic = '\V'
 let g:incsearch#auto_nohlsearch = 1
 map / <Plug>(incsearch-stay)
 map ? <Plug>(incsearch-backward)
-nnoremap <leader>/ /\v
 
 " Deoplete
 let g:deoplete#enable_at_startup = 0
+let g:deoplete#sources#jedi#show_docstring = 1
+
 augroup insertload
   autocmd!
   autocmd InsertEnter * call deoplete#enable() | autocmd! insertload
 augroup END
-let g:deoplete#sources#jedi#show_docstring = 1
+
 call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length']) " don't show the type word in the list
 
 " Signify
@@ -179,6 +182,9 @@ let g:startify_list_order = [
         \ ]
 
 " fzf-vim
+nnoremap <C-p> :Files<cr>
+nnoremap \ :Rg<SPACE>
+
 let g:fzf_files_options =
    \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 " press ? to open preview when on :Rg.
@@ -262,9 +268,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-" fzf
-nnoremap <C-p> :Files<cr>
-nnoremap \ :Rg<SPACE>
 " Mappings for NeoVim's terminal
 tnoremap <Esc> <C-\><C-n>
 " No need for Ex mode
