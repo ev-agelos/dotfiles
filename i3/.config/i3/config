@@ -192,7 +192,7 @@ for_window [class="^.*"] border pixel 1
 
 # Move a terminal to scratchpad
 bindsym $mod+Shift+i move scratchpad
-bindsym $mod+i scratchpad show
+bindsym $mod+grave scratchpad show
 exec --no-startup-id i3-sensible-terminal --title terminal_scratchpad
 for_window [title="terminal_scratchpad"] floating enable
 for_window [title="terminal_scratchpad"] resize grow left 50, resize grow right 50, resize shrink down 20, resize shrink up 10, move window to scratchpad
