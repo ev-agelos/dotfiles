@@ -272,8 +272,6 @@ nnoremap gk k
 tnoremap <Esc> <C-\><C-n>
 " No need for Ex mode
 nnoremap Q <nop>
-" recording mappings is not my thing
-map q <Nop>
 " Select the item in the list with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Center screen when jumping to next match
