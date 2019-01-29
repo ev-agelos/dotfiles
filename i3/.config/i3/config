@@ -198,7 +198,7 @@ for_window [title="terminal_scratchpad"] floating enable
 for_window [title="terminal_scratchpad"] resize grow left 50, resize grow right 50, resize shrink down 20, resize shrink up 10, move window to scratchpad
 
 # Wait pcloud a bit before setting wallpaper
-exec "sh -c  'sleep 3; feh --bg-max ~/pCloudDrive/MyPictures/ranger-cheatsheet.png'"
+exec "sh -c  'sleep 4; feh --bg-max ~/pCloudDrive/MyPictures/arch_installation_cheatsheet.jpg'"
 
 exec_always $HOME/.config/polybar/launch.sh
 
