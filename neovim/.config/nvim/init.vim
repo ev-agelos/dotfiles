@@ -78,6 +78,10 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
+" suda
+command! -nargs=1 SudoRead  edit  suda://<args>
+command! -nargs=1 SudoWrite write suda://<args>
+
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabDefaultCompletionType = "<c-n>"
