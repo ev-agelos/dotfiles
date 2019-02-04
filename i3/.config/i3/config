@@ -31,7 +31,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal --single-instance
+bindsym $mod+Return exec kitty --single-instance --listen-on unix:/tmp/mykitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -40,6 +40,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=15'
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.j4-dmenu-usage-log
 #bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 -font "mono 20" -opacity "65"
+
+bindsym $mod+g exec sh -c "echo '' | dmenu -p 'Google search:' | xargs -I {} surf -F 'https://encrypted.google.com/webhp?hl=en&gl=en#safe=active&hl=en&gl=en&q={}'"
 
 bindsym $mod+m exec --no-startup-id ~/repos/hud-menu/hud-menu.py dmeny
 
