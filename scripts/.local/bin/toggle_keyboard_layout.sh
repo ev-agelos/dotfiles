@@ -10,4 +10,4 @@ fi
 
 setxkbmap $new_layout
 notify-send "Keyboard layout:" "$new_layout $flag"
-paplay ~/bin/notification.oga
+paplay ~/.local/bin/notification.oga

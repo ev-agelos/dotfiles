@@ -16,11 +16,6 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# include in PATH my custom executables
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # include in PATH user's executables
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"

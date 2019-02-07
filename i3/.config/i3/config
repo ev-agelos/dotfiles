@@ -142,7 +142,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # custom exit menu script
-bindsym $mod+Shift+e exec $HOME/bin/shutdown_menu.sh
+bindsym $mod+Shift+e exec $HOME/.local/bin/shutdown_menu.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,7 +186,7 @@ bindsym XF86AudioStop exec --no-startup-id mpc stop
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
-bindsym XF86ScreenSaver exec $HOME/bin/lock.sh
+bindsym XF86ScreenSaver exec $HOME/.local/bin/lock.sh
 
 bindsym $mod+p exec --no-startup-id kitty vifm
 
@@ -210,6 +210,6 @@ exec_always $HOME/.config/polybar/launch.sh
 exec --no-startup-id i3-msg "workspace $ws2; move workspace to output $(xrandr -q | grep 'primary' | cut -d ' ' -f 1);"
 
 # Turn on external HDMI
-exec ~/bin/toggle_hdmi
+exec ~/.local/bin/toggle_hdmi
 # Bring back the focus to main display
 exec_always --no-startup-id i3-msg "focus output $(xrandr -q | grep 'primary' | cut -d ' ' -f 1)"
