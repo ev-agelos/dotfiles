@@ -32,14 +32,6 @@ if [ -d "$HOME/.local/lib/python3.6/site-packages" ] ; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
-if [ -z "$UBUNTU_MENUPROXY" ]
-then
-  UBUNTU_MENUPROXY=1
-fi
-
-export GTK_MODULES
-export UBUNTU_MENUPROXY
 export EDITOR=nvim
 export TERMINAL=kitty
 export BROWSER=qutebrowser
