@@ -188,7 +188,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease 
 
 bindsym XF86ScreenSaver exec $HOME/.local/bin/lock.sh
 
-bindsym $mod+p exec --no-startup-id kitty vifm
+bindsym $mod+p exec --no-startup-id kitty --class kitty_vifm vifm
+for_window [class="kitty_vifm"] floating enable
 
 # Removed title bars
 for_window [class="^.*"] border pixel 1
