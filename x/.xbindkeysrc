@@ -40,7 +40,7 @@
 # Examples of commands:
 
 
-"~/bin/toggle_keyboard_layout.sh"
+"~/.local/bin/toggle_keyboard_layout.sh"
   Control+Control_R+Shift_R
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
