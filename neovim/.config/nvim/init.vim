@@ -68,8 +68,8 @@ let mapleader = ","
 nnoremap <leader>/ /\v
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
-" source current file
-nnoremap <leader>s :source %<cr>
+" source config file
+nnoremap <leader>s :source $MYVIMRC<cr>
 " Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
