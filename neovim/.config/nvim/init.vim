@@ -112,7 +112,7 @@ augroup END
 call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length']) " don't show the type word in the list
 
 " Signify
-let g:signify_vcs_list = [ 'hg', 'git' ]
+let g:signify_vcs_list = [ 'git' ]
 
 " BufTabline
 let g:buftabline_numbers=2
