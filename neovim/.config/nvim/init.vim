@@ -12,7 +12,6 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'google/vim-searchindex'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'moll/vim-bbye'
 Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
 Plug 'skywind3000/asyncrun.vim'
 " ------------------------------------------------------------------ Unix shell commands
@@ -85,9 +84,6 @@ command! -nargs=1 SudoWrite write suda://<args>
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" vim-bbye
-nnoremap <Leader>q :silent Bdelete<CR>
 
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
@@ -297,6 +293,8 @@ nnoremap <leader><leader> <c-^>
 " preserve yanked text when pasting in a visual selection
 xnoremap <silent> p p:let @+=@0<CR>
 
+" preserve window layout when deleting buffer
+nnoremap <Leader>q :silent :bp\|bd #<CR>
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
