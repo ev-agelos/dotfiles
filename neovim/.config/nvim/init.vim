@@ -291,8 +291,7 @@ vnoremap > >gv
 " leader 2x -> to previous buffer
 nnoremap <leader><leader> <c-^>
 " preserve yanked text when pasting in a visual selection
-xnoremap <silent> p p:let @+=@0<CR>
-
+xnoremap <silent> p pgvy<CR>
 " preserve window layout when deleting buffer
 nnoremap <Leader>q :silent :bp\|bd #<CR>
 " ----------------------------------------------------------
