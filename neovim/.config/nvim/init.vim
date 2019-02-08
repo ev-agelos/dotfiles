@@ -66,7 +66,7 @@ let mapleader = ","
 " search without escaping regex symbols
 nnoremap <leader>/ /\v
 " hide matches on <leader>space
-nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <leader>l :nohlsearch<cr>
 " source config file
 nnoremap <leader>s :source $MYVIMRC<cr>
 " Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
@@ -116,16 +116,6 @@ let g:signify_vcs_list = [ 'git' ]
 
 " BufTabline
 let g:buftabline_numbers=2
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
 
 " Neomake
 let g:neomake_python_isort_maker = {
@@ -288,7 +278,8 @@ vnoremap <Up> :m '<-2<CR>gv=gv
 vnoremap <Down> :m '>+1<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
-" leader 2x -> to previous buffer
+" to previous buffer
+nnoremap <leader><BS> :bprevious<cr>
 nnoremap <leader><leader> <c-^>
 " preserve yanked text when pasting in a visual selection
 xnoremap <silent> p pgvy<CR>
