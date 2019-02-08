@@ -11,7 +11,6 @@ Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'google/vim-searchindex'
 Plug 'ervandew/supertab'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
 Plug 'skywind3000/asyncrun.vim'
 " ------------------------------------------------------------------ Unix shell commands
@@ -27,7 +26,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'benekastah/neomake'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
