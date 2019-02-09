@@ -10,7 +10,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'google/vim-searchindex'
-Plug 'ervandew/supertab'
 Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
 Plug 'skywind3000/asyncrun.vim'
 " ------------------------------------------------------------------ Unix shell commands
@@ -79,10 +78,6 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 command! -nargs=1 SudoRead  edit  suda://<args>
 command! -nargs=1 SudoWrite write suda://<args>
 
-" supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
 
@@ -99,6 +94,7 @@ map / <Plug>(incsearch-stay)
 map ? <Plug>(incsearch-backward)
 
 " Deoplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:deoplete#enable_at_startup = 0
 let g:deoplete#sources#jedi#show_docstring = 1
 
