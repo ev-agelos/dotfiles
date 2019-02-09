@@ -242,7 +242,7 @@ set statusline+=%<%f
 set statusline+=\ %h%{&modifiable\ &&\ &modified\ ?\ '[+]':''}%{&filetype=='help'?'':&readonly?'':''}%=
 set statusline+=%{exists('*fugitive#head')\ &&\ ''!=fugitive#head()?''.fugitive#head():''}
 set statusline+=%{NeomakeWarnings()}\ %{NeomakeErrors()}%=
-set statusline+=%y\ %P\ %l,%c
+set statusline+=%y\ %p%%\ %l,%c
 "       \              [ 'fileencoding' ],
 "       \ 'inactive': {
 "       \   'left': [ [ 'absolutepath'] ],
