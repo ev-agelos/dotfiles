@@ -74,6 +74,9 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
+" auto-pairs
+let g:AutoPairsMapBS = 0
+
 " suda
 command! -nargs=1 SudoRead  edit  suda://<args>
 command! -nargs=1 SudoWrite write suda://<args>
