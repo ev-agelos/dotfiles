@@ -1,7 +1,7 @@
 ## System:
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
 - Status bar: [polybar](https://github.com/jaagr/polybar)
-- Launcher: [j4-dmenu](https://github.com/enkore/j4-dmenu-desktop) or/and [Rofi](https://davedavenport.github.io/rofi/)
+- Launcher: [j4-dmenu](https://github.com/enkore/j4-dmenu-desktop)
 - Notifications: [dunst](https://github.com/dunst-project/dunst)
 - File manager GUI: [thunar](https://docs.xfce.org/xfce/thunar/start)
 
@@ -30,7 +30,7 @@
 * Monitor docker containers: [dry](https://moncho.github.io/dry/)
 
 ## Generic
-* File Manager: [ranger](http://ranger.nongnu.org/)
+* File Manager: [vifm](https://github.com/vifm/vifm) or [ranger](http://ranger.nongnu.org/)
 * List files/dirs in a tree-like format: tree
 * System lock: xautolock
 * Screen color temperature: [Redshift](https://github.com/jonls/redshift)
