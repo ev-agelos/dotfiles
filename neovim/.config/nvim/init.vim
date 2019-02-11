@@ -28,7 +28,7 @@ Plug 'benekastah/neomake'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag',             { 'for': 'html' }
 " ------------------------------------------------------------------ Version Control
