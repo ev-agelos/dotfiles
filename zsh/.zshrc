@@ -8,7 +8,6 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-source ~/.aliases  # my aliases
 # FZF options
 export FZF_DEFAULT_COMMAND='fd --follow --type file'
 export FZF_DEFAULT_OPTS='--border --cycle'
@@ -78,6 +77,7 @@ zplugin light zdharma/fast-syntax-highlighting
 
 source ~/.fzf.zsh
 source ~/.zsh/functions
+source ~/.aliases  # my aliases
 
 # Note: Bind keys in the end because of conflict with zsh-syntax-highlighting(fast-syntax-highlighting)
 # needs to be loaded first and then bind keys
