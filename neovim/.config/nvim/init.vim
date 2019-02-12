@@ -97,7 +97,9 @@ map / <Plug>(incsearch-stay)
 map ? <Plug>(incsearch-backward)
 
 " Deoplete
+call deoplete#custom#option('max_list', 5)
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 let g:deoplete#enable_at_startup = 0
 let g:deoplete#sources#jedi#show_docstring = 1
 
