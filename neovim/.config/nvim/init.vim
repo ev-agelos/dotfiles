@@ -62,7 +62,7 @@ colorscheme blaquemagick
 let mapleader = ","
 " search without escaping regex symbols
 nnoremap <leader>/ /\v
-" hide matches on <leader>space
+" turn off search highlighting
 nnoremap <leader>l :nohlsearch<cr>
 " source config file
 nnoremap <leader>s :source $MYVIMRC<cr>
