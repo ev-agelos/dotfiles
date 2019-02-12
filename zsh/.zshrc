@@ -54,7 +54,7 @@ PROMPT_VIRTUALENV_ENABLED=true
 PROMPT_GEOMETRY_RPROMPT_ASYNC=false
 PROMPT_GEOMETRY_GIT_TIME=false
 GEOMETRY_PROMPT_PLUGINS_PRIMARY=(path jobs)
-GEOMETRY_PROMPT_PLUGINS_SECONDARY=(virtualenv exec_time git docker_machine)
+GEOMETRY_PROMPT_PLUGINS_SECONDARY=(virtualenv exec_time git)
 
 source ~/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
