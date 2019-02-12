@@ -270,6 +270,10 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Don't yank to default register when changing something
 nnoremap c "xc
 xnoremap c "xc
+" replace word under cursor and then with . apply downwards
+nnoremap c* *``cgn
+" replace word under cursor and then with . apply upwards
+nnoremap c# #``cgN
 " No more accidentally showing up command window (Use C-f to show it)
 map q: :q
 " Keep selection when moving blocks
