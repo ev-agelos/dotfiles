@@ -287,7 +287,6 @@ nnoremap <Leader>q :silent :bp\|bd #<CR>
 " ----------------------------------------------------------
 au! FileType python setl nosmartindent              " Disable smartindent in python files(messing up hash commenting symbol)
 au BufNewFile,BufRead *.py setlocal textwidth=99    " Wrap text only in python files
-highlight ColorColumn guibg=#252c3a
 au BufNewFile,BufRead *.py setlocal colorcolumn=80
 au CompleteDone * pclose                            " Automatic hide the tip window when on auto-complete
 au InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
