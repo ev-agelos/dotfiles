@@ -327,15 +327,5 @@
 [weechat]
    appname = "weechat"
    format  = " <b>%s</b>\n%b"
-   urgency = low
-
-[email]
-   appname = "Electron"
-   format  = "  new email"
+   script = dunst_sound_alert
    urgency = normal
-
-[slack]
-   appname = "Electron"
-   summary = "New message from *"
-   format  = " <b>%s</b>\n%b"
-   urgency = critical
