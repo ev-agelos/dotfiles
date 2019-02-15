@@ -2,14 +2,16 @@
     email = evagelos.theo@gmail.com
     name = ev-agelos
 [push]
-    default = simple
+	default = current
 [merge]
     ff = only
     tool = vimdiff
     configstyle = diff3
 [alias]
     tree = log --oneline --graph --decorate --all
-    lg = log --graph --branches --all --pretty=format:'%C(black dim)%h%Creset -%C(auto)%d%C(reset) %s %Cblue(%cr) %C(black dim)<%an>%Creset' --abbrev-commit --date=relative
+    l = log
+    lg = log --oneline
+    lgg = log --graph --branches --all --pretty=format:'%C(blue dim)%h%Creset -%C(auto)%d%C(reset) %s %C(blue dim)(%cr) %C(blue dim)<%an>%Creset' --abbrev-commit --date=relative
 
     ci = commit
     d = !git --no-pager diff
