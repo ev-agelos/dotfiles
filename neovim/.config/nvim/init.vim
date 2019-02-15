@@ -281,9 +281,15 @@ vnoremap <Up> :m '<-2<CR>gv=gv
 vnoremap <Down> :m '>+1<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
+" to next buffer
+nnoremap ` :bnext<cr>
 " to previous buffer
-nnoremap <leader><BS> :bprevious<cr>
-nnoremap <leader><leader> <c-^>
+nnoremap <BS> :bprevious<cr>
+nnoremap <leader><BS> <c-^>
+" zoom in window
+nnoremap <leader><leader> <c-w>_ \| <c-w>\|
+" zoom out window
+nnoremap <leader><space> <c-w>=
 " preserve yanked text when pasting in a visual selection
 xnoremap <silent> p pgvy<CR>
 " preserve window layout when deleting buffer
