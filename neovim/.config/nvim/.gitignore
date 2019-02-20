@@ -1,7 +1,4 @@
-autoload/
-ftplugin/
-plugged/
-session/
-spell/
-undo/
-.netrwhist
+/* ignore everything */
+*
+/* except neovim config file */
+init.vim
