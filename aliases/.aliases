@@ -7,3 +7,4 @@ alias tree="tree -I '*.pyc|__pycache__'"
 alias cat=ccat
 alias fd='fd --hidden'
 alias ls='ls --color=auto'
+alias less='less -R'
