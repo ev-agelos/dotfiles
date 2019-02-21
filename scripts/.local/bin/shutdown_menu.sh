@@ -1,7 +1,6 @@
 #!/bin/bash
 
 OPTION=$(echo -e "Lock\nSuspend\nLogout\nRestart\nGrub index:\nHibernate\nShutdown" | dmenu -i -l 7)
-LOCK=$HOME/.local/bin/lock.sh
 ERROR_MSG="Power menu: invalid input"
 
 if [[ $OPTION = "" ]]; then
@@ -9,11 +8,11 @@ if [[ $OPTION = "" ]]; then
 fi
 
 if [[ $OPTION = "Lock" ]]; then
-    $LOCK --nofork
+    lock.sh --nofork
 elif [[ $OPTION = "Logout" ]]; then
     i3-msg exit
 elif [[ $OPTION = "Suspend" ]]; then
-    $LOCK && systemctl suspend
+    lock.sh && systemctl suspend
 elif [[ $OPTION = "Restart" ]]; then
     systemctl reboot
 elif [[ $OPTION = "Grub index:"* ]]; then
@@ -24,7 +23,7 @@ elif [[ $OPTION = "Grub index:"* ]]; then
         notify-send "$ERROR_MSG for grub reboot"
     fi
 elif [[ $OPTION = "Hibernate" ]]; then
-    $LOCK && systemctl hibernate
+    lock.sh && systemctl hibernate
 elif [[ $OPTION = "Shutdown" ]]; then
     systemctl poweroff
 else

@@ -11,7 +11,7 @@ Type=simple
 RemainAfterExit=no
 User=USER
 Environment="DISPLAY=:0"
-ExecStart=/home/USER/.local/bin/toggle_hdmi
+ExecStart=toggle_hdmi
 
 [Install]
 WantedBy=multi-user.target
