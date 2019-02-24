@@ -249,6 +249,7 @@ set statusline+=%y\ %p%%\ %l,%c
 "       \   'left': [ [ 'absolutepath'] ],
 "       \ 'component_expand': {
 "       \   'dirpath': 'LightlineHomeDirPath',
+set laststatus=0
 
 " ----------------------------------------------------------
 "                    Mappings
@@ -289,7 +290,7 @@ nnoremap <leader><BS> <c-^>
 " zoom in window
 nnoremap <leader><leader> <c-w>_ \| <c-w>\|
 " zoom out window
-nnoremap <leader><space> <c-w>=
+nnoremap <leader>= <c-w>=
 " preserve yanked text when pasting in a visual selection
 xnoremap <silent> p pgvy<CR>
 " preserve window layout when deleting buffer
