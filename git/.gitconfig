@@ -6,7 +6,7 @@
 [merge]
     ff = only
     tool = vimdiff
-    configstyle = diff3
+    conflictstyle = diff3
 [alias]
     tree = log --oneline --graph --decorate --all
     l = log
