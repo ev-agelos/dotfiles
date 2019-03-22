@@ -85,7 +85,7 @@ source ~/.aliases  # my aliases
 # Map what keyboard sends for specific keys to zsh actions
 bindkey '^[[Z'    reverse-menu-complete # Shift+tab for previous selection
 bindkey \^U       backward-kill-line    # Ctrl+U delete from cursor till start of line
-bindkey \^K       kill-line             # Ctrl+K delete from cursor till end of line
+bindkey \^O       kill-line             # Ctrl+K delete from cursor till end of line
 bindkey \^Y       yank
 bindkey \^_       undo
 bindkey "^?"      backward-delete-char  # Backspace

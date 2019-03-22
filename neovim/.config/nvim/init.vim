@@ -321,3 +321,22 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " keep same cursor position when jumping between buffers
 autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
+nnoremap <silent> <A-h> :call MoveToWindow('h')<cr>
+nnoremap <silent> <A-j> :call MoveToWindow('j')<cr>
+nnoremap <silent> <A-k> :call MoveToWindow('k')<cr>
+nnoremap <silent> <A-l> :call MoveToWindow('l')<cr>
+
+function! MoveToWindow(key)
+    let l:window_before = winnr()
+    execute "wincmd " . a:key
+
+    if winnr() == window_before
+        call system('kitty @ kitten mykitten.py ' . a:key)
+    endif
+endfunction
