@@ -39,6 +39,8 @@ export BROWSER=qutebrowser
 export WINIT_HIDPI_FACTOR=1.0  # fix wrong dpi for alacritty when connecting 2nd screen
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
+eval `dircolors $HOME/.dir_colors`
+
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd
 
