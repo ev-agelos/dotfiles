@@ -301,23 +301,23 @@ nnoremap <Leader>q :silent :bp\|bd #<CR>
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
-au! FileType python setl nosmartindent              " Disable smartindent in python files(messing up hash commenting symbol)
-au BufNewFile,BufRead *.py setlocal textwidth=99    " Wrap text only in python files
-au BufNewFile,BufRead *.py setlocal colorcolumn=80
-au CompleteDone * pclose                            " Automatic hide the tip window when on auto-complete
-au InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
+autocmd! FileType python setl nosmartindent              " Disable smartindent in python files(messing up hash commenting symbol)
+autocmd BufNewFile,BufRead *.py setlocal textwidth=99    " Wrap text only in python files
+autocmd BufNewFile,BufRead *.py setlocal colorcolumn=80
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif    " Hide the preview window when leaving insert mode or completion is don
+autocmd InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
 autocmd FileType latex,tex setlocal spell " turn on spell checker for certain file types
 
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
-au! InsertEnter * NoMatchParen
-au! InsertLeave * DoMatchParen
+autocmd! InsertEnter * NoMatchParen
+autocmd! InsertLeave * DoMatchParen
 
 autocmd BufWritePre * %s/\s\+$//e                   " trim whitespace on save
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
 " jump to last position when reopening a file
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " keep same cursor position when jumping between buffers
-au BufLeave * let b:winview = winsaveview()
-au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+autocmd BufLeave * let b:winview = winsaveview()
+autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
