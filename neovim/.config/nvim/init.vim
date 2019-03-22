@@ -4,6 +4,7 @@ set path+=**
 
 call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Generic
+Plug 'majutsushi/tagbar',              { 'on': 'TagbarToggle' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -74,6 +75,8 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
+" tagbar
+nmap <F8> :TagbarToggle<CR>
 " auto-pairs
 let g:AutoPairsMapBS = 0
 
