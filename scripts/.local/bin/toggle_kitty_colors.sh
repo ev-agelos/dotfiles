@@ -3,10 +3,10 @@
 colors=$(kitty @ get-colors | grep -e "^background \|^foreground " | cut -d ' ' -f15)
 
 case "$colors" in
-*262626*)
+*000000*)
     ;&
-*dddddd*)
-    kitty @ set-colors --all --configured foreground=#222222 background=#F1F1F1
+*eaeaea*)
+    kitty @ set-colors --all --configured ~/.config/kitty/pencil_light.conf
 	;;
 *)
     kitty @ set-colors --reset
