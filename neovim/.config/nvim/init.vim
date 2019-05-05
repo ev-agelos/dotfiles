@@ -45,6 +45,7 @@ Plug 'mhinz/vim-startify'
 Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------ Colorschemes
 Plug 'ThomasMarcel/vim-colors-plain'
+Plug 'aunsira/macvim-light'
 Plug 'ev-agelos/vim-deep-space'
 Plug 'ev-agelos/blaquemagick.vim'
 call plug#end()
