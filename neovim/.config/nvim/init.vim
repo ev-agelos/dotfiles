@@ -43,6 +43,7 @@ Plug 'machakann/vim-highlightedyank'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-buftabline'
+Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
 " ------------------------------------------------------------------ Colorschemes
 Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'aunsira/macvim-light'
