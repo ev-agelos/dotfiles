@@ -1,0 +1,131 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# background
+# border
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+[disk]
+label= 
+#instance=/mnt/data
+interval=60
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+label=
+separator=false
+interval=30
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage2]
+command=$SCRIPT_DIR/cpu_usage2/cpu_usage2.c
+markup=pango
+interval=60
+#DECIMALS=1
+#REFRESH_TIME=1
+
+[brightness]
+command=i3blocks_brightness
+label=
+interval=once
+signal=11
+
+# Volume indicator
+#
+# The first parameter sets the step (and units to display)
+# The second parameter overrides the mixer selection
+# See the script for details.
+[volume]
+command=i3blocks_volume
+interval=once
+signal=10
+
+[key_layout]
+command=i3blocks_key_layout
+signal=12
+interval=once
+label=
+
+# Battery indicator
+#
+[battery]
+label=🔌
+interval=60
+separator=true
+
+# [vpn]
+# label=
+# interval=5
+
+# [weather]
+# instance=2744118
+# interval=60
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+
+#[iface]
+##instance=wlan0
+#label=
+#color=#C9CCDB
+#interval=10
+#separator=false
+
+[wifi]
+instance=wlp2s0
+interval=30
+separator=true
+label=
+
+#[load_average]
+#interval=10
+
+# Date Time
+[date]
+command=echo "`date +'%d %b'`"
+interval=60
+label=
+separator=true
+
+[time]
+command=echo "`date +'%H:%M'`"
+interval=60
+label=🕐 
+color=#C9CCDB

@@ -9,5 +9,6 @@ else
 fi
 
 setxkbmap $new_layout
+pkill -RTMIN+12 i3blocks  # update i3blocks
 notify-send "Keyboard layout:" "$new_layout $flag"
 paplay ~/.local/bin/notification.oga

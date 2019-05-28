@@ -1,6 +1,6 @@
 ## System:
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
-- Status bar: [polybar](https://github.com/jaagr/polybar)
+- Status bar: [i3bar](https://i3wm.org/i3bar/)
 - Launcher: [j4-dmenu](https://github.com/enkore/j4-dmenu-desktop)
 - Notifications: [dunst](https://github.com/dunst-project/dunst)
 - File manager GUI: [thunar](https://docs.xfce.org/xfce/thunar/start)
