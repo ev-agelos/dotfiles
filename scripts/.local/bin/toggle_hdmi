@@ -1,7 +1,7 @@
 #!/bin/sh
 
 HDMIStatus=$(cat /sys/class/drm/*HDMI-A-1/status)
-HDMI_NAME=$(xrandr -q | grep "HDMI-[0-9] connected" | cut -d ' ' -f1)
+HDMI_NAME=$(xrandr -q | grep "HDMI-\?[0-9] connected" | cut -d ' ' -f1)
 
 
 if [ $HDMIStatus = 'connected' ]; then
