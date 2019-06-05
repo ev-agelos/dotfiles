@@ -1,3 +1,6 @@
 [submodule "i3blocks-contrib"]
 	path = i3blocks-contrib
 	url = git://github.com/vivien/i3blocks-contrib
+[submodule "wallpapers"]
+	path = wallpapers
+	url = git@github.com:ZoeFiri/wallpapers.git

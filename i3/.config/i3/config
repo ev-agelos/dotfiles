@@ -212,8 +212,8 @@ exec --no-startup-id i3-sensible-terminal --title terminal_scratchpad
 for_window [title="terminal_scratchpad"] floating enable
 for_window [title="terminal_scratchpad"] resize grow left 50, resize grow right 50, resize shrink down 20, resize shrink up 10, move window to scratchpad
 
-# Wait pcloud a bit before setting wallpaper
-exec "sh -c  'sleep 4; feh --bg-max ~/pCloudDrive/MyPictures/arch_installation_cheatsheet.jpg'"
+# Set wallpaper
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/AmbientShipSky.jpg
 
 exec --no-startup-id i3-msg "workspace $ws2; move workspace to output $(xrandr -q | grep 'primary' | cut -d ' ' -f 1);"
 
