@@ -199,6 +199,8 @@ bindsym XF86ScreenSaver exec lock.sh
 bindsym $mod+p exec --no-startup-id kitty --class kitty_vifm vifm
 for_window [class="kitty_vifm"] floating enable
 
+bindsym $mod+n exec --no-startup-id kitty --start-as=fullscreen neomutt
+
 # Removed title bars
 for_window [class="^.*"] border pixel 4
 # new_window pixel 4
