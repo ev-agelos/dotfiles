@@ -131,7 +131,6 @@ assign [class="Firefox"] $ws4
 assign [class="wmail"] $ws6
 assign [class="Standard Notes"] $ws7
 assign [class="Slack"] $ws8
-assign [class="keepassxc"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
