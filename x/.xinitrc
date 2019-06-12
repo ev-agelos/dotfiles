@@ -42,7 +42,7 @@ xset fp rehash
 xset -dpms && xset s noblank && xset s off
 
 $(which pcloud) &
-redshift &
+redshift-gtk &
 
 xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "lock.sh --nofork" &
 
