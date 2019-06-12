@@ -39,6 +39,10 @@ export BROWSER=qutebrowser
 export WINIT_HIDPI_FACTOR=1.0  # fix wrong dpi for alacritty when connecting 2nd screen
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
+# for qt5 apps to apply the gtk theme currently being used(needs qt5-styleplugins)
+export QT_QPA_PLATFORMTHEME=gtk2
+export QT_STYLE_OVERRIDE=gtk2
+
 eval `dircolors $HOME/.dir_colors`
 
 # MPD daemon start (if no other user instance exists)
