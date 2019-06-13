@@ -122,6 +122,7 @@ let g:signify_vcs_list = [ 'git' ]
 let g:buftabline_numbers=2
 
 " Neomake
+let g:neomake_virtualtext_current_error=0
 let g:neomake_python_isort_maker = {
     \ 'exe': 'isort',
     \ }
