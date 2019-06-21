@@ -26,13 +26,13 @@ class Config(pdb.DefaultConfig):
             pass
         else:
             self.colorscheme = terminal.TERMINAL_COLORS.copy()
-            self.colorscheme.update({
-                terminal.Keyword:            ('darkred',     'red'),
-                terminal.Number:             ('darkyellow',  'yellow'),
-                terminal.String:             ('brown',       'green'),
-                terminal.Name.Function:      ('darkgreen',   'blue'),
-                terminal.Name.Namespace:     ('teal',        'turquoise'),
-                })
+            # self.colorscheme.update({
+            #     terminal.Keyword:            ('darkred',     'red'),
+            #     terminal.Number:             ('darkyellow',  'yellow'),
+            #     terminal.String:             ('brown',       'green'),
+            #     terminal.Name.Function:      ('darkgreen',   'blue'),
+            #     terminal.Name.Namespace:     ('teal',        'turquoise'),
+            #     })
 
     def setup(self, pdb):
         # make 'l' an alias to 'longlist'
