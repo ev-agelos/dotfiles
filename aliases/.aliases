@@ -8,3 +8,4 @@ alias cat=ccat
 alias fd='fd --hidden'
 alias ls='ls --color=auto'
 alias less='less -R'
+alias kd='git difftool --no-symlinks --dir-diff'
