@@ -195,10 +195,12 @@ bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 &
 
 bindsym XF86ScreenSaver exec lock.sh
 
-bindsym $mod+p exec --no-startup-id kitty --class kitty_vifm vifm
-for_window [class="kitty_vifm"] floating enable
-
-bindsym $mod+n exec --no-startup-id kitty --start-as=fullscreen neomutt
+bindsym $mod+n exec --no-startup-id kitty --class='neomutt' neomutt
+bindsym $mod+p exec --no-startup-id kitty --class='vifm' vifm
+bindsym $mod+Print exec --no-startup-id keepassxc
+for_window [class="neomutt"] floating enable
+for_window [class="vifm"] floating enable
+for_window [instance="keepassxc"] floating enable
 
 # Removed title bars
 for_window [class="^.*"] border pixel 4
