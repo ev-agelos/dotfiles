@@ -14,5 +14,5 @@ else if (layout == "us")
 }
 
 END{
-    printf("%s",flag)
+    printf("%s\n",flag)
 }'
