@@ -360,7 +360,7 @@ nnoremap <leader>= <c-w>=
 " preserve yanked text when pasting in a visual selection
 xnoremap <silent> p pgvy<CR>
 " preserve window layout when deleting buffer
-nnoremap <Leader>q :silent :bp\|bd #<CR>
+nnoremap <Leader>d :silent :bp\|bd #<CR>
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
