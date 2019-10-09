@@ -35,7 +35,7 @@ Plug 'alvan/vim-closetag',             { 'for': 'html' }
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
-Plug 'airblade/vim-gitgutter' " or 'mhinz/vim-signify' if mercurial is needed
+Plug 'airblade/vim-gitgutter'
 Plug 'elzr/vim-json',                  { 'for': 'json' }
 " ------------------------------------------------------------------ Effects
 Plug 'yuttie/comfortable-motion.vim'
@@ -77,8 +77,6 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
-" tagbar
-nmap <F8> :TagbarToggle<CR>
 " auto-pairs
 let g:AutoPairsMapBS = 0
 
@@ -86,14 +84,18 @@ let g:AutoPairsMapBS = 0
 command! -nargs=1 SudoRead  edit  suda://<args>
 command! -nargs=1 SudoWrite write suda://<args>
 
+
 " Gutentags
 let g:gutentags_cache_dir='~/.tags'
+
 
 " JSON plugin
 let g:vim_json_syntax_conceal = 0 " Disable the effect from hiding the actual code
 
+
 " UndoToggle
 map <leader>u :UndotreeToggle<CR>
+
 
 " Incsearch
 let g:incsearch#magic = '\V'
@@ -115,11 +117,8 @@ augroup END
 
 call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length']) " don't show the type word in the list
 
-" Signify
-let g:signify_vcs_list = [ 'git' ]
 
-" BufTabline
-let g:buftabline_numbers=2
+
 
 " Neomake
 let g:neomake_virtualtext_current_error=0
@@ -159,6 +158,12 @@ function! NeomakeWarnings()
   return 'W:'.(get(neomake#statusline#LoclistCounts(), 'W', 0) + get(neomake#statusline#QflistCounts(), 'W', 0))
 endfunction
 
+
+
+" BufTabline
+let g:buftabline_numbers=2
+
+
 " Startify
 nnoremap <leader>0 :Startify<cr>
 let g:startify_change_to_vcs_root = 1
@@ -176,6 +181,7 @@ let g:startify_list_order = [
         \ ['   Files'],
         \ 'files'
         \ ]
+
 
 " fzf-vim
 nnoremap <C-p> :Files<cr>
@@ -195,6 +201,7 @@ command! -bang -nargs=* Rg
 " MRU with preview
 command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 
+
 " ---------------------------------------------------------
 "                    Settings
 " ---------------------------------------------------------
@@ -207,7 +214,7 @@ set wildmode=full                " <Tab> cycles between all matching choices.
 " Do not blink in normal mode, Use pipe shape in insert mode
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 set clipboard+=unnamedplus       " Copy/Paste always to clipboard
-set cursorline                   " have a line indicate the cursor location
+set nocursorline                 " dont highlight the line where cursor is
 set nostartofline                " Avoid moving cursor to BOL when jumping around
 set virtualedit=block            " Let cursor move past the last char in <C-v> mode
 set scrolloff=3                  " Keep 3 context lines above and below the cursor
@@ -269,8 +276,8 @@ nnoremap gk k
 tnoremap <Esc> <C-\><C-n>
 " No need for Ex mode
 nnoremap Q <nop>
-" Select the item in the list with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Center screen when jumping to next match
 " noremap n nzz
 " noremap N Nzz
