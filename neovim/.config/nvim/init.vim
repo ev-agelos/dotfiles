@@ -30,7 +30,7 @@ Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-sandwich'
-Plug 'jiangmiao/auto-pairs'
+Plug 'tmsvg/pear-tree'
 Plug 'alvan/vim-closetag',             { 'for': 'html' }
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
@@ -77,9 +77,6 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
-" auto-pairs
-let g:AutoPairsMapBS = 0
-
 " suda
 command! -nargs=1 SudoRead  edit  suda://<args>
 command! -nargs=1 SudoWrite write suda://<args>
@@ -114,6 +111,12 @@ augroup insertload
   autocmd!
   autocmd InsertEnter * call deoplete#enable() | autocmd! insertload
 augroup END
+" pear-tree
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
+
+
 
 call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length']) " don't show the type word in the list
 
