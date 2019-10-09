@@ -17,15 +17,13 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'lambdalisue/suda.vim'
 " ------------------------------------------------------------------ Completion
-Plug 'Shougo/deoplete.nvim',           { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi',            { 'do': 'git submodule update --init', 'for': ['python'] }
+Plug 'neoclide/coc.nvim',              {'branch': 'release'}
 " ------------------------------------------------------------------ File search
 Plug 'junegunn/fzf',                   { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " ------------------------------------------------------------------ History
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
-Plug 'benekastah/neomake'
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
@@ -100,67 +98,117 @@ let g:incsearch#auto_nohlsearch = 1
 map / <Plug>(incsearch-stay)
 map ? <Plug>(incsearch-backward)
 
-" Deoplete
-call deoplete#custom#option('max_list', 5)
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-let g:deoplete#enable_at_startup = 0
-let g:deoplete#sources#jedi#show_docstring = 1
 
-augroup insertload
-  autocmd!
-  autocmd InsertEnter * call deoplete#enable() | autocmd! insertload
-augroup END
 " pear-tree
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
 let g:pear_tree_smart_backspace = 1
 
 
+" coc
+" use <tab> for trigger completion and navigate to the next complete item
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
-call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length']) " don't show the type word in the list
-
-
-
-
-" Neomake
-let g:neomake_virtualtext_current_error=0
-let g:neomake_python_isort_maker = {
-    \ 'exe': 'isort',
-    \ }
-"augroup my_neomake_hooks
-"  au!
-"  autocmd User NeomakeJobFinished :e
-"augroup END
-let g:neomake_highlight_columns=0
-let g:neomake_python_pylint_args = [
-    \ '--rcfile=~/.pylintrc',
-    \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
-    \ '--score=no',
-    \ '--reports=no',
-    \ ]
-
-let g:neomake_warning_sign = {'text': '●', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_python_enabled_makers = ['pydocstyle', 'pylint', 'flake8']
-au! BufWritePost * Neomake
-hi NeomakeErrorSign ctermbg=234 ctermfg=88
-hi NeomakeWarningSign ctermbg=234 ctermfg=250
-
-function! NeomakeErrors()
-  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "E", 0) + get(neomake#statusline#LoclistCounts(), "E", 0)) == 0)
-    return ''
-  endif
-  return 'E:'.(get(neomake#statusline#LoclistCounts(), 'E', 0) + get(neomake#statusline#QflistCounts(), 'E', 0))
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-function! NeomakeWarnings()
-  if !exists(":Neomake") || ((get(neomake#statusline#QflistCounts(), "W", 0) + get(neomake#statusline#LoclistCounts(), "W", 0)) == 0)
-    return ''
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
   endif
-  return 'W:'.(get(neomake#statusline#LoclistCounts(), 'W', 0) + get(neomake#statusline#QflistCounts(), 'W', 0))
 endfunction
 
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " BufTabline
@@ -253,13 +301,14 @@ set showmode                     " Show vim mode in status line
 set undofile
 set undodir=~/.config/nvim/undo
 set undolevels=1000
-set updatetime=1000
+set updatetime=300
 set statusline=%{gutentags#statusline('','','')}
 set statusline+=%<%f
-set statusline+=\ %h%{&modifiable\ &&\ &modified\ ?\ '[+]':''}%{&filetype=='help'?'':&readonly?'':''}%=
-set statusline+=%{exists('*fugitive#head')\ &&\ ''!=fugitive#head()?''.fugitive#head():''}
-set statusline+=%{NeomakeWarnings()}\ %{NeomakeErrors()}%=
-set statusline+=%y\ %p%%\ %l,%c
+set statusline+=\ %h%{&modifiable\ &&\ &modified\ ?\ '[+]':''}%{&filetype=='help'?'':&readonly?'':''}
+set statusline+=\ %{exists('*fugitive#head')\ &&\ ''!=fugitive#head()?''.fugitive#head():''}
+set statusline+=%=
+set statusline+=%y\ \ \ %p%%\ \ \ %l,%c
+set statusline+=\ \ \ %{coc#status()}%{get(b:,'coc_current_function','')}
 "       \              [ 'fileencoding' ],
 "       \ 'inactive': {
 "       \   'left': [ [ 'absolutepath'] ],
