@@ -25,6 +25,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
 Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-sandwich'
