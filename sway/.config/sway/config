@@ -41,7 +41,7 @@ set $ws9 "9: "
 set $ws10 "10: "
 
 assign [class="Chromium"] $ws3
-assign [class="qutebrowser"] $ws3
+assign [app_id="org.qutebrowser.qutebrowser"] $ws3
 assign [app_id="firefox"] $ws4
 assign [class="wmail"] $ws6
 assign [class="Standard Notes"] $ws7
