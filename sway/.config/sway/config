@@ -1,0 +1,142 @@
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+font pango:monospace 8
+focus_follows_mouse no
+set $term kitty --single-instance --listen-on unix:/tmp/mykitty
+set $menu j4-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.j4-dmenu-usage-log | xargs swaymsg exec --
+output * bg ~/.dotfiles/wallpapers/scenery/art/VillageOperation.jpg fit #000000
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 100
+    xkb_model pc105
+    xkb_layout us,gr
+    xkb_options grp:alt_shift_toggle,caps:ctrl_modifier
+}
+floating_modifier $mod normal
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+c reload
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: "
+
+assign [class="Chromium"] $ws3
+assign [class="qutebrowser"] $ws3
+assign [app_id="firefox"] $ws4
+assign [class="wmail"] $ws6
+assign [class="Standard Notes"] $ws7
+assign [class="Slack"] $ws8
+assign [app_id="net.sourceforge.mumble.mumble"] $ws8
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+s splitv
+bindsym $mod+v splith
+bindsym $mod+q layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+bindsym $mod+Shift+i move scratchpad
+bindsym $mod+grave scratchpad show
+mode "resize" {
+        bindsym Left resize shrink width 10px
+        bindsym Down resize grow height 10px
+        bindsym Up resize shrink height 10px
+        bindsym Right resize grow width 10px
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+bar {
+    status_command SCRIPT_DIR=~/.dotfiles/i3blocks-contrib i3blocks
+    mode hide
+    font pango:Meslo LG S DZ Regular for Powerline 10, Font Awesome 5 Free
+}
+exec swayidle -w timeout 120 'swaylock -f -c 000000'
+# exec swayidle -detectsleep -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "lock.sh --nofork" &
+exec swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
+
+
+
+bindsym $mod+g exec sh -c "echo '' | dmenu -p 'Google search:' | xargs -I {} surf -F 'https://encrypted.google.com/webhp?hl=en&gl=en#safe=active&hl=en&gl=en&q={}'"
+bindsym $mod+Shift+e exec shutdown_menu.sh
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && pkill -RTMIN+10 i3blocks #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks # mute sound
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioStop exec --no-startup-id mpc stop
+# Sreen brightness controls
+bindsym --release XF86MonBrightnessUp exec --no-startup-id light -A 5 && pkill -RTMIN+11 i3blocks
+bindsym --release XF86MonBrightnessDown exec --no-startup-id light -U 5 && pkill -RTMIN+11 i3blocks
+
+bindsym XF86ScreenSaver exec lock.sh
+
+bindsym $mod+n exec --no-startup-id kitty --class='neomutt' neomutt
+bindsym $mod+p exec --no-startup-id kitty --class='vifm' vifm
+bindsym $mod+Print exec --no-startup-id keepassxc
+for_window [class="neomutt"] floating enable
+for_window [class="vifm"] floating enable
+for_window [app_id="keepassxc"] floating enable
+
+# Removed title bars
+default_border none
+for_window [class="^.*"] border none
+
+# Move a terminal to scratchpad
+exec --no-startup-id i3-sensible-terminal --title terminal_scratchpad
+for_window [title="terminal_scratchpad"] floating enable
+for_window [title="terminal_scratchpad"] resize set 640 480, move window to scratchpad
+
+
+
+exec udiskie --no-automount --no-notify --tray --use-udisks2 &
+
+
+output DVI-I-1 transform 270
+exec_always xcape -e 'Caps_Lock=Escape'
+exec mako
+exec pcloud
+exec redshift-gtk
