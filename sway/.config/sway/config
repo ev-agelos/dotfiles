@@ -90,8 +90,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 bar {
-    status_command SCRIPT_DIR=~/.dotfiles/i3blocks-contrib i3blocks
-    mode hide
+    swaybar_command waybar
+    mode dock
     font pango:Meslo LG S DZ Regular for Powerline 10, Font Awesome 5 Free
 }
 exec swayidle -w timeout 120 'swaylock -f -c 000000'
