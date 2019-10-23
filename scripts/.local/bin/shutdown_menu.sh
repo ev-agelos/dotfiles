@@ -3,16 +3,23 @@
 OPTION=$(echo -e "Lock\nSuspend\nLogout\nRestart\nGrub index:\nHibernate\nShutdown" | bemenu -i -l 7)
 ERROR_MSG="Power menu: invalid input"
 
-if [[ $OPTION = "" ]]; then
-    exit 0
+[[ $OPTION = "" ]] && exit 0
+
+if [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
+    lock_arg=''
+    suspend_arg='--daemonize'
+else
+    lock_arg='--nofork'
+    suspend_arg=''
 fi
 
+
 if [[ $OPTION = "Lock" ]]; then
-    lock.sh --nofork
+    lock.sh $lock_arg
 elif [[ $OPTION = "Logout" ]]; then
     i3-msg exit
 elif [[ $OPTION = "Suspend" ]]; then
-    lock.sh && systemctl suspend
+    lock.sh $suspend_arg && systemctl suspend
 elif [[ $OPTION = "Restart" ]]; then
     systemctl reboot
 elif [[ $OPTION = "Grub index:"* ]]; then
@@ -23,7 +30,7 @@ elif [[ $OPTION = "Grub index:"* ]]; then
         notify-send "$ERROR_MSG for grub reboot"
     fi
 elif [[ $OPTION = "Hibernate" ]]; then
-    lock.sh && systemctl hibernate
+    lock.sh $suspend_arg && systemctl hibernate
 elif [[ $OPTION = "Shutdown" ]]; then
     systemctl poweroff
 else
