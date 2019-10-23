@@ -76,6 +76,15 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
+
+
+"
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '▎'
+let g:gitgutter_sign_removed = '▶'
+let g:gitgutter_sign_modified_removed = '▎'
+
+
 " suda
 command! -nargs=1 SudoRead  edit  suda://<args>
 command! -nargs=1 SudoWrite write suda://<args>
