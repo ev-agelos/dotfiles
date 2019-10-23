@@ -390,16 +390,3 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
-nnoremap <silent> <A-h> :call MoveToWindow('h')<cr>
-nnoremap <silent> <A-j> :call MoveToWindow('j')<cr>
-nnoremap <silent> <A-k> :call MoveToWindow('k')<cr>
-nnoremap <silent> <A-l> :call MoveToWindow('l')<cr>
-
-function! MoveToWindow(key)
-    let l:window_before = winnr()
-    execute "wincmd " . a:key
-
-    if winnr() == window_before
-        call system('kitty @ kitten mykitten.py ' . a:key)
-    endif
-endfunction
