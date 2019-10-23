@@ -224,6 +224,12 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+au CursorHold * sil call CocActionAsync('highlight')
+nn <silent> K :call CocActionAsync('doHover')<cr>
+au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+
 
 " BufTabline
 let g:buftabline_numbers=2
