@@ -257,48 +257,50 @@ command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 " ---------------------------------------------------------
 "                    Settings
 " ---------------------------------------------------------
+" use :help '<setting>' for details
 set foldmethod=indent
 set foldlevel=99
-set splitright                   " When vertically split right
-set splitbelow                   " When horizontally split below
+set splitright
+set splitbelow
 set mouse=a
-set wildmode=full                " <Tab> cycles between all matching choices.
+set wildmode=full
 " Do not blink in normal mode, Use pipe shape in insert mode
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-set clipboard+=unnamedplus       " Copy/Paste always to clipboard
-set nocursorline                 " dont highlight the line where cursor is
-set nostartofline                " Avoid moving cursor to BOL when jumping around
-set virtualedit=block            " Let cursor move past the last char in <C-v> mode
-set scrolloff=3                  " Keep 3 context lines above and below the cursor
-set sidescrolloff=5                 " Same as scrolloff but for columns
+set clipboard+=unnamedplus
+set nocursorline
+set nostartofline
+set virtualedit=block
+set scrolloff=3
+set sidescrolloff=5
 set sidescroll=1
-set backspace=2                  " Allow backspacing over autoindent, EOL, and BOL
-set showmatch                    " Briefly jump to a paren once it's balanced
+set backspace=2
+set showmatch
 set nowrap
 set formatoptions+=t
-set linebreak                    " don't wrap textin the middle of a word
-set smartindent                  " use smart indent if thereis no indent file
-set tabstop=4                    " <tab> inserts 4 spaces
-set shiftwidth=4                 " an indent level is 4 spaces wide.
-set softtabstop=4                " <BS> over an autoindent deletes both spaces.
-set expandtab                    " Use spaces, not tabs, for autoindent/tab key.
-set shiftround                   " rounds indent to a multiple of shiftwidth
+set linebreak
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set shiftround
 set inccommand=split
-set nojoinspaces                 " don't autoinsert two spaces after '.', '?', '!' for join command
+set nojoinspaces
 set noswapfile
 set hidden
-set noautoread                   " Don't automatically re-read changed files.
-set showcmd                      " Show incomplete normal mode commands as I type.
-set report=0                     " : commands always print changed line count.
-set shortmess+=a                 " Use [+]/[RO]/[w] for modified/readonly/written.
-set ruler                        " Show some info, even without statuslines.
-set wrapscan                     " search fron beginning if end of file is reached
-set ignorecase                   " Default to using case insensitive searches,
-set smartcase                    " unless uppercase letters are used in the regex.
+set noautoread
+set noequalalways
+set showcmd
+set report=0
+set shortmess+=a
+set ruler
+set wrapscan
+set ignorecase
+set smartcase
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
-set showmode                     " Show vim mode in status line
+set showmode
 set undofile
 set undodir=~/.config/nvim/undo
 set undolevels=1000
