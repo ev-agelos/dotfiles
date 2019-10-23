@@ -4,7 +4,7 @@ set path+=**
 
 call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Generic
-Plug 'majutsushi/tagbar',              { 'on': 'TagbarToggle' }
+Plug 'liuchengxu/vista.vim',              { 'on': 'Vista!!' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -76,6 +76,11 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 "                     Plugin options
 " ----------------------------------------------------------
 
+" vista
+let g:vista#renderer#enable_icon = 1
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+nmap <F9> :Vista<CR>
 
 
 "
