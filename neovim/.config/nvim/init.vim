@@ -11,7 +11,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'google/vim-searchindex'
-Plug 'hynek/vim-python-pep8-indent',   { 'for': 'python' }
 Plug 'skywind3000/asyncrun.vim'
 " ------------------------------------------------------------------ Unix shell commands
 Plug 'tpope/vim-eunuch'
