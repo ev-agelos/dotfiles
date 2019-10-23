@@ -319,18 +319,18 @@ set undodir=~/.config/nvim/undo
 set undolevels=1000
 set updatetime=300
 set statusline=%{gutentags#statusline('','','')}
-set statusline+=%<%f
+set statusline+=%<\ [%n]\ %<%f
 set statusline+=\ %h%{&modifiable\ &&\ &modified\ ?\ '[+]':''}%{&filetype=='help'?'':&readonly?'':''}
-set statusline+=\ %{exists('*fugitive#head')\ &&\ ''!=fugitive#head()?''.fugitive#head():''}
+set statusline+=%=%{exists('*fugitive#head')\ &&\ ''!=fugitive#head()?''.fugitive#head():''}
 set statusline+=%=
-set statusline+=%y\ \ \ %p%%\ \ \ %l,%c
-set statusline+=\ \ \ %{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline+=%y\ \ \ %l/%L\ -\ %c
+" set statusline+=\ \ \ %{coc#status()}%{get(b:,'coc_current_function','')}
 "       \              [ 'fileencoding' ],
 "       \ 'inactive': {
 "       \   'left': [ [ 'absolutepath'] ],
 "       \ 'component_expand': {
 "       \   'dirpath': 'LightlineHomeDirPath',
-set laststatus=0
+set laststatus=2
 
 " ----------------------------------------------------------
 "                    Mappings
