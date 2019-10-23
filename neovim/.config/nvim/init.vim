@@ -47,6 +47,7 @@ Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'aunsira/macvim-light'
 Plug 'ev-agelos/vim-deep-space'
 Plug 'ev-agelos/blaquemagick.vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -74,6 +75,14 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 " ----------------------------------------------------------
 "                     Plugin options
 " ----------------------------------------------------------
+
+" floaterm
+noremap  <silent> <F12>           :FloatermToggle<CR>i
+noremap! <silent> <F12>           <Esc>:FloatermToggle<CR>i
+tnoremap <silent> <F12>           <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_winblend=10
+let g:floaterm_position='center'
+
 
 " vista
 let g:vista#renderer#enable_icon = 1
