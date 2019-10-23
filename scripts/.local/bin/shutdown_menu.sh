@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPTION=$(echo -e "Lock\nSuspend\nLogout\nRestart\nGrub index:\nHibernate\nShutdown" | dmenu -i -l 7)
+OPTION=$(echo -e "Lock\nSuspend\nLogout\nRestart\nGrub index:\nHibernate\nShutdown" | bemenu -i -l 7)
 ERROR_MSG="Power menu: invalid input"
 
 if [[ $OPTION = "" ]]; then

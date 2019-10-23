@@ -7,7 +7,7 @@ set $right l
 font pango:monospace 8
 focus_follows_mouse no
 set $term kitty --single-instance --listen-on unix:/tmp/mykitty
-set $menu j4-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.j4-dmenu-usage-log | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu="bemenu -i --fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.j4-dmenu-usage-log | xargs swaymsg exec --
 output * bg ~/.dotfiles/wallpapers/scenery/art/VillageOperation.jpg fit #000000
 input type:keyboard {
     repeat_delay 200
@@ -100,7 +100,7 @@ exec swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * 
 
 
 
-bindsym $mod+g exec sh -c "echo '' | dmenu -p 'Google search:' | xargs -I {} surf -F 'https://encrypted.google.com/webhp?hl=en&gl=en#safe=active&hl=en&gl=en&q={}'"
+bindsym $mod+g exec sh -c "echo '' | bemenu -p 'Google search:' | xargs -I {} surf -F 'https://encrypted.google.com/webhp?hl=en&gl=en#safe=active&hl=en&gl=en&q={}'"
 bindsym $mod+Shift+e exec shutdown_menu.sh
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks #increase sound volume
