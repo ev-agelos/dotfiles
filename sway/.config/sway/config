@@ -7,7 +7,7 @@ set $right l
 font pango:monospace 8
 focus_follows_mouse no
 set $term kitty --single-instance --listen-on unix:/tmp/mykitty
-set $menu j4-dmenu-desktop --dmenu="bemenu -i --fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.j4-dmenu-usage-log | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu="bemenu -i --fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.config/j4-dmenu/j4-dmenu-usage-log | xargs swaymsg exec --
 output * bg ~/.dotfiles/wallpapers/scenery/art/VillageOperation.jpg fit #000000
 input type:keyboard {
     repeat_delay 200
