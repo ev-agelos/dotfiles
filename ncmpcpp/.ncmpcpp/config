@@ -67,7 +67,7 @@ progressbar_color = "black"
 progressbar_elapsed_color = "blue"
 state_line_color = "black"
 visualizer_color = "blue"
-volume_color = "black"
+volume_color = "white"
 window_border_color = "green"
 song_columns_list_format = "(3f)[white]{nrE} (40)[blue]{t|f} (15)[white]{aE} (45)[blue]{bE} (5f)[white]{lr}"
 
