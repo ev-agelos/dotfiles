@@ -6,13 +6,67 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
-# When to find text on a page case-insensitively.
+# Which window to choose when opening links as new tabs. When
+# `new_instance_open_target` is set to `window`, this is ignored.
 # Type: String
 # Valid values:
-#   - always: Search case-insensitively.
-#   - never: Search case-sensitively.
-#   - smart: Search case-sensitively if there are capital characters.
-c.search.ignore_case = 'smart'
+#   - first-opened: Open new tabs in the first (oldest) opened window.
+#   - last-opened: Open new tabs in the last (newest) opened window.
+#   - last-focused: Open new tabs in the most recently focused window.
+#   - last-visible: Open new tabs in the most recently visible window.
+c.new_instance_open_target_window = 'last-focused'
+
+# Additional arguments to pass to Qt, without leading `--`. With
+# QtWebEngine, some Chromium arguments (see
+# https://peter.sh/experiments/chromium-command-line-switches/ for a
+# list) will work.
+# Type: List of String
+c.qt.args = []
+
+# Force software rendering for QtWebEngine. This is needed for
+# QtWebEngine to work with Nouveau drivers and can be useful in other
+# scenarios related to graphic issues.
+# Type: String
+# Valid values:
+#   - software-opengl: Tell LibGL to use a software implementation of GL (`LIBGL_ALWAYS_SOFTWARE` / `QT_XCB_FORCE_SOFTWARE_OPENGL`)
+#   - qt-quick: Tell Qt Quick to use a software renderer instead of OpenGL. (`QT_QUICK_BACKEND=software`)
+#   - chromium: Tell Chromium to disable GPU support and use Skia software rendering instead. (`--disable-gpu`)
+#   - none: Don't force software rendering.
+c.qt.force_software_rendering = 'none'
+
+# Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
+# environment variable and is useful to force using the XCB plugin when
+# running QtWebEngine on Wayland.
+# Type: String
+c.qt.force_platform = None
+
+# Which Chromium process model to use. Alternative process models use
+# less resources, but decrease security and robustness. See the
+# following pages for more details:    -
+# https://www.chromium.org/developers/design-documents/process-models
+# - https://doc.qt.io/qt-5/qtwebengine-features.html#process-models
+# Type: String
+# Valid values:
+#   - process-per-site-instance: Pages from separate sites are put into separate processes and separate visits to the same site are also isolated.
+#   - process-per-site: Pages from separate sites are put into separate processes. Unlike Process per Site Instance, all visits to the same site will share an OS process. The benefit of this model is reduced memory consumption, because more web pages will share processes. The drawbacks include reduced security, robustness, and responsiveness.
+#   - single-process: Run all tabs in a single process. This should be used for debugging purposes only, and it disables `:open --private`.
+c.qt.process_model = 'process-per-site-instance'
+
+# When to use Chromium's low-end device mode. This improves the RAM
+# usage of renderer processes, at the expense of performance.
+# Type: String
+# Valid values:
+#   - always: Always use low-end device mode.
+#   - auto: Decide automatically (uses low-end mode with < 1 GB available RAM).
+#   - never: Never use low-end device mode.
+c.qt.low_end_device_mode = 'auto'
+
+# Turn on Qt HighDPI scaling. This is equivalent to setting
+# QT_AUTO_SCREEN_SCALE_FACTOR=1 in the environment. It's off by default
+# as it can cause issues with some bitmap fonts. As an alternative to
+# this, it's possible to set font sizes and the `zoom.default` setting.
+# Type: Bool
+c.qt.highdpi = False
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
@@ -30,6 +84,20 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://www.reddit.com')
+
+# Allow pdf.js to view PDF files in the browser. Note that the files can
+# still be downloaded by clicking the download button in the pdf.js
+# viewer.
+# Type: Bool
+c.content.pdfjs = True
+
 # When a hint can be automatically followed without pressing Enter.
 # Type: String
 # Valid values:
@@ -39,9 +107,18 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - never: The user will always need to press Enter to follow a hint.
 c.hints.auto_follow = 'always'
 
+# Duration (in milliseconds) to ignore normal-mode key bindings after a
+# successful auto-follow.
+# Type: Int
+c.hints.auto_follow_timeout = 0
+
 # Show a filebrowser in upload/download prompts.
 # Type: Bool
 c.prompt.filebrowser = True
+
+# Rounding radius (in pixels) for the edges of prompts.
+# Type: Int
+c.prompt.radius = 8
 
 # When to show the scrollbar.
 # Type: String
@@ -49,17 +126,16 @@ c.prompt.filebrowser = True
 #   - always: Always show the scrollbar.
 #   - never: Never show the scrollbar.
 #   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
-c.scrolling.bar = 'always'
+c.scrolling.bar = 'when-searching'
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
 # Type: Bool
 c.scrolling.smooth = True
 
-# Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
-# for a blank page.
-# Type: FuzzyUrl
-c.url.default_page = 'about:lank'
+# Open new tabs (middleclick/ctrl+click) in the background.
+# Type: Bool
+c.tabs.background = True
 
 # Search engines which can be used via the address bar. Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -70,26 +146,32 @@ c.url.default_page = 'about:lank'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://www.google.com.ar/search?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://encrypted.google.com/search?hl=en&safe=on&num=50&pws=0&q={}', 'd': 'https://duckduckgo.com/?q={}', 'y': 'https://www.youtube.com/results?search_query={}&search=Search'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://learn.kevintpeng.com/'
+c.url.start_pages = 'https://start.duckduckgo.com'
 
-# Background color of the completion widget for even rows.
-# Type: QssColor
-c.colors.completion.even.bg = '#333333'
+# Default zoom level.
+# Type: Perc
+c.zoom.default = '90%'
 
-# Background color of the selected completion item.
-# Type: QssColor
-c.colors.completion.item.selected.bg = '#e8c000'
+# Available zoom levels.
+# Type: List of Perc
+c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
-# Foreground color of the URL in the statusbar on error.
-# Type: QssColor
-c.colors.statusbar.url.error.fg = 'orange'
+# This setting can be used to map keys to other keys. When the key used
+# as dictionary-key is pressed, the binding for the key used as
+# dictionary-value is invoked instead. This is useful for global
+# remappings of keys, for example to map Ctrl-[ to Escape. Note that
+# when a key is bound (via `bindings.default` or `bindings.commands`),
+# the mapping is ignored.
+# Type: Dict
+c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctrl+m>': '<Return>', '<Ctrl+j>': '<Return>', '<Shift+Return>': '<Return>', '<Enter>': '<Return>', '<Shift+Enter>': '<Return>', '<Ctrl+Enter>': '<Ctrl+Return>'}
 
 # Bindings for normal mode
-config.bind('<Ctrl+j>', 'tab-prev')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
-config.bind('gi', ':hint inputs')
+config.bind('Shift+j', 'tab-prev')
+config.bind('Shift+k', 'tab-next')
+config.bind('gi', 'hint inputs')
