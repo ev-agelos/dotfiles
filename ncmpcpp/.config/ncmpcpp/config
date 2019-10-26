@@ -4,6 +4,8 @@ mpd_music_dir="~/Music"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "5"
 
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory = ~/.config/ncmpcpp/lyrics
 autocenter_mode = "yes"
 browser_display_mode = "columns"
 colors_enabled = "yes"

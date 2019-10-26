@@ -14,7 +14,7 @@ done
 unset f
 fi
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+[[ -f $XDG_CONFIG_HOME/X11/Xresources ]] && xrdb -merge -I$HOME $XDG_CONFIG_HOME/X11/Xresources
 
 # use gnome-keyring
 dbus-update-activation-environment --systemd DISPLAY
@@ -33,7 +33,7 @@ xset r rate 200 100
 # map CapsLock -> Ctrl when pressed, Esc when tapped
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
-xbindkeys -p
+xbindkeys -p -f $XDG_CONFIG_HOME/xbindkeys/config
 
 # include ~/.fonts directory for fonts
 xset +fp "$HOME/.fonts"
@@ -53,4 +53,3 @@ xinput --set-button-map 12 1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 18 19 20
 xrandr --output DVI-1 --left-of HDMI-0 && xrandr --output HDMI-0 --primary && xrandr --output DVI-1 --rotate left && xrandr --output HDMI-0 --pos 1080x0
 
 exec i3
-

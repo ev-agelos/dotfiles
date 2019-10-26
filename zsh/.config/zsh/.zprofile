@@ -4,5 +4,6 @@
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
-  exec startx 2>.xsession-errors
+  export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
+  exec startx $XDG_CONFIG_HOME/X11/xinitrc 2> ~/.xsession-errors
 fi

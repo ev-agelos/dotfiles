@@ -1,5 +1,5 @@
 # source aliases
-source $HOME/.aliases
+source $XDG_CONFIG_HOME/aliases
 
 # Important for encodings(different programs brake like zsh/powerline etc)
 #export LANG=en_US.UTF-8
@@ -22,5 +22,5 @@ export IGNOREEOF=1
 
 source $(pew shell_config)
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $XDG_CONFIG_HOME/fzf/fzf.bash ] && source $XDG_CONFIG_HOME/fzf/fzf.bash
 

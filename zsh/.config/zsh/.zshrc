@@ -22,7 +22,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'  # fix for killing backwards word in paths
 FIGNORE=".pyc:.git"  # seperate with : for multiple extensions
 KEYTIMEOUT=1
-HISTFILE="$HOME/.zsh_history"
+HISTFILE=$XDG_DATA_HOME/zsh/history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 setopt HIST_IGNORE_SPACE
@@ -56,7 +56,10 @@ PROMPT_GEOMETRY_GIT_TIME=false
 GEOMETRY_PROMPT_PLUGINS_PRIMARY=(path jobs)
 GEOMETRY_PROMPT_PLUGINS_SECONDARY=(virtualenv exec_time git)
 
-source ~/.zplugin/bin/zplugin.zsh
+declare -A ZPLGM
+ZPLGM[HOME_DIR]=$XDG_CONFIG_HOME/zplugin
+ZPLGM[ZCOMPDUMP_PATH]=$ZDOTDIR/zcompdump
+source $XDG_CONFIG_HOME/zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
@@ -67,7 +70,7 @@ zplugin light b4b4r07/zsh-vimode-visual
 zplugin ice as"program" from"gh-r" bpick"*linux*" mv"*linux* -> note"
 zplugin light sachaos/note
 zplugin ice as"program" atclone'./fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| zhook.zsh' atpull'%atclone' src'zhook.zsh'
-zplugin light clvv/fasd
+zplugin light whjvenyl/fasd
 zplugin light peterhurford/git-it-on.zsh
 zplugin light soimort/translate-shell
 zplugin light wfxr/forgit
@@ -77,9 +80,9 @@ zplugin ice wait"0" atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" luci
 zplugin light zdharma/fast-syntax-highlighting
 ####################################################################
 
-source ~/.fzf.zsh
-source ~/.zsh/functions
-source ~/.aliases  # my aliases
+source $XDG_CONFIG_HOME/fzf/fzf.zsh
+source $XDG_CONFIG_HOME/zsh/functions
+source $XDG_CONFIG_HOME/aliases  # my aliases
 
 # Note: Bind keys in the end because of conflict with zsh-syntax-highlighting(fast-syntax-highlighting)
 # needs to be loaded first and then bind keys
