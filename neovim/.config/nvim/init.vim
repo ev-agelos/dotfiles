@@ -104,7 +104,7 @@ command! -nargs=1 SudoWrite write suda://<args>
 
 
 " Gutentags
-let g:gutentags_cache_dir='~/.tags'
+let g:gutentags_cache_dir='~/.cache/gutentags'
 
 
 " JSON plugin
