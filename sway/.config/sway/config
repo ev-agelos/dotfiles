@@ -98,9 +98,6 @@ exec swayidle -w timeout 120 'swaylock -f -c 000000'
 # exec swayidle -detectsleep -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "lock.sh --nofork" &
 exec swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
 
-
-
-bindsym $mod+g exec sh -c "echo '' | bemenu -p 'Google search:' | xargs -I {} surf -F 'https://encrypted.google.com/webhp?hl=en&gl=en#safe=active&hl=en&gl=en&q={}'"
 bindsym $mod+Shift+e exec shutdown_menu.sh
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks #increase sound volume
@@ -114,12 +111,14 @@ bindsym --release XF86MonBrightnessDown exec --no-startup-id light -U 5 && pkill
 
 bindsym XF86ScreenSaver exec lock.sh
 
+bindsym $mod+g exec --no-startup-id kitty --class="googler" googler
 bindsym $mod+n exec --no-startup-id kitty --class='neomutt' neomutt
 bindsym $mod+p exec --no-startup-id kitty --class='vifm' vifm
 bindsym $mod+Print exec --no-startup-id keepassxc
 for_window [class="neomutt"] floating enable
 for_window [class="vifm"] floating enable
 for_window [app_id="keepassxc"] floating enable
+for_window [app_id="googler"] floating enable
 
 # Removed title bars
 default_border none
