@@ -53,8 +53,8 @@ GEOMETRY_COLOR_JOBS=green
 PROMPT_VIRTUALENV_ENABLED=true
 PROMPT_GEOMETRY_RPROMPT_ASYNC=false
 PROMPT_GEOMETRY_GIT_TIME=false
-GEOMETRY_PROMPT_PLUGINS_PRIMARY=(path jobs)
-GEOMETRY_PROMPT_PLUGINS_SECONDARY=(virtualenv exec_time git)
+GEOMETRY_PROMPT=(geometry_virtualenv geometry_status geometry_path geometry_jobs)
+GEOMETRY_RPROMPT=(geometry_exitcode geometry_exec_time geometry_git)
 
 declare -A ZPLGM
 ZPLGM[HOME_DIR]=$XDG_CONFIG_HOME/zplugin
@@ -63,6 +63,7 @@ source $XDG_CONFIG_HOME/zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
+zplugin ice ver"mnml"
 zplugin light geometry-zsh/geometry
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
