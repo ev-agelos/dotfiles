@@ -8,5 +8,5 @@
 
 if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
   export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
-  exec startx $XDG_CONFIG_HOME/X11/xinitrc 2> ~/.xsession-errors
+  exec startx $XDG_CONFIG_HOME/X11/xinitrc 2> /tmp/xsession-errors
 fi
