@@ -1,5 +1,7 @@
 #!/bin/bash
 alias sudo='sudo '
+alias cp='rsync -ah --info=progress2'
+alias mv='rsync -ahr --remove-source-files --info=progress2'
 alias ll='ls -l'
 alias vi=nvim
 alias view='nvim -R'
