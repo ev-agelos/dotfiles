@@ -38,6 +38,7 @@ Plug 'elzr/vim-json',                  { 'for': 'json' }
 " ------------------------------------------------------------------ Effects
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'inside/vim-search-pulse'
 " ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-buftabline'
@@ -75,6 +76,20 @@ map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 " ----------------------------------------------------------
 "                     Plugin options
 " ----------------------------------------------------------
+
+" vim-search-pulse
+" make it work with incsearch
+let g:vim_search_pulse_disable_auto_mappings = 1
+" Next or previous match is followed by a Pulse
+map n <Plug>(incsearch-nohl-n)<Plug>Pulse
+map N <Plug>(incsearch-nohl-N)<Plug>Pulse
+map * <Plug>(incsearch-nohl-*)<Plug>Pulse
+map # <Plug>(incsearch-nohl-#)<Plug>Pulse
+map g* <Plug>(incsearch-nohl-g*)<Plug>Pulse
+map g# <Plug>(incsearch-nohl-g#)<Plug>Pulse
+" Pulses the first match after hitting the enter keyan
+autocmd! User IncSearchExecute
+autocmd User IncSearchExecute :call search_pulse#Pulse()
 
 " floaterm
 noremap  <silent> <F12>           :FloatermToggle<CR>i
@@ -361,9 +376,6 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap Q <nop>
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Center screen when jumping to next match
-" noremap n nzz
-" noremap N Nzz
 " Don't yank to default register when changing something
 nnoremap c "xc
 xnoremap c "xc
