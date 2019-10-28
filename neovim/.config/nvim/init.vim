@@ -48,6 +48,8 @@ Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'aunsira/macvim-light'
 Plug 'ev-agelos/vim-deep-space'
 Plug 'ev-agelos/blaquemagick.vim'
+Plug 'tlhr/anderson.vim'
+Plug 'doums/darcula'
 Plug 'voldikss/vim-floaterm'
 call plug#end()
 
@@ -55,8 +57,8 @@ call plug#end()
 "                    Colorschemes
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
-"set background=light
-colorscheme blaquemagick
+set background=dark
+colorscheme darcula
 
 " ----------------------------------------------------------
 "                       Leader
