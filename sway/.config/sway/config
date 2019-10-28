@@ -43,9 +43,7 @@ set $ws10 "10: "
 assign [class="Chromium"] $ws3
 assign [app_id="org.qutebrowser.qutebrowser"] $ws3
 assign [app_id="firefox"] $ws4
-assign [class="wmail"] $ws6
 assign [class="Standard Notes"] $ws7
-assign [class="Slack"] $ws8
 assign [app_id="net.sourceforge.mumble.mumble"] $ws8
 
 bindsym $mod+1 workspace $ws1
@@ -68,18 +66,19 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
 bindsym $mod+s splitv
 bindsym $mod+v splith
 bindsym $mod+q layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-# focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+grave scratchpad show
+bindsym Pause exec swaymsg workspace back_and_forth
+
 mode "resize" {
         bindsym Left resize shrink width 10px
         bindsym Down resize grow height 10px
@@ -92,50 +91,63 @@ bindsym $mod+r mode "resize"
 bar {
     swaybar_command waybar
     mode dock
-    font pango:Meslo LG S DZ Regular for Powerline 10, Font Awesome 5 Free
 }
-exec swayidle -w timeout 120 'swaylock -f -c 000000'
-# exec swayidle -detectsleep -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "lock.sh --nofork" &
-exec swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
+exec swayidle -w timeout 105 'notify-send "Locking in 15"' timeout 120 'lock.sh'
 
+# Scratchpad terminal
+exec --no-startup-id $term --title terminal_scratchpad
+for_window [title="terminal_scratchpad"] floating enable
+for_window [title="terminal_scratchpad"] resize set 640 480, move window to scratchpad
+
+
+
+# Scripts
 bindsym $mod+Shift+e exec shutdown_menu.sh
+bindsym XF86ScreenSaver exec lock.sh
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && pkill -RTMIN+10 i3blocks #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks # mute sound
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioStop exec --no-startup-id mpc stop
+
 # Sreen brightness controls
 bindsym --release XF86MonBrightnessUp exec --no-startup-id light -A 5 && pkill -RTMIN+11 i3blocks
 bindsym --release XF86MonBrightnessDown exec --no-startup-id light -U 5 && pkill -RTMIN+11 i3blocks
 
-bindsym XF86ScreenSaver exec lock.sh
+# Mumble
+bindsym --whole-window button8 exec dbus-send --session --type=method_call --dest=net.sourceforge.mumble.mumble / net.sourceforge.mumble.Mumble.startTalking                                                     
+bindsym --whole-window --release button8 exec dbus-send --session --type=method_call --dest=net.sourceforge.mumble.mumble / net.sourceforge.mumble.Mumble.stopTalking
 
+# Apps
 bindsym $mod+g exec --no-startup-id kitty --class="googler" googler
 bindsym $mod+n exec --no-startup-id kitty --class='neomutt' neomutt
 bindsym $mod+p exec --no-startup-id kitty --class='vifm' vifm
 bindsym $mod+Print exec --no-startup-id keepassxc
-for_window [class="neomutt"] floating enable
-for_window [class="vifm"] floating enable
-for_window [app_id="keepassxc"] floating enable
 for_window [app_id="googler"] floating enable
+for_window [app_id="neomutt"] floating enable
+for_window [app_id="vifm"] floating enable
+for_window [app_id="keepassxc"] floating enable
+for_window [app_id="net.sourceforge.mumble.mumble"] floating enable
+
+
 
 # Removed title bars
 default_border none
+#hide_edge_borders --i3 none
+#gaps inner 7
+#smart_gaps on
+
+smart_borders no_gaps
 for_window [class="^.*"] border none
-
-# Move a terminal to scratchpad
-exec --no-startup-id i3-sensible-terminal --title terminal_scratchpad
-for_window [title="terminal_scratchpad"] floating enable
-for_window [title="terminal_scratchpad"] resize set 640 480, move window to scratchpad
-
 
 
 exec udiskie --no-automount --no-notify --tray --use-udisks2 &
+exec xcape -e 'Caps_Lock=Escape'
+exec mako
+exec pcloud
+exec redshift-gtk -m wayland
 
 
 output DVI-I-1 transform 270
-exec_always xcape -e 'Caps_Lock=Escape'
-exec mako
-exec pcloud
-exec redshift-gtk
