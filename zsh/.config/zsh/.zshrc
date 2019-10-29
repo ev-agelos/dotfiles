@@ -41,8 +41,6 @@ setopt GLOBDOTS  # Do not require a leading '.' in a filename to be matched expl
 
 zstyle ':completion:*' menu select  # Highlight menu selection
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#*.egg-info|' '(*/)#__pycache__'  # ignore some directories
-# completion color same as GNU ls color
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 # but not for these programs
 zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
@@ -50,6 +48,7 @@ zstyle ':completion:*:ls:*:(all-|)files' ignored-patterns
 # Geometry theme options
 GEOMETRY_COLOR_PROMPT=blue
 GEOMETRY_COLOR_JOBS=green
+GEOMETRY_PATH_COLOR=yellow
 PROMPT_VIRTUALENV_ENABLED=true
 PROMPT_GEOMETRY_RPROMPT_ASYNC=false
 PROMPT_GEOMETRY_GIT_TIME=false
@@ -65,6 +64,10 @@ autoload -Uz _zplugin
 
 zplugin ice ver"mnml"
 zplugin light geometry-zsh/geometry
+zplugin ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zplugin light trapd00r/LS_COLORS
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
 zplugin light b4b4r07/zsh-vimode-visual
