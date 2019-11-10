@@ -35,11 +35,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter'
 Plug 'elzr/vim-json',                  { 'for': 'json' }
-" ------------------------------------------------------------------ Effects
+" ------------------------------------------------------------------ Effects / Interface
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'inside/vim-search-pulse'
-" ------------------------------------------------------------------ Interface
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-buftabline'
 Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
@@ -160,9 +159,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -183,9 +179,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -250,11 +243,17 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-au CursorHold * sil call CocActionAsync('highlight')
-nn <silent> K :call CocActionAsync('doHover')<cr>
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
+
+function! s:EditAlternate()
+    let l:alter = CocRequest('clangd', 'textDocument/switchSourceHeader', {'uri': 'file://'.expand("%:p")})
+    " remove file:/// from response
+    let l:alter = substitute(l:alter, "file://", "", "")
+    execute 'edit ' . l:alter
+endfunction
+autocmd FileType cpp nmap <A-o> :call <SID>EditAlternate()<CR>
 
 
 " BufTabline
