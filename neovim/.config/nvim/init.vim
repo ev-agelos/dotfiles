@@ -98,6 +98,7 @@ noremap! <silent> <F12>           <Esc>:FloatermToggle<CR>i
 tnoremap <silent> <F12>           <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_winblend=10
 let g:floaterm_position='center'
+let g:floaterm_height=&lines
 
 
 " vista
