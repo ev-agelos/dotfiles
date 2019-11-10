@@ -27,8 +27,8 @@ if [ -d "$HOME/.local/lib/python2.7/site-packages" ] ; then
 fi
 
 # include in PATH user's python3.6 site packages
-if [ -d "$HOME/.local/lib/python3.6/site-packages" ] ; then
-    PATH="$HOME/.local/lib/python3.6/site-packages:$PATH"
+if [ -d "$HOME/.local/lib/python3.7/site-packages" ] ; then
+    PATH="$HOME/.local/lib/python3.7/site-packages:$PATH"
 fi
 
 
@@ -48,6 +48,7 @@ export HTTPIE_CONFIG_DIR=$XDG_CONFIG_HOME/httpie
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/notmuchrc
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/pythonrc
 export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
