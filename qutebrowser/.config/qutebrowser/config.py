@@ -192,6 +192,22 @@ c.zoom.default = '90%'
 # Type: List of Perc
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
+# Background color of selected odd tabs.
+# Type: QtColor
+c.colors.tabs.selected.odd.bg = 'Purple'
+
+# Background color of selected even tabs.
+# Type: QtColor
+c.colors.tabs.selected.even.bg = 'Purple'
+
+# Background color of pinned selected odd tabs.
+# Type: QtColor
+c.colors.tabs.pinned.selected.odd.bg = 'Purple'
+
+# Background color of pinned selected even tabs.
+# Type: QtColor
+c.colors.tabs.pinned.selected.even.bg = 'Purple'
+
 # This setting can be used to map keys to other keys. When the key used
 # as dictionary-key is pressed, the binding for the key used as
 # dictionary-value is invoked instead. This is useful for global
@@ -202,8 +218,10 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctrl+m>': '<Return>', '<Ctrl+j>': '<Return>', '<Shift+Return>': '<Return>', '<Enter>': '<Return>', '<Shift+Enter>': '<Return>', '<Ctrl+Enter>': '<Ctrl+Return>'}
 
 # Bindings for normal mode
+config.bind('D', 'tab-close')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('Shift+j', 'tab-prev')
 config.bind('Shift+k', 'tab-next')
+config.unbind('d')
 config.bind('gi', 'hint inputs')
