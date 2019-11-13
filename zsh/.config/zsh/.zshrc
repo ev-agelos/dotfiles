@@ -68,6 +68,13 @@ zplugin ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zplugin light trapd00r/LS_COLORS
+zplugin ice as"program" from"gh-r" bpick"*linux_amd64*"
+zplugin light junegunn/fzf-bin
+zplugin ice as"completion"
+zplugin snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+zplugin snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
+zplugin ice pick"/dev/null" id-as"fzf" cloneonly atclone"mkdir plugin && mv fzf plugin/fzf.vim" atpull'%atclone'
+zplugin snippet https://github.com/junegunn/fzf/blob/master/plugin/fzf.vim
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
 zplugin light b4b4r07/zsh-vimode-visual
@@ -85,7 +92,6 @@ zplugin ice wait"0" atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" luci
 zplugin light zdharma/fast-syntax-highlighting
 ####################################################################
 
-source $XDG_CONFIG_HOME/fzf/fzf.zsh
 source $XDG_CONFIG_HOME/zsh/functions
 source $XDG_CONFIG_HOME/aliases  # my aliases
 

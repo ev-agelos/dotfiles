@@ -18,8 +18,8 @@ Plug 'lambdalisue/suda.vim'
 " ------------------------------------------------------------------ Completion
 Plug 'neoclide/coc.nvim',              {'branch': 'release'}
 " ------------------------------------------------------------------ File search
-Plug 'junegunn/fzf',                   { 'dir': '~/.config/fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Note: zsh handles the base fzf.vim
+Plug '~/.config/zplugin/snippets/fzf' | Plug 'junegunn/fzf.vim'
 " ------------------------------------------------------------------ History
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 " ------------------------------------------------------------------ Linters/Highlight
