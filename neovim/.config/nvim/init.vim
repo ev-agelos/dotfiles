@@ -50,6 +50,7 @@ Plug 'ev-agelos/blaquemagick.vim'
 Plug 'tlhr/anderson.vim'
 Plug 'doums/darcula'
 Plug 'voldikss/vim-floaterm'
+Plug 'whatyouhide/vim-gotham'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -57,7 +58,7 @@ call plug#end()
 " ----------------------------------------------------------
 set termguicolors " use 24-bit color
 set background=dark
-colorscheme darcula
+colorscheme gotham
 
 " ----------------------------------------------------------
 "                       Leader
@@ -367,6 +368,10 @@ set laststatus=2
 " ----------------------------------------------------------
 "                    Mappings
 " ----------------------------------------------------------
+" center screen when jumping to prev/next/before the last change
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap '' ''zz
 " move down/up by display, but keep regular up/down
 nnoremap j gj
 nnoremap k gk
