@@ -4,6 +4,10 @@ alias ll='ls -l'
 alias vi=nvim
 alias view='nvim -R'
 alias tree="tree -I '*.pyc|__pycache__'"
+alias g='git'
+alias gs='git status'
+alias gd='git diff'
+alias gr='git restore'
 alias cat=ccat
 alias fd='fd --hidden'
 alias ls='ls --color=auto'
