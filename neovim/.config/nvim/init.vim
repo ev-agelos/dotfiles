@@ -36,7 +36,7 @@ Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter'
 Plug 'elzr/vim-json',                  { 'for': 'json' }
 " ------------------------------------------------------------------ Effects / Interface
-Plug 'yuttie/comfortable-motion.vim'
+Plug 'psliwka/vim-smoothie'
 Plug 'machakann/vim-highlightedyank'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
