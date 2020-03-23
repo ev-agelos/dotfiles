@@ -74,6 +74,9 @@ nnoremap <leader>l :nohlsearch<cr>
 nnoremap <leader>. :source $MYVIMRC<cr>
 " Map import pdb;pdb.set_trace() for convenience when debugging python scripts
 map <silent> <leader>p oimport pdb; pdb.set_trace()<esc>
+" Split vertical/horizontally opened buffers WITH tab completion possible
+nnoremap <leader>b :vertical sb<space>
+nnoremap <leader>bs :sb<space>
 
 " ----------------------------------------------------------
 "                     Plugin options
