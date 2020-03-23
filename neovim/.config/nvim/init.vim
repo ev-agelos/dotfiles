@@ -12,6 +12,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'google/vim-searchindex'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
 " ------------------------------------------------------------------ Unix shell commands
 Plug 'tpope/vim-eunuch'
 Plug 'lambdalisue/suda.vim'
