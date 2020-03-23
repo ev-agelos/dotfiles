@@ -8,7 +8,6 @@ Plug 'liuchengxu/vista.vim',              { 'on': 'Vista!!' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-Plug 'justinmk/vim-dirvish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'google/vim-searchindex'
 Plug 'skywind3000/asyncrun.vim'
@@ -37,6 +36,8 @@ Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter'
 Plug 'elzr/vim-json',                  { 'for': 'json' }
 " ------------------------------------------------------------------ Effects / Interface
+Plug 'justinmk/vim-dirvish'
+Plug 'junegunn/vim-peekaboo'
 Plug 'psliwka/vim-smoothie'
 Plug 'machakann/vim-highlightedyank'
 Plug 'inside/vim-search-pulse'
@@ -48,10 +49,10 @@ Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'aunsira/macvim-light'
 Plug 'ev-agelos/vim-deep-space'
 Plug 'ev-agelos/blaquemagick.vim'
-Plug 'tlhr/anderson.vim'
 Plug 'doums/darcula'
 Plug 'voldikss/vim-floaterm'
 Plug 'whatyouhide/vim-gotham'
+Plug 'doums/darcula'
 call plug#end()
 
 " ----------------------------------------------------------
