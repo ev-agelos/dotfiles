@@ -84,6 +84,8 @@ zplugin ice ver"tig-2.4.1" pick"/dev/null" make"prefix=$HOME/.local all install"
 zplugin light jonas/tig
 zplugin ice as"program" atclone'./fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| zhook.zsh' atpull'%atclone' src'zhook.zsh'
 zplugin light whjvenyl/fasd
+zplugin ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
+zplugin light tj/git-extras
 zplugin light peterhurford/git-it-on.zsh
 zplugin light soimort/translate-shell
 zplugin ice wait"2" lucid as"program" pick"bin/git-dsf"
