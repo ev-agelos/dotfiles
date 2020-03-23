@@ -71,7 +71,7 @@ nnoremap <leader>/ /\v
 " turn off search highlighting
 nnoremap <leader>l :nohlsearch<cr>
 " source config file
-nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>. :source $MYVIMRC<cr>
 " Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
