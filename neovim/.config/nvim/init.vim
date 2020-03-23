@@ -72,9 +72,8 @@ nnoremap <leader>/ /\v
 nnoremap <leader>l :nohlsearch<cr>
 " source config file
 nnoremap <leader>. :source $MYVIMRC<cr>
-" Map import pdb;pdb.set_trace() to leader b and B cause i use it all the time in Python scripts.
-map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+" Map import pdb;pdb.set_trace() for convenience when debugging python scripts
+map <silent> <leader>p oimport pdb; pdb.set_trace()<esc>
 
 " ----------------------------------------------------------
 "                     Plugin options
