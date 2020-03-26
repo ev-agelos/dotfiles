@@ -52,6 +52,7 @@ Plug 'ev-agelos/blaquemagick.vim'
 Plug 'doums/darcula'
 Plug 'voldikss/vim-floaterm'
 Plug 'whatyouhide/vim-gotham'
+Plug 'danilo-augusto/vim-afterglow'
 Plug 'doums/darcula'
 call plug#end()
 
