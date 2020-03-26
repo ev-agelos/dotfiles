@@ -418,8 +418,6 @@ nnoremap <Leader>d :silent :bp\|bd #<CR>
 "                    Custom
 " ----------------------------------------------------------
 autocmd! FileType python setl nosmartindent              " Disable smartindent in python files(messing up hash commenting symbol)
-autocmd BufNewFile,BufRead *.py setlocal textwidth=99    " Wrap text only in python files
-autocmd BufNewFile,BufRead *.py setlocal colorcolumn=80
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif    " Hide the preview window when leaving insert mode or completion is don
 autocmd InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
 autocmd FileType latex,tex setlocal spell " turn on spell checker for certain file types
