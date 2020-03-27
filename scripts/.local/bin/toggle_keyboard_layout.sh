@@ -10,5 +10,6 @@ fi
 
 setxkbmap $new_layout
 pkill -RTMIN+12 i3blocks  # update i3blocks
-notify-send "Keyboard layout:" "$new_layout $flag"
-paplay ~/.local/bin/notification.oga
+notify-send "Keyboard layout: $new_layout $flag"
+# play the first sound it finds in /usr/share/sounds/
+pacmd play-file $(find /usr/share/sounds/**/*.ogg -print -quit) 0
