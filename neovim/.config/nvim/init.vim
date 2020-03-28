@@ -54,6 +54,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'whatyouhide/vim-gotham'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'doums/darcula'
+Plug 'cohlin/vim-colorschemes'
 call plug#end()
 
 " ----------------------------------------------------------
