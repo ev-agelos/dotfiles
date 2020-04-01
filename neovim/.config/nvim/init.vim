@@ -3,47 +3,45 @@ let g:python3_host_prog = '/usr/bin/python3'
 set path+=**
 
 call plug#begin('~/.config/nvim/plugged')
-" ------------------------------------------------------------------ Generic
-Plug 'liuchengxu/vista.vim',              { 'on': 'Vista!!' }
-Plug 'ludovicchabant/vim-gutentags'
+" ------------------------------------------------------------------ Interface
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'haya14busa/incsearch.vim'
 Plug 'google/vim-searchindex'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'Vimjas/vim-python-pep8-indent'
-" ------------------------------------------------------------------ Unix shell commands
-Plug 'tpope/vim-eunuch'
-Plug 'lambdalisue/suda.vim'
-" ------------------------------------------------------------------ Completion
-Plug 'neoclide/coc.nvim',              {'branch': 'release'}
-" ------------------------------------------------------------------ File search
+Plug 'rhysd/clever-f.vim'
+Plug 'justinmk/vim-dirvish'
+Plug 'junegunn/vim-peekaboo'
+Plug 'mhinz/vim-startify'
+Plug 'ap/vim-buftabline'
 " Note: zsh handles the base fzf.vim
 Plug '~/.config/zplugin/snippets/fzf' | Plug 'junegunn/fzf.vim'
-" ------------------------------------------------------------------ History
-Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
-" ------------------------------------------------------------------ Linters/Highlight
-Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
-Plug 'jackguo380/vim-lsp-cxx-highlight'
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-sandwich'
 Plug 'tmsvg/pear-tree'
 Plug 'alvan/vim-closetag',             { 'for': 'html' }
+" ------------------------------------------------------------------ Effects
+Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
+Plug 'psliwka/vim-smoothie'
+Plug 'machakann/vim-highlightedyank'
+Plug 'inside/vim-search-pulse'
+" ------------------------------------------------------------------ System
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'lambdalisue/suda.vim'
+" ------------------------------------------------------------------ Programming
+Plug 'neoclide/coc.nvim',              {'branch': 'release'}
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'Glench/Vim-Jinja2-Syntax',       { 'for': 'html' }
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'elzr/vim-json',                  { 'for': 'json' }
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
+Plug 'liuchengxu/vista.vim',              { 'on': 'Vista!!' }
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter'
-Plug 'elzr/vim-json',                  { 'for': 'json' }
-" ------------------------------------------------------------------ Effects / Interface
-Plug 'justinmk/vim-dirvish'
-Plug 'junegunn/vim-peekaboo'
-Plug 'psliwka/vim-smoothie'
-Plug 'machakann/vim-highlightedyank'
-Plug 'inside/vim-search-pulse'
-Plug 'mhinz/vim-startify'
-Plug 'ap/vim-buftabline'
-Plug 'junegunn/goyo.vim',              { 'on': 'Goyo' }
 " ------------------------------------------------------------------ Colorschemes
 Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'aunsira/macvim-light'
