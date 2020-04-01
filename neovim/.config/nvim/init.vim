@@ -414,6 +414,8 @@ nnoremap <leader>= <c-w>=
 xnoremap <silent> p pgvy<CR>
 " preserve window layout when deleting buffer
 nnoremap <Leader>d :silent :bp\|bd #<CR>
+" equal window sizes when closing window
+cnoremap q<CR> q<CR> :normal ,=<CR>
 " ----------------------------------------------------------
 "                    Custom
 " ----------------------------------------------------------
