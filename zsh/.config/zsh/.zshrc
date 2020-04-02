@@ -121,7 +121,3 @@ zle -N history-beginning-search-forward-end history-search-end
 # Use Ctrl+V and type your key to see what sends to the terminal
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
-
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^x^e' edit-command-line
