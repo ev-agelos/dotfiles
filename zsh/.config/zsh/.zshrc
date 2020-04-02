@@ -62,7 +62,6 @@ source $XDG_CONFIG_HOME/zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-zplugin ice ver"mnml"
 zplugin light geometry-zsh/geometry
 zplugin ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
