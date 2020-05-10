@@ -49,6 +49,8 @@ export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/notmuchrc
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/pythonrc
 export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export LYNX_CFG=~/.config/lynx/lynx.cfg
+export LYNX_LSS=~/.config/lynx/lynx.lss
 
 export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
