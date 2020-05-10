@@ -13,6 +13,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/vim-peekaboo'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-buftabline'
+Plug 'ryanoasis/vim-devicons'
 " Note: zsh handles the base fzf.vim
 Plug '~/.config/zplugin/snippets/fzf' | Plug 'junegunn/fzf.vim'
 " ------------------------------------------------------------------ Surroundings
