@@ -429,6 +429,13 @@ autocmd FileType latex,tex setlocal spell " turn on spell checker for certain fi
 autocmd! InsertEnter * NoMatchParen
 autocmd! InsertLeave * DoMatchParen
 
+" DoMatchParen on InsertLeave conflicts with :Goyo
+function! s:goyo_enter()
+  :autocmd! InsertLeave
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+
 autocmd BufWritePre * %s/\s\+$//e                   " trim whitespace on save
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
