@@ -146,7 +146,7 @@ gaps outer 4
 hide_edge_borders --i3 smart
 smart_borders on
 
-exec udiskie --no-automount --no-notify --tray --use-udisks2 &
+exec udiskie --no-automount --no-notify --tray &
 exec xcape -e 'Caps_Lock=Escape'
 #exec mako --default-timeout 3
 exec dunst
