@@ -6,7 +6,7 @@
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd
 
-if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
+if [ -z "$DISPLAY" -a "$XDG_VTNR" -eq 1 ]; then
   export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
   exec startx $XDG_CONFIG_HOME/X11/xinitrc 2> /tmp/xsession-errors
 fi
