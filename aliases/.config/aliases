@@ -18,3 +18,4 @@ alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias gdb="gdb -nh -x $XDG_CONFIG_HOME/gdb/gdbinit"
 alias '?'=duck
+alias '??'=google
