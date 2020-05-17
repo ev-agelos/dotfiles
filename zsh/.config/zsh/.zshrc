@@ -11,7 +11,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 # FZF options
 export FZF_DEFAULT_COMMAND='\fd --hidden --follow --type file'
 export FZF_DEFAULT_OPTS='--border --cycle'
-export FZF_TMUX=1
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
