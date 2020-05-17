@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ! [ -x "$(command -v at)" ]; then
+    echo 'Requires 'at' command to be installed'
+    exit 1
+fi
+
+echo "notify-send '$1'" | at "${@:2}"
