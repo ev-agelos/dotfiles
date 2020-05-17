@@ -5,4 +5,5 @@ if ! [ -x "$(command -v at)" ]; then
     exit 1
 fi
 
-echo "notify-send '$1'" | at "${@:2}"
+echo -n "When: " && read att
+echo "notify-send '$1'" | at "$att"
