@@ -43,6 +43,8 @@ Plug 'liuchengxu/vista.vim',              { 'on': 'Vista!!' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
 Plug 'airblade/vim-gitgutter'
+" ------------------------------------------------------------------ ?
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " ------------------------------------------------------------------ Colorschemes
 Plug 'ThomasMarcel/vim-colors-plain'
 Plug 'aunsira/macvim-light'

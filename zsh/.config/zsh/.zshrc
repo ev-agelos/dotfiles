@@ -76,8 +76,6 @@ zplugin snippet https://github.com/junegunn/fzf/blob/master/plugin/fzf.vim
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
 zplugin light b4b4r07/zsh-vimode-visual
-zplugin ice as"program" from"gh-r" bpick"*linux*" mv"*linux* -> note"
-zplugin light sachaos/note
 zplugin ice ver"tig-2.4.1" pick"/dev/null" make"prefix=$HOME/.local all install"
 zplugin light jonas/tig
 zplugin ice as"program" atclone'./fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| zhook.zsh' atpull'%atclone' src'zhook.zsh'
