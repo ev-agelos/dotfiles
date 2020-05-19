@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Startup programs
+
+command -v udiskie && ! ps cax | grep udiskie && udiskie --no-automount --no-notify --tray &
+command -v pcloud && ! ps cax | grep pcloud && $(which pcloud) &
+command -v redshift-gtk && ! ps cax | grep redshift-gtk && redshift-gtk &
