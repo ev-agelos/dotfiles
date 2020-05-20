@@ -67,7 +67,7 @@ for dir in */; do
         read answer
         answer=${answer:-n}
         case $answer in
-            [Yy]* ) stow $dir && install_package "$(basename -- $dir)" && break;;
+            [Yy]* ) [ $dir = 'scripts/' ] && stow $dir || stow $dir && install_package "$(basename -- $dir)" && break;;
             [Nn]* ) break;;
         esac
     done
