@@ -1,0 +1,70 @@
+#!/bin/sh
+
+install_yay () {
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay
+    makepkg -si
+}
+
+distro=$(cat /etc/os-release | grep ^ID= | sed 's/ID=//')
+if [ $distro != 'arch' -a $distro != 'debian' ]; then
+    echo "Distro $distro is not supported"
+    exit 0
+fi
+
+if [ $distro = 'arch' ]; then
+    if [ -z "$(which yay)" ]; then
+        while true; do
+            echo -n 'yay is not installed, install it? [Y/n] '
+            read answer
+            answer=${answer:-Y}
+            case $answer in
+                [Yy]* ) install_yay && break;;
+                [Nn]* ) exit;;
+            esac
+        done
+    fi
+fi
+
+echo 'Updating system...'
+if [ $distro = 'arch' ]; then
+    yay -Suy
+else
+    apt update
+fi
+
+install_package () {
+    if [ $distro = 'arch' ]; then
+        yay $@
+    else
+        apt install $@
+    fi
+}
+
+if [ -z "$(which stow)" ]; then
+    while true; do
+        echo -n 'stow is not installed, install it? [Y/n] '
+        read answer
+        answer=${answer:-Y}
+        case $answer in
+            [Yy]* ) install stow && break;;
+            [Nn]* ) exit;;
+        esac
+    done
+fi
+
+for dir in */; do
+    if [ $dir = '.git' ]; then
+        continue
+    fi
+
+    while true; do
+        echo -n "Install $dir ? [y/N] "
+        read answer
+        answer=${answer:-n}
+        case $answer in
+            [Yy]* ) stow $dir && install_package "$(basename -- $dir)" && break;;
+            [Nn]* ) break;;
+        esac
+    done
+done
