@@ -58,7 +58,7 @@ if [ -z "$(which stow)" ]; then
 fi
 
 for dir in */; do
-    if [ $dir = '.git' ]; then
+    if [ $dir = '.git' -o $dir = 'wallpapers/' ]; then
         continue
     fi
 
@@ -66,9 +66,22 @@ for dir in */; do
         echo -n "Install $dir ? [y/N] "
         read answer
         answer=${answer:-n}
-        case $answer in
-            [Yy]* ) [ $dir = 'scripts/' ] && stow $dir || stow $dir && install_package "$(basename -- $dir)" && break;;
-            [Nn]* ) break;;
-        esac
+        if [ $answer = 'n' -o $answer = 'N' ]; then
+            break
+        elif [ $answer != 'y' -a $answer != 'Y' ]; then
+            continue
+        fi
+
+        if [ $dir = 'aliases/' -o $dir = 'bash/' -o $dir = 'i3blocks-contrib/' -o $dir = 'profile/' -o $dir = 'scripts/' -o $dir = 'X11/' ]; then
+            stow $dir
+        elif [ $dir = 'pdbpp/' -o $dir = 'ptpython/' -o $dir = 'pylint/' ]; then
+            pip install --user "$(basename -- $dir)"
+            stow $dir
+        else
+            stow $dir && install_package "$(basename -- $dir)"
+        fi
+
+        break
+
     done
 done
