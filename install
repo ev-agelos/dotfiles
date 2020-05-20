@@ -6,10 +6,9 @@ install_yay () {
     makepkg -si
 }
 
-release=$(cat /etc/*elease)
-if [ -n "$(echo $release | grep 'arch')" ]; then
+if grep --quiet 'arch' /etc/*elease; then
     distro='arch'
-elif [ -n "$(echo $release | grep 'debian')" ]; then
+elif grep --quiet 'debian' /etc/*elease; then
     distro='debian'
 else
     echo "Distro $distro is not supported"
