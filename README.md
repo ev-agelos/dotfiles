@@ -1,35 +1,48 @@
-## System:
+## How to install
+* Run the install script for auto handling the installation/linking
+* Manually handle the installation/linking. Directories are `stow`able
+
+### About the script
+* Loops over the directories and prompts for installation and/or linking (uses `stow` tool).
+* Prompt for a system update first (arch/debian based distros supported only).
+* Does not try to install anything, default answer when prompting for installation is No.
+* Python libraries are installed with `pip install --user` to avoid messing system files.
+* Directories that do not need any installation, will only be linked.
+* Follows the [XDG Base Directory Specification](https://wiki.archlinux.org/index.php/XDG_Base_Directory).
+
+
+#### System:
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
 - Status bar: [i3bar](https://i3wm.org/i3bar/)
 - Launcher: [j4-dmenu](https://github.com/enkore/j4-dmenu-desktop)
 - Notifications: [dunst](https://github.com/dunst-project/dunst)
 - File manager GUI: [thunar](https://docs.xfce.org/xfce/thunar/start)
 
-## Terminal
+#### Terminal
 * Emulator: [kitty](https://github.com/kovidgoyal/kitty)
 * Shell: [zsh](http://www.zsh.org/)
 * Multiplexer: [tmux](https://tmux.github.io/)
 * Text Editor: [Neovim](https://neovim.io/)
 
-## Searching files/text
+#### Searching files/text
 * Command-line fuzzy finder: [fzf](https://github.com/junegunn/fzf)
 * Text search: [ripgrep](https://github.com/BurntSushi/ripgrep)
 * File search: [fd](https://github.com/sharkdp/fd)
 * Directory search: [bfs](https://github.com/tavianator/bfs)
 * Jump to directories: [fasd](https://github.com/clvv/fasd)
 
-## Version Control
+#### Version Control
 * Better git diffs: [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 * Text mode interface for git: [tig](https://github.com/jonas/tig)
 * Mercurial templates for graph logs: [mercurial-cli-templates](https://bitbucket.org/evagelos/mercurial-cli-templates)
 
-## System stats/monitoring
+#### System stats/monitoring
 * Task Manager: [htop](http://hisham.hm/htop/)
 * System Monitor: [glances](https://github.com/nicolargo/glances)
 * Disk usage analyzer: [ncdu](https://dev.yorhel.nl/ncdu)
 * Monitor docker containers: [dry](https://moncho.github.io/dry/)
 
-## Generic
+#### Generic
 * File Manager: [vifm](https://github.com/vifm/vifm) or [ranger](http://ranger.nongnu.org/)
 * List files/dirs in a tree-like format: tree
 * System lock: xautolock
@@ -37,17 +50,17 @@
 * Command line HTTP client: [HTTPie](https://github.com/jkbrzt/httpie)
 * Google search: [googler](https://github.com/jarun/googler)
 
-## Database
+#### Database
 * Postgres cli: [pgcli](https://www.pgcli.com/)
 * MySQL cli: [mycli](http://www.mycli.net/)
 * MongoDB shell enhancements: [mongo-hacker](https://github.com/TylerBrock/mongo-hacker)
 * SQL graphical interface: [sqlelectron](https://sqlectron.github.io/)
 
-## Chat/Mail
+#### Chat/Mail
 * Chat: [Weechat](https://weechat.org/)
 * Email: [neomutt](https://neomutt.org/)
 
-## Media:
+#### Media:
 * Image viewer: [feh](http://feh.finalrewind.org/)
 * Screenshot tool: scrot
 * PDF viewer: [zathura](https://pwmt.org/projects/zathura/)
@@ -55,7 +68,7 @@
 * Audio: mpd+mpc+ncmpcpp
 * Youtube player/downloader: [mps-youtube](https://github.com/mps-youtube/mps-youtube)
 
-## Other
+#### Other
 * Usb mount: [udiskie](https://github.com/coldfix/udiskie)
 * Colorized cat: [ccat](https://github.com/jingweno/ccat)
 * Translator: [translate-shell](https://github.com/soimort/translate-shell)
