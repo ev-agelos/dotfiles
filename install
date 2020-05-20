@@ -34,14 +34,14 @@ echo 'Updating system...'
 if [ $distro = 'arch' ]; then
     yay -Suy
 else
-    apt update
+    sudo apt update
 fi
 
 install_package () {
     if [ $distro = 'arch' ]; then
         yay $@
     else
-        apt install $@
+        sudo apt install $@
     fi
 }
 
@@ -51,7 +51,7 @@ if [ -z "$(which stow)" ]; then
         read answer
         answer=${answer:-Y}
         case $answer in
-            [Yy]* ) install stow && break;;
+            [Yy]* ) install_package stow && break;;
             [Nn]* ) exit;;
         esac
     done
