@@ -7,9 +7,9 @@ install_yay () {
 }
 
 release=$(cat /etc/*elease)
-if [ $release | grep 'arch' ]; then
+if [ -n "$(echo $release | grep 'arch')" ]; then
     distro='arch'
-elif [ $release | grep 'debian' ]; then
+elif [ -n "$(echo $release | grep 'debian')" ]; then
     distro='debian'
 else
     echo "Distro $distro is not supported"
