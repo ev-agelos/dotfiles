@@ -6,8 +6,12 @@ install_yay () {
     makepkg -si
 }
 
-distro=$(cat /etc/os-release | grep ^ID= | sed 's/ID=//')
-if [ $distro != 'arch' -a $distro != 'debian' ]; then
+release=$(cat /etc/*elease)
+if [ $release | grep 'arch' ]; then
+    distro='arch'
+elif [ $release | grep 'debian' ]; then
+    distro='debian'
+else
     echo "Distro $distro is not supported"
     exit 0
 fi
