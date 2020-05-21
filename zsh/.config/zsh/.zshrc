@@ -98,19 +98,7 @@ source $XDG_CONFIG_HOME/aliases  # my aliases
 
 # Map what keyboard sends for specific keys to zsh actions
 bindkey '^[[Z'    reverse-menu-complete # Shift+tab for previous selection
-bindkey \^U       backward-kill-line    # Ctrl+U delete from cursor till start of line
-bindkey \^O       kill-line             # Ctrl+K delete from cursor till end of line
-bindkey \^Y       yank
-bindkey \^_       undo
 bindkey "^?"      backward-delete-char  # Backspace
-bindkey  "^[[H"   beginning-of-line     # HOME
-bindkey  "^[[F"   end-of-line           # END
-bindkey '\e[3~'   delete-char           # DEL
-bindkey '\e[5~'   beginning-of-history  # PageUP
-bindkey '\e[6~'   end-of-history        # PageDown
-bindkey '^A'      beginning-of-line     # Ctrl+a
-bindkey '^E'      end-of-line           # Ctrl+e
-bindkey "^W"      backward-kill-word    # Ctrl+w
 
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
