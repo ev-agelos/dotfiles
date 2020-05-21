@@ -73,7 +73,7 @@ for dir in */; do
 
         if [ $dir = 'aliases/' -o $dir = 'bash/' -o $dir = 'i3blocks-contrib/' -o $dir = 'profile/' -o $dir = 'scripts/' -o $dir = 'X11/' ]; then
             stow $dir
-        elif [ $dir = 'pdbpp/' -o $dir = 'ptpython/' -o $dir = 'pylint/' ]; then
+        elif [ $dir = 'pdbpp/' -o $dir = 'pylint/' ]; then
             pip install --user "$(basename -- $dir)"
             stow $dir
         else
