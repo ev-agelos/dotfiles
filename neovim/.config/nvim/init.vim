@@ -2,6 +2,13 @@ let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 set path+=**
 
+" Install vim-plug if not already installed
+if empty(glob('$XDG_DATA_HOME/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo $XDG_DATA_HOME/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
 call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------ Interface
 Plug 'tpope/vim-repeat'
