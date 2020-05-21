@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if ! [ -x "$(command -v at)" ]; then
-    echo 'Requires 'at' command to be installed'
-    exit 1
-fi
-
-echo -n "When: " && read att
-echo "notify-send '$1'" | at "$att"
