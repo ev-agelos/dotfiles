@@ -296,7 +296,7 @@ selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: true
+  save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
@@ -429,7 +429,7 @@ mouse:
 #
 # - `mods` (see key bindings)
 mouse_bindings:
-    - { mouse: Middle, command: {program: "paste_on_closest_browser.sh"}}
+    - { mouse: Middle, command: {program: "middle_click_paste.sh"}}
 
 # Key bindings
 #
