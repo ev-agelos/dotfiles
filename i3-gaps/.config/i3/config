@@ -31,7 +31,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty --single-instance --listen-on unix:/tmp/mykitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -41,6 +41,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="bemenu -i --fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.config/j4-dmenu/j4-dmenu-usage-log
 #bindsym $mod+d exec rofi -show run -width 100 -lines 3 -eh 2 -padding 485 -bw 0 -font "mono 20" -opacity "65"
 
+# FIXME remove this
 bindsym $mod+m exec --no-startup-id ~/repos/hud-menu/hud-menu.py dmeny
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -193,9 +194,9 @@ bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 &
 
 bindsym XF86ScreenSaver exec lock.sh
 
-bindsym $mod+g exec --no-startup-id kitty --class="googler" googler
-bindsym $mod+n exec --no-startup-id kitty --class='neomutt' neomutt
-bindsym $mod+p exec --no-startup-id kitty --class='vifm' vifm
+bindsym $mod+g exec --no-startup-id alacritty --class="googler" googler
+bindsym $mod+n exec --no-startup-id alacritty --class='neomutt' neomutt
+bindsym $mod+p exec --no-startup-id alacritty --class='vifm' vifm
 bindsym $mod+Print exec --no-startup-id keepassxc
 for_window [class="googler"] floating enable
 for_window [class="neomutt"] floating enable
