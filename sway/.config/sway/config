@@ -6,7 +6,7 @@ set $right l
 
 font pango:Roboto Mono 8
 focus_follows_mouse no
-set $term kitty --single-instance --listen-on unix:/tmp/mykitty
+set $term alacritty
 set $menu j4-dmenu-desktop --dmenu="bemenu -i --fn 'Ubuntu Mono:bold:pixelsize=15'" --usage-log ~/.config/j4-dmenu/j4-dmenu-usage-log | xargs swaymsg exec --
 output * bg ~/.dotfiles/wallpapers/scenery/art/VillageOperation.jpg fit #000000
 input type:keyboard {
@@ -129,9 +129,9 @@ bindsym --whole-window button8 exec dbus-send --session --type=method_call --des
 bindsym --whole-window --release button8 exec dbus-send --session --type=method_call --dest=net.sourceforge.mumble.mumble / net.sourceforge.mumble.Mumble.stopTalking
 
 # Apps
-bindsym $mod+g exec kitty --class="googler" googler
-bindsym $mod+n exec kitty --class='neomutt' neomutt
-bindsym $mod+p exec kitty --class='vifm' vifm
+bindsym $mod+g exec alacritty --class="googler" googler
+bindsym $mod+n exec alacritty --class='neomutt' neomutt
+bindsym $mod+p exec alacritty --class='vifm' vifm
 bindsym $mod+Print exec keepassxc
 for_window [app_id="googler"] floating enable
 for_window [app_id="neomutt"] floating enable

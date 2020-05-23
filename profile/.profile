@@ -67,7 +67,7 @@ export LESSHISTFILE=-
 
 export EDITOR=nvim
 export MANPAGER='nvim -c "set ft=man" -'
-export TERMINAL=kitty
+export TERMINAL=alacritty
 export BROWSER=qutebrowser
 export WINIT_HIDPI_FACTOR=1.0  # fix wrong dpi for alacritty when connecting 2nd screen
 export GTK_THEME=Adwaita-dark
