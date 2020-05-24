@@ -48,7 +48,6 @@
 * System lock: xautolock
 * Screen color temperature: [Redshift](https://github.com/jonls/redshift)
 * Command line HTTP client: [HTTPie](https://github.com/jkbrzt/httpie)
-* Google search: [googler](https://github.com/jarun/googler)
 
 #### Database
 * Postgres cli: [pgcli](https://www.pgcli.com/)

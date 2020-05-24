@@ -129,11 +129,9 @@ bindsym --whole-window button8 exec dbus-send --session --type=method_call --des
 bindsym --whole-window --release button8 exec dbus-send --session --type=method_call --dest=net.sourceforge.mumble.mumble / net.sourceforge.mumble.Mumble.stopTalking
 
 # Apps
-bindsym $mod+g exec alacritty --class="googler" googler
 bindsym $mod+n exec alacritty --class='neomutt' neomutt
 bindsym $mod+p exec alacritty --class='vifm' vifm
 bindsym $mod+Print exec keepassxc
-for_window [app_id="googler"] floating enable
 for_window [app_id="neomutt"] floating enable
 for_window [app_id="vifm"] floating enable
 for_window [app_id="keepassxc"] floating enable

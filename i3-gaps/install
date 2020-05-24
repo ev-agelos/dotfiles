@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dependencies=('alacritty' 'j4-dmenu-desktop' 'bemenu' 'keepassxc' 'googler' 'neomutt' 'vifm' 'mpc' 'i3blocks' 'feh' 'xrandr' 'i3-gaps')
+dependencies=('alacritty' 'j4-dmenu-desktop' 'bemenu' 'keepassxc' 'neomutt' 'vifm' 'mpc' 'i3blocks' 'feh' 'xrandr' 'i3-gaps')
 
 if [ "$distro" = 'arch' ]; then
     dependencies+=('xorg-xbacklight')

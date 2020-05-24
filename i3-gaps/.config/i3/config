@@ -194,11 +194,9 @@ bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 &
 
 bindsym XF86ScreenSaver exec lock.sh
 
-bindsym $mod+g exec --no-startup-id alacritty --class="googler" googler
 bindsym $mod+n exec --no-startup-id alacritty --class='neomutt' neomutt
 bindsym $mod+p exec --no-startup-id alacritty --class='vifm' vifm
 bindsym $mod+Print exec --no-startup-id keepassxc
-for_window [class="googler"] floating enable
 for_window [class="neomutt"] floating enable
 for_window [class="vifm"] floating enable
 for_window [instance="keepassxc"] floating enable
