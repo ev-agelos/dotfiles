@@ -46,7 +46,7 @@
 [rerere]
     enabled = false
 [core]
-    pager = diff-so-fancy
+	pager = less
     excludesfile = $XDG_CONFIG_HOME/git/ignore_global
 [color "diff-highlight"]
     oldNormal = red dim bold
@@ -59,3 +59,5 @@
     cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [diff-so-fancy]
 	markEmptyLines = false
+[pager]
+	diff = false
