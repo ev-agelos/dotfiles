@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dependencies=('bfs' 'xclip' 'tree')
+
+if [ "$distro" = 'arch' ]; then
+    dependencies+=('community/fd')
+elif [ "$distro" = 'debian' ]; then
+    dependencies+=('fd-find')
+fi
+
+for dep in "${dependencies[@]}"; do
+    install_package $dep
+done

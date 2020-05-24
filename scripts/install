@@ -1,0 +1,24 @@
+#!/bin/bash
+
+dependencies=('lynx' 'pulsemixer' 'dunst' 'jq' 'sway' 'grim' 'scrot' 'imagemagick' 'i3lock' 'xclip' 'xdotool' 'wmctrl' 'at' 'xrandr' 'streamlink')
+
+if [ "$distro" = 'arch' ]; then
+    dependencies+=('setxkbmap' 'libnotify' 'bemenu' 'bemenu-x11' 'bemenu-wlroots')
+elif [ "$distro" = 'debian' ]; then
+    dependencies+=('libx11-dev' 'libcairo2-dev' 'libpango1.0-dev' 'libxinerama-dev' 'wayland-protocols' 'libwayland-dev' 'libxkbcommon-dev' 'x11-xkb-utils')
+    sudo add-apt-repository ppa:samoilov-lex/sway
+    apt update
+
+    dependencies+=('x11-xkb-utils' 'libnotify-bin')
+fi
+
+for dep in "${dependencies[@]}"; do
+    install_package $dep
+done
+
+if [ "$distro" = 'debian' ]; then
+    git clone https://github.com/Cloudef/bemenu.git /tmp/bemenu
+    cd /tmp/bemenu
+    make
+    sudo make install
+fi

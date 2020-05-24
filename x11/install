@@ -1,0 +1,13 @@
+#!/bin/bash
+
+depencencies=('xcape' 'xautolock' )
+
+if [ "$distro" = 'arch' ]; then
+    dependencies+=('setxkbmap' 'xorg-xset' 'xorg-xinput')
+elif [ "$distro" = 'debian' ]; then
+    dependencies+=('x11-xkb-utils' 'x11-xserver-utils' 'xinput')
+fi
+
+for dep in "${dependencies[@]}"; do
+    install_package $dep
+done

@@ -169,7 +169,7 @@ bindsym $mod+r mode "resize"
 
 
 bar {
-    status_command SCRIPT_DIR=~/.dotfiles/i3blocks-contrib i3blocks
+    status_command SCRIPT_DIR=~/.repos/i3blocks-contrib i3blocks
     mode hide
     tray_output primary
     font pango:Meslo LG S DZ Regular for Powerline 10, Font Awesome 5 Free

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+dependencies=('alacritty' 'j4-dmenu-desktop' 'bemenu' 'keepassxc' 'googler' 'neomutt' 'vifm' 'mpc' 'i3blocks' 'feh' 'xrandr' 'i3-gaps')
+
+if [ "$distro" = 'arch' ]; then
+    dependencies+=('xorg-xbacklight')
+elif [ "$distro" = 'debian' ]; then
+    sudo add-apt-repository ppa:kgilmer/speed-ricer
+    apt update
+    dependencies+=('xbacklight')
+fi
+
+for dep in "${dependencies[@]}"; do
+    install_package $dep
+done
+
+git clone https://github.com/vivien/i3blocks-contrib.git ~/.repos/i3blocks-contrib
+git clone https://github.com/ZoeFiri/wallpapers.git ~/.repos/wallpapers

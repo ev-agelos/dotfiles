@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 install_yay () {
     git clone https://aur.archlinux.org/yay.git /tmp/yay
@@ -7,15 +7,15 @@ install_yay () {
 }
 
 if grep --quiet 'arch' /etc/*elease; then
-    distro='arch'
+    export distro='arch'
 elif grep --quiet 'debian' /etc/*elease; then
-    distro='debian'
+    export distro='debian'
 else
     echo "Distro $distro is not supported"
     exit 0
 fi
 
-if [ $distro = 'arch' ]; then
+if [ "$distro" = 'arch' ]; then
     if [ -z "$(which yay)" ]; then
         while true; do
             echo -n 'yay is not installed, install it? [Y/n] '
@@ -30,19 +30,23 @@ if [ $distro = 'arch' ]; then
 fi
 
 echo 'Updating system...'
-if [ $distro = 'arch' ]; then
+if [ "$distro" = 'arch' ]; then
     yay -Suy
 else
     sudo apt update
 fi
 
+mkdir -p ~/.local/bin/
+
 install_package () {
-    if [ $distro = 'arch' ]; then
-        yay $@
+    [ -n "$(command -v $1)" ] && echo "$1 is already installed, skipping." && return 0
+
+    if [ "$distro" = 'arch' ]; then
+        yay -S $@
     else
         sudo apt install $@
     fi
-}
+} && export -f install_package
 
 if [ -z "$(which stow)" ]; then
     while true; do
@@ -57,30 +61,32 @@ if [ -z "$(which stow)" ]; then
 fi
 
 for dir in */; do
-    if [ $dir = '.git' -o $dir = 'wallpapers/' ]; then
-        continue
-    fi
+    [ "$dir" = '.git' ] && continue
 
     while true; do
         echo -n "Install $dir ? [y/N] "
         read answer
         answer=${answer:-n}
-        if [ $answer = 'n' -o $answer = 'N' ]; then
+        if [ "$answer" = 'n' -o "$answer" = 'N' ]; then
             break
-        elif [ $answer != 'y' -a $answer != 'Y' ]; then
+        elif [ "$answer" != 'y' -a "$answer" != 'Y' ]; then
             continue
         fi
 
-        if [ $dir = 'aliases/' -o $dir = 'bash/' -o $dir = 'i3blocks-contrib/' -o $dir = 'profile/' -o $dir = 'scripts/' -o $dir = 'X11/' ]; then
-            stow $dir
-        elif [ $dir = 'pdbpp/' -o $dir = 'pylint/' ]; then
-            pip install --user "$(basename -- $dir)"
-            stow $dir
-        else
-            stow $dir && install_package "$(basename -- $dir)"
+        # stow does not allow symlinking existing files
+        if [ "$dir" = 'bash/' -o "$dir" = 'profile/' ]; then
+            [ -e ~/.bashrc ] && mv ~/.bashrc{,_backup}
+            [ -e ~/.profile ] && mv ~/.profile{,_backup}
+        fi
+
+        stow --ignore=install --ignore=README.md $dir
+
+        if [ -e "$dir/install" ]; then
+            ./$dir/install
+        elif [ "$dir" != 'pdbpp/' -a "$dir" != 'pylint/' -a "$dir" != 'profile/' ]; then
+            install_package "$(basename -- $dir)"
         fi
 
         break
-
     done
 done

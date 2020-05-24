@@ -1,0 +1,15 @@
+#!/bin/bash
+
+dependencies=('neovim')
+
+if [ "$distro" = 'arch' ]; then
+    dependencies+=('diff-so-fancy')
+elif [ "$distro" = 'debian' -a ! -e ~/.local/bin/diff-so-fancy ]; then
+    git clone https://github.com/so-fancy/diff-so-fancy.git ~/.repos/diff-so-fancy
+    ln -sfr ~/.repos/diff-so-fancy/diff-so-fancy ~/.local/bin/diff-so-fancy
+    ln -sfr ~/.repos/diff-so-fancy/lib/ ~/.local/bin/.
+fi
+
+for dep in "${dependencies[@]}"; do
+    install_package $dep
+done
