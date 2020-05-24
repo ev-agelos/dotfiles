@@ -25,7 +25,7 @@ elif [[ $OPTION = "Restart" ]]; then
 elif [[ $OPTION = "Grub index:"* ]]; then
     index=$(echo $OPTION | cut -d':' -f 2)
     if [[ $index =~ ^[0-9]+$ ]]; then
-        gksu grub-reboot $index && systemctl reboot
+        pkexec grub-reboot $index && systemctl reboot
     else
         notify-send "$ERROR_MSG for grub reboot"
     fi
