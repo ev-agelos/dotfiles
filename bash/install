@@ -1,7 +1,22 @@
 #!/bin/bash
 
-install_package python3-pip
+dependencies=('bfs' 'xclip' 'tree' 'bash-completion' 'python3-pip')
+
+if [ "$distro" = 'arch' ]; then
+    dependencies+=('community/fd')
+elif [ "$distro" = 'debian' ]; then
+    dependencies+=('fd-find')
+fi
+
+for dep in "${dependencies[@]}"; do
+    install_package $dep
+done
+
 pip3 install --user pew
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/fzf
-~/.config/fzf/install --bin
+if [ ! -f "$HOME/.repos/bash-git-prompt/gitprompt.sh" ]; then
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.repos/bash-git-prompt --depth=1
+fi
+
+[ -n "$(command -v fzf)" ] && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/fzf && ~/.config/fzf/install --bin
+
