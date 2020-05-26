@@ -46,6 +46,7 @@ Plug 'elzr/vim-json',                  { 'for': 'json' }
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mbbill/undotree',                { 'on': 'UndotreeToggle'   }
 Plug 'liuchengxu/vista.vim',              { 'on': 'Vista!!' }
+Plug 'fatih/vim-go'
 " ------------------------------------------------------------------ Version Control
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim',                { 'on': 'GV' }
@@ -92,6 +93,11 @@ nnoremap <leader>bs :sb<space>
 " ----------------------------------------------------------
 "                     Plugin options
 " ----------------------------------------------------------
+
+" vim-go
+let g:go_fmt_fail_silently=0
+let g:go_fmt_command='goimports'
+let g:go_fmt_autosave=1
 
 " vim-search-pulse
 " make it work with incsearch
