@@ -71,8 +71,6 @@ zplugin light junegunn/fzf-bin
 zplugin ice as"completion"
 zplugin snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
 zplugin snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
-zplugin ice pick"/dev/null" id-as"fzf" cloneonly atclone"mkdir plugin && mv fzf plugin/fzf.vim" atpull'%atclone'
-zplugin snippet https://github.com/junegunn/fzf/blob/master/plugin/fzf.vim
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
 zplugin light kutsan/zsh-system-clipboard
