@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dependencies=('bfs' 'xclip' 'tree' 'bash-completion' 'python3-pip')
+dependencies=('bfs' 'xclip' 'tree' 'bash-completion' 'python3-pip' 'bfs' 'fasd' 'git-extras')
 
 if [ "$distro" = 'arch' ]; then
     dependencies+=('community/fd')
@@ -18,5 +18,9 @@ if [ ! -f "$HOME/.repos/bash-git-prompt/gitprompt.sh" ]; then
     git clone https://github.com/magicmonty/bash-git-prompt.git ~/.repos/bash-git-prompt --depth=1
 fi
 
-[ -n "$(command -v fzf)" ] && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/fzf && ~/.config/fzf/install --bin
+if [ -z "$(command -v fzf)" ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.repos/fzf && ~/.repos/fzf/install --bin
+    cp ~/.repos/fzf/bin/fzf ~/.local/bin/.
+    cp ~/.repos/fzf/bin/fzf-tmux ~/.local/bin/.
+fi
 

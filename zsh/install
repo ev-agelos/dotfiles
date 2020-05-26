@@ -11,3 +11,9 @@ fi
 for dep in "${dependencies[@]}"; do
     install_package $dep
 done
+
+if [ -z "$(command -v fzf)" ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.repos/fzf && ~/.repos/fzf/install --bin
+    cp ~/.repos/fzf/bin/fzf ~/.local/bin/.
+    cp ~/.repos/fzf/bin/fzf-tmux ~/.local/bin/.
+fi
