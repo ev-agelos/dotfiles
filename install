@@ -42,9 +42,9 @@ install_package () {
     [ -n "$(command -v $1)" ] && echo "$1 is already installed, skipping." && return 0
 
     if [ "$distro" = 'arch' ]; then
-        yay -S $@
+        yay -S --noconfirm $@
     else
-        sudo apt install $@
+        sudo apt install -y $@
     fi
 } && export -f install_package
 
