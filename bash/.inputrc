@@ -1,6 +1,10 @@
 # TURN ON VIM (E.G. FOR READLINE)
 set editing-mode vi
 
+# carefull not to put 0
+# time in milliseconds exiting vi-mode
+set keyseq-timeout 0.1
+
 # SHOW THE VIM MODE IN THE PROMPT (COMMAND OR INSERT)
 set show-mode-in-prompt on
 
