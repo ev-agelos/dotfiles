@@ -29,3 +29,7 @@ set page-completions off
 TAB:menu-complete
 # shift tab cycles backward
 "\e[Z": menu-complete-backward
+set keymap vi-command
+# these are for vi-command mode
+k: history-search-backward
+j: history-search-forward
