@@ -1,5 +1,5 @@
 #!/bin/bash
-alias cl="echo -n $'\033[H\033[2J'"
+alias cl='printf "\033[H\033[2J"'
 alias sudo='sudo '
 alias ll='ls -l'
 alias e=nvim
