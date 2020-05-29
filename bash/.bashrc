@@ -34,6 +34,12 @@ if [ -f "$HOME/.repos/bash-git-prompt/gitprompt.sh" ]; then
     source $HOME/.repos/bash-git-prompt/gitprompt.sh
 fi
 
+prompt_callback () {
+    if [ "$(jobs | wc -l)" -ne 1 ]; then
+        printf '\033[38;2;3;102;214m ⚙ \j'
+    fi
+}
+
 # FZF options
 export FZF_DEFAULT_COMMAND='\fd --hidden --follow --type file'
 export FZF_DEFAULT_OPTS='--border --cycle'
