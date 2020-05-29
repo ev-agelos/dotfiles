@@ -26,6 +26,7 @@ export HISTIGNORE="&:ls:vdir:[bf]g:exit"
 # No accidental closing with ctrl-d
 export IGNOREEOF=1
 
+# git prompt
 if [ -f "$HOME/.repos/bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_FETCH_REMOTE_STATUS=0
     # as last entry source the gitprompt script
@@ -45,7 +46,18 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 [ -f ~/.repos/fzf/shell/key-bindings.bash ] && source ~/.repos/fzf/shell/key-bindings.bash
 [ -f ~/.repos/fzf/shell/completion.bash ] && source ~/.repos/fzf/shell/completion.bash
 
+# bash-completions
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+# fasd
+fasd_cache="$XDG_CONFIG_HOME/fasd/fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  mkdir -p $XDG_CONFIG_HOME/fasd
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+# pew
 source $(pew shell_config)
