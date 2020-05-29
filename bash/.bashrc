@@ -18,7 +18,7 @@ HISTCONTROL=ignorespace
 HISTCONTROL=ignoredups
 
 HISTSIZE=5000
-HISTFILESIZE=10000
+HISTFILESIZE=99999
 
 # Exclude certain things from history
 export HISTIGNORE="&:ls:vdir:[bf]g:exit"
