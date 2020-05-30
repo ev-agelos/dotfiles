@@ -450,7 +450,8 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
-autocmd BufWritePre * %s/\s\+$//e                   " trim whitespace on save
+" Python specific
+autocmd BufWritePre python %s/\s\+$//e " trim whitespace on save
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
 " jump to last position when reopening a file
