@@ -465,3 +465,5 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
+" highlight only the buffer where the cursor is
+hi default link BufTabLineActive  TabLine
