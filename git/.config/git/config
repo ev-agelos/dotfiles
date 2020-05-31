@@ -16,6 +16,7 @@
     lg = log --oneline
     lgg = log --graph --branches --all --pretty=format:'%C(blue dim)%h%Creset -%C(auto)%d%C(reset) %s %C(blue dim)(%cr) %C(blue dim)<%an>%Creset' --abbrev-commit --date=relative
     lr = ! git log --oneline --color --pretty=format:'%C(auto)%d%C(white dim) %s' | nl | less -R
+    difff = ! git diff | diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
 
     ci = commit
     d = !git --no-pager diff
@@ -46,7 +47,7 @@
 [rerere]
     enabled = false
 [core]
-	pager = less
+	pager = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
     excludesfile = $XDG_CONFIG_HOME/git/ignore_global
 [color "diff-highlight"]
     oldNormal = red dim bold
@@ -60,4 +61,4 @@
 [diff-so-fancy]
 	markEmptyLines = false
 [pager]
-	diff = false
+    diff = false
