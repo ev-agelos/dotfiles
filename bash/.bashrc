@@ -56,6 +56,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # fasd
 fasd_cache="$XDG_CONFIG_HOME/fasd/fasd-init-bash"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
