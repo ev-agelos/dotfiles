@@ -1,0 +1,7 @@
+#!/bin/bash
+
+url=$(cut -d'?' -f1 <<< "$1")
+filename="${url##*/}"
+quality=${2:-480p}
+
+streamlink -O $url $quality | ffmpeg -y -i pipe:0 -vf scale=1024:576 -c:v libx264 -c:a copy "$filename.mp4"

@@ -1,4 +1,6 @@
-streamlink -Q -p mpv https://www.twitch.tv/"$1" best > /tmp/twitch.log 2>&1 &
+#!/bin/bash
+
+streamlink -Q -p mpv "https://www.twitch.tv/$1" best > /tmp/twitch.log 2>&1 &
 pid=$!
 sleep 3
 ps ax | grep $pid | grep -v grep
