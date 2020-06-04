@@ -6,4 +6,4 @@ if ! [ -x "$(command -v at)" ]; then
 fi
 
 echo -n "When: " && read att
-echo "notify-send '$1'" | at "$att"
+echo "notify-send '$*'" | at "$att"
