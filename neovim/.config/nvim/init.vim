@@ -416,10 +416,44 @@ vnoremap <Up> :m '<-2<CR>gv=gv
 vnoremap <Down> :m '>+1<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
-" to next buffer
-nnoremap ` :bnext<cr>
-" to previous buffer
-nnoremap <BS> :bprevious<cr>
+
+function! s:previousHiddenBuffer()
+    for buf in range(bufnr()-1, 1, -1)
+        if getbufvar(buf, "&buflisted") && bufwinnr(buf) == -1
+            :execute "buffer" . buf
+            return
+        endif
+    endfor
+    for buf in range(bufnr('$'), bufnr(), -1)
+        if getbufvar(buf, "&buflisted") && bufwinnr(buf) == -1
+            :execute "buffer" . buf
+            return
+        endif
+    endfor
+endfunction
+
+function! s:nextHiddenBuffer()
+    for buf in range(bufnr()+1, bufnr('$')+1)
+        if getbufvar(buf, "&buflisted") && bufwinnr(buf) == -1
+            :execute "buffer" . buf
+            return
+        endif
+    endfor
+    for buf in range(1, bufnr())
+        if getbufvar(buf, "&buflisted") && bufwinnr(buf) == -1
+            :execute "buffer" . buf
+            return
+        endif
+    endfor
+endfunction
+
+" to next hidden buffer
+nnoremap ` :call <SID>nextHiddenBuffer()<cr>
+" to previous hidden buffer
+nnoremap <BS> :call <SID>previousHiddenBuffer()<cr>
+
+
+
 nnoremap <leader><BS> <c-^>
 " zoom in window
 nnoremap <leader><leader> <c-w>_ \| <c-w>\|
