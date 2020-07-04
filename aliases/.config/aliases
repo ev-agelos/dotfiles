@@ -1,7 +1,7 @@
 #!/bin/bash
 alias cl='printf "\033[H\033[2J"'
 alias sudo='sudo '
-alias ll='ls -l'
+alias ll='ls -lh'
 alias e=nvim
 alias view='nvim -R'
 alias tree="tree -I '*.pyc|__pycache__'"
@@ -16,8 +16,9 @@ alias rg="rg --ignore-file=$XDG_CONFIG_HOME/ripgrep/ignore"
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias gdb="gdb -nh -x $XDG_CONFIG_HOME/gdb/gdbinit"
-alias '?'=bing
+alias '?'=duck
 alias '??'=google
+alias '???'=bing
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
