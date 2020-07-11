@@ -56,7 +56,7 @@ export PSQL_HISTORY=$XDG_CACHE_HOME/pg/psql_history
 export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
 
 export LESSHISTFILE=-
-export LESS="-RXF"
+export LESS="-RF"
 export EDITOR=nvim
 export MANPAGER='nvim -c "set ft=man" -'
 export TERMINAL=alacritty
