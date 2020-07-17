@@ -275,7 +275,7 @@ autocmd FileType cpp nmap <A-o> :call <SID>EditAlternate()<CR>
 
 
 " BufTabline
-let g:buftabline_numbers=2
+let g:buftabline_numbers=1
 
 
 " Startify
