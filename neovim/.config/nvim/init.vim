@@ -82,8 +82,6 @@ colorscheme gotham
 let mapleader = ","
 " search without escaping regex symbols
 nnoremap <leader>/ /\v
-" turn off search highlighting
-nnoremap <leader>l :nohlsearch<cr>
 " source config file
 nnoremap <leader>. :source $MYVIMRC<cr>
 " Map to insert breakpoint() for convenience when debugging python scripts
