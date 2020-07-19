@@ -333,7 +333,7 @@ set clipboard+=unnamedplus
 set nocursorline
 set nostartofline
 set virtualedit=block
-set scrolloff=3
+set scrolloff=0
 set sidescrolloff=5
 set sidescroll=1
 set backspace=2
