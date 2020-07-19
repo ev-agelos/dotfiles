@@ -23,6 +23,8 @@ Plug 'ap/vim-buftabline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'https://gitlab.com/rwxrob/vim-pandoc-syntax-simple'
 " ------------------------------------------------------------------ Surroundings
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-sandwich'
