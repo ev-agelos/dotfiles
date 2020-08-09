@@ -47,6 +47,7 @@ export LYNX_LSS=~/.config/lynx/lynx.lss
 export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export CARGO_HOME=$XDG_DATA_HOME/cargo
+export NVM_DIR="$XDG_DATA_HOME"/nvm
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
 
