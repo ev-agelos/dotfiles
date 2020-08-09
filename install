@@ -74,12 +74,15 @@ for dir in */; do
         fi
 
         # stow does not allow symlinking existing files
-        if [ "$dir" = 'bash/' -o "$dir" = 'profile/' ]; then
+        if [ "$dir" = 'bash/' ]; then
             [ -e ~/.bashrc ] && mv ~/.bashrc{,_backup}
+        fi
+
+        if [ "$dir" = 'profile/' ]; then
             [ -e ~/.profile ] && mv ~/.profile{,_backup}
         fi
 
-        stow --ignore=install --ignore=README.md $dir
+        stow -v --ignore=install --ignore=README.md --target="$HOME" $dir
 
         if [ -e "$dir/install" ]; then
             ./$dir/install
