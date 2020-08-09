@@ -1,6 +1,3 @@
-[user]
-    email = evagelos.theo@gmail.com
-    name = ev-agelos
 [push]
 	default = current
 [difftool]
