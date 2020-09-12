@@ -12,10 +12,8 @@ shopt -s histappend
 # disable Ctrl+s Ctrl+q
 stty -ixon
 
-# start commands with a space if they should not get recorded
-HISTCONTROL=ignorespace
-# do not save duplicates on history
-HISTCONTROL=ignoredups
+# ignoreboth is shorthand for ignorespace and ignoredups
+HISTCONTROL=ignoreboth:erasedups
 
 HISTSIZE=5000
 HISTFILESIZE=99999
