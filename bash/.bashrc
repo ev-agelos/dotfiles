@@ -53,6 +53,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # bash-completions
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
+# git completions
+source /usr/share/bash-completion/completions/git
 
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
