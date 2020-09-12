@@ -44,8 +44,8 @@
 [rerere]
     enabled = false
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFS
-    excludesfile = $XDG_CONFIG_HOME/git/ignore_global
+	pager = diff-so-fancy | less --tabs=4 -RS
+    excludesfile = ~/.config/git/ignore_global
 [color "diff-highlight"]
     oldNormal = red dim bold
     oldHighlight = red dim bold 52
