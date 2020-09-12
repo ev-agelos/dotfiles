@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# font installation
+font_url='https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/UbuntuMono/'
+paths=(
+    'Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf'
+    'Bold/complete/Ubuntu%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf'
+    'Regular-Italic/complete/Ubuntu%20Mono%20Italic%20Nerd%20Font%20Complete%20Mono.ttf'
+    'Bold-Italic/complete/Ubuntu%20Mono%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf'
+)
+
+for path in "${paths[@]}";do
+    wget -q -P ~/.local/share/fonts/. $font_url$path
+done
