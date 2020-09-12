@@ -1,0 +1,4 @@
+/* ignore everything */
+*
+/* except weechat config file */
+weechat.conf
