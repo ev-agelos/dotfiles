@@ -51,6 +51,9 @@
     oldHighlight = red dim bold 52
     newNormal = green dim bold
     newHighlight = green dim bold 22
+[color "status"]
+    changed = yellow
+    untracked = cyan
 [mergetool]
     prompt = false
 [mergetool "vimdiff"]
