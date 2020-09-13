@@ -132,9 +132,9 @@ nmap <F9> :Vista<CR>
 "
 let g:gitgutter_sign_added = '▎'
 let g:gitgutter_sign_modified = '▎'
-let g:gitgutter_sign_removed = '▶'
+let g:gitgutter_sign_removed = '➤'
 let g:gitgutter_sign_modified_removed = '▎'
-
+highlight GitGutterDelete guifg=#c23127
 
 " suda
 command! -nargs=1 SudoRead  edit  suda://<args>
