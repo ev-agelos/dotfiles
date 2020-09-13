@@ -35,7 +35,7 @@ Run the install script for auto handling the installation/linking or manually ha
 ### Generic
 - Launcher: [j4-dmenu](https://github.com/enkore/j4-dmenu-desktop)
 - Notifications: [dunst](https://github.com/dunst-project/dunst)
-- File Manager: [vifm](https://github.com/vifm/vifm) or [ranger](http://ranger.nongnu.org/)
+- File Manager: [fff](https://github.com/dylanaraps/fff) or [vifm](https://github.com/vifm/vifm)
 - List files/dirs in a tree-like format: tree
 - System lock: xautolock
 - Screen color temperature: [Redshift](https://github.com/jonls/redshift)
@@ -56,7 +56,7 @@ Run the install script for auto handling the installation/linking or manually ha
 ### Media:
 - Image viewer: [imv](https://github.com/eXeC64/imv)
 - Screenshot tool: scrot
-- PDF viewer: [mupdf](https://mupdf.com/)
+- PDF viewer: [zathura](https://pwmt.org/projects/zathura/) 
 - Video player: [mpv](https://mpv.io/)
 - Audio: mpd+mpc+ncmpcpp
 - Youtube player/downloader: [mps-youtube](https://github.com/mps-youtube/mps-youtube)
