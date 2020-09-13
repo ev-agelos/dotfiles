@@ -413,6 +413,8 @@ vnoremap <Up> :m '<-2<CR>gv=gv
 vnoremap <Down> :m '>+1<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
+" vv selects til end of line (not including newline)
+vnoremap v $h
 
 function! s:previousHiddenBuffer()
     for buf in range(bufnr()-1, 1, -1)
