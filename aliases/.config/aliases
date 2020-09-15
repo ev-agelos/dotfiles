@@ -11,6 +11,7 @@ alias gd='git --no-pager diff'
 alias gr='git restore'
 alias cat=ccat
 alias fd='fd --hidden'
+alias fd='fdfind --hidden'
 alias ls='ls --color=auto'
 alias rg="rg --ignore-file=$XDG_CONFIG_HOME/ripgrep/ignore"
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"

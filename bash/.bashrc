@@ -25,21 +25,10 @@ export HISTIGNORE="&:ls:vdir:[bf]g:exit"
 export IGNOREEOF=1
 
 # git prompt
-if [ -f "$HOME/.repos/bash-git-prompt/gitprompt.sh" ]; then
-    GIT_PROMPT_FETCH_REMOTE_STATUS=0
-    # as last entry source the gitprompt script
-    GIT_PROMPT_THEME=Single_line
-    source $HOME/.repos/bash-git-prompt/gitprompt.sh
-fi
-
-prompt_callback () {
-    if [ "$(jobs | wc -l)" -ne 1 ]; then
-        printf '\033[38;2;3;102;214m ⚙ \j'
-    fi
-}
+eval "$(starship init bash)"
 
 # FZF options
-export FZF_DEFAULT_COMMAND='\fd --hidden --follow --type file'
+export FZF_DEFAULT_COMMAND='\fdfind --hidden --follow --type file'
 export FZF_DEFAULT_OPTS='--border --cycle'
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -47,7 +36,8 @@ export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
 export FZF_ALT_C_COMMAND="bfs ! -type d -o -readable -o -prune"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-[ -f ~/.repos/fzf/shell/key-bindings.bash ] && source ~/.repos/fzf/shell/key-bindings.bash
+
+#[ -f ~/.repos/fzf/shell/key-bindings.bash ] && source ~/.repos/fzf/shell/key-bindings.bash
 [ -f ~/.repos/fzf/shell/completion.bash ] && source ~/.repos/fzf/shell/completion.bash
 
 # bash-completions
@@ -72,3 +62,9 @@ source $(pew shell_config)
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+source <(cod init $$ bash)

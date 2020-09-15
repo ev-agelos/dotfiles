@@ -23,6 +23,8 @@ if [ -d "$HOME/.local/lib/python3.7/site-packages" ] ; then
     PATH="$HOME/.local/lib/python3.7/site-packages:$PATH"
 fi
 
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # Follow XDG Base Directory specification
 export XDG_CONFIG_HOME=$HOME/.config
@@ -48,8 +50,11 @@ export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export NVM_DIR="$XDG_DATA_HOME"/nvm
-export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
+export PYENV_ROOT=$XDG_DATA_HOME/pyenv
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
 
