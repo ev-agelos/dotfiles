@@ -63,5 +63,4 @@
 [pager]
     diff = false
 [user]
-	email = evangelos.t@protonmail.com
-	name = Evangelos
+	useConfigOnly = true
