@@ -447,6 +447,26 @@ function! s:nextHiddenBuffer()
     endfor
 endfunction
 
+function! g:DeleteBufferWindow() abort
+    let total_windows = winnr('$')
+    if total_windows == 1
+        :bdelete
+        return
+    endif
+
+    :bdelete
+
+    let total_buffers = len(getbufinfo({'buflisted':1}))
+    if total_buffers == total_windows
+        :q
+    elseif total_buffers > total_windows
+        :call <SID>nextHiddenBuffer()<CR>
+    endif
+endfunction
+
+" nnoremap <Leader>d :silent :bp\|bd #\|call <SID>nextHiddenBuffer()<CR>
+nnoremap <Leader>d :call DeleteBufferWindow()<CR>
+
 " to next hidden buffer
 nnoremap ` :call <SID>nextHiddenBuffer()<cr>
 " to previous hidden buffer
@@ -462,7 +482,6 @@ nnoremap <leader>= <c-w>=
 " preserve yanked text when pasting in a visual selection
 xnoremap <silent> p pgvy<CR>
 " preserve window layout when deleting buffer
-nnoremap <Leader>d :silent :bp\|bd #<CR>
 " equal window sizes when closing window
 cnoremap q<CR> q<CR> :normal ,=<CR>
 " ----------------------------------------------------------
