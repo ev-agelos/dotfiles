@@ -130,7 +130,7 @@ let g:vista_fzf_preview = ['right:50%']
 nmap <F9> :Vista<CR>
 
 
-"
+" gitgutter
 let g:gitgutter_sign_added = '▎'
 let g:gitgutter_sign_modified = '▎'
 let g:gitgutter_sign_removed = '➤'
