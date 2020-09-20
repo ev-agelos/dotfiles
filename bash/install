@@ -14,8 +14,9 @@ done
 
 pip3 install --user pew
 
-if [ ! -f "$HOME/.repos/bash-git-prompt/gitprompt.sh" ]; then
-    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.repos/bash-git-prompt --depth=1
+
+if [ -z "$(command -v starship)" ]; then
+    curl -fsSL https://starship.rs/install.sh | bash
 fi
 
 if [ -z "$(command -v fzf)" ]; then
