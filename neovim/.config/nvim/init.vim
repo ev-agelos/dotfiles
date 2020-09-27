@@ -490,14 +490,7 @@ autocmd! FileType python setl nosmartindent              " Disable smartindent i
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif    " Hide the preview window when leaving insert mode or completion is don
 autocmd InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
 
-" Disable highlighting in Insert mode for parenthesis, brackets etc..
-autocmd! InsertEnter * NoMatchParen
-autocmd! InsertLeave * DoMatchParen
-
-" DoMatchParen on InsertLeave conflicts with :Goyo
-function! s:goyo_enter()
-  :autocmd! InsertLeave
-endfunction
+let loaded_matchparen=1
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
