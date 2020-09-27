@@ -156,7 +156,6 @@ map <leader>u :UndotreeToggle<CR>
 
 " Incsearch
 let g:incsearch#magic = '\V'
-let g:incsearch#auto_nohlsearch = 1
 map / <Plug>(incsearch-stay)
 map ? <Plug>(incsearch-backward)
 
