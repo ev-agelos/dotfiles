@@ -489,7 +489,6 @@ cnoremap q<CR> q<CR> :normal ,=<CR>
 autocmd! FileType python setl nosmartindent              " Disable smartindent in python files(messing up hash commenting symbol)
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif    " Hide the preview window when leaving insert mode or completion is don
 autocmd InsertEnter * set nohlsearch                     " Removes highlight when in insert mode
-autocmd FileType latex,tex setlocal spell " turn on spell checker for certain file types
 
 " Disable highlighting in Insert mode for parenthesis, brackets etc..
 autocmd! InsertEnter * NoMatchParen
