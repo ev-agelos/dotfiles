@@ -29,7 +29,7 @@ eval "$(starship init bash)"
 
 # FZF options
 export FZF_DEFAULT_COMMAND='\fdfind --hidden --follow --type file'
-export FZF_DEFAULT_OPTS='--border --cycle'
+export FZF_DEFAULT_OPTS='--border'
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'coderay {} 2> /dev/null | head -200'"
