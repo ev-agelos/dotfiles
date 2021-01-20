@@ -304,6 +304,7 @@ let g:startify_list_order = [
 " fzf-vim
 nnoremap <C-p> :Files<cr>
 nnoremap \ :Rg<SPACE>
+nnoremap ,\ :Rgg<SPACE>
 
 let g:fzf_files_options =
    \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
@@ -312,7 +313,12 @@ let g:fzf_files_options =
 " defined in ~/.config/nvim/plugged/fzf.vim/bin/preview.rb for this to work!
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --color=always --no-messages --context=0 '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --smart-case --hidden --follow --color=always --no-messages --context=0 '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview('right:60%'),
+  \   <bang>0)
+command! -bang -nargs=* Rgg
+  \ call fzf#vim#grep(
+  \   'rg -l --column --line-number --no-heading --smart-case --hidden --follow --color=always --no-messages --context=0 '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview('right:60%'),
   \   <bang>0)
 " MRU with preview
