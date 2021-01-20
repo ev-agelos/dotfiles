@@ -264,7 +264,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+autocmd CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
 
