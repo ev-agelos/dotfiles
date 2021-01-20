@@ -283,11 +283,11 @@ let g:buftabline_numbers=1
 
 " Startify
 nnoremap <leader>0 :Startify<cr>
-let g:startify_change_to_vcs_root = 1
+let g:startify_change_to_dir = 0
 let g:startify_update_oldfiles = 1
 let g:startify_enable_special = 0
 let g:startify_session_dir = '~/.config/nvim/session'
-let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
+let g:startify_bookmarks = [ $MYVIMRC ]
 let g:startify_custom_header = []
 let g:startify_list_order = [
         \ ['   Bookmarks:'],
