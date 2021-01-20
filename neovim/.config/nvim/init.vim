@@ -146,6 +146,7 @@ command! -nargs=1 SudoWrite write suda://<args>
 
 " Gutentags
 let g:gutentags_cache_dir='~/.cache/gutentags'
+let g:gutentags_ctags_exclude=['*.json', '*.js']
 
 
 " JSON plugin
