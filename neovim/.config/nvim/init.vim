@@ -356,6 +356,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set shiftround
+set nofixeol
 set inccommand=split
 set nojoinspaces
 set noswapfile
