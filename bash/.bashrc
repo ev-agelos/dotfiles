@@ -4,7 +4,7 @@ export LS_COLORS='bd=38;5;68:ca=38;5;17:cd=38;5;113;1:di=38;5;30:do=38;5;127:ex=
 source $XDG_CONFIG_HOME/aliases
 
 # Exclude files/folders from auto-complete
-export FIGNORE=.pyc
+export FIGNORE=".pyc:.egg-info"
 
 # Append to same history from all windows
 shopt -s histappend
