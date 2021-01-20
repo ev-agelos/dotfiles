@@ -105,7 +105,9 @@ let g:go_fmt_autosave=1
 let g:vim_search_pulse_disable_auto_mappings = 1
 " Next or previous match is followed by a Pulse
 map n <Plug>(incsearch-nohl-n)<Plug>Pulse
+nnoremap n :set hlsearch<CR>n
 map N <Plug>(incsearch-nohl-N)<Plug>Pulse
+nnoremap N :set hlsearch<CR>N
 map * <Plug>(incsearch-nohl-*)<Plug>Pulse
 map # <Plug>(incsearch-nohl-#)<Plug>Pulse
 map g* <Plug>(incsearch-nohl-g*)<Plug>Pulse
