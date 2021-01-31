@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dependencies=('tree' 'neovim' 'ripgrep' 'tmux' 'lynx')
+dependencies=('tree' 'neovim' 'ripgrep')
 
 if [ "$distro" = 'arch' ]; then
     dependencies+=('community/fd' 'ccat')
