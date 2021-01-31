@@ -1,6 +1,10 @@
 # TURN ON VIM (E.G. FOR READLINE)
 set editing-mode vi
 
+# when pasting tell bash you pasted it instead of typing it
+# this prevents from running it
+set enable-bracketed-paste on
+
 # carefull not to put 0
 # time in milliseconds exiting vi-mode
 set keyseq-timeout 0.1
