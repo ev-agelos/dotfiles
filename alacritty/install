@@ -12,3 +12,27 @@ paths=(
 for path in "${paths[@]}";do
     wget -q -P ~/.local/share/fonts/. "$font_url$path"
 done
+
+
+if [ "$distro" = 'arch' ]; then
+    install_package alacritty
+elif [ "$distro" = 'debian' ]; then
+    git clone https://github.com/alacritty/alacritty.git /tmp/alacritty && cd /tmp/alacritty
+
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  # install rustup.rs
+    rustup override set stable
+    rustup update stable
+
+    dependencies=(cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3)
+    for dep in "${dependencies[@]}"; do
+        install_package $dep
+    done
+
+    cargo build --release
+
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
+    sudo update-alternatives --config x-terminal-emulator
+
+    # terminfo
+    infocmp alacritty || sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+fi
