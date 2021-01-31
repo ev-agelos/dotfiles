@@ -24,7 +24,7 @@ if [ -d "$HOME/.local/lib/python3.7/site-packages" ] ; then
 fi
 
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+[[ -v go ]] && export PATH=$PATH:$(go env GOPATH)/bin
 
 # Follow XDG Base Directory specification
 export XDG_CONFIG_HOME=$HOME/.config
