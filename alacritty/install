@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # font installation
-font_url='https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/UbuntuMono/'
+font_url='https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/'
 paths=(
     'Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf'
     'Bold/complete/Ubuntu%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf'
@@ -10,5 +10,5 @@ paths=(
 )
 
 for path in "${paths[@]}";do
-    wget -q -P ~/.local/share/fonts/. $font_url$path
+    wget -q -P ~/.local/share/fonts/. "$font_url$path"
 done
