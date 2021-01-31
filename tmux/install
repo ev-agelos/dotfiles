@@ -7,11 +7,14 @@ if [ "$distro" = 'arch' ]; then
 elif [ "$distro" = 'debian' ]; then
     # install it manually for getting the latest version as of now
     # as it supports the XDG Base directory specification
-    install_package libevent-dev
+    dependencies=('libevent-dev' 'ncurses-dev' 'build-essential' 'bison' 'pkg-config')
+    for dep in "${dependencies[@]}"; do
+        install_package $dep
+    done
 
-    curl -L https://github.com/tmux/tmux/releases/download/3.1b/tmux-3.1b.tar.gz -o /tmp/tmux.tar.gz
+    curl -L https://github.com/tmux/tmux/releases/download/3.1c/tmux-3.1c.tar.gz -o /tmp/tmux.tar.gz
     cd /tmp/ && tar -xvf tmux.tar.gz
-    cd tmux-3.1b
+    cd tmux-3.1c
     ./configure && make
     sudo make install
 fi
