@@ -1,12 +1,11 @@
 #!/bin/bash
 
-dependencies=('lynx' 'pulsemixer' 'dunst' 'jq' 'sway' 'grim' 'scrot' 'imagemagick' 'i3lock' 'xclip' 'xdotool' 'wmctrl' 'at' 'xrandr' 'streamlink')
+dependencies=('lynx' 'pulsemixer' 'dunst' 'jq' 'grim' 'scrot' 'imagemagick' 'i3lock' 'xclip' 'xdotool' 'wmctrl' 'at' 'xrandr' 'streamlink')
 
 if [ "$distro" = 'arch' ]; then
     dependencies+=('setxkbmap' 'libnotify' 'bemenu' 'bemenu-x11' 'bemenu-wlroots')
 elif [ "$distro" = 'debian' ]; then
     dependencies+=('libx11-dev' 'libcairo2-dev' 'libpango1.0-dev' 'libxinerama-dev' 'wayland-protocols' 'libwayland-dev' 'libxkbcommon-dev' 'x11-xkb-utils')
-    sudo add-apt-repository ppa:samoilov-lex/sway
     apt update
 
     dependencies+=('x11-xkb-utils' 'libnotify-bin')

@@ -6,6 +6,7 @@ if [ "$distro" = 'arch' ]; then
     dependencies+=('xorg-xbacklight')
 elif [ "$distro" = 'debian' ]; then
     sudo add-apt-repository ppa:kgilmer/speed-ricer
+    sudo add-apt-repository ppa:samoilov-lex/sway
     apt update
     dependencies+=('xbacklight')
 fi
