@@ -8,6 +8,8 @@ export FIGNORE=".pyc:.egg-info"
 
 # Append to same history from all windows
 shopt -s histappend
+# No accidental closing with ctrl-d
+set -o ignoreeof
 
 shopt -s autocd
 
@@ -22,9 +24,6 @@ HISTFILESIZE=99999
 
 # Exclude certain things from history
 export HISTIGNORE="&:ls:vdir:[bf]g:exit:cl"
-
-# No accidental closing with ctrl-d
-export IGNOREEOF=1
 
 # git prompt
 eval "$(starship init bash)"
