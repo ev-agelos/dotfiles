@@ -9,6 +9,8 @@ export FIGNORE=".pyc:.egg-info"
 # Append to same history from all windows
 shopt -s histappend
 
+shopt -s autocd
+
 # disable Ctrl+s Ctrl+q
 stty -ixon
 
