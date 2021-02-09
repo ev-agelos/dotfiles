@@ -31,6 +31,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
+export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 export PARALLEL_HOME=$XDG_CONFIG_HOME/parallel
 export WGETRC=$XDG_CONFIG_HOME/wgetrc
 export WEECHAT_HOME=$XDG_CONFIG_HOME/weechat

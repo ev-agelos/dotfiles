@@ -1,0 +1,46 @@
+# TURN ON VIM (E.G. FOR READLINE)
+set editing-mode vi
+
+# when pasting tell bash you pasted it instead of typing it
+# this prevents from running it
+set enable-bracketed-paste on
+
+# carefull not to put 0
+# time in milliseconds exiting vi-mode
+set keyseq-timeout 0.1
+
+# SHOW THE VIM MODE IN THE PROMPT (COMMAND OR INSERT)
+set show-mode-in-prompt on
+
+# SET THE MODE STRING AND CURSOR TO INDICATE THE VIM MODE
+#   FOR THE NUMBER AFTER `\e[`:
+#     0: blinking block
+#     1: blinking block (default)
+#     2: steady block
+#     3: blinking underline
+#     4: steady underline
+#     5: blinking bar (xterm)
+#     6: steady bar (xterm)
+set vi-ins-mode-string [I] \1\e[2 q\2
+set vi-cmd-mode-string [N] \1\e[2 q\2
+
+set show-all-if-unmodified on
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set expand-tilde off
+set colored-completion-prefix
+set colored-stats on
+set page-completions off
+
+#set visible-stats on
+
+TAB:menu-complete
+# shift tab cycles backward
+"\e[Z": menu-complete-backward
+Control-g: glob-expand-word
+
+
+set keymap vi
+# these are for vi-command mode
+k: history-search-backward
+j: history-search-forward
