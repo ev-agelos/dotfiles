@@ -4,16 +4,14 @@
     prompt = false
     trustExitCode = true
 [merge]
-    ff = only
+    ff = false
     tool = vimdiff
-    conflictstyle = diff3
 [alias]
     tree = log --oneline --graph --decorate --all
-    l = log
-    lg = log --oneline
-    lgg = log --graph --branches --all --pretty=format:'%C(blue dim)%h%Creset -%C(auto)%d%C(reset) %s %C(blue dim)(%cr) %C(blue dim)<%an>%Creset' --abbrev-commit --date=relative
+    l = log --oneline
+    lg = log --graph --branches --all --pretty=format:'%C(blue dim)%h%Creset -%C(auto)%d%C(reset) %s %C(blue dim)(%cr) %C(blue dim)<%an>%Creset' --abbrev-commit --date=relative
     lr = !git log --oneline --color --pretty=format:'%C(auto)%d%C(white dim) %s' | nl | less -R
-    difff = !git -c pager.diff=true diff
+    dif = !git -c pager.diff=true diff
 
     ci = commit
     d = !git --no-pager diff
@@ -23,23 +21,24 @@
     aa = add .
     sl = stash list
     ca = commit --amend --no-edit
-    co = checkout
-    rb = rebase
 
-    branches = branch -a
+    restoreall = reset --hard HEAD
     stashes = stash list
     unstage = reset -q HEAD --
     uncommit = reset --mixed HEAD~
     nevermind = !git reset --hard HEAD && git clean -d -f
+
+    dft=difftool
 [color]
     ui = auto
-    diff = always
+    diff = auto
 [color "diff"]
     meta = blue
-    commit = green dim
-    frag = magenta bold
-    old = red dim
-    new = green dim
+    commit = green bold
+    frag = blue
+    func = magenta
+    old = red
+    new = green
     whitespace = red reverse
 [rerere]
     enabled = false
@@ -47,10 +46,10 @@
 	pager = diff-so-fancy | less --tabs=4 -RS
     excludesfile = ~/.config/git/ignore_global
 [color "diff-highlight"]
-    oldNormal = red dim bold
-    oldHighlight = red dim bold 52
-    newNormal = green dim bold
-    newHighlight = green dim bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color "status"]
     changed = yellow
     untracked = cyan
@@ -62,5 +61,13 @@
 	markEmptyLines = false
 [pager]
     diff = false
+    difftool=true
 [user]
 	useConfigOnly = true
+	name = Evangelos
+[diff]
+    tool=difftastic
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+[init]
+	defaultBranch = main

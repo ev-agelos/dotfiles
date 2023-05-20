@@ -11,16 +11,7 @@
 # include in PATH user's executables
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
-fi
-
-# include in PATH user's python2.7 site packages
-if [ -d "$HOME/.local/lib/python2.7/site-packages" ] ; then
-    PATH="$HOME/.local/lib/python2.7/site-packages:$PATH"
-fi
-
-# include in PATH user's python3.6 site packages
-if [ -d "$HOME/.local/lib/python3.7/site-packages" ] ; then
-    PATH="$HOME/.local/lib/python3.7/site-packages:$PATH"
+    PATH="$HOME/.local/share/coursier/bin:$PATH"
 fi
 
 export PATH=$PATH:/usr/local/go/bin
@@ -56,7 +47,8 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
 export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PATH:$PYENV_ROOT/bin"
+export PATH="$PATH:$PYENV_ROOT/shims"
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
@@ -67,13 +59,15 @@ export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
 export LESSHISTFILE=-
 export LESS="-R"
 export EDITOR=nvim
-export MANPAGER='nvim -c "set ft=man" -'
+export MANPAGER='nvim +Man!'
 export TERMINAL=alacritty
 export BROWSER=qutebrowser
 export WINIT_HIDPI_FACTOR=1.0  # fix wrong dpi for alacritty when connecting 2nd screen
-export GTK_THEME=Adwaita-dark
+#export GTK_THEME=Adwaita-dark
 export GDK_DPI_SCALE=0.9
 
 # for qt5 apps to apply the gtk theme currently being used(needs qt5-styleplugins)
-export QT_QPA_PLATFORMTHEME=gtk2
-export QT_STYLE_OVERRIDE=gtk2
+#export QT_QPA_PLATFORMTHEME=gtk2
+#export QT_STYLE_OVERRIDE=gtk2
+HISTSIZE=99999
+HISTFILESIZE=99999

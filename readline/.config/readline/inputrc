@@ -21,12 +21,12 @@ set show-mode-in-prompt on
 #     4: steady underline
 #     5: blinking bar (xterm)
 #     6: steady bar (xterm)
-set vi-ins-mode-string [I] \1\e[2 q\2
-set vi-cmd-mode-string [N] \1\e[2 q\2
+set vi-ins-mode-string "\1\e[6 q\2"
+set vi-cmd-mode-string "\1\e[2 q\2"
 
 set show-all-if-unmodified on
 set show-all-if-ambiguous on
-set completion-ignore-case on
+set completion-ignore-case off
 set expand-tilde off
 set colored-completion-prefix
 set colored-stats on
@@ -38,7 +38,6 @@ TAB:menu-complete
 # shift tab cycles backward
 "\e[Z": menu-complete-backward
 Control-g: glob-expand-word
-
 
 set keymap vi
 # these are for vi-command mode

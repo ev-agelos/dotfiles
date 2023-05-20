@@ -1,0 +1,43 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]      # The name of the module we are configuring is "character"
+success_symbol = "➜"     # The "symbol" segment is being set to "➜"
+error_symbol = "✗"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[hostname]
+ssh_only = true
+
+[cmd_duration]
+min_time=8000
+disabled = true
+
+[directory]
+truncation_length=0
+truncate_to_repo=false
+read_only = "🔒"
+
+[python]
+format = 'via [${symbol}${pyenv_prefix}${version} (\($virtualenv\) )]($style)'
+symbol = ""
+
+[nodejs]
+disabled=true
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"

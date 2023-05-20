@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $(wpctl status | grep "*   51.") ]];then
+    wpctl set-default 52
+else
+    wpctl set-default 51
+fi

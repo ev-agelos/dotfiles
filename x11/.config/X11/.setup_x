@@ -1,5 +1,5 @@
 # Set us as keyboard layout
-setxkbmap -model pc105 -layout us
+# setxkbmap -model pc105 -layout us
 
 # faster cursor
 xset r rate 200 100
@@ -8,18 +8,18 @@ xset r rate 200 100
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
 
-xbindkeys -p -f $XDG_CONFIG_HOME/xbindkeys/config
+# xbindkeys -p -f $XDG_CONFIG_HOME/xbindkeys/config
 
 # include fonts directory
-xset +fp "$HOME/.local/share/fonts"
-xset fp rehash
+# xset +fp "$HOME/.local/share/fonts"
+# xset fp rehash
 
-xset -dpms && xset s noblank && xset s off
+# xset -dpms && xset s noblank && xset s off
 
-xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "lock.sh --nofork" &
+# xautolock -detectsleep -time 2 -notify 15 -notifier "notify-send -u critical -t 15000 -- 'LOCKING in 15'" -locker "lock.sh --nofork" &
 
-xinput --set-button-map 12 1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 18 19 20
+#xinput --set-button-map 12 1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 18 19 20
 
 # set the first (non HDMI) monitor as primary
-xrandr --listactivemonitors | grep -P '^ [0-9]: \+\*?(?!HDMI)' | cut -d' ' -f6 | xargs -n1 -I '{}' xrandr --output {} --primary
-xrandr --output DVI-1 --left-of HDMI-0 && xrandr --output HDMI-0 --primary && xrandr --output HDMI-0 --pos 1080x0
+#xrandr --listactivemonitors | grep -P '^ [0-9]: \+\*?(?!HDMI)' | cut -d' ' -f6 | xargs -n1 -I '{}' xrandr --output {} --primary
+#xrandr --output DVI-1 --left-of HDMI-0 && xrandr --output HDMI-0 --primary && xrandr --output HDMI-0 --pos 1080x0

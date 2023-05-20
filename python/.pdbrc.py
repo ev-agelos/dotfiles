@@ -3,7 +3,6 @@ This is an example configuration file for pdb++.
 Actually, it is what the author uses daily :-). Put it into ~/.pdbrc.py to use
 it.
 """
-
 import readline
 import pdb
 

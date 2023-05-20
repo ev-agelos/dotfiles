@@ -1,0 +1,23 @@
+{
+    "suggest.autoTrigger": "none",
+    "git.enableGutters": false,
+    "git.addedSign.text": "▎",
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.text": "▎",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.text": "➤",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.text": "▎",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "diagnostic.errorSign": "",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": "",
+    "diagnostic.enableSign": false,
+    "coc.preferences.rootPatterns": [
+        ".git"
+    ],
+    "coc.preferences.formatOnSaveFiletypes": [],
+    "python.formatting.provider": "black",
+    "git.realtimeGutters": false
+}

@@ -19,12 +19,11 @@ stty -ixon
 # ignoreboth is shorthand for ignorespace and ignoredups
 HISTCONTROL=ignoreboth:erasedups
 
-HISTSIZE=5000
-HISTFILESIZE=99999
-
 # Exclude certain things from history
 export HISTIGNORE="&:ls:vdir:[bf]g:exit:cl"
 
+# PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # git prompt
 eval "$(starship init bash)"
 
@@ -47,25 +46,32 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # git completions
 source /usr/share/bash-completion/completions/git
 
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-
-# fasd
-fasd_cache="$XDG_CONFIG_HOME/fasd/fasd-init-bash"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  mkdir -p $XDG_CONFIG_HOME/fasd
-  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
-
 # pew
-source $(pew shell_config)
+# source $(pew shell_config)
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path -)"
 fi
-source <(cod init $$ bash)
+
+_direnv_hook() {
+  local previous_exit_status=$?;
+  eval "$(direnv export bash)";
+  return $previous_exit_status;
+};
+if ! [[ "${PROMPT_COMMAND:-}" =~ _direnv_hook ]]; then
+  PROMPT_COMMAND="_direnv_hook${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+fi
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_PLUG='p:preview-tui'
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
+
+complete -C /usr/bin/terraform terraform
+source <(kubectl completion bash)
