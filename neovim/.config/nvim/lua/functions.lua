@@ -18,15 +18,22 @@ local next_buffer = function(start, stop, step)
             end
         end
     end
-    if not total_items then
+    if not total_items or not next(index) then
         return
     end
 
-    if next_buffer == total_items + 1 then
-        api.nvim_win_set_buf(0, index[1])
+    local buffer = -1
+    if next_buffer == nil then  -- we are in directory view for example
+        buffer = vim.fn.bufnr("#")
+    elseif next_buffer == total_items + 1 then
+        buffer = index[1]
     else
-        api.nvim_win_set_buf(0, index[next_buffer])
+        buffer = index[next_buffer]
     end
+    if not pcall(api.nvim_win_set_buf, 0, buffer) then
+        print("error: ", buffer, next_buffer, vim.inspect(index))
+    end
+
 end
 
 local M = {}
@@ -106,9 +113,9 @@ function M.vsplit()
 end
 
 
-vim.keymap.set('n', 'q', ":lua require'functions'.delete()<CR>")
-vim.keymap.set('n', '<Leader>vs', ":lua require'functions'.vsplit()<CR>")
-vim.keymap.set('n', '`', ":lua require'functions'.forward()<CR>")  --to next hidden buffer
-vim.keymap.set('n', '<BS>', ":lua require'functions'.backward()<CR>")  --to previous hidden buffer
+vim.keymap.set('n', 'q', ":lua require'functions'.delete()<CR>", {silent=true})
+vim.keymap.set('n', '<Leader>vs', ":lua require'functions'.vsplit()<CR>", {silent=true})
+vim.keymap.set('n', '`', ":lua require'functions'.forward()<CR>", {silent=true})  --to next hidden buffer
+vim.keymap.set('n', '<BS>', ":lua require'functions'.backward()<CR>", {silent=true})  --to previous hidden buffer
 
 return M

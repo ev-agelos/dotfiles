@@ -23,15 +23,28 @@ cmp.setup({
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
-
+    performance = {
+        max_view_entries=30
+    },
     mapping = cmp.mapping.preset.insert({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-c>'] = cmp.mapping.abort(),
         ['<C-Space>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
+            select = false,
         },
+        -- ["<CR>"] = cmp.mapping({
+        --     i = function(fallback)
+        --         if cmp.visible() and cmp.get_active_entry() then
+        --             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        --         else
+        --             fallback()
+        --         end
+        --     end,
+        --     s = cmp.mapping.confirm({ select = true }),
+        --     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        -- }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -74,7 +87,7 @@ cmp.setup({
                 path = "[path]",
                 calc = "[calc]",
                 spell = "[spell]",
-            }
+            },
         })
     },
 
@@ -92,7 +105,7 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-        { name = 'path' }
+        { name = 'path', option={trailing_slash=true}}
     }, {
         { name = 'cmdline' }
     })

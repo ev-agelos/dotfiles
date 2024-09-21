@@ -2,7 +2,7 @@
 alias cl='printf "\033[H\033[2J"'
 alias sudo='sudo '
 alias ll='ls -lh'
-alias e=nvim
+alias vi=nvim
 alias view='nvim -R'
 alias tree="tree -I '*.pyc|__pycache__'"
 alias g='git'
@@ -24,7 +24,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias k=kubectl
+alias s='kitten ssh'
 
-diff() {
-    git diff --no-index "$1" "$2" | diff-so-fancy
+dfc() {
+    git diff --color=always --no-index "$1" "$2" | diff-so-fancy
 }

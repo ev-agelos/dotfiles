@@ -26,6 +26,21 @@ read_only = "🔒"
 format = 'via [${symbol}${pyenv_prefix}${version} (\($virtualenv\) )]($style)'
 symbol = ""
 
+[custom.mojo]
+symbol = "🔥"
+command = """
+if [[ -n $CONDA_PREFIX ]]; then
+  mojo --version | awk '{print "🪄 " $2}'
+else
+  mojo --version | awk '{print $2}'
+fi
+"""
+detect_files = ["magic.lock"]
+detect_folders = [".magic"]
+detect_extensions = ["🔥", "mojo"]
+format = '[[ $symbol ($output) ](fg:base bg:teal)]($style)'
+style = "bg:teal"
+
 [nodejs]
 disabled=true
 

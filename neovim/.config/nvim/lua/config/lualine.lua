@@ -1,7 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'modus-vivendi',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -10,7 +10,7 @@ require('lualine').setup {
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -18,12 +18,27 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_a = {},
+    lualine_b = {'location'},
+    lualine_c = {
+        {
+            'buffers',
+            component_separators = { left = '', right = ''},
+            section_separators = { left = '', right = ''},
+            show_modified_status=false,
+            icons_enabled=false,
+            max_length= vim.o.columns,
+            symbols = {
+                modified = '',      -- Text to show when the buffer is modified
+                alternate_file = '', -- Text to show to identify the alternate file
+                directory =  '',     -- Text to show when the buffer is a directory
+            },
+        },
+        {function() return 'Codeium: ' .. vim.api.nvim_call_function("codeium#GetStatusString", {}) end}
+    },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {'branch'}
   },
   inactive_sections = {
     lualine_a = {},
@@ -34,8 +49,22 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {},
-  winbar = {},
-  inactive_winbar = {},
+  winbar = {
+      lualine_a = {'searchcount', 'selectioncount'},
+      lualine_b = {'filename'},
+      lualine_c = {'progress', 'diagnostics'},
+      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_y = {},
+      lualine_z = {}
+  },
+  inactive_winbar = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {'filename'},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {}
+  },
   extensions = {}
 }
 ------------------------------------------------------------------------------------------------------------

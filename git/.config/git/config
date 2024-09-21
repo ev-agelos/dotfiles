@@ -9,7 +9,7 @@
 [alias]
     tree = log --oneline --graph --decorate --all
     l = log --oneline
-    lg = log --graph --branches --all --pretty=format:'%C(blue dim)%h%Creset -%C(auto)%d%C(reset) %s %C(blue dim)(%cr) %C(blue dim)<%an>%Creset' --abbrev-commit --date=relative
+    lg = log --graph --branches --all --pretty=format:'%C(blue dim)%h%Creset -%C(auto)%d%C(reset) %s %C(blue dim)(%cd) %C(blue dim)<%an>%Creset' --date=short
     lr = !git log --oneline --color --pretty=format:'%C(auto)%d%C(white dim) %s' | nl | less -R
     dif = !git -c pager.diff=true diff
 
@@ -29,9 +29,11 @@
     nevermind = !git reset --hard HEAD && git clean -d -f
 
     dft=difftool
+    showext = !GIT_PAGER="less" git show --ext-diff
+    dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff; }; f"
 [color]
     ui = auto
-    diff = auto
+    diff = auto ; auto for nvim-telescope to work
 [color "diff"]
     meta = blue
     commit = green bold
@@ -43,7 +45,7 @@
 [rerere]
     enabled = false
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RS
+	pager = diff-so-fancy | less --tabs=4 -RF
     excludesfile = ~/.config/git/ignore_global
 [color "diff-highlight"]
     oldNormal = red bold
@@ -67,7 +69,9 @@
 	name = Evangelos
 [diff]
     tool=difftastic
-[difftool "difftastic"]
-    cmd = difft "$LOCAL" "$REMOTE"
 [init]
 	defaultBranch = main
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+[interactive]
+	diffFilter = diff-so-fancy --patch

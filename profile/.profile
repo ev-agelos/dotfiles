@@ -15,7 +15,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export PATH=$PATH:/usr/local/go/bin
-command -v go && export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$HOME/.local/share
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # Follow XDG Base Directory specification
 export XDG_CONFIG_HOME=$HOME/.config
@@ -37,8 +38,6 @@ export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export LYNX_CFG=~/.config/lynx/lynx.cfg
 export LYNX_LSS=~/.config/lynx/lynx.lss
-export POETRY_HOME=$XDG_CONFIG_HOME/poetry
-export PATH="$POETRY_HOME/bin:$PATH"
 
 export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
@@ -59,7 +58,7 @@ export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
 export LESSHISTFILE=-
 export LESS="-R"
 export EDITOR=nvim
-export MANPAGER='nvim +Man!'
+export MANPAGER='nvim --appimage-extract-and-run +Man!'
 export TERMINAL=alacritty
 export BROWSER=qutebrowser
 export WINIT_HIDPI_FACTOR=1.0  # fix wrong dpi for alacritty when connecting 2nd screen

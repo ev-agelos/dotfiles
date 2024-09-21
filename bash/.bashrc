@@ -19,6 +19,9 @@ stty -ixon
 # ignoreboth is shorthand for ignorespace and ignoredups
 HISTCONTROL=ignoreboth:erasedups
 
+export HISTSIZE=99999
+export HISTFILESIZE=99999
+
 # Exclude certain things from history
 export HISTIGNORE="&:ls:vdir:[bf]g:exit:cl"
 
@@ -47,7 +50,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 source /usr/share/bash-completion/completions/git
 
 # pew
-# source $(pew shell_config)
+source $(pew shell_config)
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -73,5 +76,14 @@ export NNN_PLUG='p:preview-tui'
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
 
-complete -C /usr/bin/terraform terraform
+# kubernetes autocompletion
 source <(kubectl completion bash)
+# but for k alias too
+complete -o default -F __start_kubectl k
+
+# MODULAR
+export PATH="$PATH:$HOME/.modular/bin"
+eval "$(magic completion --shell bash)"
+
+# Z (cd alternative)
+eval "$(zoxide init bash)"

@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>0', ':Startify<cr>')
+vim.keymap.set('n', '<leader><leader>', ':Startify<cr>')
 
 vim.g.startify_change_to_dir = 0
 vim.g.startify_update_oldfiles = 1

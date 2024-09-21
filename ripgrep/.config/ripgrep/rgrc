@@ -1,3 +1,2 @@
 --hidden
---before-context=1
---after-context=1
+--glob=!.git/

@@ -6,6 +6,10 @@
 --     desc="Disable smartindent in python files(messing up hash commenting symbol)",
 --     group=nosmartindentpython,
 -- })
+vim.api.nvim_create_autocmd({"TextYankPost"}, {
+    command="lua vim.highlight.on_yank()",
+    desc="Highlight on yank",
+})
 
 vim.api.nvim_create_autocmd({ "InsertLeave", "CompleteDone" }, {
     command="if pumvisible() == 0 | pclose | endif",
@@ -16,16 +20,6 @@ vim.api.nvim_create_autocmd("InsertEnter", {
     command="set nohlsearch",
     desc="Removes highlight when in insert mode",
 })
-
-
-local TrimWhiteSpaceGrp = vim.api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    command=[[%s/\s\+$//e]],
-    pattern="*.py",
-    desc="trim whitespace before save",
-    group=TrimWhiteSpaceGrp,
-})
-
 
 
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -51,9 +45,39 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --     desc="equal window sizes when closing a window"
 -- })
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost init.lua source <afile> | PackerCompile
-  augroup end
-]])
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "sql", "mysql", "plsql" },
+  command = ":lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })",
+})
+
+
+
+function org_imports()
+  local clients = vim.lsp.buf_get_clients()
+  for _, client in pairs(clients) do
+
+    local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
+    params.context = {only = {"source.organizeImports"}}
+
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 5000)
+    for _, res in pairs(result or {}) do
+      for _, r in pairs(res.result or {}) do
+        if r.edit then
+          vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
+        else
+          vim.lsp.buf.execute_command(r.command)
+        end
+      end
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.go" },
+  callback = vim.lsp.buf.format,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.go" },
+  callback = org_imports,
+})
