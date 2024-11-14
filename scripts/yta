@@ -1,0 +1,2 @@
+#!/bin/bash
+yt-dlp -f 'ba' -x --audio-format mp3 $1  -o "$HOME/Music/%(title)s.%(ext)s"

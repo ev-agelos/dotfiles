@@ -1,0 +1,2 @@
+# play the first sound it finds in /usr/share/sounds/
+pacmd play-file $(find /usr/share/sounds/ -type f -name "*.ogg" -print -quit) 0

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#kitty
+file=$(ls /tmp/mykitty* | head -1)
+cmd="kitty @ --to unix:$(echo $file) set-colors -a ~/.config/kitty/kitty-themes/themes/Seti.conf"
+$cmd
+sed -i 's|^include ./kitty-themes/themes/.*$|include ./kitty-themes/themes/Seti.conf|' ~/.config/kitty/kitty.conf
+
+#nvim
+sed -i "s/^vim.opt.background = 'light'$/vim.opt.background = 'dark'/" ~/.config/nvim/lua/options.lua
+sed -i "s/^vim.cmd('colorscheme \w\+')$/vim.cmd('colorscheme silenthill')/" ~/.config/nvim/lua/options.lua
+pkexec nvim_dark_light.py dark

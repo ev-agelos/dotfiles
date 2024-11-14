@@ -1,0 +1,17 @@
+.git/
+.tags/
+.eggs/
+.cache/
+__pycache__/
+.mypy_cache
+.pytest_cache
+
+*pylintrc
+*.pyc
+*.map
+*.min.js
+*.min.css
+*.po
+
+.zsh_history
+**/zsh/history

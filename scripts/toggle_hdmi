@@ -1,0 +1,15 @@
+#!/bin/sh
+
+HDMI_NAME=$(xrandr -q | grep "HDMI-\?[0-9] connected" | cut -d ' ' -f1)
+[ "$HDMI_NAME" ] || exit 0
+HDMIStatus=$(cat /sys/class/drm/*HDMI-A-1/status)
+
+
+if [ $HDMIStatus = 'connected' ]; then
+    primary_display_name=$(xrandr -q | grep 'primary' | cut -d ' ' -f1)
+    xrandr --output $HDMI_NAME --auto --left-of $primary_display_name
+else
+    xrandr --output $HDMI_NAME --off
+fi
+
+notify-send "HDMI $HDMIStatus"

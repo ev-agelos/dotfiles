@@ -1,0 +1,18 @@
+setxkbmap -query | awk '
+BEGIN{
+    layout="";
+    flag="";
+}
+
+/^layout/{layout=$2};
+
+{
+if (layout =="gr")
+    flag="🇬🇷";
+else if (layout == "us")
+    flag="🇺🇸";
+}
+
+END{
+    printf("%s\n",flag)
+}'

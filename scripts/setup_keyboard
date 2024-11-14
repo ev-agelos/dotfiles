@@ -1,0 +1,6 @@
+#!/bin/sh
+# faster cursor
+xset r rate 200 100
+# map CapsLock -> Ctrl when pressed, Esc when tapped
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'

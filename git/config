@@ -1,0 +1,77 @@
+[push]
+	default = current
+[difftool]
+    prompt = false
+    trustExitCode = true
+[merge]
+    ff = false
+    tool = vimdiff
+[alias]
+    tree = log --oneline --graph --decorate --all
+    l = log --oneline
+    lg = log --graph --branches --all --pretty=format:'%C(blue dim)%h%Creset -%C(auto)%d%C(reset) %s %C(blue dim)(%cd) %C(blue dim)<%an>%Creset' --date=short
+    lr = !git log --oneline --color --pretty=format:'%C(auto)%d%C(white dim) %s' | nl | less -R
+    dif = !git -c pager.diff=true diff
+
+    ci = commit
+    d = !git --no-pager diff
+    dc = !git --no-pager diff --cached
+    s = status
+    ss = status -s
+    aa = add .
+    sl = stash list
+    ca = commit --amend --no-edit
+
+    restoreall = reset --hard HEAD
+    stashes = stash list
+    unstage = reset -q HEAD --
+    uncommit = reset --mixed HEAD~
+    nevermind = !git reset --hard HEAD && git clean -d -f
+
+    dft=difftool
+    showext = !GIT_PAGER="less" git show --ext-diff
+    dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff; }; f"
+[color]
+    ui = auto
+    diff = auto ; auto for nvim-telescope to work
+[color "diff"]
+    meta = blue
+    commit = green bold
+    frag = blue
+    func = magenta
+    old = red
+    new = green
+    whitespace = red reverse
+[rerere]
+    enabled = false
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RF
+    excludesfile = ~/.config/git/ignore_global
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "status"]
+    changed = yellow
+    untracked = cyan
+[mergetool]
+    prompt = false
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[diff-so-fancy]
+	markEmptyLines = false
+[pager]
+    diff = false
+    difftool=true
+[user]
+	useConfigOnly = true
+	name = Evangelos
+[diff]
+    tool=difftastic
+[init]
+	defaultBranch = main
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+[interactive]
+	diffFilter = diff-so-fancy --patch

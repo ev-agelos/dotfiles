@@ -1,0 +1,2 @@
+#!/bin/bash
+mpv --ytdl-raw-options=format='bestvideo[height>=480p]+bestaudio/best[height<=480]' $1

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+streamlink -Q -p mpv "https://www.twitch.tv/$1" best > /tmp/twitch.log 2>&1 &
+pid=$!
+sleep 3
+ps ax | grep $pid | grep -v grep
+status=$?
+[ "$status" -eq 0 ] && xdg-open https://www.twitch.tv/popout/"$1"/chat &
+[ "$status" -ne 0 ] && cat /tmp/twitch.log | notify-pipe streamlink
+
+

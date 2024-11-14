@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+read notification
+notify-send "$1" "$notification"
