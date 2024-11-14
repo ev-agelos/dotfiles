@@ -64,9 +64,6 @@
 [pager]
     diff = false
     difftool=true
-[user]
-	useConfigOnly = true
-	name = Evangelos
 [diff]
     tool=difftastic
 [init]
@@ -75,3 +72,5 @@
     cmd = difft "$LOCAL" "$REMOTE"
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[include]
+    path = ~/.config/git-email.gitconfig
